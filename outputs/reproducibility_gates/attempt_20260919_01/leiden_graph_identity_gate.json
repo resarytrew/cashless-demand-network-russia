@@ -1,0 +1,45 @@
+{
+  "static": {
+    "passed": true,
+    "source": {
+      "node_count": 1904,
+      "edge_count": 11787,
+      "node_sha256": "1a2ce385c5326c2248f1e1a8c226189611fd04bb1610aae3434e9dbb8cef5c02",
+      "edge_weight_sha256": "fa1e228b2ef7f2ffb0dedcb5446f729ff898b2c49113e11d13fcde47f00090d8"
+    },
+    "igraph_input": {
+      "node_count": 1904,
+      "edge_count": 11787,
+      "node_sha256": "1a2ce385c5326c2248f1e1a8c226189611fd04bb1610aae3434e9dbb8cef5c02",
+      "edge_weight_sha256": "fa1e228b2ef7f2ffb0dedcb5446f729ff898b2c49113e11d13fcde47f00090d8"
+    }
+  },
+  "supra": {
+    "passed": true,
+    "source": {
+      "node_count": 45696,
+      "edge_count": 326912,
+      "node_sha256": "a855f8fc6bb8920ab023fd0d6cc75464858b4cc91b4c18483c2ffa36c5963f69",
+      "edge_weight_sha256": "3292eea68c2506af407c8348b1dcbc80486658d231c8a858319b500a0deca1a8"
+    },
+    "igraph_input": {
+      "node_count": 45696,
+      "edge_count": 326912,
+      "node_sha256": "a855f8fc6bb8920ab023fd0d6cc75464858b4cc91b4c18483c2ffa36c5963f69",
+      "edge_weight_sha256": "3292eea68c2506af407c8348b1dcbc80486658d231c8a858319b500a0deca1a8"
+    }
+  },
+  "packages": {
+    "python": "3.13.6 (tags/v3.13.6:4e66535, Aug  6 2025, 14:36:00) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Python313\\python.exe",
+    "numpy": "2.4.4",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.7.2",
+    "networkx": "3.6.1",
+    "PyYAML": "6.0.3",
+    "igraph": "1.0.0",
+    "leidenalg": "0.12.0"
+  },
+  "config_sha256": "3a3aadc0c8e174a5388999e1a1b8ea472600b186c0d22f392f4c91ecddeb12d2"
+}

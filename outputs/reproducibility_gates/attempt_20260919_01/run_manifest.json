@@ -1,0 +1,26 @@
+{
+  "timestamp_utc": "2026-09-19T16:15:51.557428+00:00",
+  "git_commit": null,
+  "packages": {
+    "python": "3.13.6 (tags/v3.13.6:4e66535, Aug  6 2025, 14:36:00) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Python313\\python.exe",
+    "numpy": "2.4.4",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.7.2",
+    "networkx": "3.6.1",
+    "PyYAML": "6.0.3",
+    "igraph": null,
+    "leidenalg": null
+  },
+  "seed": 0,
+  "config_path": "configs/baseline.yaml",
+  "config_file_sha256": "3a3aadc0c8e174a5388999e1a1b8ea472600b186c0d22f392f4c91ecddeb12d2",
+  "reference_sha256": {
+    "outputs\\baseline\\supra_labels.csv": "7cac1146f94c61cd1d6cdcfb6600796c1d95e05d94edd570c53a38251243192a",
+    "outputs\\baseline\\static_dec2024_labels.csv": "879f91094746e6e47d1346b5e2169369ebf6f28e1c437d7f8ddb597ba6b4fb09"
+  },
+  "config_resolved_sha256": "f6b3960c997c4e7f050f4779f2df59c59ab6fd659319c3ea92195da3507ae228",
+  "baseline_config_unchanged": true,
+  "status": "passed"
+}

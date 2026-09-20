@@ -1,0 +1,7 @@
+evidence_family,disposition,reason
+historical perturbation n=5,SUPERSEDED_NON_REPRODUCIBLE,No numerical use
+historical S_Dbw alpha and older static tables,UNVERIFIED_IMPLEMENTATION_PROVENANCE,Excluded; diagnostics do not establish historical code
+Round14 S_Dbw,UNDEFINED_OR_VARIANT_SPECIFIC,Diagnostic audit only; no ranking or profile evidence
+population/density/admin/spatial/mobility/transition claims,UNDERLYING_ARTIFACTS_NOT_AVAILABLE_IN_FREEZE,No reconstructed numerical fields; statuses unchanged separately
+Round13 alpha sensitivity,OUTSIDE_THIS_CANONICAL_REPLAY_SCOPE,"Available historical outputs retained, not silently promoted to full rerun evidence"
+previous mixed matrix narrative columns,GOVERNANCE_NOT_QUANTITATIVE_EVIDENCE,Moved to unchanged status registry or omitted; old file untouched

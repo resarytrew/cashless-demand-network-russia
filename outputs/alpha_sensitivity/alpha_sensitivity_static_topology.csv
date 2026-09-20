@@ -1,0 +1,4 @@
+alpha,nodes,edges,mean_degree,isolates_before_fallback,components_after_fallback,giant_component_share,largest_non_giant_component,bridges,articulation_points,avg_clustering
+0.5,1904,11966,12.569327731092438,8,1,1.0,0,32,30,0.40200623728458235
+0.7,1904,11787,12.381302521008404,12,1,1.0,0,37,36,0.3864090816004825
+0.9,1904,11733,12.324579831932773,10,5,0.9957983193277311,2,31,26,0.3846139727884125

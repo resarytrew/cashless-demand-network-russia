@@ -1,0 +1,6 @@
+{
+  "completed": true,
+  "seed": 0,
+  "algorithm": "leiden",
+  "graph_identity_passed": true
+}

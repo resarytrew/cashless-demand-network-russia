@@ -1,0 +1,5 @@
+extends: baseline.yaml
+paths:
+  output_dir: outputs/k30
+network:
+  k: 30

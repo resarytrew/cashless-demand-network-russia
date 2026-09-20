@@ -1,0 +1,8 @@
+archetype,round13_status,dec_retention_alpha50,dec_retention_alpha90,alpha_sensitivity_interpretation
+A,candidate overlapping network regime,0.9290780141843972,0.9361702127659576,"High Dec retention at both endpoints, but temporal global retention falls under 0.9; keep overlap/poor-separation caveat."
+B,candidate federal-intracity subtype,0.9897959183673468,0.9693877551020408,Core is highly retained; at alpha=0.5 precision drops because B partly coassigns with E. Nested-subtype interpretation remains.
+C,rejected as standalone profile,0.896551724137931,0.6551724137931034,"Small profile is alpha-sensitive, especially at 0.9; combined with spatial/population controls this strengthens rejection."
+D,candidate profile with boundary caveat,0.9738562091503268,0.9673202614379084,"Core retention is very high, but dominant alternative communities absorb many non-D nodes; D/F separation is strongly alpha-sensitive."
+E,candidate/contextual profile,0.7526881720430108,0.7903225806451613,About 75-79% Dec retention with high precision; some B/E merging at 0.5. Preserve contextual/nested caveat.
+F,weak refinement / boundary population,0.4770642201834862,0.7767584097859327,Most alpha-sensitive major profile: 0.5 merges strongly toward D/G; 0.9 strongly toward D. Do not treat F boundary as fixed.
+G,broad candidate macroprofile,0.9968911917098444,0.9378238341968912,"Dec membership is highly retained, but full temporal lineage is materially alpha-sensitive; broad-macroprofile wording remains appropriate."

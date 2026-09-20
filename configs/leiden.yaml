@@ -1,0 +1,14 @@
+extends: baseline.yaml
+paths:
+  output_dir: outputs/leiden_robustness
+clustering:
+  algorithm: leiden
+  partition_type: RBConfigurationVertexPartition
+  n_iterations: -1
+experiment:
+  test_id: round14_leiden
+  baseline_gate_dir: outputs/reproducibility_gates/attempt_20260919_01
+  profiles: {A: 1, B: 3, C: 7, D: 8, E: 9, F: 10, G: 11}
+  quantiles: [0.05, 0.10, 0.25, 0.75, 0.90, 0.95]
+  retention_thresholds: [0.90, 0.80, 0.70, 0.50]
+  metric_variant: round14_explicit_v1

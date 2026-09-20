@@ -1,0 +1,23 @@
+{
+  "seed": 45,
+  "config_sha256": "70df833cc1d83ed1b30ca7596ed6fe1f22613be7ddcbf00f9804639de9b8fe6e",
+  "packages": {
+    "python": "3.13.6 (tags/v3.13.6:4e66535, Aug  6 2025, 14:36:00) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Python313\\python.exe",
+    "numpy": "2.4.4",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.7.2",
+    "networkx": "3.6.1",
+    "PyYAML": "6.0.3",
+    "igraph": "1.0.0",
+    "leidenalg": "0.12.0"
+  },
+  "elapsed_seconds": 20.792291099962313,
+  "timestamp_utc": "2026-09-19T17:03:45.974417+00:00",
+  "files_sha256": {
+    "supra_labels.npy": "fecd1cf46af88fd103758c099f7469dde27f13c5b82870d1c4a3f29c468b1ee3",
+    "graph_hashes.json": "5c401256612c72801bee8f21c4e59ef86cddbb9274f3230f1122ab5c3e1ded22",
+    "raw_results.json": "627538591074de6986d57222cac93d6ecd154a56434b4de383a058eb5b96264c"
+  }
+}

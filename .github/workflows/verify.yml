@@ -1,0 +1,28 @@
+name: Tests and evidence integrity
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - name: Install recorded dependencies
+        run: |
+          python -m pip install -r outputs/evidence_v2_2_0/requirements-used.txt
+          python -m pip install -e . --no-deps
+      - name: Test and verify frozen evidence
+        shell: pwsh
+        run: |
+          $env:PYTHONPATH = 'src;.'
+          python -m pytest -q
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/canonical_evidence_freeze.py verify
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

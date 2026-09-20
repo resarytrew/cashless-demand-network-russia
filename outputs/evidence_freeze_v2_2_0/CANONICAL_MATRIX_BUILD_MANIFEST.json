@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "checks": 3748,
+  "clustering_calls": 0,
+  "scientific_status_changes": 0,
+  "matrix_rows": 7,
+  "packages": {
+    "python": "3.13.6 (tags/v3.13.6:4e66535, Aug  6 2025, 14:36:00) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Python313\\python.exe",
+    "numpy": "2.4.4",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.7.2",
+    "networkx": "3.6.1",
+    "PyYAML": "6.0.3",
+    "igraph": "1.0.0",
+    "leidenalg": "0.12.0"
+  },
+  "config_sha256": "845d6a6bb9f0aa37482d1a421f8a7d08d391f09d5789eb500025cfdf72b3839b",
+  "script_sha256": "b97c6ece92e5aa143a5d2c5d260bc8f897bd9cdc92961d964129b1decf4fc6df"
+}

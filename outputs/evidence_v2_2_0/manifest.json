@@ -1,0 +1,30 @@
+{
+  "evidence_version": "2.2.0",
+  "historical_master_available": false,
+  "prior_status_source": "outputs/alpha_sensitivity/archetype_status_round13_alpha.csv",
+  "historical_pilot_quantitative_evidence_used": false,
+  "files_sha256": {
+    "outputs\\leiden_robustness\\archetype_status_round14_leiden.csv": "58adede20a7c1bb85bdd0e06d05697198306a3dd58b2f665f66dce341bc7c941",
+    "outputs\\leiden_robustness\\leiden_archetype_retention.csv": "6fef4b3881d3e38738ffba2b283f41a6b079b93dfac5f09c6a2a48b7234c1fae",
+    "outputs\\leiden_robustness\\leiden_mean_monthly_metrics.csv": "e6080e81e0227aff9aa604c6d562aec6772153a1aa1f8a8dfe207f28789e040b",
+    "outputs\\leiden_robustness\\leiden_monthly_metrics.csv": "60f854df53323c3c6b3fedc224873088fe69f89bce8e6e75a4cc9a2cea2969ce",
+    "outputs\\leiden_robustness\\leiden_monthly_similarity.csv": "d83ca9142790f935afd69a1bf633d9bdc53a8e9d1036e71fc5162791c06d6fbe",
+    "outputs\\leiden_robustness\\leiden_monthly_similarity_summary.csv": "fd87f280ae5334883564dda31ac98924a9870a66fd687c477c8518567bedc8b7",
+    "outputs\\leiden_robustness\\leiden_pair_coassignment.csv": "72f3652988f7ca7090af0337b7ab00f298e70b49f6c88bc7df2b73593b2b2b62",
+    "outputs\\leiden_robustness\\leiden_static_metrics.csv": "8cee20a6f23364999821df1c1000b1a567e87118a2fb5932880a9da9ff3b3a5f",
+    "outputs\\leiden_robustness\\leiden_temporal_baseline_comparison.csv": "bd24e6400c55ac0bb0534e09c21c4352e30659e164e6b59a04cace353653c8a8",
+    "outputs\\leiden_robustness\\leiden_temporal_summary.csv": "d976b4a06614f587c513f68eb5e363ba65f10781ac288ee7c529a0d765b69473",
+    "outputs\\leiden_robustness\\static_dec2024_labels.csv": "b52c7ac79889cd1c2338caff0e12ecf012ebfa5dabea8344c2a357eaecfc7a6e",
+    "outputs\\leiden_robustness\\supra_labels.csv": "96a0a5edf4bac914cfb819d276faaa174f7793d4cc0a25bb33f82b05001d25a9",
+    "outputs\\perturbation_v2\\archetype_status_round15_perturbation_v2.csv": "1d205ab0efcfa8853e3efb02b0bbd5c5503773ebdc9ad4301ace2200a8f522f7",
+    "outputs\\perturbation_v2\\perturbation_v2_50_archetype_retention.csv": "75aac13126c51f55d1f21f7a4de8f233a77c990fd559e4317c28564b50f3f41c",
+    "outputs\\perturbation_v2\\perturbation_v2_50_monthly_similarity.csv": "93d4a383f1d5ab7ea5e5ea15ee7c966d8ab48b72069e166b4120b09f0a6d85cf",
+    "outputs\\perturbation_v2\\perturbation_v2_50_pair_coassignment.csv": "bce9126b9b5808d7fa1151044a7e792cf58dae4ffcdcc7001f7045d6d5246241",
+    "outputs\\perturbation_v2\\perturbation_v2_50_runs.csv": "ab958f80a58927e08f18a2e6b8774a17a4ff6cc4c4307bbaf1dc34baa1db016d",
+    "outputs\\perturbation_v2\\perturbation_v2_50_summary.csv": "1fda8ac4242578504931cbd96d2455f52b2c09715bf5d70ff7c8100e7ea9e230",
+    "outputs\\perturbation_v2\\perturbation_v2_boundary_tail_and_leave_one_out.csv": "d0a85b73a7ea27f8ddce8034ea2e5b0d6232166420bb13c950ccce68bc9d8cac",
+    "outputs\\evidence_v2_2_0\\CLAIM_CHANGES_v2.2.0.csv": "3190a0b5dd7f80ad9001697d6ea3b5633636932cfa6264f0a5f10215abe15d20",
+    "outputs\\evidence_v2_2_0\\MASTER_PROFILE_EVIDENCE_MATRIX_v2.1.0.csv": "42bd3e9dbfe3fbdc4ac558087a6e23d6eaf49f16ab6a7fd563f5f95dda81aaad",
+    "outputs\\evidence_v2_2_0\\MASTER_PROFILE_EVIDENCE_MATRIX_v2.2.0.csv": "36665331ed293236df60b1cb3c9f994ae70714ff9a424bd8e61580a388d97166"
+  }
+}

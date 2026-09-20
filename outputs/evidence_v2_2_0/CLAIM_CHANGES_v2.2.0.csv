@@ -1,0 +1,6 @@
+claim,new_status,change,source
+H16 historical n=5 boundary evidence,SUPERSEDED_NON_REPRODUCIBLE,withdrawn as quantitative evidence,docs/PERTURBATION_PILOT_PROVENANCE_RESOLUTION.md
+H17 exact Louvain algorithm independence,not supported by fixed same-graph Leiden swap,open question tested; exact invariance weakened,outputs/leiden_robustness/leiden_temporal_summary.csv
+H8 F exact boundary stability,weak refinement/boundary population,Leiden and v2 distributions added; historical pilot excluded,archetype_status_round15_perturbation_v2.csv
+H2 seven robust archetypes,rejected,unchanged,docs/HYPOTHESIS_LEDGER.md
+H3-H5 optimal reference parameters,rejected wording,unchanged; no tuning,configs/baseline.yaml

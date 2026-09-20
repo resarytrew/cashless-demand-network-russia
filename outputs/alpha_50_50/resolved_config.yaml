@@ -1,0 +1,59 @@
+project:
+  name: sberindex-attributed-network
+  evidence_version: EVIDENCE_v2.0.1
+  random_seed: 0
+paths:
+  spending_zip: data/raw/spending.csv.zip
+  mobility_zip: data/raw/mobility.csv.zip
+  processed_dir: data/processed
+  output_dir: outputs/alpha_50_50
+panel:
+  expected_months: 24
+  total_category: Все категории
+  selected_categories:
+  - Продовольствие
+  - Здоровье
+  - Общественное питание
+  - Маркетплейсы
+  - Транспорт
+  other_category: Прочее
+features:
+  structure_weight: 0.5
+  level_weight: 0.5
+  composition_transform: clr
+  level_transform: monthly_robust_z
+  block_scaling: median_pairwise_distance
+network:
+  k: 20
+  mutual: true
+  kernel: adaptive_rbf
+  static_isolate_fallback: true
+  temporal_isolate_fallback: false
+temporal:
+  omega: 2.0
+  coupling_reference: global_median_intralayer_weight
+clustering:
+  algorithm: louvain
+  resolution: 0.5
+  seed: 0
+robustness:
+  k_grid:
+  - 10
+  - 15
+  - 20
+  - 30
+  - 50
+  omega_grid:
+  - 0.25
+  - 0.5
+  - 1.0
+  - 2.0
+  - 4.0
+  alpha_grid:
+  - - 0.5
+    - 0.5
+  - - 0.7
+    - 0.3
+  - - 0.9
+    - 0.1
+  perturbation_runs_target: 30

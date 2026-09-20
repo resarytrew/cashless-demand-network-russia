@@ -1,0 +1,32 @@
+{
+  "static": {
+    "passed": true,
+    "source": {
+      "node_count": 1904,
+      "edge_count": 11787,
+      "node_sha256": "1a2ce385c5326c2248f1e1a8c226189611fd04bb1610aae3434e9dbb8cef5c02",
+      "edge_weight_sha256": "fa1e228b2ef7f2ffb0dedcb5446f729ff898b2c49113e11d13fcde47f00090d8"
+    },
+    "igraph_input": {
+      "node_count": 1904,
+      "edge_count": 11787,
+      "node_sha256": "1a2ce385c5326c2248f1e1a8c226189611fd04bb1610aae3434e9dbb8cef5c02",
+      "edge_weight_sha256": "fa1e228b2ef7f2ffb0dedcb5446f729ff898b2c49113e11d13fcde47f00090d8"
+    }
+  },
+  "supra": {
+    "passed": true,
+    "source": {
+      "node_count": 45696,
+      "edge_count": 326912,
+      "node_sha256": "a855f8fc6bb8920ab023fd0d6cc75464858b4cc91b4c18483c2ffa36c5963f69",
+      "edge_weight_sha256": "3292eea68c2506af407c8348b1dcbc80486658d231c8a858319b500a0deca1a8"
+    },
+    "igraph_input": {
+      "node_count": 45696,
+      "edge_count": 326912,
+      "node_sha256": "a855f8fc6bb8920ab023fd0d6cc75464858b4cc91b4c18483c2ffa36c5963f69",
+      "edge_weight_sha256": "3292eea68c2506af407c8348b1dcbc80486658d231c8a858319b500a0deca1a8"
+    }
+  }
+}

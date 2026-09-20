@@ -1,0 +1,6 @@
+extends: baseline.yaml
+paths:
+  output_dir: outputs/alpha_50_50
+features:
+  structure_weight: 0.50
+  level_weight: 0.50

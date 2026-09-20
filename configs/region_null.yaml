@@ -1,0 +1,12 @@
+extends: baseline.yaml
+
+geography:
+  crosswalk: data/processed/municipality_crosswalk_final_1904.csv
+
+robustness:
+  region_null:
+    economic_space_points: outputs/reference/economic_space_points.csv
+    period: "2024-12-01"
+    draws: 3000
+    seed: 20260918
+    output_csv: outputs/region_null/region_admin_stratified_null_dec2024.csv

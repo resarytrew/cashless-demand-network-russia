@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sberindex-attributed-network"
+version = "0.1.0"
+description = "Attributed-network analysis of local cashless consumer demand using SberIndex municipal data"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "scipy>=1.12",
+  "scikit-learn>=1.4",
+  "networkx>=3.2",
+  "PyYAML>=6.0",
+  "geopandas>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+robustness = ["igraph==1.0.0", "leidenalg==0.12.0", "matplotlib==3.10.7"]
+
+[project.scripts]
+sbernet = "sbernet.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

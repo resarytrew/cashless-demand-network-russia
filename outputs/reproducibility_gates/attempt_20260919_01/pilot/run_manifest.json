@@ -1,0 +1,24 @@
+{
+  "packages": {
+    "python": "3.13.6 (tags/v3.13.6:4e66535, Aug  6 2025, 14:36:00) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Python313\\python.exe",
+    "numpy": "2.4.4",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.7.2",
+    "networkx": "3.6.1",
+    "PyYAML": "6.0.3",
+    "igraph": "1.0.0",
+    "leidenalg": "0.12.0"
+  },
+  "config_sha256": "a5ee486b337419a7d83224eead4864d415d8ac26b9abcf0e78194ef8ac4b7055",
+  "inputs_sha256": {
+    "outputs\\perturbation_pilot_reference\\supra_same_object_stability_run_summary.csv": "a645bfc0834132238fc1e53182fed18f5616d7f6ec56b87fa9e25d2881c2062b",
+    "outputs\\perturbation_pilot_reference\\supra_same_object_stability_archetype_details.csv": "8ad095a48afb60ff146ce3a1a952f6f2658bf3e4e85b1d5095a445112905687d",
+    "outputs\\perturbation_pilot_reference\\BE_boundary_instability_by_perturbation.csv": "0e451d5985819e1056636ac3434e8ecd3ba1d8c84bcb9f876bf4e2b2c51d5c2c",
+    "reference\\perturbation_pilot\\run_supra_perturbation_consensus.py": "d0acdeb9897d9938f0396d90df1ef5d84751f185ff62f798ccc5b7d37c9c0260"
+  },
+  "atol": 1e-12,
+  "rtol": 0.0,
+  "adaptation": "Unmodified runner imported; only module R points to staged input aliases. Profile IDs [1,3,7,8,9,10,11] from RESEARCH_STATE section 9. Historical fork-based main is not invoked; build_shared and one_run are called directly."
+}

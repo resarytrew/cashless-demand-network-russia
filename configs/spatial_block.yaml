@@ -1,0 +1,22 @@
+extends: baseline.yaml
+
+paths:
+  spatial_join_csv: data/processed/municipality_spatial_join_1904.csv
+  reference_labels_csv: data/processed/supra_labels_admin_residual_base.csv
+  crosswalk_csv: data/processed/municipality_crosswalk_final_1904.csv
+  output_dir: outputs/spatial_block
+
+spatial_block:
+  block_sizes_km: [300, 500, 750, 1000]
+  shifts:
+    - [0.0, 0.0]
+    - [0.5, 0.0]
+    - [0.0, 0.5]
+    - [0.5, 0.5]
+  subsample_share: 0.80
+  subsample_reps: 1000
+  primary_block_km: 500
+  seed: 20260919
+  preserve_admin_form: true
+  geometry_crs: EPSG:4326
+  block_crs: EPSG:6933

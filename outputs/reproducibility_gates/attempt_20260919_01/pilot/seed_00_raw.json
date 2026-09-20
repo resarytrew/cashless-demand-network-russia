@@ -1,0 +1,72 @@
+{
+  "run": {
+    "run": 0,
+    "K_supra": 13,
+    "K_Dec2024": 9,
+    "ARI_all_supra": 0.45349215671565724,
+    "NMI_all_supra": 0.5873910678631652,
+    "ARI_Dec2024": 0.7364737312917007,
+    "NMI_Dec2024": 0.7572197472434098,
+    "BE_cross_coassignment": 0.2435813034891376,
+    "B_within_pair_coassignment": 0.6263412581527457,
+    "E_within_pair_coassignment": 0.989247311827957
+  },
+  "profiles": [
+    {
+      "run": 0,
+      "profile": "A",
+      "n": 141,
+      "best_destination_share": 0.9361702127659575,
+      "within_pair_coassignment": 0.8770010131712259,
+      "n_destinations": 4
+    },
+    {
+      "run": 0,
+      "profile": "B",
+      "n": 98,
+      "best_destination_share": 0.7551020408163265,
+      "within_pair_coassignment": 0.6263412581527457,
+      "n_destinations": 2
+    },
+    {
+      "run": 0,
+      "profile": "C",
+      "n": 29,
+      "best_destination_share": 0.9310344827586207,
+      "within_pair_coassignment": 0.8669950738916257,
+      "n_destinations": 2
+    },
+    {
+      "run": 0,
+      "profile": "D",
+      "n": 153,
+      "best_destination_share": 0.9803921568627451,
+      "within_pair_coassignment": 0.9613003095975232,
+      "n_destinations": 2
+    },
+    {
+      "run": 0,
+      "profile": "E",
+      "n": 186,
+      "best_destination_share": 0.9946236559139785,
+      "within_pair_coassignment": 0.989247311827957,
+      "n_destinations": 2
+    },
+    {
+      "run": 0,
+      "profile": "F",
+      "n": 327,
+      "best_destination_share": 0.9602446483180428,
+      "within_pair_coassignment": 0.9223091499221403,
+      "n_destinations": 5
+    },
+    {
+      "run": 0,
+      "profile": "G",
+      "n": 965,
+      "best_destination_share": 0.894300518134715,
+      "within_pair_coassignment": 0.810532539290091,
+      "n_destinations": 3
+    }
+  ]
+}

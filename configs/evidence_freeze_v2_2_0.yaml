@@ -1,0 +1,35 @@
+audit_id: forensic_sdbw_and_evidence_freeze_v2_2_0
+evidence_version: 2.2.0
+freeze_revision: canonical_forensic_1
+output_dir: outputs/evidence_freeze_v2_2_0
+baseline_gate_dir: outputs/reproducibility_gates/attempt_20260919_01
+baseline_config: configs/baseline.yaml
+leiden_dir: outputs/leiden_robustness
+perturbation_dir: outputs/perturbation_v2
+previous_matrix: outputs/evidence_v2_2_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.2.0.csv
+profiles: {A: 1, B: 3, C: 7, D: 8, E: 9, F: 10, G: 11}
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+comparison_atol: 1.0e-12
+comparison_rtol: 0.0
+quantiles: [0.05, 0.10, 0.25, 0.75, 0.90, 0.95]
+retention_thresholds: [0.90, 0.80, 0.70, 0.50]
+scientific_status_changes_allowed: false
+clustering_calls_allowed: false
+sdbw:
+  variance_ddof: 0
+  variants:
+    - {id: round14_strict, radius: sqrt_sum_over_k, indicator: inside, zero_policy: undefined}
+    - {id: round14_zero_zero, radius: sqrt_sum_over_k, indicator: inside, zero_policy: zero_only_for_zero_numerator}
+    - {id: round14_floor_one, radius: sqrt_sum_over_k, indicator: inside, zero_policy: floor_one}
+    - {id: rms_radius_strict, radius: sqrt_mean, indicator: inside, zero_policy: undefined}
+    - {id: rms_radius_floor_one, radius: sqrt_mean, indicator: inside, zero_policy: floor_one}
+    - {id: printed_outside_indicator, radius: sqrt_sum_over_k, indicator: outside, zero_policy: undefined}
+  alternative_variants_evidence_admissible: false
+  alpha_static_diagnostics:
+    - {alpha: 0.50, config: configs/alpha_50_50.yaml, labels: outputs/alpha_50_50/static_dec2024_labels.csv}
+    - {alpha: 0.90, config: configs/alpha_90_10.yaml, labels: outputs/alpha_90_10/static_dec2024_labels.csv}
+freeze:
+  historical_pilot_quantitative_evidence_used: false
+  prior_statuses_are_governance_annotations_only: true
+  exclude_unavailable_external_controls: true
+  exclude_unverified_historical_sdbw: true

@@ -1,0 +1,15 @@
+archetype,field_family,source,source_sha256,derivation
+A,leiden_*,outputs/leiden_robustness/supra_labels.npy,fabaac3de49154c7e831b2afb1c099c7bcb1a89ef6e5fa833cb935b4e9ebef38,December best-match overlap and pair counts against saved reference
+A,perturbation_v2_*,outputs/perturbation_v2/seeds/00..49/supra_labels.npy,per-file hashes in EVIDENCE_FREEZE_FILES_SHA256.csv,"all 50 saved partitions; sample SD, linear quantiles; no excluded runs"
+B,leiden_*,outputs/leiden_robustness/supra_labels.npy,fabaac3de49154c7e831b2afb1c099c7bcb1a89ef6e5fa833cb935b4e9ebef38,December best-match overlap and pair counts against saved reference
+B,perturbation_v2_*,outputs/perturbation_v2/seeds/00..49/supra_labels.npy,per-file hashes in EVIDENCE_FREEZE_FILES_SHA256.csv,"all 50 saved partitions; sample SD, linear quantiles; no excluded runs"
+C,leiden_*,outputs/leiden_robustness/supra_labels.npy,fabaac3de49154c7e831b2afb1c099c7bcb1a89ef6e5fa833cb935b4e9ebef38,December best-match overlap and pair counts against saved reference
+C,perturbation_v2_*,outputs/perturbation_v2/seeds/00..49/supra_labels.npy,per-file hashes in EVIDENCE_FREEZE_FILES_SHA256.csv,"all 50 saved partitions; sample SD, linear quantiles; no excluded runs"
+D,leiden_*,outputs/leiden_robustness/supra_labels.npy,fabaac3de49154c7e831b2afb1c099c7bcb1a89ef6e5fa833cb935b4e9ebef38,December best-match overlap and pair counts against saved reference
+D,perturbation_v2_*,outputs/perturbation_v2/seeds/00..49/supra_labels.npy,per-file hashes in EVIDENCE_FREEZE_FILES_SHA256.csv,"all 50 saved partitions; sample SD, linear quantiles; no excluded runs"
+E,leiden_*,outputs/leiden_robustness/supra_labels.npy,fabaac3de49154c7e831b2afb1c099c7bcb1a89ef6e5fa833cb935b4e9ebef38,December best-match overlap and pair counts against saved reference
+E,perturbation_v2_*,outputs/perturbation_v2/seeds/00..49/supra_labels.npy,per-file hashes in EVIDENCE_FREEZE_FILES_SHA256.csv,"all 50 saved partitions; sample SD, linear quantiles; no excluded runs"
+F,leiden_*,outputs/leiden_robustness/supra_labels.npy,fabaac3de49154c7e831b2afb1c099c7bcb1a89ef6e5fa833cb935b4e9ebef38,December best-match overlap and pair counts against saved reference
+F,perturbation_v2_*,outputs/perturbation_v2/seeds/00..49/supra_labels.npy,per-file hashes in EVIDENCE_FREEZE_FILES_SHA256.csv,"all 50 saved partitions; sample SD, linear quantiles; no excluded runs"
+G,leiden_*,outputs/leiden_robustness/supra_labels.npy,fabaac3de49154c7e831b2afb1c099c7bcb1a89ef6e5fa833cb935b4e9ebef38,December best-match overlap and pair counts against saved reference
+G,perturbation_v2_*,outputs/perturbation_v2/seeds/00..49/supra_labels.npy,per-file hashes in EVIDENCE_FREEZE_FILES_SHA256.csv,"all 50 saved partitions; sample SD, linear quantiles; no excluded runs"

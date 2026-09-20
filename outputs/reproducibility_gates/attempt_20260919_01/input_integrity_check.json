@@ -1,0 +1,55 @@
+{
+  "baseline_config_unchanged": true,
+  "baseline_labels_unchanged": true,
+  "pilot_references_and_runner_unchanged": true,
+  "reference_pack_manifest": [
+    {
+      "path": "outputs\\perturbation_pilot_reference\\supra_same_object_stability_run_summary.csv",
+      "expected_sha256": "a645bfc0834132238fc1e53182fed18f5616d7f6ec56b87fa9e25d2881c2062b",
+      "actual_sha256": "a645bfc0834132238fc1e53182fed18f5616d7f6ec56b87fa9e25d2881c2062b",
+      "match": true,
+      "expected_bytes": 937,
+      "actual_bytes": 937
+    },
+    {
+      "path": "outputs\\perturbation_pilot_reference\\supra_same_object_stability_archetype_details.csv",
+      "expected_sha256": "8ad095a48afb60ff146ce3a1a952f6f2658bf3e4e85b1d5095a445112905687d",
+      "actual_sha256": "8ad095a48afb60ff146ce3a1a952f6f2658bf3e4e85b1d5095a445112905687d",
+      "match": true,
+      "expected_bytes": 4292,
+      "actual_bytes": 4292
+    },
+    {
+      "path": "outputs\\perturbation_pilot_reference\\BE_boundary_instability_by_perturbation.csv",
+      "expected_sha256": "0e451d5985819e1056636ac3434e8ecd3ba1d8c84bcb9f876bf4e2b2c51d5c2c",
+      "actual_sha256": "0e451d5985819e1056636ac3434e8ecd3ba1d8c84bcb9f876bf4e2b2c51d5c2c",
+      "match": true,
+      "expected_bytes": 429,
+      "actual_bytes": 429
+    },
+    {
+      "path": "outputs\\perturbation_pilot_reference\\PERTURBATION_EXPANSION_STATUS.md",
+      "expected_sha256": "b091b9037d5f6a6164ccbbe40ad31f9b5bbf7b46e9e6cfc3192fb33c0e50bea8",
+      "actual_sha256": "b091b9037d5f6a6164ccbbe40ad31f9b5bbf7b46e9e6cfc3192fb33c0e50bea8",
+      "match": true,
+      "expected_bytes": 1050,
+      "actual_bytes": 1050
+    },
+    {
+      "path": "reference\\perturbation_pilot\\run_supra_perturbation_consensus.py",
+      "expected_sha256": "d0acdeb9897d9938f0396d90df1ef5d84751f185ff62f798ccc5b7d37c9c0260",
+      "actual_sha256": "d0acdeb9897d9938f0396d90df1ef5d84751f185ff62f798ccc5b7d37c9c0260",
+      "match": true,
+      "expected_bytes": 7955,
+      "actual_bytes": 7955
+    },
+    {
+      "path": "docs\\PERTURBATION_PILOT_REFERENCE.md",
+      "expected_sha256": "98b1b49e47d583f6b414fcbfdc8315341fd347925d31b1e49d4a91f299892bca",
+      "actual_sha256": "98b1b49e47d583f6b414fcbfdc8315341fd347925d31b1e49d4a91f299892bca",
+      "match": true,
+      "expected_bytes": 2779,
+      "actual_bytes": 2779
+    }
+  ]
+}

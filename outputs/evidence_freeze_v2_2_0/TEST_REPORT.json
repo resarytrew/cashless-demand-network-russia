@@ -1,0 +1,8 @@
+{
+  "command": "PYTHONPATH=src;. python -m pytest -q",
+  "passed": 26,
+  "failed": 0,
+  "duration_seconds": 3.16,
+  "new_research_clustering_experiments": 0,
+  "note": "Full suite includes pre-existing small synthetic clustering unit tests; no research partition was regenerated."
+}

@@ -1,0 +1,28 @@
+{
+  "timestamp_utc": "2026-09-19T15:40:40.932271+00:00",
+  "git_commit": null,
+  "config_path": "configs/alpha_50_50.yaml",
+  "config_sha256": "44fd488cf72d066da0be7a19b7bb0d2dc6e2cd99d5358a054053b7b53b4e33cb",
+  "evidence_version": "EVIDENCE_v2.0.1",
+  "panel": {
+    "unique_names": 2118,
+    "ambiguous_names": 49,
+    "complete_names": 1952,
+    "strict_panel_names": 1904,
+    "months": 24
+  },
+  "graph_stats": {
+    "static": {
+      "nodes": 1904,
+      "edges": 11966,
+      "communities": 9,
+      "components": 1
+    },
+    "temporal": {
+      "nodes": 45696,
+      "edges": 330018,
+      "communities": 11,
+      "temporal_weight": 1.0363432389567033
+    }
+  }
+}

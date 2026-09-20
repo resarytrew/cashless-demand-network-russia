@@ -1,0 +1,15 @@
+# Leiden robustness audit — Round 14
+
+Independent same-graph algorithm swap authorized after baseline and graph-identity gates PASS. Historical perturbation failure does not block this test. Static December and full temporal supra graphs were loaded from the passed baseline reconstruction, checked against saved hashes, and passed exact NetworkX-to-igraph roundtrip checks immediately before optimization. Node/edge/weight/config evidence is in graph_identity.json and run_manifest.json. Historical evidence and baseline were not overwritten.
+
+Algorithm: igraph 1.0.0 + leidenalg 0.12.0, RBConfigurationVertexPartition, weighted undirected graphs, resolution_parameter=0.5, seed=0, n_iterations=-1 (iterate until no improvement). No resolution or K tuning. Static isolate fallback ON, temporal fallback OFF; all feature and coupling parameters unchanged. Raw membership arrays and quality outputs were saved before derived metrics.
+
+MQ is weighted Newman-Girvan modularity at resolution 1. Q_resolution_0_5 is also reported, separating the optimized objective from conventional MQ. Feature metrics are calculated on 1904-node monthly layers, not a dense supra distance matrix. SW and CH/N use scikit-learn. AVI and AVU use unweighted block adjacency counts following equations 18–21 in [Shalileh et al.](https://link.springer.com/article/10.1134/S1064562425700589); zero graph denominators contribute 0. The static Louvain SW/CH/AVI/AVU reproduce the unified alpha-audit values to reported precision.
+
+S_Dbw is a newly explicit variant: elementwise population variances; radius=sqrt(sum cluster variance-vector norms)/K; counts inside or on radius around centers/midpoints; Scat plus mean between-density/max-center-density ratios. If a denominator is zero, return undefined, without epsilon or an invented finite value. Both static partitions hit this case. The literature page prints a reversed density indicator; this implementation explicitly uses inside-radius counts. No formula was changed after seeing results. This variant must not replace historical frozen S_Dbw tables. Monthly S_Dbw statuses are recorded per row; unavailable values are not evidence of an algorithm advantage.
+
+All 24 monthly similarities and 23 adjacent-month similarities/persistence values are saved. A-G metrics refer to temporal December reference profiles, not static communities. Retention, precision, Jaccard, within-pair and all 21 cross-pair coassignments are label-invariant. No universal winning algorithm is selected.
+
+Versioning: archetype_status_round14_leiden.csv and new master matrix v2.1.0. Full historical master is absent; the new repository matrix carries available Round 13 status, new numeric evidence and explicit provenance limitations. The historical n=5 is not quantitative evidence. Environment/source/config hashes and null git commit (no .git in supplied working copy) are recorded in the manifest.
+
+Final full-suite verification: 21 tests passed, including exact weighted graph conversion, deterministic fixed-seed Leiden, adjacency count conventions, protocol-v2 order independence, and corrupt/incompatible checkpoint rejection.

@@ -1,0 +1,5 @@
+extends: baseline.yaml
+paths:
+  output_dir: outputs/omega4
+temporal:
+  omega: 4.0

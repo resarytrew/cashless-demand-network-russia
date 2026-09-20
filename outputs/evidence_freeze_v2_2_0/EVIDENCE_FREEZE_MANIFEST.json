@@ -1,0 +1,35 @@
+{
+  "evidence_version": "2.2.0",
+  "freeze_revision": "canonical_forensic_1",
+  "timestamp_utc": "2026-09-19T17:44:11.524139+00:00",
+  "status": "FROZEN_SCOPED_REPRODUCIBLE_EVIDENCE",
+  "inventory_path": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv",
+  "inventory_sha256": "52b7d5b165507e70d6f101dbb52a40591cb9a962b9edfa16a47f6333483f8ccb",
+  "file_count": 390,
+  "canonical_matrix": "outputs/evidence_freeze_v2_2_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.2.0.csv",
+  "canonical_matrix_sha256": "67b2f4d5bc90cdfb879d3c6cb29e2b620c40c41a2f3bee54957bd36079fb516a",
+  "scientific_status_changes": 0,
+  "new_clustering_experiments": 0,
+  "preexisting_files_unchanged": true,
+  "git_commit": null,
+  "git_note": "supplied working copy has no .git",
+  "reproducibility_scope": "metric replay from saved raw partitions; previous gates retained; no fresh clustering claimed",
+  "limitations": [
+    "historical full master and external control evidence unavailable",
+    "historical S_Dbw provenance unresolved",
+    "old pilot excluded"
+  ],
+  "verification_command": "python scripts/canonical_evidence_freeze.py verify",
+  "packages": {
+    "python": "3.13.6 (tags/v3.13.6:4e66535, Aug  6 2025, 14:36:00) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Python313\\python.exe",
+    "numpy": "2.4.4",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.7.2",
+    "networkx": "3.6.1",
+    "PyYAML": "6.0.3",
+    "igraph": "1.0.0",
+    "leidenalg": "0.12.0"
+  }
+}

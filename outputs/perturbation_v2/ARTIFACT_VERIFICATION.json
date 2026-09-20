@@ -1,0 +1,214 @@
+{
+  "passed": true,
+  "seeds_verified": 50,
+  "raw_run_rows": 50,
+  "profile_rows": 350,
+  "pair_rows": 1050,
+  "baseline_and_historical_pack_unchanged": true,
+  "reference_shape": [
+    24,
+    1904
+  ],
+  "checks": [
+    {
+      "seed": 0,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 1,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 2,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 3,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 4,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 5,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 6,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 7,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 8,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 9,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 10,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 11,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 12,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 13,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 14,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 15,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 16,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 17,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 18,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 19,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 20,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 21,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 22,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 23,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 24,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 25,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 26,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 27,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 28,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 29,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 30,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 31,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 32,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 33,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 34,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 35,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 36,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 37,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 38,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 39,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 40,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 41,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 42,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 43,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 44,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 45,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 46,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 47,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 48,
+      "checkpoint_and_raw_labels_verified": true
+    },
+    {
+      "seed": 49,
+      "checkpoint_and_raw_labels_verified": true
+    }
+  ]
+}

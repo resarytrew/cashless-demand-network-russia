@@ -1,0 +1,468 @@
+{
+  "run": {
+    "ARI_all_supra": 0.4640187173865108,
+    "NMI_all_supra": 0.6124528176853008,
+    "ARI_Dec2024": 0.4648392141166829,
+    "NMI_Dec2024": 0.6835726133414357,
+    "K_supra": 13,
+    "K_Dec2024": 8,
+    "mean_switches": 2.475840336134454,
+    "median_switches": 2.0,
+    "share_zero_switches": 0.015756302521008403,
+    "share_le2_switches": 0.5246848739495799,
+    "mean_adjacent_ARI": 0.8111495897897381,
+    "mean_adjacent_NMI": 0.8416950772750402,
+    "seed": 44,
+    "canonical_base_edge_sha256": "132d7a6b7c163ea04d69bc93df184b89b97e9d46495939d582b679cf227e9087",
+    "keep_mask_sha256": "943fb3624f5c32be9d8f216fd35d4c5d28786b6d05ace5c7d032282a2a90d64d",
+    "jitter_array_sha256": "5107f6fc2646e83367873a0c5608604f650871fdffe3a0eb8630a1ffe474a569",
+    "perturbed_intralayer_edge_sha256": "2758b2d9ef052124cbf96f80a5910d04293c2bd169b5954f8ea94efeea62b26a",
+    "temporal_edge_sha256": "a4970bcc696bae2fa02cbfbffe182a9908f3d72a974b2a29ab7b8f07bac03de1",
+    "final_supra_edge_weight_sha256": "107bb7c4ad6b0e004716be4feab9f96b54f500a21bf90786d313c52fed05c730",
+    "final_supra_graph_sha256": "c19f360c85b78427a32acaa9809a7be66280676da1f29c7683d023e708b71f5f",
+    "node_count": 45696,
+    "base_intralayer_count": 283120,
+    "retained_intralayer_count": 268787,
+    "temporal_edge_count": 43792,
+    "edge_count": 312579
+  },
+  "profiles": [
+    {
+      "archetype": "A",
+      "n_reference": 141,
+      "destination": 7,
+      "destination_n": 152,
+      "intersection": 140,
+      "retention": 0.9929078014184397,
+      "precision": 0.9210526315789473,
+      "Jaccard": 0.9150326797385621,
+      "within_pair_coassignment": 0.9858156028368794,
+      "n_destinations": 2,
+      "seed": 44
+    },
+    {
+      "archetype": "B",
+      "n_reference": 98,
+      "destination": 3,
+      "destination_n": 114,
+      "intersection": 98,
+      "retention": 1.0,
+      "precision": 0.8596491228070176,
+      "Jaccard": 0.8596491228070176,
+      "within_pair_coassignment": 1.0,
+      "n_destinations": 1,
+      "seed": 44
+    },
+    {
+      "archetype": "C",
+      "n_reference": 29,
+      "destination": 12,
+      "destination_n": 19,
+      "intersection": 19,
+      "retention": 0.6551724137931034,
+      "precision": 1.0,
+      "Jaccard": 0.6551724137931034,
+      "within_pair_coassignment": 0.49261083743842365,
+      "n_destinations": 3,
+      "seed": 44
+    },
+    {
+      "archetype": "D",
+      "n_reference": 153,
+      "destination": 9,
+      "destination_n": 289,
+      "intersection": 152,
+      "retention": 0.9934640522875817,
+      "precision": 0.5259515570934256,
+      "Jaccard": 0.5241379310344828,
+      "within_pair_coassignment": 0.9869281045751634,
+      "n_destinations": 2,
+      "seed": 44
+    },
+    {
+      "archetype": "E",
+      "n_reference": 186,
+      "destination": 8,
+      "destination_n": 182,
+      "intersection": 168,
+      "retention": 0.9032258064516129,
+      "precision": 0.9230769230769231,
+      "Jaccard": 0.84,
+      "within_pair_coassignment": 0.822377215925603,
+      "n_destinations": 3,
+      "seed": 44
+    },
+    {
+      "archetype": "F",
+      "n_reference": 327,
+      "destination": 10,
+      "destination_n": 674,
+      "intersection": 171,
+      "retention": 0.5229357798165137,
+      "precision": 0.25370919881305637,
+      "Jaccard": 0.20602409638554217,
+      "within_pair_coassignment": 0.4396540402619088,
+      "n_destinations": 4,
+      "seed": 44
+    },
+    {
+      "archetype": "G",
+      "n_reference": 965,
+      "destination": 10,
+      "destination_n": 674,
+      "intersection": 494,
+      "retention": 0.5119170984455959,
+      "precision": 0.7329376854599406,
+      "Jaccard": 0.4314410480349345,
+      "within_pair_coassignment": 0.4987551867219917,
+      "n_destinations": 3,
+      "seed": 44
+    }
+  ],
+  "pairs": [
+    {
+      "pair": "A/B",
+      "cross_coassignment": 0.0,
+      "seed": 44
+    },
+    {
+      "pair": "A/C",
+      "cross_coassignment": 0.0,
+      "seed": 44
+    },
+    {
+      "pair": "A/D",
+      "cross_coassignment": 0.013535437815788254,
+      "seed": 44
+    },
+    {
+      "pair": "A/E",
+      "cross_coassignment": 7.626019980172348e-05,
+      "seed": 44
+    },
+    {
+      "pair": "A/F",
+      "cross_coassignment": 0.036285162773548485,
+      "seed": 44
+    },
+    {
+      "pair": "A/G",
+      "cross_coassignment": 0.0,
+      "seed": 44
+    },
+    {
+      "pair": "B/C",
+      "cross_coassignment": 0.0,
+      "seed": 44
+    },
+    {
+      "pair": "B/D",
+      "cross_coassignment": 0.0,
+      "seed": 44
+    },
+    {
+      "pair": "B/E",
+      "cross_coassignment": 0.08602150537634409,
+      "seed": 44
+    },
+    {
+      "pair": "B/F",
+      "cross_coassignment": 0.0,
+      "seed": 44
+    },
+    {
+      "pair": "B/G",
+      "cross_coassignment": 0.0,
+      "seed": 44
+    },
+    {
+      "pair": "C/D",
+      "cross_coassignment": 0.0,
+      "seed": 44
+    },
+    {
+      "pair": "C/E",
+      "cross_coassignment": 0.0,
+      "seed": 44
+    },
+    {
+      "pair": "C/F",
+      "cross_coassignment": 0.14425814615627966,
+      "seed": 44
+    },
+    {
+      "pair": "C/G",
+      "cross_coassignment": 0.1748079328211542,
+      "seed": 44
+    },
+    {
+      "pair": "D/E",
+      "cross_coassignment": 0.010682409164382598,
+      "seed": 44
+    },
+    {
+      "pair": "D/F",
+      "cross_coassignment": 0.40428934060882254,
+      "seed": 44
+    },
+    {
+      "pair": "D/G",
+      "cross_coassignment": 0.0,
+      "seed": 44
+    },
+    {
+      "pair": "E/F",
+      "cross_coassignment": 0.037519318667587384,
+      "seed": 44
+    },
+    {
+      "pair": "E/G",
+      "cross_coassignment": 0.0,
+      "seed": 44
+    },
+    {
+      "pair": "F/G",
+      "cross_coassignment": 0.26769976707705473,
+      "seed": 44
+    }
+  ],
+  "monthly": [
+    {
+      "month": "2023-01-01",
+      "ARI": 0.011222485463778128,
+      "NMI": 0.07180076209571108,
+      "K": 9,
+      "seed": 44
+    },
+    {
+      "month": "2023-02-01",
+      "ARI": 0.5760046009466262,
+      "NMI": 0.6908684841969698,
+      "K": 9,
+      "adjacent_ARI": 0.01040030272670781,
+      "adjacent_NMI": 0.08897704923488263,
+      "same_label_share": 0.28361344537815125,
+      "seed": 44
+    },
+    {
+      "month": "2023-03-01",
+      "ARI": 0.564728084455435,
+      "NMI": 0.6911981036343071,
+      "K": 9,
+      "adjacent_ARI": 0.9995368013795947,
+      "adjacent_NMI": 0.9984616597410559,
+      "same_label_share": 0.9994747899159664,
+      "seed": 44
+    },
+    {
+      "month": "2023-04-01",
+      "ARI": 0.5172855843275738,
+      "NMI": 0.6608000226829709,
+      "K": 9,
+      "adjacent_ARI": 0.7232077169778421,
+      "adjacent_NMI": 0.7965530091869929,
+      "same_label_share": 0.8167016806722689,
+      "seed": 44
+    },
+    {
+      "month": "2023-05-01",
+      "ARI": 0.5098260469405391,
+      "NMI": 0.6971837530158529,
+      "K": 10,
+      "adjacent_ARI": 0.819851802362417,
+      "adjacent_NMI": 0.8523251504181242,
+      "same_label_share": 0.8876050420168067,
+      "seed": 44
+    },
+    {
+      "month": "2023-06-01",
+      "ARI": 0.505686053551559,
+      "NMI": 0.7103738307639248,
+      "K": 10,
+      "adjacent_ARI": 0.90610096992572,
+      "adjacent_NMI": 0.9114041991489243,
+      "same_label_share": 0.9627100840336135,
+      "seed": 44
+    },
+    {
+      "month": "2023-07-01",
+      "ARI": 0.5484788522074077,
+      "NMI": 0.7420265509187319,
+      "K": 10,
+      "adjacent_ARI": 0.9211399901628874,
+      "adjacent_NMI": 0.9257857649162394,
+      "same_label_share": 0.9690126050420168,
+      "seed": 44
+    },
+    {
+      "month": "2023-08-01",
+      "ARI": 0.6043964147053026,
+      "NMI": 0.7494669667559738,
+      "K": 10,
+      "adjacent_ARI": 0.9084605258546536,
+      "adjacent_NMI": 0.9093956591109711,
+      "same_label_share": 0.9600840336134454,
+      "seed": 44
+    },
+    {
+      "month": "2023-09-01",
+      "ARI": 0.6200864121604682,
+      "NMI": 0.7423196987710686,
+      "K": 11,
+      "adjacent_ARI": 0.8642126205726495,
+      "adjacent_NMI": 0.8797136997787,
+      "same_label_share": 0.9301470588235294,
+      "seed": 44
+    },
+    {
+      "month": "2023-10-01",
+      "ARI": 0.5908957640234477,
+      "NMI": 0.7132142005067676,
+      "K": 11,
+      "adjacent_ARI": 0.8035552309047245,
+      "adjacent_NMI": 0.8450905709641391,
+      "same_label_share": 0.8949579831932774,
+      "seed": 44
+    },
+    {
+      "month": "2023-11-01",
+      "ARI": 0.5456740380762818,
+      "NMI": 0.684483440093035,
+      "K": 11,
+      "adjacent_ARI": 0.7631490657553683,
+      "adjacent_NMI": 0.8271776171667564,
+      "same_label_share": 0.8639705882352942,
+      "seed": 44
+    },
+    {
+      "month": "2023-12-01",
+      "ARI": 0.4838692639047043,
+      "NMI": 0.6667046233182041,
+      "K": 12,
+      "adjacent_ARI": 0.756303081368192,
+      "adjacent_NMI": 0.8358328512493759,
+      "same_label_share": 0.8797268907563025,
+      "seed": 44
+    },
+    {
+      "month": "2024-01-01",
+      "ARI": 0.4396934150673217,
+      "NMI": 0.6407466728217628,
+      "K": 12,
+      "adjacent_ARI": 0.7926085399880637,
+      "adjacent_NMI": 0.8269282034294244,
+      "same_label_share": 0.8891806722689075,
+      "seed": 44
+    },
+    {
+      "month": "2024-02-01",
+      "ARI": 0.42222194775314065,
+      "NMI": 0.6175807711984128,
+      "K": 11,
+      "adjacent_ARI": 0.7860033721917179,
+      "adjacent_NMI": 0.8184434181344482,
+      "same_label_share": 0.8665966386554622,
+      "seed": 44
+    },
+    {
+      "month": "2024-03-01",
+      "ARI": 0.4316240254178413,
+      "NMI": 0.6038382742718946,
+      "K": 11,
+      "adjacent_ARI": 0.7370820935712568,
+      "adjacent_NMI": 0.8160321577668895,
+      "same_label_share": 0.8665966386554622,
+      "seed": 44
+    },
+    {
+      "month": "2024-04-01",
+      "ARI": 0.4465508947036935,
+      "NMI": 0.5980450679670313,
+      "K": 10,
+      "adjacent_ARI": 0.7853204142950398,
+      "adjacent_NMI": 0.8332898665923729,
+      "same_label_share": 0.8902310924369747,
+      "seed": 44
+    },
+    {
+      "month": "2024-05-01",
+      "ARI": 0.4472163316095706,
+      "NMI": 0.5967185147355435,
+      "K": 10,
+      "adjacent_ARI": 0.7789477981945098,
+      "adjacent_NMI": 0.811313298789757,
+      "same_label_share": 0.8660714285714286,
+      "seed": 44
+    },
+    {
+      "month": "2024-06-01",
+      "ARI": 0.4822235657427335,
+      "NMI": 0.6295070386433652,
+      "K": 10,
+      "adjacent_ARI": 0.8168626301771397,
+      "adjacent_NMI": 0.8449309179282752,
+      "same_label_share": 0.8902310924369747,
+      "seed": 44
+    },
+    {
+      "month": "2024-07-01",
+      "ARI": 0.49062108919110037,
+      "NMI": 0.6594122202328433,
+      "K": 9,
+      "adjacent_ARI": 0.8704038130290955,
+      "adjacent_NMI": 0.8854944304399855,
+      "same_label_share": 0.9401260504201681,
+      "seed": 44
+    },
+    {
+      "month": "2024-08-01",
+      "ARI": 0.4828093944627776,
+      "NMI": 0.679374177998213,
+      "K": 8,
+      "adjacent_ARI": 0.8842125103722764,
+      "adjacent_NMI": 0.9076610065918765,
+      "same_label_share": 0.9611344537815126,
+      "seed": 44
+    },
+    {
+      "month": "2024-09-01",
+      "ARI": 0.4736632577559033,
+      "NMI": 0.6870631821901468,
+      "K": 8,
+      "adjacent_ARI": 0.8735018889086813,
+      "adjacent_NMI": 0.8952373806897933,
+      "same_label_share": 0.9569327731092437,
+      "seed": 44
+    },
+    {
+      "month": "2024-10-01",
+      "ARI": 0.4666001934145203,
+      "NMI": 0.6778737558699612,
+      "K": 8,
+      "adjacent_ARI": 0.9270413545088427,
+      "adjacent_NMI": 0.9294553596850654,
+      "same_label_share": 0.9758403361344538,
+      "seed": 44
+    },
+    {
+      "month": "2024-11-01",
+      "ARI": 0.4648392141166829,
+      "NMI": 0.6835726133414357,
+      "K": 8,
+      "adjacent_ARI": 0.9285380419365967,
+      "adjacent_NMI": 0.9194835063618743,
+      "same_label_share": 0.9732142857142857,
+      "seed": 44
+    },
+    {
+      "month": "2024-12-01",
+      "ARI": 0.4648392141166829,
+      "NMI": 0.6835726133414357,
+      "K": 8,
+      "adjacent_ARI": 1.0,
+      "adjacent_NMI": 1.0,
+      "same_label_share": 1.0,
+      "seed": 44
+    }
+  ]
+}

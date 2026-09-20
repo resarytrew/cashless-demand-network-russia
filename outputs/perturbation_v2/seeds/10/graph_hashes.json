@@ -1,0 +1,15 @@
+{
+  "seed": 10,
+  "canonical_base_edge_sha256": "132d7a6b7c163ea04d69bc93df184b89b97e9d46495939d582b679cf227e9087",
+  "keep_mask_sha256": "92f2edb8f106e53719eb13600cda495f5fec971c63cdf8ac8381ce84d398afe8",
+  "jitter_array_sha256": "eedd5db35c09f6d36428c15b8f83d62dcb8d2fde4229a97b37da9e8cfabf45c3",
+  "perturbed_intralayer_edge_sha256": "7b04ebe5fa84bc0c6d22ed4e3aedc667314d9793197fe8efd8a5e6169a97fb61",
+  "temporal_edge_sha256": "a4970bcc696bae2fa02cbfbffe182a9908f3d72a974b2a29ab7b8f07bac03de1",
+  "final_supra_edge_weight_sha256": "7d601e378e8fd313e794df0650573b3b837c447f55cdd5b728b2573547234d7e",
+  "final_supra_graph_sha256": "b689bbdc47d9af4bcb3563bd47726b47e479a9c9f1391fb2f745d1cb52f61e38",
+  "node_count": 45696,
+  "base_intralayer_count": 283120,
+  "retained_intralayer_count": 269039,
+  "temporal_edge_count": 43792,
+  "edge_count": 312831
+}
