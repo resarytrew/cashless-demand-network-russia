@@ -1,0 +1,21 @@
+{
+  "version": "2.3.0",
+  "inventory_sha256": "a322225289e81aaa4de5169cd185853310d4c51f473f7641a4c758f8b7d1d975",
+  "files": 353,
+  "complete_acceptance": false,
+  "old_outputs_unchanged": true,
+  "source_hardening_snapshots": [
+    {
+      "original": "src/sbernet/cli.py",
+      "preserved_source": "reference\\round16\\pre_hardening\\cli.py"
+    },
+    {
+      "original": "src/sbernet/io.py",
+      "preserved_source": "reference\\round16\\pre_hardening\\io.py"
+    },
+    {
+      "original": "src/sbernet/pipeline.py",
+      "preserved_source": "reference\\round16\\pre_hardening\\pipeline.py"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+method,metric,historical_value,canonical_value,absolute_delta,relative_delta,status,historical_source
+Louvain,SW,0.176,0.16964528233789158,0.006354717662108406,-0.03610635035288867,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 3; row Aitchison+level
+Louvain,CH/N,0.468,0.4596719066993631,0.00832809330063694,-0.017795071155207138,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 3; row Aitchison+level
+Louvain,AVI,0.909,0.9074499787168073,0.001550021283192704,-0.0017051939309050649,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 3; row Aitchison+level
+Louvain,AVU,0.469,0.5062908676778485,0.037290867677848505,0.07951144494210768,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 3; row Aitchison+level
+Louvain,MQ,0.765,0.7674484517761571,0.0024484517761570457,0.0032005905570680333,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 3; row Aitchison+level
+Cosine,SW,0.133,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row Cosine
+Cosine,CH/N,0.418,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row Cosine
+Cosine,AVI,0.914,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row Cosine
+Cosine,AVU,0.468,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row Cosine
+Cosine,MQ,0.757,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row Cosine
+Correlation trajectory,SW,-0.177,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row Correlation trajectory
+Correlation trajectory,CH/N,0.061,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row Correlation trajectory
+Correlation trajectory,AVI,0.935,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row Correlation trajectory
+Correlation trajectory,AVU,0.391,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row Correlation trajectory
+Correlation trajectory,MQ,0.785,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row Correlation trajectory
+Lagged correlation,SW,-0.237,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row Lagged correlation
+Lagged correlation,CH/N,0.049,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row Lagged correlation
+Lagged correlation,AVI,0.937,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row Lagged correlation
+Lagged correlation,AVU,0.299,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row Lagged correlation
+Lagged correlation,MQ,0.768,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row Lagged correlation
+DTW,SW,-0.02,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row DTW
+DTW,CH/N,0.18,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row DTW
+DTW,AVI,0.967,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row DTW
+DTW,AVU,0.436,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row DTW
+DTW,MQ,0.842,,,,UNREPRODUCIBLE_HISTORICAL_BENCHMARK_COMPONENT,reference/round16/competition_source.docx; document table 3; row DTW
+Louvain,SW,0.176,0.16964528233789158,0.006354717662108406,-0.03610635035288867,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Louvain
+Louvain,CH/N,0.468,0.4596719066993631,0.00832809330063694,-0.017795071155207138,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Louvain
+Louvain,AVI,0.909,0.9074499787168073,0.001550021283192704,-0.0017051939309050649,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Louvain
+Louvain,AVU,0.469,0.5062908676778485,0.037290867677848505,0.07951144494210768,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Louvain
+Louvain,MQ,0.765,0.7674484517761571,0.0024484517761570457,0.0032005905570680333,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Louvain
+Greedy,SW,0.188,0.18767190743413867,0.00032809256586133206,-0.0017451732226666599,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Greedy
+Greedy,CH/N,0.267,0.26672811526596446,0.0002718847340355546,-0.0010182948840282942,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Greedy
+Greedy,AVI,0.842,0.8424313679560349,0.0004313679560349337,0.0005123134869773559,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Greedy
+Greedy,AVU,0.346,0.3455222493739695,0.0004777506260304487,-0.0013807821561573662,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Greedy
+Greedy,MQ,0.527,0.526519603238624,0.00048039676137601184,-0.0009115688071651078,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Greedy
+Spectral,SW,0.187,0.18711061771856258,0.00011061771856257785,0.000591538601938919,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Spectral
+Spectral,CH/N,0.439,0.43877900207741444,0.00022099792258556405,-0.0005034121243406926,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Spectral
+Spectral,AVI,0.911,0.9105978420375958,0.0004021579624042815,-0.0004414467205315933,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Spectral
+Spectral,AVU,0.467,0.4675191388395764,0.000519138839576383,0.0011116463374226614,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Spectral
+Spectral,MQ,0.722,0.7223770241338744,0.00037702413387441513,0.0005221940912388021,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Spectral
+KMeans,SW,0.204,0.20450652190888335,0.0005065219088833672,0.0024829505337419966,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row KMeans
+KMeans,CH/N,0.59,0.5905684240787298,0.0005684240787298123,0.0009634306419149361,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row KMeans
+KMeans,AVI,0.849,0.8467151402540033,0.0022848597459966813,-0.0026912364499371982,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row KMeans
+KMeans,AVU,0.534,0.5344576298204967,0.00045762982049668555,0.0008569846825780627,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row KMeans
+KMeans,MQ,0.73,0.7294461209801181,0.0005538790198819088,-0.0007587383833998751,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row KMeans
+Ward,SW,0.172,0.17248094449367554,0.0004809444936755558,0.0027961889167183477,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Ward
+Ward,CH/N,0.504,0.5036750970574652,0.00032490294253484375,-0.0006446486955056424,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Ward
+Ward,AVI,0.838,0.8384299353486048,0.0004299353486048041,0.0005130493420105061,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Ward
+Ward,AVU,0.494,0.4936050360165549,0.00039496398344507355,-0.0007995222336944809,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Ward
+Ward,MQ,0.726,0.7257852254715453,0.00021477452845464207,-0.00029583268382182105,CANONICAL_REBUILT,reference/round16/competition_source.docx; document table 4; row Ward

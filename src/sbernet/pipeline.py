@@ -5,6 +5,7 @@ from pathlib import Path
 import hashlib
 import json
 import subprocess
+import shutil
 
 import networkx as nx
 import numpy as np
@@ -41,6 +42,7 @@ def _prepare(cfg_path: str | Path):
         raw,
         expected_months=cfg["panel"]["expected_months"],
         required_categories=required,
+        expected_periods=cfg["panel"].get("expected_periods"),
     )
 
     panel["period"] = pd.to_datetime(panel["period"])
@@ -75,12 +77,28 @@ def inspect_panel(cfg_path: str | Path) -> dict:
     }
 
 
-def run(cfg_path: str | Path, mode: str = "both") -> None:
+def run(cfg_path: str | Path, mode: str = "both", force: bool = False) -> None:
     cfg_path = Path(cfg_path)
+    configured = load_config(cfg_path)
+    output_dir = Path(configured["paths"]["output_dir"])
+    if output_dir.exists():
+        if not force:
+            raise FileExistsError(f"Output directory exists: {output_dir}; use --force or a new directory")
+        resolved = output_dir.resolve()
+        inventory = Path("outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv")
+        if inventory.exists():
+            frozen = pd.read_csv(inventory)["path"]
+            if any(Path(p).resolve().is_relative_to(resolved) for p in frozen):
+                raise ValueError("Frozen evidence cannot be overwritten, even with --force; use a new directory")
+        if resolved == Path.cwd().resolve() or resolved == Path(resolved.anchor):
+            raise ValueError("Unsafe output directory")
+        archive = resolved.with_name(resolved.name + "_archived_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%f"))
+        if archive.parent != resolved.parent or archive.exists():
+            raise ValueError("Invalid output archive path")
+        shutil.move(str(resolved), str(archive))
     cfg, names, audit, months, matrices = _prepare(cfg_path)
 
-    output_dir = Path(cfg["paths"]["output_dir"])
-    output_dir.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=False)
     month_keys = [str(pd.Timestamp(m).date()) for m in months]
     graph_stats = {}
 

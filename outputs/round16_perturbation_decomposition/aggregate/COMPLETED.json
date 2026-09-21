@@ -1,0 +1,12 @@
+{
+  "files_sha256": {
+    "../perturbation_collapse_archetypes.csv": "e120418e478e32d2e1c44c9e62070249987a074549069f6fabf481c5e7d35920",
+    "../perturbation_collapse_cases.csv": "edd71c4f97557c49ac1c4d4a3010332442ec10adff71234676bd88e5b18d9719",
+    "../perturbation_collapse_pairs.csv": "acbf60ed3a1a499773dec806b64cdb1bf724368c0a682cd76c2e33a661aeb174",
+    "../perturbation_decomposition_archetypes.csv": "4dccc33df3aecc88130be23641d273085c840f7d94f2bf437971e57a109e9ead",
+    "../perturbation_decomposition_monthly.csv": "55c7a169958b8ce5ae76bc494d94938803321b78d46f8c8e75c00e8abd45448d",
+    "../perturbation_decomposition_pairs.csv": "dc58ed3bbcdf8e83c1e01c9aae1e50fe74df9fb3c9deea3c935f084c6d7a8ea0",
+    "../perturbation_decomposition_runs.csv": "0784776c59f3e87b3560f1ae850a439be01c73bab697d1796e3cec15a4b260e6",
+    "../perturbation_decomposition_summary.csv": "c059e411b2c593da55469fa1d7d0edbfc14171933723f9fa830fa52d453cf0d4"
+  }
+}

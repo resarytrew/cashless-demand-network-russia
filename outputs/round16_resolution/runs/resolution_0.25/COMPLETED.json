@@ -1,0 +1,8 @@
+{
+  "files_sha256": {
+    "graph_identity.json": "00ab5a354fe554c9de24c812a1aa85492856b94a78b9cadc7ae51aef98cae32a",
+    "raw_results.json": "f67f8ae660566d4dbb2ed00fefe05c2e011b2f00c3477478593be3cf637d02b5",
+    "static_labels.npy": "6b71a4e30bb4235c0fdf4607d51aa4c096ff3f27aa3428acb21a9e5f1a94f6aa",
+    "supra_labels.npy": "3109f46d15eb6e22713df82fdb3ac55b6bd993d5a40c5a69a57d316bd575b09f"
+  }
+}

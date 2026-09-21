@@ -1,0 +1,8 @@
+{
+  "files_sha256": {
+    "../resolution_sensitivity_archetypes.csv": "c0823e1e006bb9aaba34c0ed31a99a7f21f42059d34fd656a7b11e3a430331c1",
+    "../resolution_sensitivity_monthly.csv": "ca549b63a9bd1319bd968b82fcd64c0c0d71252103bc80fe2c2a0701ee55b6a9",
+    "../resolution_sensitivity_pairs.csv": "a83c071dfb79d9add8f4653ea82808e8b92cf0d874eb1b469e16b5b30cfc0de7",
+    "../resolution_sensitivity_summary.csv": "48613d992e64b493c3c7e65f456369847053ba0c18acd6d353fb4a781ecdb8b4"
+  }
+}
