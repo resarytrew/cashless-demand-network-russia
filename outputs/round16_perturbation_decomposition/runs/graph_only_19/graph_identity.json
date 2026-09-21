@@ -1,0 +1,23 @@
+{
+  "fingerprint": {
+    "node_count": 45696,
+    "edge_count": 312626,
+    "node_sha256": "a855f8fc6bb8920ab023fd0d6cc75464858b4cc91b4c18483c2ffa36c5963f69",
+    "edge_weight_sha256": "bf387cd6b58a8ab8f1c939aa9d747f5416b23d5519ffbf8ebff16bd892bb5a87"
+  },
+  "perturbation": {
+    "seed": 19,
+    "canonical_base_edge_sha256": "132d7a6b7c163ea04d69bc93df184b89b97e9d46495939d582b679cf227e9087",
+    "keep_mask_sha256": "bc3a11d2423c9637c62e42897b6cf3b41083a75b49d24c9cac4d826836b6737b",
+    "jitter_array_sha256": "e4dab71aa003c5ca5bd401d070c4d98cdb124eac36631241916645d250115761",
+    "perturbed_intralayer_edge_sha256": "499dab84070b41b7dfa63cfeccbd7d9b65c26dad57914e9a11e0771a5978e5e9",
+    "temporal_edge_sha256": "a4970bcc696bae2fa02cbfbffe182a9908f3d72a974b2a29ab7b8f07bac03de1",
+    "final_supra_edge_weight_sha256": "bf387cd6b58a8ab8f1c939aa9d747f5416b23d5519ffbf8ebff16bd892bb5a87",
+    "final_supra_graph_sha256": "9fe53951e2975069152c27287b5a9e73d7a8f0f2c88edde8db1ec5dd63e08c7e",
+    "node_count": 45696,
+    "base_intralayer_count": 283120,
+    "retained_intralayer_count": 268834,
+    "temporal_edge_count": 43792,
+    "edge_count": 312626
+  }
+}

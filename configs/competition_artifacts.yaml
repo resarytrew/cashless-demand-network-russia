@@ -1,0 +1,17 @@
+extends: baseline.yaml
+paths:
+  output_dir: outputs/round16_competition
+experiment:
+  baseline_gate_dir: outputs/round16_reproducibility
+  profiles: {A: 1, B: 3, C: 7, D: 8, E: 9, F: 10, G: 11}
+  combined_dir: outputs/perturbation_v2
+  case_selection:
+    stable_min_within_coassignment: 0.90
+    stable_rule: among eligible profiles A-G and municipalities with mean within-profile coassignment >= threshold, minimize distance to componentwise profile median; tie by panel index
+    boundary_profiles: [D, F, G]
+    boundary_rule: among baseline F, maximize entropy of Jaccard-matched destination profile D/F/G over all 50 runs; tie by panel index
+    context_profile: E
+    context_rule: nearest to componentwise E median among positive nearest-profile-centroid margins; tie by panel index; provisional context candidate only until individual residual/context evidence supplied
+    analog_count: 5
+  effect_size: Cliff delta (B minus other federal); descriptive only, no new significance experiment
+  negligible_cliff_delta_threshold: 0.147

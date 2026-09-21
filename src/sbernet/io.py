@@ -29,9 +29,21 @@ def build_strict_panel(
     raw: pd.DataFrame,
     expected_months: int,
     required_categories: list[str],
+    expected_periods: list[str] | None = None,
 ) -> tuple[pd.DataFrame, list[str], PanelAudit]:
     df = raw.copy()
     df["period"] = pd.to_datetime(df["period"])
+    # Reference calendar, not merely a count of distinct observations.
+    if expected_periods is None:
+        if expected_months != 24:
+            raise ValueError("Non-reference panels require an explicit expected_periods calendar")
+        expected = pd.date_range("2023-01-01", "2024-12-01", freq="MS")
+    else:
+        expected = pd.DatetimeIndex(pd.to_datetime(expected_periods))
+    if len(expected) != expected_months or len(set(expected)) != expected_months:
+        raise ValueError("Expected calendar must have exactly expected_months distinct dates")
+    if set(df["period"].unique()) != set(expected):
+        raise ValueError("Panel calendar differs from the exact expected month-start dates")
 
     unique_names = df["mo"].nunique()
 

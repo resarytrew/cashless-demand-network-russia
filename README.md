@@ -2,6 +2,73 @@
 
 *Network Structure of Local Cashless Consumer Demand across Russian Municipalities*
 
+## Round 16 — pre-submission audit
+
+[Итоговый аудит](outputs/round16_evidence/ROUND16_FINAL_PRESUBMISSION_AUDIT.md) ·
+[Canonical benchmark](outputs/round16_benchmark/canonical_method_benchmark.csv) ·
+[Evidence v2.3.0](outputs/round16_evidence/MASTER_PROFILE_EVIDENCE_MATRIX_v2.3.0.csv) ·
+[Карта исправлений DOCX](docs/COMPETITION_ROUND16_CORRECTION_MAP.md).
+
+Свежий baseline: все шесть ARI/NMI=1; признаки и графы совпали побитово.
+Выполнены20 optimizer-only и20 graph-only runs, повторно использованы50 combined runs,
+проверены gamma=.25/.5/.75/1.0. Collapse seeds24/39 сохраняется при optimizer seed0.
+Статусы A–G не изменены. Единственный источник чисел сравнительных таблиц методов —
+`outputs/round16_benchmark/canonical_method_benchmark.csv`; четыре невосстановленные
+исторические distance families помечены явно, без старых чисел.
+
+**Полная приёмка Round16 пока не закрыта:** отсутствуют исходные contextual joins/controls
+для подтверждения третьего муниципального кейса и его региона/ковариат. B within-stratum
+восстановлен описательно; исторические p-values недоступны. Знаменатель Total и аддитивность
+категорий не установлены из доступных официальных метаданных.
+[Data passport](docs/DATA_PASSPORT.md) · [Temporal objective](docs/TEMPORAL_MODEL_SPECIFICATION.md) ·
+[Contextual scope](outputs/round16_evidence/CONTEXTUAL_EVIDENCE_REPRODUCIBILITY_MATRIX.csv).
+
+Графики PNG/SVG и исходные CSV: [competition artifacts](outputs/round16_competition/).
+Исходный DOCX сохранён; обновлённый DOCX не заявляется как готовый артефакт.
+
+### Проверка и новые воспроизведения Round16
+
+PowerShell, из корня репозитория:
+
+```powershell
+$env:PYTHONPATH = 'src;.;scripts'
+$env:PYTHONUTF8 = '1'
+python -m pytest -q
+python scripts/verify_submission_artifacts.py
+```
+
+Новый verifier проверяет старые390 frozen files, причём три изменённых инженерных модуля
+сопоставляет с сохранёнными исходными байтами в `reference/round16/pre_hardening`.
+Все старые outputs проверяются на прежних местах и не изменены. Исходная команда
+`canonical_evidence_freeze.py verify` предназначена для checkout старой frozen ревизии:
+в рабочем дереве Round16 она закономерно сообщает изменения трёх source dependencies.
+Новый verifier также проверяет raw labels/метрики и новый SHA256 manifest.
+
+Для повторных вычислений создайте изолированные конфиги. Заменяйте `check` на новый tag
+при следующем запуске. Завершённые checkpoints не пересчитываются; несовместимое окружение
+или изменённые источники блокируют resume. Для проверки уже готовых runs после инженерных
+изменений используйте read-only verifier выше. `--force` архивирует новый, не frozen output;
+его не следует использовать для обновления сводок завершённого эксперимента.
+
+```powershell
+python scripts/prepare_submission_reproduction.py --tag check
+python -m sbernet.robustness.reproduction_gate --output outputs/round16_reproduction_check/baseline
+python scripts/rebuild_method_benchmark.py --config configs/round16_reproduction_check/benchmark.yaml
+python -m sbernet.robustness.leiden --config configs/round16_reproduction_check/leiden.yaml
+python -m sbernet.robustness.perturbation_v2 gate --config configs/round16_reproduction_check/perturbation_v2.yaml
+python -m sbernet.robustness.perturbation_v2 run --config configs/round16_reproduction_check/perturbation_v2.yaml
+python -m sbernet.robustness.perturbation_v2 gate --config configs/round16_reproduction_check/protocol_gate.yaml
+python scripts/run_round16_sensitivity.py decomposition --config configs/round16_reproduction_check/decomposition.yaml
+python scripts/run_round16_sensitivity.py resolution --config configs/round16_reproduction_check/resolution.yaml
+python scripts/build_competition_artifacts.py --config configs/round16_reproduction_check/competition.yaml
+```
+
+Новый50-run v2 в этих командах является отдельным воспроизведением; decomposition по
+дизайну использует опубликованный combined n=50. `build_competition_artifacts.py` не запускает
+clustering. Старые configs и научные outputs не перезаписываются.
+
+Далее сохранён контекст предыдущей evidence version2.2.0; актуальные ограничения и таблицы — выше.
+
 Анализ 1904 муниципальных образований России за 24 месяца с использованием атрибутированных сетей, temporal community detection, пространственных контролей и многоуровневой проверки устойчивости результатов.
 
 [![Tests and evidence integrity](https://github.com/resarytrew/cashless-demand-network-russia/actions/workflows/verify.yml/badge.svg)](https://github.com/resarytrew/cashless-demand-network-russia/actions/workflows/verify.yml)
@@ -97,12 +164,13 @@ python -m venv .venv
 python -m pip install -r outputs/evidence_v2_2_0/requirements-used.txt
 python -m pip install -e . --no-deps
 python -m pytest -q
-python scripts/canonical_evidence_freeze.py verify
+python scripts/verify_submission_artifacts.py
 ```
 
 Для тестов, импортирующих forensic scripts, при необходимости задайте `PYTHONPATH`: `$env:PYTHONPATH = 'src;.'` в PowerShell или `export PYTHONPATH=src:.` в macOS/Linux.
 
-Последняя локальная проверка: **26 tests passed**. Проверка freeze читает файлы и сверяет hashes; новые эксперименты не запускаются.
+Round16 проверка: **34 tests passed**. Итоговый журнал — `outputs/round16_evidence/tests.log`.
+Проверка freeze и metric replay не запускают новых кластеризаций.
 
 ### Новый запуск без перезаписи evidence
 

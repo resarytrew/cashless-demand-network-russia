@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "old_freeze": {
+    "passed": true,
+    "files": 390,
+    "source_snapshots_used": [
+      {
+        "original": "src/sbernet/cli.py",
+        "preserved_source": "reference\\round16\\pre_hardening\\cli.py"
+      },
+      {
+        "original": "src/sbernet/io.py",
+        "preserved_source": "reference\\round16\\pre_hardening\\io.py"
+      },
+      {
+        "original": "src/sbernet/pipeline.py",
+        "preserved_source": "reference\\round16\\pre_hardening\\pipeline.py"
+      }
+    ],
+    "scope": "Frozen outputs verified in place; exactly three intentionally hardened source dependencies verified against preserved original bytes"
+  },
+  "raw_new_runs_verified": 46,
+  "numeric_comparisons": 10937,
+  "reconstructed_feature_months_bitwise_equal": 24,
+  "scientific_status_changes": 0,
+  "scope": "forensic label/metric replay, not repeated optimization",
+  "timestamp_utc": "2026-09-21T15:07:05.108527+00:00",
+  "tests": "..................................                                       [100%]\n34 passed in 3.41s",
+  "tests_passed": true,
+  "all_acceptance_criteria_met": false,
+  "limitation": "Case3 individual contextual evidence and verified regional/covariate joins missing"
+}

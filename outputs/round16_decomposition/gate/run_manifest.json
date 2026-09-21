@@ -1,0 +1,171 @@
+{
+  "timestamp_utc": "2026-09-21T14:47:19.387726+00:00",
+  "git_commit": "1d0b9c047440a4fa836e84956e5b52a337e0c93a",
+  "packages": {
+    "python": "3.13.6 (tags/v3.13.6:4e66535, Aug  6 2025, 14:36:00) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Python313\\python.exe",
+    "numpy": "2.4.4",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.7.2",
+    "networkx": "3.6.1",
+    "PyYAML": "6.0.3",
+    "igraph": "1.0.0",
+    "leidenalg": "0.12.0"
+  },
+  "config_path": "configs/round16_decomposition.yaml",
+  "config_sha256": "c62605d064a7b1e76f29e23360a2443f14990abac5e78944cdb07ab94d7b6382",
+  "resolved_config_sha256": "e918b29dc3d10f2e11bd74efe4c1030fabf0718a419da362e8466aaee1289979",
+  "resolved_config": {
+    "project": {
+      "name": "sberindex-attributed-network",
+      "evidence_version": "EVIDENCE_v2.0.1",
+      "random_seed": 0
+    },
+    "paths": {
+      "spending_zip": "data/raw/spending.csv.zip",
+      "mobility_zip": "data/raw/mobility.csv.zip",
+      "processed_dir": "data/processed",
+      "output_dir": "outputs/round16_decomposition"
+    },
+    "panel": {
+      "expected_months": 24,
+      "total_category": "\u0412\u0441\u0435 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438",
+      "selected_categories": [
+        "\u041f\u0440\u043e\u0434\u043e\u0432\u043e\u043b\u044c\u0441\u0442\u0432\u0438\u0435",
+        "\u0417\u0434\u043e\u0440\u043e\u0432\u044c\u0435",
+        "\u041e\u0431\u0449\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0435 \u043f\u0438\u0442\u0430\u043d\u0438\u0435",
+        "\u041c\u0430\u0440\u043a\u0435\u0442\u043f\u043b\u0435\u0439\u0441\u044b",
+        "\u0422\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442"
+      ],
+      "other_category": "\u041f\u0440\u043e\u0447\u0435\u0435"
+    },
+    "features": {
+      "structure_weight": 0.7,
+      "level_weight": 0.3,
+      "composition_transform": "clr",
+      "level_transform": "monthly_robust_z",
+      "block_scaling": "median_pairwise_distance"
+    },
+    "network": {
+      "k": 20,
+      "mutual": true,
+      "kernel": "adaptive_rbf",
+      "static_isolate_fallback": true,
+      "temporal_isolate_fallback": false
+    },
+    "temporal": {
+      "omega": 2.0,
+      "coupling_reference": "global_median_intralayer_weight"
+    },
+    "clustering": {
+      "algorithm": "louvain",
+      "resolution": 0.5,
+      "seed": 0
+    },
+    "robustness": {
+      "k_grid": [
+        10,
+        15,
+        20,
+        30,
+        50
+      ],
+      "omega_grid": [
+        0.25,
+        0.5,
+        1.0,
+        2.0,
+        4.0
+      ],
+      "alpha_grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.7,
+          0.3
+        ],
+        [
+          0.9,
+          0.1
+        ]
+      ],
+      "perturbation_runs_target": 30
+    },
+    "experiment": {
+      "baseline_gate_dir": "outputs/round16_reproducibility",
+      "profiles": {
+        "A": 1,
+        "B": 3,
+        "C": 7,
+        "D": 8,
+        "E": 9,
+        "F": 10,
+        "G": 11
+      },
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "collapse_seeds": [
+        24,
+        39
+      ],
+      "combined_dir": "outputs/perturbation_v2",
+      "protocol_config": "configs/perturbation_v2.yaml",
+      "workers": 2,
+      "quantiles": [
+        0.05,
+        0.1,
+        0.25,
+        0.75,
+        0.9,
+        0.95
+      ],
+      "fixed_louvain_seed": 0
+    }
+  },
+  "source_sha256": {
+    "src\\sbernet\\cli.py": "b2271d1d5f13cf8b25fe5b03e04265add97c6bcd78433fca102c1c65eada608d",
+    "src\\sbernet\\clustering.py": "f6d9e2cd6fa399f5b4077fb005dbfd9aea0848da84f935830c5670bb83a5d132",
+    "src\\sbernet\\config.py": "3927577f577df70d95df4311667b24468dcdc0d234063a20260f19abb9c4663d",
+    "src\\sbernet\\features.py": "f127adc50c41de3bf1c07158aa7da4269f1f262c6c090be7cef92856de90d590",
+    "src\\sbernet\\graph.py": "f6870275652ef41f7310d79bb952aacacbdde0f3ff842a621f45c9d674e5d220",
+    "src\\sbernet\\io.py": "7cd7b7d141b6beef9cc7de1b01ac565c19b33af954e8daaf095cba27e474c7fb",
+    "src\\sbernet\\metrics.py": "2c0adec31e50171bf7b818fffabe8236256d060f417a0c8ae960b1037521255a",
+    "src\\sbernet\\pipeline.py": "abed677e0053a07a1563a3b31dbfd04a96c421759294112bc162137ec70c9ddd",
+    "src\\sbernet\\temporal.py": "bbf89ed5168b174422d8dc27318251e56f516d4575f6fd7a90910fc6985a01bc",
+    "src\\sbernet\\__init__.py": "91447944015cec709e8aa7655f7e9d64e1e4508e7023a57fe3746911c0fc6fed",
+    "src\\sbernet\\robustness\\alpha_sensitivity.py": "7323e28c0a33f7da63b6f472b9da6f7bd1784ba671b12dd191616c2d49fcc684",
+    "src\\sbernet\\robustness\\experiment_common.py": "e1c3e6b6a19f82fdf0e6ae3329d6c0be8a592e4c753169a0fe55879c1b0cada7",
+    "src\\sbernet\\robustness\\leiden.py": "8fea246ed2c39fc21c24d623646e0114036d93fff460f355ecec46dbbe80c24c",
+    "src\\sbernet\\robustness\\perturbation_v2.py": "8f552a6fb483910fb273b233ea04e4c60dee466d8b0c252aa1ef26de04e789f0",
+    "src\\sbernet\\robustness\\pilot_gate.py": "ea8127735158581317e7e435be69eda54a72769a838d0b19963363f007cc379e",
+    "src\\sbernet\\robustness\\region_null.py": "e7dae0b71b996b44a6867c55c088fafc3f8fd6e7a774c6a2b128a04206bb1f7b",
+    "src\\sbernet\\robustness\\reproduction_gate.py": "b991ac2d9485e7e815139ee1a365ec9886e377caf92473b660278610f740f7e9",
+    "src\\sbernet\\robustness\\spatial_block.py": "8c0d877e920626337e0261aa4437ea00a2bcd69d1d9677fcb7d562b0502160fd",
+    "src\\sbernet\\robustness\\spatial_block_reference_script.py": "15d68f37ac37bd46ef4f6a821f7635b1567fb144466a9427612dc9ca1d32f5d0",
+    "src\\sbernet\\robustness\\__init__.py": "b43188fb61af4483b9f406f8abc1109fe523035387640a95b4f852b9b399401c"
+  },
+  "baseline_config_sha256": "3a3aadc0c8e174a5388999e1a1b8ea472600b186c0d22f392f4c91ecddeb12d2"
+}

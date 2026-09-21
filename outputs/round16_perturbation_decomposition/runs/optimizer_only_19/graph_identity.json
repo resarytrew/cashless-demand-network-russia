@@ -1,0 +1,9 @@
+{
+  "fingerprint": {
+    "node_count": 45696,
+    "edge_count": 326912,
+    "node_sha256": "a855f8fc6bb8920ab023fd0d6cc75464858b4cc91b4c18483c2ffa36c5963f69",
+    "edge_weight_sha256": "3292eea68c2506af407c8348b1dcbc80486658d231c8a858319b500a0deca1a8"
+  },
+  "perturbation": {}
+}

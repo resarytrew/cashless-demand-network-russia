@@ -1,0 +1,7 @@
+field,source,derivation
+optimizer_only_retention,outputs\round16_perturbation_decomposition\perturbation_decomposition_archetypes.csv,mean(retention) grouped by archetype where mode=optimizer_only; all runs retained
+optimizer_only_precision,outputs\round16_perturbation_decomposition\perturbation_decomposition_archetypes.csv,mean(precision) grouped by archetype where mode=optimizer_only; all runs retained
+graph_only_retention,outputs\round16_perturbation_decomposition\perturbation_decomposition_archetypes.csv,mean(retention) grouped by archetype where mode=graph_only; all runs retained
+graph_only_precision,outputs\round16_perturbation_decomposition\perturbation_decomposition_archetypes.csv,mean(precision) grouped by archetype where mode=graph_only; all runs retained
+combined_retention,outputs\round16_perturbation_decomposition\perturbation_decomposition_archetypes.csv,mean(retention) grouped by archetype where mode=combined; all runs retained
+combined_precision,outputs\round16_perturbation_decomposition\perturbation_decomposition_archetypes.csv,mean(precision) grouped by archetype where mode=combined; all runs retained

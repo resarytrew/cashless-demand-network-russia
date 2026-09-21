@@ -1,0 +1,17 @@
+criterion,status,note
+1,PASS,See audit and raw artifacts
+2,PASS,See audit and raw artifacts
+3,PASS,See audit and raw artifacts
+4,PASS,See audit and raw artifacts
+5,PASS,See audit and raw artifacts
+6,PASS,See audit and raw artifacts
+7,PASS,See audit and raw artifacts
+8,PASS,See audit and raw artifacts
+9,PASS,See audit and raw artifacts
+10,PASS,See audit and raw artifacts
+11,PARTIAL_BLOCKED,Three deterministic selections; third contextual attenuation and verified joins absent
+12,PASS,See audit and raw artifacts
+13,PASS,See audit and raw artifacts
+14,PASS,See audit and raw artifacts
+15,PASS,34 passed in 3.41s
+16,PASS,See audit and raw artifacts

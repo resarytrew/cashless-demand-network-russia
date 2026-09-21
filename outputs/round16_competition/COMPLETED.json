@@ -1,0 +1,27 @@
+{
+  "files_sha256": {
+    "B_WITHIN_FEDERAL_INTRACITY_PROFILE.csv": "8277f9a19ad4951e06686c6e1ab303e85578ae24179d3a380b1af90f0fc4a7a9",
+    "B_WITHIN_FEDERAL_INTRACITY_PROFILE.md": "669118ffbecaa4e7dc2b273122a96d4aaecc7f8a1dedb25f9636ce5e96f38f88",
+    "case_studies_3_municipalities.csv": "ec8491ef180727a8c246af3a67e9a9fa5a2319b298dd58a58a365e859d00ef62",
+    "case_studies_network_analogs.csv": "9c6779647bab501abd2e85840f5b9dc8f05961af1b94381f2f31b05b0eae8591",
+    "case_studies_temporal_trajectories.csv": "0ba4d39f3f95f6f3abd3e5c07065bea0417df334f0cb6c9c0daeefc700253b22",
+    "december_municipality_features.csv": "f6b586a6b41c540dcc091b49a1e107219df768c9a1918bdb1e926f2792cec9f7",
+    "figure_A_profile_matrix.csv": "3ab5ce8cd73095afe084c3543faaecf0cfa256460d95d7842d7f062f151032e4",
+    "figure_A_profile_matrix.png": "047a73f31d8badbcfe54ef1fcc8bdf33b8cd1669f51740ec760500f1bdbd540e",
+    "figure_A_profile_matrix.svg": "f0ccaa44d5e6c14a2ef43238fbec7a577c5fdc6131835f04f4cc9e3f1d39c983",
+    "figure_B_core_boundary.png": "132c09678c2691609c0adbd109020a211f63d815c00a4d93a3dc1ef721b12ae7",
+    "figure_B_core_boundary.svg": "1c67276b65942bc3268a61a8240b0a7c824f9f1f61616cd73915a4342001e033",
+    "figure_B_core_boundary_distributions.csv": "1d26c477fa7e021a49e6f45eb41c773c69546d2f0ca3ea519cbfa92e7f0dbcb3",
+    "figure_C_perturbation_stability.csv": "c262740a9f7d1f4a481ae3448db640497404dea39a6b1658abc4e67e99c2a60f",
+    "figure_C_perturbation_stability.png": "b19b2d9fe85dad52678058a591b22c64d2534e7e8194b345a50199653d9a4903",
+    "figure_C_perturbation_stability.svg": "38b6b988fc0d7a99c011f10eb44768eb4ca24c1189526b5e217de974cfa007cb",
+    "figure_D_pair_instability.csv": "8d5f434bd9d06982567f5a5430e7187883f0a1374362272467dfd6d1e8935357",
+    "figure_D_pair_instability.png": "d3bbf8ed89e61c73ce07d11c4fc27fa21acaf14cb46aafaed90c5947704ff3c4",
+    "figure_D_pair_instability.svg": "19e64ae1331ae955e74cb6a666ece99df9271e5dee19d49ae17bd46a39cb10b0",
+    "figure_E_municipal_cases.png": "606c0f398ab6148a354622357786184e0745539c9c933e52a01b826767e306b1",
+    "figure_E_municipal_cases.svg": "970174b15041a4c4d956336743bc3ea7b11db2e1da13dbbc5ba20cf1a231bace",
+    "municipality_perturbation_stability.csv": "df9d8764493224512ea3e911989040bee1f8cb8832dbe20e1aa8df38519608a7",
+    "run_manifest.json": "574f6db7a3a0c8def0222777bec5b23a847795808c586bd1f2f623c1df57d515",
+    "THREE_MUNICIPAL_CASE_STUDIES.md": "d28d910df503ab78bad2981dee19eeae5348f43aba270892179dfc4878ac899b"
+  }
+}

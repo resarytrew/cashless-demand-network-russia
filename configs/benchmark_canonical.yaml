@@ -1,0 +1,13 @@
+extends: baseline.yaml
+paths:
+  output_dir: outputs/round16_benchmark
+experiment:
+  baseline_gate_dir: outputs/round16_reproducibility
+  input_month: '2024-12-01'
+  requested_k: 9
+  k_rationale: fixed reference static K; not tuned by validity metrics
+  algorithms: [Louvain, Greedy, Spectral, KMeans, Ward]
+  spectral: {affinity: precomputed, assign_labels: kmeans, eigen_solver: arpack, n_init: 20}
+  kmeans: {n_init: 50, max_iter: 300, algorithm: lloyd, init: k-means++}
+  unavailable_historical_families: [Cosine, Correlation trajectory, Lagged correlation, DTW]
+  historical_tables: reference/round16/competition_tables.json
