@@ -200,6 +200,15 @@ def load_stability_table(path: Path, names: list[str]) -> pd.DataFrame | None:
     if not path.exists():
         return None
     frame = pd.read_csv(path)
+    # Round16 persisted the same quantities under mean_* names. Normalize the
+    # historical evidence schema instead of rewriting frozen evidence.
+    aliases = {
+        "profile": "reference_profile",
+        "mean_peer_coassignment": "peer_coassignment",
+        "mean_destination_precision": "destination_precision",
+        "mean_destination_Jaccard": "destination_jaccard",
+    }
+    frame = frame.rename(columns={old: new for old, new in aliases.items() if old in frame.columns})
     required = {
         "municipality",
         "reference_profile",
@@ -208,7 +217,8 @@ def load_stability_table(path: Path, names: list[str]) -> pd.DataFrame | None:
         "destination_jaccard",
     }
     if not required.issubset(frame.columns):
-        raise ValueError(f"{path} lacks required stability columns")
+        missing_columns = sorted(required - set(frame.columns))
+        raise ValueError(f"{path} lacks required stability columns: {missing_columns}")
     frame = frame.set_index("municipality")
     missing = [name for name in names if name not in frame.index]
     if missing:
