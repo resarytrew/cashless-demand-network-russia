@@ -21,7 +21,6 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "ruff>=0.6"]
 robustness = ["igraph==1.0.0", "leidenalg==0.12.0", "matplotlib==3.10.7"]
-validation = ["statsmodels==0.14.6"]
 
 [project.scripts]
 sbernet = "sbernet.cli:main"

@@ -1,0 +1,3 @@
+# Additional dependencies for Round17; historical requirements remain unchanged.
+statsmodels==0.14.6
+patsy==1.0.3

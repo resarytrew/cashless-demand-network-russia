@@ -1,30 +1,6 @@
 # Hypothesis and Claims Ledger — Current Scientific Status
 
-## Current state — Round17 external interpretation evidence (v2.4.0)
-
-Round17 adds 58 exact matches in four regions to current Atlas v2.2.1; it is an
-external interpretation layer, not a new clustering or a robustness-status upgrade.
-External measurements were not used to build or tune the original network.
-The selected sample is not nationally representative (A43/C4/D2/F2/G7; B/E absent).
-All ten recovered statistics reproduce, including the uncertain Khabarovsk A/G
-comparison and adjusted Altai result. Altai D2/F1/G3 supports only a limited
-regional wage gradient. Yakutia A wage/investment association is conditional and
-noncausal; employee wages are not household income and mining is not established.
-B–E remains internally supported but externally unassessed. C remains contextual /
-unresolved. F's transition interpretation gains limited external corroboration;
-prior boundary-stability qualifications remain. Seven equal universal economic
-archetypes remain rejected.
-
-Read [Round17 report](../outputs/round17_external_validation/INDEPENDENT_ECONOMIC_VALIDATION.md),
-[audit](../outputs/round17_external_validation/RECOVERY_AUDIT.md),
-[claim matrix](../outputs/round17_external_validation/CLAIM_EVIDENCE_MATRIX_v2.4.0.csv)
-and [current pointers](CURRENT_STATE.json). Raw source documents and source row/page
-locations are unavailable; normalized analytical data and statistics replay offline.
-No baseline, Round16, perturbation or existing Atlas outputs were changed.
-A–G scientific robustness statuses and the reference specification are unchanged.
-Round18 is [planned separately](ROUND18_REPRESENTATION_ROBUSTNESS_PLAN.md), not executed.
-
-## Preserved prior state — Round16 evidence and Atlas 2.2.1 engineering release
+## Current state — Round16 evidence and Atlas 2.2.1 engineering release
 
 The machine-readable pointer is `docs/CURRENT_STATE.json`. Evidence v2.3.0 and
 Atlas v2.2.1 are separate versions. Scientific A–G statuses and the reference
@@ -150,21 +126,3 @@ The historical runner and former canonical CSVs do not form a demonstrated repro
 **Status: exact invariance not supported by the completed fixed same-graph Leiden swap.**
 
 Round 14: full-supra ARI=0.440289, December ARI=0.707550. A/G retain substantial December cores; B/E nearly coassign, D/F mix, and F splits toward D/G. Some internal structure survives, but exact partitions and boundaries depend on the algorithm. No universal winning algorithm is selected. Profile claims must incorporate Round 15 v2 distributions as well as context controls; any earlier mention of historical pilot evidence above is superseded by H16.
-
-## Round17 claim-level additions (prior statuses above retained)
-
-| Claim | Round17 status | Scope |
-|---|---|---|
-| D–F–G wage gradient | SUPPORTED_IN_EXTERNAL_REGIONAL_VALIDATION | Altai n=6, F1; adjusted p=0.088869 |
-| F boundary/transition population | SUPPORTED_BY_COMBINED_INTERNAL_AND_EXTERNAL_EVIDENCE | Internal F327; external F2; no causal or national claim |
-| A wage/investment intensity | SUPPORTED_WITH_SCOPE_LIMITATIONS | Yakutia A27, Chukotka A4; Khabarovsk contrast uncertain |
-| A extractive/mining mechanism | NOT_ESTABLISHED | No sector mechanism tested |
-| B–E structural family | SUPPORTED_INTERNALLY | Existing coassignment, not independent economic evidence |
-| B–E economic interpretation | EXTERNALLY_UNVALIDATED | B0/E0 |
-| C substantive archetype | UNRESOLVED | C4; prior unsupported-beyond-context status retained |
-| Seven equal universal archetypes | REJECTED | Heterogeneous robustness and limited external coverage |
-
-The nonsignificant wage/population correlation does not establish independence
-from population. Wages are not household income. No historical robustness status
-is promoted by these interpretation claims. See the machine-readable claim matrix
-for methods, statistics, effect sizes, exploratory p-values and limitations.

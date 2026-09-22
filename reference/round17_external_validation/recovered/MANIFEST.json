@@ -1,0 +1,24 @@
+{
+  "package": "independent_economic_validation",
+  "version": "1.0.0-restored",
+  "status": "REPRODUCED",
+  "external_n": 58,
+  "profile_counts": {
+    "A": 43,
+    "F": 2,
+    "D": 2,
+    "C": 4,
+    "G": 7
+  },
+  "region_counts": {
+    "Республика Саха (Якутия)": 28,
+    "Республика Алтай": 11,
+    "Чукотский АО": 4,
+    "Хабаровский край": 15
+  },
+  "atlas_version": "2.2.1",
+  "atlas_commit": "4a5b3c884bcd951134f5cfd5e2797c3d3587c2b8",
+  "atlas_blob_sha": "3dd8cd196f4636f6279cf4c425257b4a0dac5629",
+  "raw_sources_packaged": false,
+  "raw_source_policy": "Hashes and filenames recorded; normalized analytical extract packaged."
+}

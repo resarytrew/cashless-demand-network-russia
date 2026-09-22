@@ -1,0 +1,466 @@
+evidence_round: 17
+evidence_version: 2.4.0
+methodology_version: round17-1.0.0
+atlas_version: 2.2.1
+atlas_commit: 4a5b3c884bcd951134f5cfd5e2797c3d3587c2b8
+recovered_dir: reference/round17_external_validation/recovered
+output_dir: outputs/round17_external_validation
+atlas: outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv
+consensus_matrix: outputs/stability_atlas_v2_2_1/consensus_matrix_dec2024.npy
+family_matrices: outputs/stability_atlas_v2_2_1/family_consensus_matrices.npz
+previous_matrix: outputs/round16_evidence/MASTER_PROFILE_EVIDENCE_MATRIX_v2.3.0.csv
+source_archive_sha256: c917d91e59c50dd367ba058b6b7f674325e46a54d54e1d080ccb460abc4a71a3
+expected_n: 58
+profile_counts:
+  A: 43
+  F: 2
+  D: 2
+  C: 4
+  G: 7
+region_counts:
+  Республика Саха (Якутия): 28
+  Республика Алтай: 11
+  Чукотский АО: 4
+  Хабаровский край: 15
+tolerance: 1.0e-10
+investment_region: Республика Саха (Якутия)
+gradient_region: Республика Алтай
+rank: &id001
+  G: 1
+  F: 2
+  D: 3
+packages:
+- numpy
+- pandas
+- scipy
+- statsmodels
+- PyYAML
+code_paths:
+- src/sbernet/validation/__init__.py
+- src/sbernet/validation/external_economic.py
+- scripts/run_round17_external_validation.py
+nonmissing_counts:
+  salary_2024: 58
+  salary_2025: 47
+  population_2024: 58
+  urban_population_2024: 58
+  urban_share_2024: 58
+  investment_per_capita_2024: 28
+  workers_2024: 11
+positive_columns:
+- salary_2024
+- salary_2025
+- population_2024
+- investment_per_capita_2024
+tests:
+- id: A_YAK_WAGE_INVEST
+  region: Республика Саха (Якутия)
+  profiles:
+  - A
+  n: 27
+  method: spearman
+  variables:
+  - salary_2024
+  - investment_per_capita_2024
+  transformation: none
+  inference: exploratory; two-sided; unadjusted p-values; selected sample; scipy asymptotic Spearman p, tied ranks
+    retained
+  interpretation: Positive wage/investment association within selected Yakutia A; not causal
+  status: EXPLORATORY_SCOPE_LIMITED
+  alternative: two-sided
+- id: A_YAK_WAGE_POP
+  region: Республика Саха (Якутия)
+  profiles:
+  - A
+  n: 27
+  method: spearman
+  variables:
+  - salary_2024
+  - population_2024
+  transformation: none
+  inference: exploratory; two-sided; unadjusted p-values; selected sample; scipy asymptotic Spearman p, tied ranks
+    retained
+  interpretation: No detected monotonic association; does not establish independence from population
+  status: EXPLORATORY_SCOPE_LIMITED
+  alternative: two-sided
+- id: A_YAK_WAGE_URBAN
+  region: Республика Саха (Якутия)
+  profiles:
+  - A
+  n: 27
+  method: spearman
+  variables:
+  - salary_2024
+  - urban_share_2024
+  transformation: none
+  inference: exploratory; two-sided; unadjusted p-values; selected sample; scipy asymptotic Spearman p, tied ranks
+    retained
+  interpretation: Positive wage/urban-share association within selected Yakutia A
+  status: EXPLORATORY_SCOPE_LIMITED
+  alternative: two-sided
+- id: A_YAK_HC3_LOGINVEST
+  region: Республика Саха (Якутия)
+  profiles:
+  - A
+  n: 27
+  method: ols
+  variables:
+  - salary_2024
+  - investment_per_capita_2024
+  - population_2024
+  - urban_share_2024
+  transformation: natural log of salary_2024,investment_per_capita_2024,population_2024; intercept; HC3; use_t=False
+  inference: exploratory; two-sided; unadjusted p-values; selected sample
+  interpretation: Conditional association; omitted factors and selection remain
+  status: EXPLORATORY_SCOPE_LIMITED
+  log:
+  - salary_2024
+  - investment_per_capita_2024
+  - population_2024
+  covariance: HC3
+  use_t: false
+  coefficient_index: 1
+- id: A_YAK_WAGE_2024_2025
+  region: Республика Саха (Якутия)
+  profiles:
+  - A
+  n: 27
+  method: spearman
+  variables:
+  - salary_2024
+  - salary_2025
+  transformation: none
+  inference: exploratory; two-sided; unadjusted p-values; selected sample; scipy asymptotic Spearman p, tied ranks
+    retained
+  interpretation: Wage rank persistence; not network temporal persistence
+  status: EXPLORATORY_SCOPE_LIMITED
+  alternative: two-sided
+- id: ALT_DFG_WAGE_GRADIENT
+  region: Республика Алтай
+  profiles:
+  - D
+  - F
+  - G
+  n: 6
+  method: spearman
+  variables:
+  - profile_rank
+  - salary_2024
+  transformation: none; ordinal G=1,F=2,D=3 (higher means toward D)
+  inference: exploratory; two-sided; unadjusted p-values; selected sample; scipy asymptotic Spearman p, tied ranks
+    retained
+  interpretation: Regional D>F>G gradient; D2/F1/G3; asymptotic p with tied ranks is not an exact small-sample test
+  status: EXPLORATORY_SCOPE_LIMITED
+  rank: *id001
+  alternative: two-sided
+- id: ALT_DFG_ADJUSTED
+  region: Республика Алтай
+  profiles:
+  - D
+  - F
+  - G
+  n: 6
+  method: ols
+  variables:
+  - salary_2024
+  - profile_rank
+  - population_2024
+  - urban_share_2024
+  transformation: natural log of salary_2024,population_2024; intercept; nonrobust; use_t=True; ordinal G=1,F=2,D=3
+    (higher means toward D)
+  inference: exploratory; two-sided; unadjusted p-values; selected sample
+  interpretation: Adjusted estimate uncertain (2 residual degrees of freedom); preserve p=0.088869
+  status: EXPLORATORY_SCOPE_LIMITED
+  rank: *id001
+  log:
+  - salary_2024
+  - population_2024
+  covariance: nonrobust
+  use_t: true
+  coefficient_index: 1
+- id: KHAB_A_G_WAGE
+  region: Хабаровский край
+  profiles:
+  - A
+  - G
+  n: 15
+  method: cliff_mannwhitney
+  variables:
+  - salary_2024
+  transformation: none
+  inference: exploratory; two-sided; unadjusted p-values; selected sample
+  interpretation: Moderate direction but substantial uncertainty; wage insufficient as an A/G separator here
+  status: EXPLORATORY_SCOPE_LIMITED
+  groups:
+  - A
+  - G
+  group_n:
+  - 11
+  - 4
+  alternative: two-sided
+  mw_method: auto
+  use_continuity: true
+- id: CHU_A_WAGE_2024
+  region: Чукотский АО
+  profiles:
+  - A
+  n: 4
+  method: median
+  variables:
+  - salary_2024
+  transformation: none
+  inference: descriptive; no p-value
+  interpretation: Descriptive nominal employee wage only; selected northern A cases
+  status: DESCRIPTIVE
+- id: CHU_A_WAGE_2025
+  region: Чукотский АО
+  profiles:
+  - A
+  n: 4
+  method: median
+  variables:
+  - salary_2025
+  transformation: none
+  inference: descriptive; no p-value
+  interpretation: Descriptive nominal employee wage only; selected northern A cases
+  status: DESCRIPTIVE
+claims:
+- claim_id: R17_DFG
+  claim: D-F-G wage gradient in selected Altai municipalities
+  evidence_source: ALT_DFG_WAGE_GRADIENT;ALT_DFG_ADJUSTED
+  sample: Altai D2/F1/G3 n=6
+  method: Spearman; adjusted OLS
+  statistic: 0.9258200997725515
+  effect_size: D median 73525.45; F 65317.7; G 55749.4
+  p_value: 0.008049893100837697
+  limitations: Selected n=6; F n=1; tied-rank asymptotic p; adjusted beta=0.193626 p=0.088869 df=2; not national
+  status: SUPPORTED_IN_EXTERNAL_REGIONAL_VALIDATION
+  reproducible: true
+- claim_id: R17_F
+  claim: F is consistent with a boundary/transition population
+  evidence_source: Atlas v2.2.1; ALT_DFG_WAGE_GRADIENT
+  sample: Internal F327; external F2, Altai F1
+  method: Atlas diagnostic synthesis and regional gradient
+  statistic: null
+  effect_size: null
+  p_value: null
+  limitations: External evidence small, descriptive and geographically restricted; no causality or boundary stability
+    upgrade
+  status: SUPPORTED_BY_COMBINED_INTERNAL_AND_EXTERNAL_EVIDENCE
+  reproducible: true
+- claim_id: R17_A
+  claim: Selected A cases show wage/investment intensity
+  evidence_source: A_YAK_WAGE_INVEST;A_YAK_HC3_LOGINVEST;CHU_A_WAGE_2024;KHAB_A_G_WAGE
+  sample: Yakutia A27; Chukotka A4; Khabarovsk A11/G4
+  method: Spearman; HC3 OLS; medians; Cliff/Mann-Whitney
+  statistic: 0.7905982905982906
+  effect_size: HC3 log investment beta 0.0428876
+  p_value: 9.251319318281472e-07
+  limitations: Wages are not household income; no national inference; population null does not establish independence;
+    Khabarovsk p=0.279853
+  status: SUPPORTED_WITH_SCOPE_LIMITATIONS
+  reproducible: true
+- claim_id: R17_A_MINING
+  claim: A is an extractive/mining economy
+  evidence_source: No sector-mechanism test
+  sample: No suitable sector sample
+  method: not tested
+  statistic: null
+  effect_size: null
+  p_value: null
+  limitations: No causal or sector mechanism identified
+  status: NOT_ESTABLISHED
+  reproducible: true
+- claim_id: R17_BE_INTERNAL
+  claim: B-E structural family remains internally supported
+  evidence_source: Existing Atlas balanced and algorithm consensus
+  sample: B/E 284 reference municipalities
+  method: cross-profile coassignment
+  statistic: null
+  effect_size: null
+  p_value: null
+  limitations: Internal geometry only; metropolitan-like interpretation remains a hypothesis
+  status: SUPPORTED_INTERNALLY
+  reproducible: true
+- claim_id: R17_BE_EXTERNAL
+  claim: B-E economic interpretation lacks external evidence
+  evidence_source: Round17 coverage
+  sample: B0/E0
+  method: coverage audit
+  statistic: null
+  effect_size: null
+  p_value: null
+  limitations: NOT AVAILABLE IN ROUND17 SAMPLE
+  status: EXTERNALLY_UNVALIDATED
+  reproducible: true
+- claim_id: R17_C
+  claim: C substantive meaning remains contextual/unresolved
+  evidence_source: Round17 coverage; prior contextual limitations
+  sample: C4 Altai
+  method: coverage and descriptive linkage
+  statistic: null
+  effect_size: null
+  p_value: null
+  limitations: Four observations do not establish a substantive archetype; prior unsupported-beyond-context status
+    retained
+  status: UNRESOLVED
+  reproducible: true
+- claim_id: R17_SEVEN
+  claim: Seven equally robust universal economic archetypes
+  evidence_source: Prior heterogeneous robustness evidence; Round17 scope
+  sample: A-G unequal and incomplete external coverage
+  method: claim synthesis
+  statistic: null
+  effect_size: null
+  p_value: null
+  limitations: No new robustness-status upgrade or universal interpretation
+  status: REJECTED
+  reproducible: true
+profile_scope:
+  A: Limited regional wage/investment support; not mining mechanism
+  B: No external observations; internal status unchanged
+  C: 4 selected Altai cases; substantive interpretation unresolved
+  D: Altai D2 in DFG gradient; not national
+  E: No external observations; internal status unchanged
+  F: F2 externally; Altai F1; consistent with boundary interpretation
+  G: Altai G3 gradient; Khabarovsk A/G uncertain
+report_paragraphs:
+- 'A / Yakutia: within A (n=27), wage/investment association is positive, including HC3 OLS conditional on log population
+  and urban share. HC3 uses normal-reference p-values (use_t=False). This is association, not an investment effect.
+  The nonsignificant wage/population correlation does not demonstrate population independence or show that population
+  has no explanatory role. Selected A includes varied municipality sizes; a large-city-only or mining-only interpretation
+  is not established.'
+- 'A / Chukotka: four A municipalities provide descriptive wage medians only. Nominal wages, northern price levels
+  and employee coverage limit income interpretations. Sector mechanisms, extraction/mining and household prosperity
+  are NOT_ESTABLISHED. The 2024/2025 Yakutia wage correlation describes wage ranks, not persistence of network labels.'
+- 'D-F-G / Altai: D2/F1/G3, n=6. Coding G=1, F=2, D=3 makes positive rho mean higher wages toward D. Medians D=73525.45,
+  F=65317.7, G=55749.4 rubles. The unadjusted gradient is consistent with a transition interpretation in this selected
+  regional sample. The tied-rank asymptotic Spearman p is not an exact small-sample permutation result. Adjusted
+  OLS retains beta=0.193626 but p=0.088869, with only two residual degrees of freedom; uncertainty must not be omitted.
+  No national or causal D-to-G transition claim follows.'
+- 'Khabarovsk: A11/G4; Cliff delta=0.409091, Mann-Whitney p=0.279853. The direction is moderate, uncertainty substantial.
+  Wages are not established as a sufficient external A/G separator. This negative/uncertain result is retained.'
+- 'F: internal Atlas shows low autonomous consensus membership and strong D/G proximity, alongside entropy, margin,
+  destination and leave-one-family-out diagnostics below. The limited external gradient is consistent with F as
+  a boundary/transition population. This is combined interpretation evidence, not equal standing as an autonomous
+  robust economic archetype and not a change to prior robustness status.'
+- 'B-E: external B=0 and E=0. Internal balanced/algorithm cross-coassignment is reported separately below. It supports
+  an internal structural-family hypothesis; the metropolitan-like economic interpretation remains EXTERNALLY_UNVALIDATED.
+  C: four selected Altai observations do not establish independent substantive structure; contextual/unresolved.
+  Historical rejection of C as a beyond-context archetype remains in force.'
+- All inferential p-values are exploratory, unadjusted and conditional on the recovered selected sample; geographic
+  clustering, selection, multiple testing and sparse group sizes limit inference. External measurements did not
+  tune alpha, k, omega, resolution, labels or Atlas classes. Total/category additivity and the denominator remain
+  unresolved.
+- 'Local cashless demand contains network-temporal regimes with unequal stability: persistent cores, uncertain boundaries,
+  nested and contextual areas. Independent socioeconomic observations corroborate parts of that interpretation in
+  limited regions; they do not establish seven equal universal economic archetypes.'
+readme: '# Round17 external economic validation
+
+
+  Offline replay of 58 normalized observations, matched to current Atlas v2.2.1.
+
+  Read INDEPENDENT_ECONOMIC_VALIDATION.md and RECOVERY_AUDIT.md for scope.
+
+
+  From repository root (installed package):
+
+
+  ```sh
+
+  python scripts/run_round17_external_validation.py
+
+  python scripts/run_round17_external_validation.py --output-dir /path/to/empty/replay
+
+  ```
+
+
+  The first command verifies a completed package; the second computes a fresh replay.
+
+  No original Rosstat files or internet are required after dependency installation.
+
+  Completed or partial evidence is never overwritten. Partial runs require a new directory.
+
+  run_manifest.json seals all outputs including inventories; COMPLETED.json seals that manifest.
+
+  CSV/statistics/report are deterministic; runtime manifests record timestamp and environment.
+
+  Source recovery is preserved separately under reference/round17_external_validation/recovered/.
+
+  '
+dictionary_addendum: 'Round17 canonical additions: panel_index is inherited from current Atlas (not present historically);
+  reference_profile is the recovered profile verified against current Atlas; consensus_class and stability_class
+  are current Atlas classes verified against recovery. Atlas affinity, entropy, margin, destination precision/Jaccard
+  and leave-one-family-out fields are copied from the pinned Atlas; shares are descriptive, not probabilities. historical_*
+  fields retain the original recovered labels. match_status is exact name/profile/consensus/stability agreement.
+  notes explicitly records the index limitation. Empty numeric fields are missing, never zero-imputed. source_provenance.csv
+  uses 1-based data-record positions in the canonical table, not raw-document row numbers. Reported source hashes
+  are unverified when raw files are unavailable. source_manifest.csv separates hash_type and reported_hash: the
+  recovered Atlas hash was a Git blob SHA1 mislabeled under sha256, not a SHA256 file checksum. All other raw-source
+  hashes are reported SHA256. Internal matrix row order is verified against Atlas panel_index. No source cell/page
+  locations were supplied.'
+audit: '# Round17 recovery/integration audit
+
+
+  Original ZIP SHA256: c917d91e59c50dd367ba058b6b7f674325e46a54d54e1d080ccb460abc4a71a3.
+
+  All 14 entries in the supplied SHA256SUMS.txt were checked before integration. All 15 package files are preserved
+  byte-for-byte in reference/round17_external_validation/recovered. The reference Python implementation ran successfully;
+  all 10 tests match the supplied expected values at tolerance 1e-10 * max(1, abs(expected)). Region/profile counts
+  and DFG medians are gated too.
+
+
+  58 exact municipality-name joins match current reference profile, consensus and stability; current Atlas bytes
+  match the historical Git blob. No fuzzy matching or silent relabeling. Historical panel_index was NOT supplied:
+  assigned from current Atlas, never described as historically verified. The recovered source_manifest hash column
+  mislabeled the Atlas Git blob SHA1 as sha256; the derived manifest explicitly types it, and current Atlas SHA256
+  is recorded separately. Recovered input files are not corrected.
+
+
+  Original Rosstat documents, historical workbook, crosswalk file and row/page extraction locations are not packaged;
+  reported raw-source SHA256 values cannot be verified locally. Normalized data/statistics replay offline, but original
+  source extraction and historical workbook recovery do not. Population-source URL is missing in recovery and remains
+  missing. source_provenance.csv maps every nonmissing normalized indicator to its reported source and canonical
+  data-record position. Investments are available for 28 Yakutia cases only; 30 missing values are preserved. No
+  proxy substitution.
+
+
+  Independent package code reproduces the reference methods explicitly: two-sided Spearman with asymptotic p-values;
+  Yakutia logsalary on intercept/loginvestment/logpopulation/urban share with HC3 normal inference; Altai logsalary
+  on intercept/ordinal rank/logpopulation/urban share with conventional t inference; two-sided Mann-Whitney auto
+  method and continuity correction with signed Cliff delta; descriptive medians. No fitting of clustering models
+  or baseline rerun occurs.
+
+
+  Interpretation deviations from recovery narrative are deliberate and conservative: nonsignificant population correlation
+  does not establish independence; nominal employee wages are not household income; Altai F has n=1 and adjusted
+  p=0.088869; Khabarovsk p=0.279853 retained; B/E have no external validation; C remains contextual; mining mechanism
+  is unestablished. Old A-G robustness statuses and reference parameters are unchanged. New claims are interpretation
+  support with scope limitations, not confirmatory tests.
+
+
+  Round18 is planned separately and has no results here. Output completion is written last; any integration failure
+  produces FAILURE_AUDIT.json with no completion seal. Sealed output is never overwritten.
+
+  '
+input_sha256:
+  outputs/round16_evidence/MASTER_PROFILE_EVIDENCE_MATRIX_v2.3.0.csv: 63f104b776d57aed8a880a4532f037088f6d7102b2bfc09e8431037ce0246a6c
+  outputs/stability_atlas_v2_2_1/consensus_matrix_dec2024.npy: 8c89bbeb22c6013e9354cb24af24357b148ac3c7d300972fd76b1dd9ff121d96
+  outputs/stability_atlas_v2_2_1/family_consensus_matrices.npz: 74a079145384c385c80bf77002407166dc84ea42a028ad69822137bee4626b48
+  outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv: ab824219890eb9ff95528075a06b1f18efbb5edf409fa7bb46fdb35b50f40b99
+  reference/round17_external_validation/recovered/DATA_DICTIONARY.md: f4a41b46887fe923ae07851c4961cb0182c85b91c05accf8bdf9b60ee52cd760
+  reference/round17_external_validation/recovered/INDEPENDENT_ECONOMIC_VALIDATION.md: 6c79146b072c393d1a32a340b81d2abddbce24fe91bef054384159c00fbb530f
+  reference/round17_external_validation/recovered/MANIFEST.json: cfe4872739ab5875aacb54680b677c3735d2c01a56d5ca1de0c7a5dfac3758b8
+  reference/round17_external_validation/recovered/README.md: 501f38a4a45bb0462e29e1458946e63d35068b0d9536de154e04ca5f95d32001
+  reference/round17_external_validation/recovered/RECOVERY_AUDIT.md: b3fa86d295056cc5ffd175b7ed63d6abbb769e8ad82a57ace6d81d3618b22c70
+  reference/round17_external_validation/recovered/SHA256SUMS.txt: eb340b74fde31db7cf5f3c72691eed481007e4e5b399adb02240fd48db4a64e7
+  reference/round17_external_validation/recovered/a_validation_cases.csv: cb69cdb514f07d32105a85a5bafd769702f39fa4ea46609b7b621a33a4228af2
+  reference/round17_external_validation/recovered/dfg_gradient_altai.csv: ac0b710cc63429fff04d42f75599e8c39a92394c118d42af070033a21635b0b9
+  reference/round17_external_validation/recovered/expected_results.json: a9e3e7838a72c2cfed24f2443b3d3d6dec6f7f365ef1021709721fd0f4b2866f
+  reference/round17_external_validation/recovered/external_validation_58.csv: ed11cf1288dd62934c0d481fe7546af1c2c90712f5ec2d982bcc2abfe3ce8aa8
+  reference/round17_external_validation/recovered/hypothesis_status.csv: d69b3cf0a1ac3881d5a238cbf01e0097c0d9bb92eb0edfa526573e9937972b0c
+  reference/round17_external_validation/recovered/reproduce_validation.py: 288b3780da6e91a19788b3d0cccc36332deae84f5c05b9b1ef9ccadbe9a23c37
+  reference/round17_external_validation/recovered/requirements.txt: e68dc84111bcc9406cb801e4d4aa054d6e8ed486dc584f5d0dee16aff79cd0fe
+  reference/round17_external_validation/recovered/source_manifest.csv: eff41d514edd39d944fce5c9557c17ade93ec595a31043cff93816babdef28da
+  reference/round17_external_validation/recovered/statistical_tests.csv: f4404fa67bd16d2634291f86f74ea3132b1c075df4a9123d41188c08a70de4c4
+  reference/round17_external_validation/requirements-replay.txt: 88a8d0f64d93444d7efabf2c593b3d833a3ef72270cb424556df615999988e6d

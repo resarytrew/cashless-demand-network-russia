@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "evidence_version": "2.3.0",
+  "evidence_version": "2.4.0",
   "atlas_version": "2.2.1",
   "scientific_status_changes": false,
   "reference_specification_changed": false,
-  "current_evidence_matrix": "outputs/round16_evidence/MASTER_PROFILE_EVIDENCE_MATRIX_v2.3.0.csv",
+  "current_evidence_matrix": "outputs/round17_external_validation/MASTER_PROFILE_EVIDENCE_MATRIX_v2.4.0.csv",
   "scientific_status_registry": "outputs/round16_evidence/archetype_status_round16.csv",
-  "latest_research_audit": "outputs/round16_evidence/ROUND16_FINAL_PRESUBMISSION_AUDIT.md",
+  "latest_research_audit": "outputs/round17_external_validation/RECOVERY_AUDIT.md",
   "engineering_audit": "docs/ENGINEERING_HARDENING_20260922.md",
   "atlas_config": "configs/stability_atlas_v2_2_1.yaml",
   "atlas_findings": "docs/STABILITY_ATLAS_V2_2_FINDINGS.md",
@@ -17,6 +17,16 @@
     "Contextual inputs unavailable; controls remain historical-only",
     "Third municipal contextual case not established",
     "Atlas affinity shares are descriptive, not posterior probabilities",
-    "No new clustering or prospective utility experiment"
-  ]
+    "No new clustering or prospective utility experiment",
+    "Round17 selected sample: 58 municipalities, 4 regions; B/E absent; Altai F n=1",
+    "Raw external documents and extraction row locations unavailable; normalized-extract replay only",
+    "Nominal employee wages are not household income; sector/mining mechanism unestablished"
+  ],
+  "latest_evidence_round": 17,
+  "claim_evidence_matrix": "outputs/round17_external_validation/CLAIM_EVIDENCE_MATRIX_v2.4.0.csv",
+  "external_validation_config": "configs/round17_external_validation.yaml",
+  "external_validation_report": "outputs/round17_external_validation/INDEPENDENT_ECONOMIC_VALIDATION.md",
+  "interpretation_evidence_added": true,
+  "round18_status": "PLAN_ONLY_NOT_RUN",
+  "round18_protocol": "docs/ROUND18_REPRESENTATION_ROBUSTNESS_PLAN.md"
 }

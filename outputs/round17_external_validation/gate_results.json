@@ -1,0 +1,9 @@
+{
+  "checksums_verified": 14,
+  "atlas_git_blob_sha1": "3dd8cd196f4636f6279cf4c425257b4a0dac5629",
+  "status": "PASS",
+  "unique_municipalities": 58,
+  "exact_atlas_joins": 58,
+  "statistics_reproduced": 10,
+  "reference_replay_exit_code": 0
+}
