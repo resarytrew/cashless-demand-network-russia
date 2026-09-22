@@ -1,0 +1,244 @@
+{
+  "source_revision": "b5c365057e991580893da72420fe854a5dd060aa",
+  "scope": "Existing immutable labels; NPY ordering inherited from gated reference panel, not inferred from shape",
+  "panel_ids_sha256": "4ed32a3a7f372d4b973dd0bf9c5eb9c0484e97c3f22462db896faafbe23423f2",
+  "months_sha256": "2da47a92328db7d3cd16962072aceb72bc0df32f8651fec4e542bd2ab1ab2b61",
+  "inputs": {
+    "outputs/baseline/supra_labels.csv": {
+      "sha256": "7cac1146f94c61cd1d6cdcfb6600796c1d95e05d94edd570c53a38251243192a",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "configs/perturbation_v2.yaml": {
+      "sha256": "70df833cc1d83ed1b30ca7596ed6fe1f22613be7ddcbf00f9804639de9b8fe6e",
+      "inventory": "outputs/round16_evidence/ROUND16_FILES_SHA256.csv"
+    },
+    "outputs/round16_competition/municipality_perturbation_stability.csv": {
+      "sha256": "df9d8764493224512ea3e911989040bee1f8cb8832dbe20e1aa8df38519608a7",
+      "inventory": "outputs/round16_evidence/ROUND16_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/00/supra_labels.npy": {
+      "sha256": "2d760a7792313894244140d745e50aa1d44a1cff6a594baa73ab28e107eb286c",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/01/supra_labels.npy": {
+      "sha256": "f64c0f4890013f4d3f77ddc8eb5a29eb41fb76e2f286d10ee2be5b25943376f4",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/02/supra_labels.npy": {
+      "sha256": "b70d3bd7934e9081cee90e8460c90b23a1f2a3dff9444a5c8d8e21fb294ce550",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/03/supra_labels.npy": {
+      "sha256": "3329f31223ef67d5c92bb7572dd9da719c116833983cf5cdb8a914d05acb5c86",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/04/supra_labels.npy": {
+      "sha256": "a138a8750f9104258e396183fd347d7055e51df2c90c520919ac8269b1799843",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/05/supra_labels.npy": {
+      "sha256": "36b60cbe55c8899a0decda9fd7b0f975b8ccaf68ea28cd0c7c74f032d8df8e78",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/06/supra_labels.npy": {
+      "sha256": "60d6a8ccd1b57d5090fec1f65090935c050ad57c972ea83520fe168cb0eacc0a",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/07/supra_labels.npy": {
+      "sha256": "31299b49320174b3565bb6e9432e17ebe599436edf882a997847071bcfacbf01",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/08/supra_labels.npy": {
+      "sha256": "d4a92454b9048f80a427eacd2be8c7674e7db4fe8c956acaaf2eb3c41469d586",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/09/supra_labels.npy": {
+      "sha256": "4a6d571ace58843813e3e654de380a9154369ffb6c85a7195ced82208a396e73",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/10/supra_labels.npy": {
+      "sha256": "c57e2d60538949915a4aa1d1b9cdd739de582cb9296af6cb11876c1786ee8436",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/11/supra_labels.npy": {
+      "sha256": "a6a0bddfdebaf3a2daf330efcd25df83343686930a2a59d17465566a2e37c73f",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/12/supra_labels.npy": {
+      "sha256": "4ad9b93bf84e10139267a3f007717bf835284fb3482769a2d5514223bd69f290",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/13/supra_labels.npy": {
+      "sha256": "61e9035d87e2ad76bc5e508423c2e9bbc700c37e8ad5a3a8286d5e953c4f40c2",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/14/supra_labels.npy": {
+      "sha256": "0278067794ea9239ef1c5990898c1f8b2a54edfb12e21ee0eddfa824c4c0b663",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/15/supra_labels.npy": {
+      "sha256": "cd2f8b72420a18c70ac90706aeb897fb1203f50d289bbf7bafecd04890a78e26",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/16/supra_labels.npy": {
+      "sha256": "f028a8491a75945e5860b1401038e172de9d1431362fdd50bf1fad524a5cd8fb",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/17/supra_labels.npy": {
+      "sha256": "53be50202c7ac9286d4849ef3d1417550c07761295a4123504403925c8e9eb6d",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/18/supra_labels.npy": {
+      "sha256": "f209971b800144da537926bc3453b6e271893097c68768081e59e093381c6685",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/19/supra_labels.npy": {
+      "sha256": "aa4a960de317c67054d24e3faff663b9242f64d8642f75b287f91fc42027209f",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/20/supra_labels.npy": {
+      "sha256": "4c063cfc2c6e92a45e0f34b29d1effa9ba89b3214af6a39a98f65a6f1513cfb1",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/21/supra_labels.npy": {
+      "sha256": "d3f65fd945e24dc3f368cb08d54d9ae4cbe6d0b11cf0ab7935988011c1f7dfba",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/22/supra_labels.npy": {
+      "sha256": "6656b4b643f455cc651866844ef6724c48ffc6efe84659562dcdb31b6552dde2",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/23/supra_labels.npy": {
+      "sha256": "ef04b53242c3734c2c7da59164db2c63a0a276f3c731bff4838e921f9d1e1162",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/24/supra_labels.npy": {
+      "sha256": "6a1a34233b2a215983e44786f8f9fef82bec3500d4820eb49de19f6b6a998580",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/25/supra_labels.npy": {
+      "sha256": "f2a993c4223fd60bb6dd774804b0b0e834de1c6d690661f0d5dd6c0cdae18e6d",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/26/supra_labels.npy": {
+      "sha256": "c8105cd36e51c2c556c9bb5aeda707ef48944e9ac3af893bdb2e97b2c9f7bdde",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/27/supra_labels.npy": {
+      "sha256": "b439b8510ee1da92162af43867c94f070f8f2e4c780df05eba3e7198f3b3dc58",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/28/supra_labels.npy": {
+      "sha256": "9e3cd33e6cd502e595d90b5ab248a40ad780f1804da34f2f3e374dccb3b744a0",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/29/supra_labels.npy": {
+      "sha256": "090fc1a2e20e54cc61b78243c5971ca2c0802e07ac2fde50f37487e9011d57b1",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/30/supra_labels.npy": {
+      "sha256": "6c3c54ab88cb287102fddde7001bda80d309292f541eb1b0dd259d9913c2da38",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/31/supra_labels.npy": {
+      "sha256": "dd3d39bcf1bfbea96606d3461b8002da279440ccb9001da653f690618a8c9f88",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/32/supra_labels.npy": {
+      "sha256": "c55f9d6e4a5f35b902bc706757e78bea8dd11432744f1b4452fd3194bd2a96ac",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/33/supra_labels.npy": {
+      "sha256": "d19df7460ef4338fbb3d2561c6940c142dd341221e334df50191c80236036caa",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/34/supra_labels.npy": {
+      "sha256": "78568a86f16a1dd67cb31ffd4271c12174bf089360f7ed51ddc7112d46c0e5d8",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/35/supra_labels.npy": {
+      "sha256": "576c5b8afe4d7fe935eef496cfa5ac42886b49304cd3406704062832ee9ebbf3",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/36/supra_labels.npy": {
+      "sha256": "1ac72bb71db03136e2d285ffff4428a7f595c7b6eee346ee1fe59e0d2d853fa1",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/37/supra_labels.npy": {
+      "sha256": "596b7776036083f05b1801aba23cf7b6aa51c685afe0c38260f567a574beb1ef",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/38/supra_labels.npy": {
+      "sha256": "d91b01e64e0ac41aedd4e59e7f45acad2605784339fc87bcd9bd004bacdcae4d",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/39/supra_labels.npy": {
+      "sha256": "c89c468aa5cac655b9d8f022d12dbf9e21d5a5cb62e45f1ec277b2d0d97f2edb",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/40/supra_labels.npy": {
+      "sha256": "0e50f22cb5bff1ee1509bfca26f1aed63d903d0e904e5b6a0bcc78697c437575",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/41/supra_labels.npy": {
+      "sha256": "0703f6da26b6aec39b52ec5fcaa2acf52ab69043fd993950efb58ce5ef5d5b29",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/42/supra_labels.npy": {
+      "sha256": "cc5cbfea0b5a303253e51c691e1106bcb5d3b16995e706dde32308af1c8885e4",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/43/supra_labels.npy": {
+      "sha256": "4318967472b80d1e762d8eeaee4268cae29c7f36e37d4a491ea24ab4c65bbb76",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/44/supra_labels.npy": {
+      "sha256": "ac204f3f8e20178e8c8f034b1d09dbc545db0ca314dac728870057580b9786f7",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/45/supra_labels.npy": {
+      "sha256": "fecd1cf46af88fd103758c099f7469dde27f13c5b82870d1c4a3f29c468b1ee3",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/46/supra_labels.npy": {
+      "sha256": "c43d680d3bbb09d75fc8a0cb0fa61af1e6c4e9e214f6c34be4355f98a3a5da0c",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/47/supra_labels.npy": {
+      "sha256": "0ed1477035528fbbffa5a7752f58a619f5e4a21a0973831d9bba80bc10f94d30",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/48/supra_labels.npy": {
+      "sha256": "c46f045ae4a4bd3255217800d277b19d66fe0f583c388ff1f33198a319904836",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/perturbation_v2/seeds/49/supra_labels.npy": {
+      "sha256": "39fe6c58012b0ec1c8f1b51e97e782ad954ea66b4e37539a46bb8bf5e1dd347c",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/alpha_50_50/supra_labels.csv": {
+      "sha256": "3fc1c38d13d755fbfb2f57c841962e05106335ce6d1b690836da5c874a12ff92",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/alpha_90_10/supra_labels.csv": {
+      "sha256": "6e1850308ffb49a9e8ca4800ebee806f525f0ea34da76fa3470033cd3df61231",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    },
+    "outputs/round16_resolution/runs/resolution_0.25/supra_labels.npy": {
+      "sha256": "3109f46d15eb6e22713df82fdb3ac55b6bd993d5a40c5a69a57d316bd575b09f",
+      "inventory": "outputs/round16_evidence/ROUND16_FILES_SHA256.csv"
+    },
+    "outputs/round16_resolution/runs/resolution_0.75/supra_labels.npy": {
+      "sha256": "784cb3443edcb4d3e4d82a42b63d159dd2a9c787daf0b84a1b1a0dbca212d98d",
+      "inventory": "outputs/round16_evidence/ROUND16_FILES_SHA256.csv"
+    },
+    "outputs/round16_resolution/runs/resolution_1.0/supra_labels.npy": {
+      "sha256": "778ddb79f0b038192923d69d59449155f5068c39adb1eefea74f8118e5fe675a",
+      "inventory": "outputs/round16_evidence/ROUND16_FILES_SHA256.csv"
+    },
+    "outputs/leiden_robustness/supra_labels.csv": {
+      "sha256": "96a0a5edf4bac914cfb819d276faaa174f7793d4cc0a25bb33f82b05001d25a9",
+      "inventory": "outputs/evidence_freeze_v2_2_0/EVIDENCE_FREEZE_FILES_SHA256.csv"
+    }
+  }
+}

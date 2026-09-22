@@ -85,7 +85,15 @@ For canonical perturbation protocol v2, require exact same-process, fresh-proces
 - Record Python/package versions, git commit, config hash, and seed in manifests.
 - Run the full test suite before finishing.
 
-## Current next tasks
+## Current engineering state
+
+Read `docs/CURRENT_STATE.json`, `docs/ENGINEERING_HARDENING_20260922.md` and
+`docs/ATLAS_REPRODUCTION.md`. Evidence v2.3.0 includes Round16; Atlas v2.2.1 is a
+separate engineering release. Use `scripts/verify_current_artifacts.py` for this
+checkout. Contextual controls without their inputs remain historical-only.
+Reference parameters and A–G scientific statuses remain unchanged.
+
+## Historical next-task context (completed)
 
 Leiden Round 14 and canonical perturbation robustness v2 n=50 Round 15 are completed in `outputs/leiden_robustness/` and `outputs/perturbation_v2/`. Read their audits/findings and `outputs/evidence_v2_2_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.2.0.csv` before further research. The full historical master matrix was unavailable: the new matrix explicitly carries repository Round 13 status plus new evidence, without invented historical columns.
 

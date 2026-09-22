@@ -32,7 +32,7 @@ jobs:
 
       - name: Build Stability Atlas v2.2
         run: |
-          PYTHONPATH=src python scripts/build_soft_consensus_v2_2.py             --output-dir outputs/stability_atlas_v2_2             --anchor-fraction 0.25
+          PYTHONPATH=src python scripts/build_soft_consensus_v2_2.py             --output-dir outputs/stability_atlas_v2_2             --config configs/stability_atlas_v2_2_1.yaml
 
       - name: Validate and print robustness findings
         run: |
@@ -54,7 +54,7 @@ jobs:
           assert len(f) == 327
           assert len(be) == 284
           assert atlas["panel_index"].is_unique
-          assert manifest["atlas_version"] == "2.2"
+          assert manifest["atlas_version"] == "2.2.1"
           assert manifest["runs_per_family"] == {
               "perturbation": 50, "alpha": 2, "gamma": 3, "algorithm": 1
           }

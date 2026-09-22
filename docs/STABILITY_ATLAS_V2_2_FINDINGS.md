@@ -56,7 +56,7 @@ For reference-F only:
 | gamma | 95.41% | 6.12% | 49.85% | 50.15% |
 | algorithm/Leiden | 63.00% | 43.12% | 56.88% | 43.12% |
 
-Thus the **existence of a D–G transition belt is robust**, but the exact hard
+Thus a **D–G transition interpretation persists under these tested family omissions**, but the exact hard
 class assigned to individual F municipalities is meaningfully
 algorithm-sensitive. This is precisely why v2.2 separates transition direction
 from hard class.
@@ -115,13 +115,22 @@ The evidence does **not** support seven equally robust economic types.
 
 A better representation is a topology:
 
-- **B–E**: metropolitan block, with B a particularly stable reference core;
-- **D–F–G**: the main macro-continuum, where D and G are robust regimes and F is
+- **B–E**: overlapping reference profiles, with B retaining a strong consensus core; geographic/metropolitan interpretation requires verified contextual joins;
+- **D–F–G**: the main macro-continuum, where D and G retain strong consensus reference cores and F is
   the transition belt;
-- **A**: distinct northern/Far-Eastern regime with strong but not perfect
-  consensus stability;
+- **A**: reference profile with strong but not perfect consensus stability; a northern/Far-Eastern interpretation is not established by this atlas;
 - **C**: small unresolved/contextual fragment whose interpretation should remain
   cautious.
 
 The normalized affinity shares are descriptive consensus affinities, not
 posterior probabilities and not evidence of causal economic mechanisms.
+
+## Engineering release 2.2.1
+
+The current build uses `configs/stability_atlas_v2_2_1.yaml`. Numerical v2.2
+results are preserved on the registered inputs; the release adds provenance,
+verified resume, an offline viewer and explicit unresolved zero-affinity handling.
+Strong consensus cores do not establish exact-boundary or beyond-context robustness.
+C retains its existing unsupported-beyond-context status. No new evidence status
+is inferred from consensus. LOFO D/G side (affinity sign) and family-vote direction
+are different statistics. See `docs/ATLAS_REPRODUCTION.md`.

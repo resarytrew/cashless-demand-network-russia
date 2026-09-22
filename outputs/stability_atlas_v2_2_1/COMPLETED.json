@@ -1,0 +1,21 @@
+{
+  "files_sha256": {
+    "anchor_affinity_comparison.csv": "d49194ac87cc9f681c811ecf617d85c2868b6d35fe97147750a4826852f13420",
+    "anchor_affinity_summary.csv": "b17ae2fc31730ff724fb4d1dac7713d43d656f8df6b4f5cef64300e6c4c18617",
+    "BE_metropolitan_gradient.csv": "58f6f66fbe1733c3ee953741f12dfc775e63c1f09beb3215b3e669bfe39c59ef",
+    "consensus_core_anchors.csv": "8ee58dfb28c55496d8720f25e16b06dc0ca1dd30b166fc90dc658d35ac6eda40",
+    "consensus_matrix_dec2024.npy": "8c89bbeb22c6013e9354cb24af24357b148ac3c7d300972fd76b1dd9ff121d96",
+    "DATA_DICTIONARY.md": "2bf8e8885f01803eb2d9cfb2e03251706dcfb43a038269dc56ffb5932bb4a50b",
+    "F_DG_transition_atlas.csv": "d13c80501609504dc0a30cc4c922c08b9e917d781c40fad48ce96716f199284f",
+    "family_affinity_shares.csv": "42116df4eabce8902a70d79a4abf469370a8c3e05692a66fa662bbffb2d68cde",
+    "family_consensus_matrices.npz": "74a079145384c385c80bf77002407166dc84ea42a028ad69822137bee4626b48",
+    "index.html": "00e8bf2734b3b1be391e5acfeabb9005a3f2f792cdb94c1aace093d2d1286a45",
+    "input_checksums.csv": "79d7fdb52c07f699a598f51b8d655122f1cddf12e543b0c45210938777d3c314",
+    "leave_one_family_out.csv": "8984466fcc88fa212c8bd147f23f30fb72a2b23f464e0fbf74919fd23d330be6",
+    "leave_one_family_out_municipality.csv": "0c3a5ad63b8dc2932c4d685fef52a5eee7874f7434aa57bccc549f9fa8d5bb85",
+    "leave_one_family_out_summary.csv": "91dd34c3a18239879a1071521c62e659b61ec60e90f8bbc40c23cf1a1fc533ee",
+    "municipality_affinity_atlas.csv": "ab824219890eb9ff95528075a06b1f18efbb5edf409fa7bb46fdb35b50f40b99",
+    "profile_robustness_summary.csv": "265b5aec0ecdaa1a6ba7c47dc53faa09bfc7e90244de40ec374f6d854703fd58",
+    "run_manifest.json": "f20e51284f4b75cec093e080b504564945c5b16c421efc6d7bc9b15538dd6da9"
+  }
+}

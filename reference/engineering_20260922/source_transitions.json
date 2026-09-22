@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "base_commit": "b5c365057e991580893da72420fe854a5dd060aa",
+  "transitions": [
+    {
+      "path": "docs/CODEX_START_HERE.md",
+      "snapshot": "reference/engineering_20260922/snapshots/docs/CODEX_START_HERE.md",
+      "historical_sha256": "5541284c121383177617b1bf7e32eafee41058ac8958025673ef7188a8735612",
+      "historical_commit": "5c461cc",
+      "reason": "Documentation current-state synchronization",
+      "current_sha256": "409e3d6989164f2f85c85cc2c71a00962aab68965bd3e1de4c3605f79b6f6e4c"
+    },
+    {
+      "path": "docs/RESEARCH_STATE.md",
+      "snapshot": "reference/engineering_20260922/snapshots/docs/RESEARCH_STATE.md",
+      "historical_sha256": "06597327f9fb685d5cb9239161950f71b0aa9ddb5548793f8384fa6801931690",
+      "historical_commit": "5c461cc",
+      "reason": "Documentation current-state synchronization",
+      "current_sha256": "7a6029c6b856737110cf9d6fe279a93a8be280bfdd9960d462130ccecd2236cb"
+    },
+    {
+      "path": "docs/HYPOTHESIS_LEDGER.md",
+      "snapshot": "reference/engineering_20260922/snapshots/docs/HYPOTHESIS_LEDGER.md",
+      "historical_sha256": "fb7179d4cd1a072f60856db39d4e982968779a4739d5713b5f7d7c86dfc4da60",
+      "historical_commit": "5c461cc",
+      "reason": "Documentation current-state synchronization",
+      "current_sha256": "2d8c7fed5a6926a2a3de004fb9494efc325518cf41c52337c7a6bb134441bfe2"
+    },
+    {
+      "path": "docs/ARTIFACT_INDEX.md",
+      "snapshot": "reference/engineering_20260922/snapshots/docs/ARTIFACT_INDEX.md",
+      "historical_sha256": "86e4312eb451dc9915facb1813a4a0aac77873b1c7016a894788dda418d06c33",
+      "historical_commit": "5c461cc",
+      "reason": "Documentation current-state synchronization",
+      "current_sha256": "2ff4ae0d1e6fbfb9025597dddb5bc36d73d3707a4bb5a0ba09f05acb6fb56ef8"
+    },
+    {
+      "path": "scripts/build_competition_artifacts.py",
+      "snapshot": "reference/engineering_20260922/snapshots/scripts/build_competition_artifacts.py",
+      "historical_sha256": "e5e0030e67ac9e8bc27c6d5abe51f35a48c6505c8d91b241f9a834d77ebba6a2",
+      "historical_commit": "5c461cc",
+      "reason": "Import-only package path correction in 48299d1; helpers and calculations unchanged",
+      "current_sha256": "897c68ec064f970c8aaefe475245ee1fda5ab5137e7455436138323cba0c4606"
+    }
+  ]
+}

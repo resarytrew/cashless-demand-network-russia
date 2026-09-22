@@ -1,0 +1,68 @@
+{
+  "timestamp_utc": "2026-09-22T08:16:06.128660+00:00",
+  "branch": "codex/reproducibility-atlas-hardening",
+  "tests_passed": 54,
+  "tests_log": "outputs/engineering_20260922/tests.log",
+  "integrity_and_replay": {
+    "integrity": "PASS",
+    "old_frozen_files": 390,
+    "round16_frozen_files": 353,
+    "source_transitions": 5,
+    "scientific_status_changes": 0,
+    "numeric_replay": {
+      "passed": true,
+      "raw_new_runs_verified": 46,
+      "numeric_comparisons": 10937,
+      "reconstructed_feature_months_bitwise_equal": 24,
+      "scientific_status_changes": 0,
+      "scope": "forensic label/metric replay, not repeated optimization"
+    }
+  },
+  "atlas_replay": {
+    "exact_csv_matches": [
+      "anchor_affinity_comparison.csv",
+      "anchor_affinity_summary.csv",
+      "BE_metropolitan_gradient.csv",
+      "consensus_core_anchors.csv",
+      "family_affinity_shares.csv",
+      "F_DG_transition_atlas.csv",
+      "input_checksums.csv",
+      "leave_one_family_out.csv",
+      "leave_one_family_out_municipality.csv",
+      "leave_one_family_out_summary.csv",
+      "municipality_affinity_atlas.csv",
+      "profile_robustness_summary.csv"
+    ],
+    "consensus_matrix_exact": true,
+    "verified_output_files": 17,
+    "resume": {
+      "status": "verified_existing",
+      "output_dir": "C:\\Users\\enekr\\OneDrive\\Документы\\ChatGPT\\Sber\\outputs\\stability_atlas_v2_2_1",
+      "runs_recomputed": 0
+    },
+    "resume_mtimes_unchanged": true,
+    "baseline_source_revision": "b5c365057e991580893da72420fe854a5dd060aa",
+    "scope": "Comparison to saved-label Atlas v2.2 replay from the unmodified reviewed checkout; no clustering"
+  },
+  "browser_check": {
+    "search": "PASS",
+    "municipality_detail": "PASS",
+    "affinity_metrics": "PASS",
+    "24_month_saved_label_trajectory": "PASS",
+    "visual_readability": "PASS",
+    "tested_case": "Аларский муниципальный район"
+  },
+  "bundle": {
+    "path": "outputs/engineering_20260922/stability_atlas_v2_2_1.zip",
+    "bytes": 6310074,
+    "sha256": "d7b104daf78432f78ed27a514a4ce0be016b06ed0740f6cbbecde16b975fe36d",
+    "zip_entries_checked": true
+  },
+  "scientific_scope": "Engineering-only; no new clustering, no repeated seeds, no status changes",
+  "remaining_dependencies": [
+    "Official denominator/additivity metadata",
+    "Historical contextual inputs",
+    "Separate protocols for future sensitivity and prospective utility",
+    "Owner licensing/citation facts; remote release not published"
+  ]
+}

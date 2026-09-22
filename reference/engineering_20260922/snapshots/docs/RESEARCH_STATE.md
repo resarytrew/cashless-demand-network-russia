@@ -1,28 +1,5 @@
 # Research State — Distilled Project Context
 
-## Current state — Round16 evidence and Atlas 2.2.1 engineering release
-
-The machine-readable pointer is `docs/CURRENT_STATE.json`. Evidence v2.3.0 and
-Atlas v2.2.1 are separate versions. Scientific A–G statuses and the reference
-specification are unchanged. Round16 computational work is complete, but full
-acceptance remains limited by unavailable contextual inputs. Read
-`outputs/round16_evidence/ROUND16_FINAL_PRESUBMISSION_AUDIT.md` and
-`docs/ENGINEERING_HARDENING_20260922.md` before the historical context below.
-
-Context controls (geography, population/density, residualization) remain
-historical-only where their source inputs are unavailable. The descriptive B
-within-stratum comparison is separately reproducible. Total's denominator and
-category additivity remain unestablished. Consensus agreement does not remove
-these limits or establish geographic meanings for A–G.
-
-Use `python scripts/verify_current_artifacts.py` for the current checkout.
-The old standalone verifiers retain their historical scope and original bytes.
-Atlas v2.2.1 preserves v2.2 arithmetic on recorded inputs and adds configuration,
-input integrity, verified resume and explicit unresolved handling; it is not a
-new clustering experiment. See `docs/ATLAS_REPRODUCTION.md`.
-
-## Historical context — retained with the current scope above
-
 ## Current override — Rounds 14 and 15 completed
 
 Read the latest audits/findings in `outputs/leiden_robustness/` and `outputs/perturbation_v2/`; matrix version 2.2.0 is in `outputs/evidence_v2_2_0/`. The earlier context below is retained with this explicit supersession: historical canonical n=5 is **SUPERSEDED_NON_REPRODUCIBLE_HISTORICAL_PILOT**, not quantitative evidence. Any below-reference to pilot evidence or a pending high-rep task is historical and superseded by the provenance resolution and v2 results. Do not transfer old n=5 conclusions as confirmed claims.

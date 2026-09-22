@@ -21,8 +21,23 @@ jobs:
       - name: Test and verify frozen evidence
         shell: pwsh
         run: |
-          $env:PYTHONPATH = 'src;.'
+          $env:PYTHONPATH = 'src;.;scripts'
+          $env:PYTHONUTF8 = '1'
           python -m pytest -q
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python scripts/canonical_evidence_freeze.py verify
+          python scripts/verify_current_artifacts.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Build and resume current Atlas
+        shell: pwsh
+        run: |
+          $env:PYTHONPATH = 'src;.;scripts'
+          $env:PYTHONUTF8 = '1'
+          python scripts/build_soft_consensus_v2_2.py --output-dir "$env:RUNNER_TEMP/atlas-check"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/build_soft_consensus_v2_2.py --output-dir "$env:RUNNER_TEMP/atlas-check"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stability-atlas-v2-2-1
+          path: ${{ runner.temp }}/atlas-check/
+          if-no-files-found: error

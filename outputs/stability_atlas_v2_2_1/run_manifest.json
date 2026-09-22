@@ -1,0 +1,211 @@
+{
+  "managed_by": "sbernet.atlas_runner",
+  "resume_fingerprint": "081153b1b58f693c4b4f7331b42ea76683e7f5f8562fe9b8ea839a739b1df8d6",
+  "git_commit": "b5c365057e991580893da72420fe854a5dd060aa",
+  "git_dirty": true,
+  "timestamp_utc": "2026-09-22T08:13:48.011193+00:00",
+  "resolved_config": {
+    "atlas_version": "2.2.1",
+    "reference_month": "2024-12-01",
+    "reference_labels": "outputs/baseline/supra_labels.csv",
+    "profile_config": "configs/perturbation_v2.yaml",
+    "stability_table": "outputs/round16_competition/municipality_perturbation_stability.csv",
+    "input_registry": "reference/engineering_20260922/atlas_inputs.json",
+    "output_dir": "outputs/stability_atlas_v2_2_1",
+    "family_weights": {
+      "perturbation": 0.25,
+      "alpha": 0.25,
+      "gamma": 0.25,
+      "algorithm": 0.25
+    },
+    "anchor_fraction": 0.25,
+    "minimum_anchors": 2,
+    "vote_threshold": 3,
+    "stability_thresholds": {
+      "core_peer": 0.85,
+      "core_precision": 0.75,
+      "core_jaccard": 0.65,
+      "transition_peer": 0.75,
+      "transition_jaccard": 0.5
+    },
+    "tie_policy": "stable_profile_order",
+    "zero_affinity_policy": "unresolved",
+    "micro_policy": "descriptive_affinity_only",
+    "families": {
+      "perturbation": [
+        "outputs/perturbation_v2/seeds/00/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/01/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/02/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/03/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/04/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/05/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/06/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/07/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/08/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/09/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/10/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/11/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/12/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/13/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/14/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/15/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/16/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/17/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/18/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/19/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/20/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/21/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/22/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/23/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/24/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/25/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/26/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/27/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/28/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/29/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/30/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/31/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/32/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/33/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/34/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/35/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/36/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/37/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/38/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/39/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/40/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/41/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/42/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/43/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/44/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/45/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/46/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/47/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/48/supra_labels.npy",
+        "outputs/perturbation_v2/seeds/49/supra_labels.npy"
+      ],
+      "alpha": [
+        "outputs/alpha_50_50/supra_labels.csv",
+        "outputs/alpha_90_10/supra_labels.csv"
+      ],
+      "gamma": [
+        "outputs/round16_resolution/runs/resolution_0.25/supra_labels.npy",
+        "outputs/round16_resolution/runs/resolution_0.75/supra_labels.npy",
+        "outputs/round16_resolution/runs/resolution_1.0/supra_labels.npy"
+      ],
+      "algorithm": [
+        "outputs/leiden_robustness/supra_labels.csv"
+      ]
+    },
+    "input_registry_sha256": "4f7d92fad14658ff282fda091dfae31516d0861c61434f3a04e7da3e183a8fc8"
+  },
+  "config_file_sha256": "e83e21667f5604a9308924007e62a3c014f3b3fa300ea61f2fa07109aa6c7cba",
+  "input_registry_sha256": "4f7d92fad14658ff282fda091dfae31516d0861c61434f3a04e7da3e183a8fc8",
+  "source_sha256": {
+    "src/sbernet/robustness/atlas_report.html": "ebc7ba54ef0af94792e51858b97a20c1c84f165e79706b8064e9945e1501a5c7",
+    "src/sbernet/robustness/atlas_report.py": "9ea87147acd3b7c54c171d03648e2ce9fcfb3a195e3df2a8e66c3f146cf90ba6",
+    "src/sbernet/robustness/atlas_runner.py": "36df4f4694384d659ab005cddac88cafa4b5f3d5727338ae2d8b6479c74addfd",
+    "src/sbernet/robustness/soft_consensus.py": "4c747715d457854e73f103eb3647851131a5609177b12449553d99a2761f6b25",
+    "src/sbernet/robustness/soft_consensus_v2_2.py": "7eb3857240107aec402bdf41c8e6dfa9bf2e15e7b7d9d1aa3433ceac7cef54d0"
+  },
+  "runtime": {
+    "python": "3.13.6",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "packages": {
+      "numpy": "2.4.4",
+      "pandas": "2.3.3",
+      "PyYAML": "6.0.3"
+    }
+  },
+  "panel_ids_sha256": "4ed32a3a7f372d4b973dd0bf9c5eb9c0484e97c3f22462db896faafbe23423f2",
+  "months_sha256": "2da47a92328db7d3cd16962072aceb72bc0df32f8651fec4e542bd2ab1ab2b61",
+  "clustering_runs": 0,
+  "seed": null,
+  "seed_note": "Deterministic aggregation of explicitly listed saved runs",
+  "atlas_version": "2.2.1",
+  "method": "family_balanced_pairwise_coassignment_affinity_with_lofo_and_anchor_sensitivity",
+  "reference_month": "2024-12-01",
+  "n_municipalities": 1904,
+  "profiles": {
+    "A": 1,
+    "B": 3,
+    "C": 7,
+    "D": 8,
+    "E": 9,
+    "F": 10,
+    "G": 11
+  },
+  "family_order": [
+    "perturbation",
+    "alpha",
+    "gamma",
+    "algorithm"
+  ],
+  "family_weights_full": {
+    "perturbation": 0.25,
+    "alpha": 0.25,
+    "gamma": 0.25,
+    "algorithm": 0.25
+  },
+  "runs_per_family": {
+    "perturbation": 50,
+    "alpha": 2,
+    "gamma": 3,
+    "algorithm": 1
+  },
+  "terminology": {
+    "affinity_share": "row-normalized mean co-assignment affinity to reference groups; not a Bayesian probability",
+    "consensus_class": "profile with the largest affinity share",
+    "D_G_transition_direction": "For reference F, D/G-leaning requires at least 3 of 4 family votes; otherwise mixed"
+  },
+  "lofo": {
+    "runs": 4,
+    "families_per_run": 3,
+    "equal_weight_within_each_run": true
+  },
+  "anchor_sensitivity": {
+    "definition": "top fraction within each reference profile by full-consensus raw self-affinity",
+    "fraction": 0.25,
+    "independent_validation": false,
+    "purpose": "boundary-dilution sensitivity",
+    "counts": {
+      "A": 36,
+      "B": 25,
+      "C": 8,
+      "D": 39,
+      "E": 47,
+      "F": 82,
+      "G": 242
+    }
+  },
+  "F_reference_n": 327,
+  "F_consensus_class_counts": {
+    "D": 160,
+    "G": 124,
+    "F": 35,
+    "A": 8
+  },
+  "F_transition_direction_counts": {
+    "G-leaning": 161,
+    "D-leaning": 160,
+    "mixed": 6
+  },
+  "outputs": [
+    "consensus_matrix_dec2024.npy",
+    "family_consensus_matrices.npz",
+    "municipality_affinity_atlas.csv",
+    "leave_one_family_out.csv",
+    "leave_one_family_out_summary.csv",
+    "leave_one_family_out_municipality.csv",
+    "anchor_affinity_comparison.csv",
+    "anchor_affinity_summary.csv",
+    "consensus_core_anchors.csv",
+    "family_affinity_shares.csv",
+    "F_DG_transition_atlas.csv",
+    "BE_metropolitan_gradient.csv",
+    "profile_robustness_summary.csv",
+    "input_checksums.csv",
+    "index.html",
+    "DATA_DICTIONARY.md"
+  ]
+}

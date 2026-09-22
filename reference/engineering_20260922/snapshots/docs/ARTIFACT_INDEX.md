@@ -1,28 +1,5 @@
 # Artifact Index — What Codex Should Look At
 
-## Current state — Round16 evidence and Atlas 2.2.1 engineering release
-
-The machine-readable pointer is `docs/CURRENT_STATE.json`. Evidence v2.3.0 and
-Atlas v2.2.1 are separate versions. Scientific A–G statuses and the reference
-specification are unchanged. Round16 computational work is complete, but full
-acceptance remains limited by unavailable contextual inputs. Read
-`outputs/round16_evidence/ROUND16_FINAL_PRESUBMISSION_AUDIT.md` and
-`docs/ENGINEERING_HARDENING_20260922.md` before the historical context below.
-
-Context controls (geography, population/density, residualization) remain
-historical-only where their source inputs are unavailable. The descriptive B
-within-stratum comparison is separately reproducible. Total's denominator and
-category additivity remain unestablished. Consensus agreement does not remove
-these limits or establish geographic meanings for A–G.
-
-Use `python scripts/verify_current_artifacts.py` for the current checkout.
-The old standalone verifiers retain their historical scope and original bytes.
-Atlas v2.2.1 preserves v2.2 arithmetic on recorded inputs and adds configuration,
-input integrity, verified resume and explicit unresolved handling; it is not a
-new clustering experiment. See `docs/ATLAS_REPRODUCTION.md`.
-
-## Historical context — retained with the current scope above
-
 ## Latest evidence — completed Rounds 14 and 15
 
 - `docs/PERTURBATION_PILOT_PROVENANCE_RESOLUTION.md`: historical n=5 superseded; no quantitative reuse. Its files listed below remain historical reference only.
@@ -110,6 +87,6 @@ Files:
 - `reference/perturbation_pilot/run_supra_perturbation_consensus.py` — preserved historical runner documenting the accepted perturbation distribution/procedure.
 - `docs/PERTURBATION_PILOT_REFERENCE.md` — exact perturbation semantics and gate instructions.
 
-Historical instruction, superseded: this pilot is not a gate for v2. Use the canonical v2 protocol and its saved hash gates.
+The high-repetition run must reproduce this pilot first. Do not infer or redesign the perturbation distribution.
 
 The historical `configs/baseline.yaml` contains `perturbation_runs_target: 30`. Preserve that baseline file unchanged. The current requested expansion target is 50 and belongs in a new dedicated high-rep config.
