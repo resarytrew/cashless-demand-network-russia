@@ -1,0 +1,28 @@
+name: Public research visualization
+on:
+  push:
+    branches: [main, codex/public-stability-landscape]
+    paths: ['outputs/public_visualization/**', '.github/workflows/public-pages.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: public-pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: outputs/public_visualization
+      - name: Deploy public visualization
+        id: deployment
+        uses: actions/deploy-pages@v4

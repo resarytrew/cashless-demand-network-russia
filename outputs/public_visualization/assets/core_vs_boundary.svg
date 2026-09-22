@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="602.77875pt" height="293.4pt" viewBox="0 0 602.77875 293.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.7, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 293.4 
+L 602.77875 293.4 
+L 602.77875 0 
+L 0 0 
+z
+" style="fill: #faf9f5"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 174.6 244.35 
+C 199.017249 244.35 222.437719 234.648924 239.703321 217.383321 
+C 256.968924 200.117719 266.67 176.697249 266.67 152.28 
+C 266.67 127.862751 256.968924 104.442281 239.703321 87.176679 
+C 222.437719 69.911076 199.017249 60.21 174.6 60.21 
+C 150.182751 60.21 126.762281 69.911076 109.496679 87.176679 
+C 92.231076 104.442281 82.53 127.862751 82.53 152.28 
+C 82.53 176.697249 92.231076 200.117719 109.496679 217.383321 
+C 126.762281 234.648924 150.182751 244.35 174.6 244.35 
+z
+" clip-path="url(#pe2199b8f42)" style="fill: #297d72; opacity: 0.12; stroke: #297d72; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 163.44 216.45 
+C 180.458083 216.45 196.78144 209.688644 208.815042 197.655042 
+C 220.848644 185.62144 227.61 169.298083 227.61 152.28 
+C 227.61 135.261917 220.848644 118.93856 208.815042 106.904958 
+C 196.78144 94.871356 180.458083 88.11 163.44 88.11 
+C 146.421917 88.11 130.09856 94.871356 118.064958 106.904958 
+C 106.031356 118.93856 99.27 135.261917 99.27 152.28 
+C 99.27 169.298083 106.031356 185.62144 118.064958 197.655042 
+C 130.09856 209.688644 146.421917 216.45 163.44 216.45 
+z
+" clip-path="url(#pe2199b8f42)" style="fill: #297d72; opacity: 0.35; stroke: #297d72; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #263331" x="21.15" y="29.52" transform="rotate(-0 21.15 29.52)">Сохранить ядро ≠ сохранить границу</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 23px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #297d72" x="286.2" y="96.48" transform="rotate(-0 286.2 96.48)">97.6% сохранения</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #263331" x="286.2" y="124.38" transform="rotate(-0 286.2 124.38)">Сколько исходных участников осталось вместе?</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 23px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #297d72" x="286.2" y="174.6" transform="rotate(-0 286.2 174.6)">51.2% точности</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #263331" x="286.2" y="202.5" transform="rotate(-0 286.2 202.5)">Какая доля новой группы приходится на них?</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #263331" x="21.15" y="255.51" transform="rotate(-0 21.15 255.51)">Профиль D · средние по 50 проверкам; схема окружностей не задаёт площади множеств.</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', Arial, sans-serif; text-anchor: start; fill: #263331" x="21.15" y="277.83" transform="rotate(-0 21.15 277.83)">Почти всё ядро может сохраниться внутри значительно более широкой группы.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pe2199b8f42">
+   <rect x="7.2" y="7.2" width="558" height="279"/>
+  </clipPath>
+ </defs>
+</svg>

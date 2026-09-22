@@ -1,0 +1,35 @@
+version: 1
+# Fixed editorial geometry, declared before rendering; never fitted to data.
+anchors:
+  A: [370, 85]
+  B: [150, 180]
+  C: [650, 165]
+  D: [700, 360]
+  E: [110, 370]
+  F: [510, 540]
+  G: [285, 540]
+profiles:
+  A: '#24658a'
+  B: '#b27926'
+  C: '#7c7390'
+  D: '#297d72'
+  E: '#996344'
+  F: '#a05c7b'
+  G: '#555e69'
+profile_symbols: {A: '●', B: '■', C: '▲', D: '◆', E: '＋', F: '✕', G: '▼'}
+background: '#faf9f5'
+ink: '#263331'
+family_threshold: 0.60
+opacity: {floor: 0.28, range: 0.67}
+radius: {floor: 2.0, range: 2.3, exponent: 0.5}
+field: {step: 24, bandwidth: 38, cutoff: 114, minimum_support: 0.35}
+hard_layout: {radius: 62, angle_step: 2.399963229728653, micro: [410, 320]}
+story_scene_seconds: 12
+atlas: outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv
+external: outputs/round17_external_validation/external_validation_58.csv
+statistics: outputs/round17_external_validation/statistical_tests.csv
+gradient: outputs/round17_external_validation/dfg_gradient_altai.csv
+matrix: outputs/round16_evidence/MASTER_PROFILE_EVIDENCE_MATRIX_v2.3.0.csv
+family_matrices: outputs/stability_atlas_v2_2_1/family_consensus_matrices.npz
+output: outputs/public_visualization
+images: docs/images
