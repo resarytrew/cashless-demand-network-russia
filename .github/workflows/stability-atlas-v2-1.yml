@@ -1,0 +1,82 @@
+name: Stability Atlas v2.1
+
+on:
+  push:
+    branches:
+      - chatgpt/stability-atlas-v2-1
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  soft-consensus:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+
+      - name: Install minimal dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas PyYAML pytest
+          python -m pip install -e . --no-deps
+
+      - name: Unit tests
+        run: |
+          PYTHONPATH=src python -m pytest -q tests/test_soft_consensus.py
+
+      - name: Build family-balanced soft consensus
+        run: |
+          PYTHONPATH=src python scripts/build_soft_consensus.py \
+            --output-dir outputs/stability_atlas_v2_1
+
+      - name: Validate and print findings
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import pandas as pd
+
+          root = Path("outputs/stability_atlas_v2_1")
+          membership = pd.read_csv(root / "municipality_soft_membership.csv")
+          summary = pd.read_csv(root / "soft_consensus_summary.csv")
+          f = pd.read_csv(root / "F_transition_subtypes.csv")
+          be = pd.read_csv(root / "BE_gradient.csv")
+          manifest = json.loads((root / "run_manifest.json").read_text(encoding="utf-8"))
+
+          assert len(membership) == 1904
+          assert len(f) == 327
+          assert len(be) == 284
+          assert membership["panel_index"].is_unique
+          assert set(manifest["family_order"]) == {"perturbation", "alpha", "gamma", "algorithm"}
+          assert manifest["runs_per_family"] == {
+              "perturbation": 50, "alpha": 2, "gamma": 3, "algorithm": 1
+          }
+
+          print("\n=== SOFT CONSENSUS SUMMARY ===")
+          print(summary.to_string(index=False))
+          print("\n=== F TRANSITION SUBTYPES ===")
+          print(f["F_transition_subtype"].value_counts().to_string())
+          print("\n=== CONSENSUS PROFILE COUNTS ===")
+          print(membership["consensus_profile"].value_counts().sort_index().to_string())
+          print("\n=== REFERENCE MATCH ===")
+          print(membership["reference_match"].value_counts().to_string())
+          print("\n=== HIGHEST-ENTROPY F MUNICIPALITIES ===")
+          print(
+              f.sort_values("entropy", ascending=False)
+               .head(20)[["municipality","weight_D","weight_F","weight_G",
+                          "F_transition_subtype","entropy","margin"]]
+               .to_string(index=False)
+          )
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stability-atlas-v2-1
+          path: outputs/stability_atlas_v2_1/
+          if-no-files-found: error
