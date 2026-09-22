@@ -1,0 +1,65 @@
+{
+  "inputs_sha256": {
+    "outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv": "ab824219890eb9ff95528075a06b1f18efbb5edf409fa7bb46fdb35b50f40b99",
+    "outputs/round17_external_validation/external_validation_58.csv": "cbd0104565ab5683576355f461ec008bb03f4b99dadfdd93b72675e489ed3e00",
+    "outputs/round17_external_validation/statistical_tests.csv": "faf234eba9eb55741cc6d2f2b88ab300f2da525596d48c0c5fd2399104f635f9",
+    "outputs/round17_external_validation/dfg_gradient_altai.csv": "75a37e9f7f1fa1c6add4f068aeb0a061087fa6f866c6fb94003a646f5696e39e",
+    "outputs/round16_evidence/MASTER_PROFILE_EVIDENCE_MATRIX_v2.3.0.csv": "63f104b776d57aed8a880a4532f037088f6d7102b2bfc09e8431037ce0246a6c",
+    "outputs/stability_atlas_v2_2_1/family_consensus_matrices.npz": "74a079145384c385c80bf77002407166dc84ea42a028ad69822137bee4626b48"
+  },
+  "fields_used": [
+    "panel_index",
+    "municipality",
+    "reference_profile",
+    "consensus_class",
+    "second_class",
+    "affinity_share_A",
+    "affinity_share_B",
+    "affinity_share_C",
+    "affinity_share_D",
+    "affinity_share_E",
+    "affinity_share_F",
+    "affinity_share_G",
+    "top_affinity_share",
+    "second_affinity_share",
+    "affinity_margin",
+    "affinity_entropy",
+    "stability_class",
+    "perturbation_peer_coassignment",
+    "destination_precision",
+    "destination_jaccard",
+    "D_G_transition_direction",
+    "B_E_transition_direction"
+  ],
+  "external_fields": [
+    "region",
+    "reference_profile",
+    "salary_2024",
+    "investment_per_capita_2024",
+    "population_2024"
+  ],
+  "generation_script": "scripts/build_public_visuals.py",
+  "config_sha256": "07f57862f44341d404f1efaf2f0e235f71ac8b5de8055cbc53c4e8a31644367e",
+  "source_sha256": {
+    "src/sbernet/visualization/landscape.html": "7edb1890b6000b5690715d0e18c86c79d52e18de180fb32d6e92a7011ef1f4f7",
+    "src/sbernet/visualization/public.py": "3a38a8bd9f5caf864914544a05ec9e5d9cf3e00d0a52ba3f158c654df39f38d8",
+    "src/sbernet/visualization/stability_landscape.py": "4dde77949d84fede84e2e4e49d227d3115f0c0a9634da546960209fbf89ce743",
+    "src/sbernet/visualization/__init__.py": "ec9a98131235dc947e68277f843b66ec9e050c548abe5d8502d76e22862c3019"
+  },
+  "timestamp_utc": "2026-09-22T18:34:51.627752+00:00",
+  "git_commit": "26b9c05381e80da13e9751925fb0d947fd430f8e",
+  "git_dirty": true,
+  "coordinate_rule": "sum original affinity_share * fixed anchor; no renormalization/jitter",
+  "field_rule": "local display-weighted mean of (entropy+1-margin)/2; masked below support; config fixed",
+  "limitations": "Projection is many-to-one; pole distances are not economic distances. No new clustering.",
+  "summary": {
+    "D_retention": 0.9758169934640524,
+    "D_precision": 0.5116609246776777,
+    "internal_pairs": {
+      "DF": 0.4325637221336365,
+      "FG": 0.3215402364730835
+    },
+    "yakutia_n": 27
+  },
+  "visualization": "core_vs_boundary"
+}
