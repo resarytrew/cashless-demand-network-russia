@@ -87,12 +87,6 @@ For canonical perturbation protocol v2, require exact same-process, fresh-proces
 
 ## Current engineering state
 
-Round17 is now a separate external interpretation layer (evidence v2.4.0),
-with 58 matched municipalities and no clustering/model tuning. Read
-`docs/ROUND17_REPRODUCTION.md` and `outputs/round17_external_validation/RECOVERY_AUDIT.md`.
-Prior A–G robustness statuses remain unchanged. Round18 is PLAN_ONLY_NOT_RUN;
-its protocol is `docs/ROUND18_REPRESENTATION_ROBUSTNESS_PLAN.md`.
-
 Read `docs/CURRENT_STATE.json`, `docs/ENGINEERING_HARDENING_20260922.md` and
 `docs/ATLAS_REPRODUCTION.md`. Evidence v2.3.0 includes Round16; Atlas v2.2.1 is a
 separate engineering release. Use `scripts/verify_current_artifacts.py` for this

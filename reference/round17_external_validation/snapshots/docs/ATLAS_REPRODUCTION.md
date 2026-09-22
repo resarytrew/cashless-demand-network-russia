@@ -2,9 +2,7 @@
 
 This engineering release preserves the numerical v2.2 design on the authenticated
 recorded inputs. It is a deterministic saved-label aggregation, not new clustering
-or a new scientific evidence round. At that release evidence was v2.3.0.
-The separate Round17 interpretation layer is now v2.4.0; Atlas data and arithmetic
-remain unchanged. See [Round17 reproduction](ROUND17_REPRODUCTION.md).
+or a new scientific evidence round. Evidence remains v2.3.0.
 
 ## Run in the recorded environment
 
@@ -12,7 +10,6 @@ From the repository root, PowerShell:
 
 ```powershell
 python -m pip install -r outputs/evidence_v2_2_0/requirements-used.txt
-python -m pip install -r reference/round17_external_validation/requirements-replay.txt
 python -m pip install -e . --no-deps
 $env:PYTHONPATH = 'src;.;scripts'
 $env:PYTHONUTF8 = '1'

@@ -28,34 +28,19 @@ def verify_inventory(repo, inventory, snapshots=None):
 
 def verify_integrity(repo=Path(".")):
     repo = repo.resolve()
-    # Round17 is additive. Prior engineering/source bytes are retained in an
-    # explicit transition layer; evidence/data are always verified in place.
-    integration_path = repo / "reference/round17_external_validation/INTEGRATION_MANIFEST.json"
-    check_hash(integration_path, integration_path.with_suffix(".sha256").read_text().split()[0])
-    integration = json.loads(integration_path.read_text(encoding="utf-8"))
-    for path, checksum in integration["files_sha256"].items():
-        check_hash(repo / path, checksum)
-    round17_snapshots = {}
-    for item in integration["source_transitions"]:
-        if not item["path"].startswith(("docs/", "scripts/", ".github/")) and item["path"] not in (
-                "README.md", "pyproject.toml", "AGENTS.md"):
-            raise ValueError("Round17 cannot redirect data, evidence or model sources")
-        check_hash(repo / item["snapshot"], item["historical_sha256"])
-        check_hash(repo / item["path"], item["current_sha256"])
-        round17_snapshots[item["path"]] = item["snapshot"]
     provenance = repo / "reference/engineering_20260922"
     release_path = provenance / "ENGINEERING_MANIFEST.json"
     check_hash(release_path, release_path.with_suffix(".sha256").read_text().split()[0])
     release = json.loads(release_path.read_text(encoding="utf-8"))
     for path, checksum in release["files_sha256"].items():
-        check_hash(repo / round17_snapshots.get(path, path), checksum)
+        check_hash(repo / path, checksum)
     transitions = json.loads((provenance / "source_transitions.json").read_text())
     snapshots = {}
     for item in transitions["transitions"]:
         if item["path"].startswith(("outputs/", "data/")):
             raise ValueError("Data/evidence artifacts must be verified in place")
         check_hash(repo / item["snapshot"], item["historical_sha256"])
-        check_hash(repo / round17_snapshots.get(item["path"], item["path"]), item["current_sha256"])
+        check_hash(repo / item["path"], item["current_sha256"])
         snapshots[item["path"]] = item["snapshot"]
     old_root = repo / "outputs/evidence_freeze_v2_2_0"
     old_manifest = old_root / "EVIDENCE_FREEZE_MANIFEST.json"
@@ -64,7 +49,6 @@ def verify_integrity(repo=Path(".")):
     check_hash(repo / old["inventory_path"], old["inventory_sha256"])
     old_snapshots = {f"src/sbernet/{name}.py": f"reference/round16/pre_hardening/{name}.py"
                      for name in ("io", "pipeline", "cli")}
-    old_snapshots.update(round17_snapshots)
     old_snapshots.update(snapshots)
     old_count = verify_inventory(repo, old["inventory_path"], old_snapshots)
     new_root = repo / "outputs/round16_evidence"
@@ -73,14 +57,10 @@ def verify_integrity(repo=Path(".")):
     new = json.loads(new_manifest.read_text())
     inventory = "outputs/round16_evidence/ROUND16_FILES_SHA256.csv"
     check_hash(repo / inventory, new["inventory_sha256"])
-    new_count = verify_inventory(repo, inventory, {**round17_snapshots, **snapshots})
-    from sbernet.validation.external_economic import run
-    round17 = run("configs/round17_external_validation.yaml", repo)
+    new_count = verify_inventory(repo, inventory, snapshots)
     return {"integrity": "PASS", "old_frozen_files": old_count,
             "round16_frozen_files": new_count, "source_transitions": len(snapshots),
-            "scientific_status_changes": 0, "round17": round17["status"],
-            "round17_interpretation_layer": "v2.4.0; prior A-G robustness statuses unchanged",
-            "round17_source_transitions": len(round17_snapshots)}
+            "scientific_status_changes": 0}
 
 
 def replay_numeric():

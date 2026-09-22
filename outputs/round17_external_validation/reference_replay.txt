@@ -1,0 +1,12 @@
+rows=58; profiles={'A': 43, 'C': 4, 'D': 2, 'F': 2, 'G': 7}; regions={'Республика Алтай': 11, 'Республика Саха (Якутия)': 28, 'Хабаровский край': 15, 'Чукотский АО': 4}
+A_YAK_WAGE_INVEST {'value': 0.7905982905982906, 'p_value': 9.251319318281479e-07}
+A_YAK_WAGE_POP {'value': -0.17887667887667885, 'p_value': 0.37200723458615703}
+A_YAK_WAGE_URBAN {'value': 0.7146551991906125, 'p_value': 2.8154887877082662e-05}
+A_YAK_HC3_LOGINVEST {'value': 0.04288758488578259, 'p_value': 0.0033706530031247972}
+A_YAK_WAGE_2024_2025 {'value': 0.984126984126984, 'p_value': 2.70967333064304e-20}
+ALT_DFG_WAGE_GRADIENT {'value': 0.9258200997725515, 'p_value': 0.008049893100837698}
+ALT_DFG_ADJUSTED {'value': 0.19362560571721232, 'p_value': 0.08886930080635273}
+KHAB_A_G_WAGE {'value': 0.4090909090909091, 'p_value': 0.27985347985347986}
+CHU_A_WAGE_2024 {'value': 185074.3, 'p_value': None}
+CHU_A_WAGE_2025 {'value': 213819.7, 'p_value': None}
+PASS: all restored tests reproduce expected values within numerical tolerance.

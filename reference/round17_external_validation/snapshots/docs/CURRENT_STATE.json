@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "evidence_version": "2.3.0",
+  "atlas_version": "2.2.1",
+  "scientific_status_changes": false,
+  "reference_specification_changed": false,
+  "current_evidence_matrix": "outputs/round16_evidence/MASTER_PROFILE_EVIDENCE_MATRIX_v2.3.0.csv",
+  "scientific_status_registry": "outputs/round16_evidence/archetype_status_round16.csv",
+  "latest_research_audit": "outputs/round16_evidence/ROUND16_FINAL_PRESUBMISSION_AUDIT.md",
+  "engineering_audit": "docs/ENGINEERING_HARDENING_20260922.md",
+  "atlas_config": "configs/stability_atlas_v2_2_1.yaml",
+  "atlas_findings": "docs/STABILITY_ATLAS_V2_2_FINDINGS.md",
+  "verification_command": "python scripts/verify_current_artifacts.py",
+  "full_research_acceptance": false,
+  "limitations": [
+    "Total denominator and category additivity unresolved",
+    "Contextual inputs unavailable; controls remain historical-only",
+    "Third municipal contextual case not established",
+    "Atlas affinity shares are descriptive, not posterior probabilities",
+    "No new clustering or prospective utility experiment"
+  ]
+}

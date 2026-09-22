@@ -1,30 +1,6 @@
 # Artifact Index — What Codex Should Look At
 
-## Current state — Round17 external interpretation evidence (v2.4.0)
-
-Round17 adds 58 exact matches in four regions to current Atlas v2.2.1; it is an
-external interpretation layer, not a new clustering or a robustness-status upgrade.
-External measurements were not used to build or tune the original network.
-The selected sample is not nationally representative (A43/C4/D2/F2/G7; B/E absent).
-All ten recovered statistics reproduce, including the uncertain Khabarovsk A/G
-comparison and adjusted Altai result. Altai D2/F1/G3 supports only a limited
-regional wage gradient. Yakutia A wage/investment association is conditional and
-noncausal; employee wages are not household income and mining is not established.
-B–E remains internally supported but externally unassessed. C remains contextual /
-unresolved. F's transition interpretation gains limited external corroboration;
-prior boundary-stability qualifications remain. Seven equal universal economic
-archetypes remain rejected.
-
-Read [Round17 report](../outputs/round17_external_validation/INDEPENDENT_ECONOMIC_VALIDATION.md),
-[audit](../outputs/round17_external_validation/RECOVERY_AUDIT.md),
-[claim matrix](../outputs/round17_external_validation/CLAIM_EVIDENCE_MATRIX_v2.4.0.csv)
-and [current pointers](CURRENT_STATE.json). Raw source documents and source row/page
-locations are unavailable; normalized analytical data and statistics replay offline.
-No baseline, Round16, perturbation or existing Atlas outputs were changed.
-A–G scientific robustness statuses and the reference specification are unchanged.
-Round18 is [planned separately](ROUND18_REPRESENTATION_ROBUSTNESS_PLAN.md), not executed.
-
-## Preserved prior state — Round16 evidence and Atlas 2.2.1 engineering release
+## Current state — Round16 evidence and Atlas 2.2.1 engineering release
 
 The machine-readable pointer is `docs/CURRENT_STATE.json`. Evidence v2.3.0 and
 Atlas v2.2.1 are separate versions. Scientific A–G statuses and the reference

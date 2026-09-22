@@ -1,0 +1,21 @@
+{
+  "scope": "existing internal evidence; no new external B/E observations",
+  "BE_balanced_cross_coassignment": 0.49722084403038025,
+  "BE_algorithm_cross_coassignment": 0.9838709831237793,
+  "F_n": 327,
+  "F_consensus_counts": {
+    "A": 8,
+    "D": 160,
+    "F": 35,
+    "G": 124
+  },
+  "F_stability_counts": {
+    "transition": 327
+  },
+  "F_median_entropy": 0.637961360359647,
+  "F_median_margin": 0.0936442156650048,
+  "F_median_peer_coassignment": 0.6468711656441718,
+  "F_median_destination_precision": 0.4352510000693783,
+  "F_median_destination_jaccard": 0.3602193053495128,
+  "F_lofo_all_class_match_share": 0.5871559633027523
+}

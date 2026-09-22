@@ -1,0 +1,59 @@
+municipality,historical_profile,current_reference_profile,historical_consensus,current_consensus,historical_stability,current_stability,panel_index,historical_panel_index,panel_index_check,match_status
+Алданский муниципальный район,A,A,A,A,expansive_core,expansive_core,14,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Амгинский муниципальный район,A,A,A,A,expansive_core,expansive_core,23,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Амурский муниципальный район,A,A,A,A,expansive_core,expansive_core,24,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Анадырский муниципальный район,A,A,A,A,expansive_core,expansive_core,25,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Бикинский муниципальный район,A,A,A,A,expansive_core,expansive_core,101,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Билибинский муниципальный район,A,A,A,A,expansive_core,expansive_core,102,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Булунский муниципальный район,A,A,A,A,expansive_core,expansive_core,143,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Ванинский муниципальный район,A,A,A,A,expansive_core,expansive_core,155,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Верхнебуреинский муниципальный район,A,A,A,A,expansive_core,expansive_core,165,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Верхневилюйский муниципальный район,A,A,A,A,expansive_core,expansive_core,166,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Верхнеколымский муниципальный район,A,A,A,A,expansive_core,expansive_core,168,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Верхоянский муниципальный район,A,A,A,A,expansive_core,expansive_core,175,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Вилюйский муниципальный район,A,A,A,A,expansive_core,expansive_core,179,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Горный муниципальный район,A,A,A,A,expansive_core,expansive_core,215,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Кобяйский муниципальный район,A,A,A,A,expansive_core,expansive_core,408,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Комсомольский муниципальный округ,G,G,G,G,unresolved,unresolved,425,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Кош-Агачский муниципальный район,A,A,C,C,transition,transition,443,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Майминский муниципальный район,D,D,D,D,expansive_core,expansive_core,521,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Мегино-Кангаласский муниципальный район,A,A,A,A,expansive_core,expansive_core,542,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Мирнинский муниципальный район,A,A,A,A,expansive_core,expansive_core,558,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Намский муниципальный район,A,A,A,A,expansive_core,expansive_core,585,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Нанайский муниципальный район,G,G,G,G,unresolved,unresolved,586,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Нерюнгринский муниципальный район,A,A,A,A,expansive_core,expansive_core,595,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Нижнеколымский муниципальный район,A,A,A,A,stable_core,stable_core,604,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Нюрбинский муниципальный район,A,A,A,A,expansive_core,expansive_core,638,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Оймяконский муниципальный район,A,A,A,A,expansive_core,expansive_core,645,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Олекминский муниципальный район,A,A,A,A,expansive_core,expansive_core,649,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Оленекский эвенкийский национальный муниципальный район,A,A,A,A,expansive_core,expansive_core,650,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Онгудайский муниципальный район,C,C,C,C,transition,transition,660,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Охотский муниципальный округ,A,A,A,A,expansive_core,expansive_core,671,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Советско-Гаванский муниципальный район,A,A,A,A,expansive_core,expansive_core,806,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Солнечный муниципальный район,A,A,A,A,unresolved,unresolved,809,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Среднеколымский муниципальный район,A,A,A,A,stable_core,stable_core,819,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Сунтарский муниципальный район,F,F,A,A,transition,transition,839,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Таттинский муниципальный район,A,A,A,A,expansive_core,expansive_core,866,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Томпонский муниципальный район,A,A,A,A,expansive_core,expansive_core,891,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Турочакский муниципальный район,G,G,G,G,stable_core,stable_core,910,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Улаганский муниципальный район,C,C,C,C,transition,transition,931,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Ульчский муниципальный район,G,G,G,G,unresolved,unresolved,933,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Усть-Алданский муниципальный район,A,A,A,A,expansive_core,expansive_core,945,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Усть-Канский муниципальный район,C,C,C,C,transition,transition,953,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Усть-Коксинский муниципальный район,C,C,C,C,transition,transition,954,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Усть-Майский муниципальный район,A,A,A,A,expansive_core,expansive_core,958,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Усть-Янский муниципальный район,A,A,A,A,expansive_core,expansive_core,963,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Хабаровский муниципальный район,A,A,A,A,expansive_core,expansive_core,972,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Хангаласский муниципальный район,A,A,A,A,expansive_core,expansive_core,976,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Чемальский муниципальный район,F,F,G,G,transition,transition,1007,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Чойский муниципальный район,G,G,G,G,stable_core,stable_core,1024,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Чурапчинский муниципальный район,A,A,A,A,expansive_core,expansive_core,1029,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+Шебалинский муниципальный район,G,G,G,G,stable_core,stable_core,1040,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+городской округ Анадырь,A,A,A,A,expansive_core,expansive_core,1333,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+городской округ Эгвекинот,A,A,A,A,expansive_core,expansive_core,1559,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+городской округ город Горно-Алтайск,D,D,D,D,expansive_core,expansive_core,1601,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+городской округ город Комсомольск-на-Амуре,A,A,A,A,expansive_core,expansive_core,1636,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+городской округ город Хабаровск,A,A,A,A,expansive_core,expansive_core,1734,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+городской округ город Якутск,A,A,A,A,expansive_core,expansive_core,1747,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+муниципальный район имени Лазо,G,G,G,G,stable_core,stable_core,1902,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
+муниципальный район имени Полины Осипенко,A,A,A,A,expansive_core,expansive_core,1903,,NOT_IN_RECOVERY; ASSIGNED_FROM_CURRENT_ATLAS,MATCH
