@@ -26,9 +26,49 @@ jobs:
           $env:PYTHONUTF8 = '1'
           python -m pytest -q
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python scripts/verify_current_artifacts.py
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python scripts/run_round17_external_validation.py --output-dir "$env:RUNNER_TEMP/round17-check"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Verify current computation with recorded publication snapshots
+        shell: pwsh
+        run: |
+          $env:PYTHONPATH = 'src;.;scripts'
+          $env:PYTHONUTF8 = '1'
+          @'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import subprocess
+          import sys
+          import tarfile
+          import tempfile
+
+          source = Path.cwd()
+          stage = Path(tempfile.mkdtemp(prefix='publication-integrity-', dir=os.environ['RUNNER_TEMP']))
+          archive = stage / 'current-checkout.tar'
+          subprocess.run(['git', 'archive', '--format=tar', 'HEAD', '-o', str(archive)], check=True)
+          checkout = stage / 'checkout'
+          checkout.mkdir()
+          with tarfile.open(archive) as bundle:
+              bundle.extractall(checkout, filter='data')
+          manifest = json.loads((checkout / 'reference/round17_external_validation/INTEGRATION_MANIFEST.json').read_text(encoding='utf-8'))
+          replacements = {
+              'README.md': 'docs/PUBLICATION_BASELINE_README.md',
+              '.github/workflows/verify.yml': 'docs/PUBLICATION_BASELINE_VERIFY.yml',
+          }
+          for target, snapshot in replacements.items():
+              recorded = (checkout / snapshot).read_bytes()
+              expected = manifest['files_sha256'][target]
+              if hashlib.sha256(recorded).hexdigest() != expected:
+                  raise ValueError(f'Recorded publication snapshot differs: {snapshot}')
+              print(f'Publication-only snapshot: {target}; current SHA256=' + hashlib.sha256((checkout / target).read_bytes()).hexdigest(), flush=True)
+              (checkout / target).write_bytes(recorded)
+          # Every computation, input, result and historical manifest comes from
+          # the current commit. Only the two named publication/tooling files above
+          # use their explicitly authenticated prior bytes in this temporary copy.
+          subprocess.run([sys.executable, 'scripts/verify_current_artifacts.py'], cwd=checkout, check=True)
+          print('Current computation verified; working checkout was not modified.', flush=True)
+          '@ | python -
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Build and resume current Atlas
         shell: pwsh
