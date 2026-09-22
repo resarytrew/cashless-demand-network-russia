@@ -2,6 +2,18 @@
 
 *Network Structure of Local Cashless Consumer Demand across Russian Municipalities*
 
+## Текущая версия
+
+[Состояние проекта](docs/CURRENT_STATE.json) · [Инженерный аудит](docs/ENGINEERING_HARDENING_20260922.md) ·
+[Воспроизведение Atlas](docs/ATLAS_REPRODUCTION.md) · [Atlas CSV](outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv).
+
+Evidence остаётся v2.3.0. Atlas v2.2.1 добавляет защиту входов и outputs, YAML,
+полный manifest и автономный `index.html`; научные статусы не изменены.
+Скачайте папку `outputs/stability_atlas_v2_2_1` и откройте `index.html` для поиска
+муниципалитета и просмотра неопределённости. Affinity shares — описательные меры,
+не вероятности принадлежности. Проверка текущей версии:
+`python scripts/verify_current_artifacts.py`.
+
 ## Round 16 — pre-submission audit
 
 [Итоговый аудит](outputs/round16_evidence/ROUND16_FINAL_PRESUBMISSION_AUDIT.md) ·
@@ -34,7 +46,7 @@ PowerShell, из корня репозитория:
 $env:PYTHONPATH = 'src;.;scripts'
 $env:PYTHONUTF8 = '1'
 python -m pytest -q
-python scripts/verify_submission_artifacts.py
+python scripts/verify_current_artifacts.py
 ```
 
 Новый verifier проверяет старые390 frozen files, причём три изменённых инженерных модуля
@@ -42,7 +54,10 @@ python scripts/verify_submission_artifacts.py
 Все старые outputs проверяются на прежних местах и не изменены. Исходная команда
 `canonical_evidence_freeze.py verify` предназначена для checkout старой frozen ревизии:
 в рабочем дереве Round16 она закономерно сообщает изменения трёх source dependencies.
-Новый verifier также проверяет raw labels/метрики и новый SHA256 manifest.
+Текущий verifier также проверяет raw labels/метрики и отдельный engineering manifest.
+Исходный Round16 inventory сохранён: документированные изменения source/docs
+сверяются с историческими snapshots, текущие файлы — с отдельными хешами.
+Старый `verify_submission_artifacts.py` сохраняет область исторического checkout.
 
 Для повторных вычислений создайте изолированные конфиги. Заменяйте `check` на новый tag
 при следующем запуске. Завершённые checkpoints не пересчитываются; несовместимое окружение
@@ -164,7 +179,7 @@ python -m venv .venv
 python -m pip install -r outputs/evidence_v2_2_0/requirements-used.txt
 python -m pip install -e . --no-deps
 python -m pytest -q
-python scripts/verify_submission_artifacts.py
+python scripts/verify_current_artifacts.py
 ```
 
 Для тестов, импортирующих forensic scripts, при необходимости задайте `PYTHONPATH`: `$env:PYTHONPATH = 'src;.'` в PowerShell или `export PYTHONPATH=src:.` в macOS/Linux.

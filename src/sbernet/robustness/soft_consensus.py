@@ -109,19 +109,28 @@ def normalized_entropy(weights: np.ndarray) -> np.ndarray:
     weights = np.asarray(weights, dtype=np.float64)
     if weights.ndim != 2 or weights.shape[1] < 2:
         raise ValueError("Expected an n x K weight matrix with K >= 2")
+    if not np.isfinite(weights).all() or np.any(weights < 0):
+        raise ValueError("Affinities must be finite and nonnegative")
     positive = np.where(weights > 0, weights, 1.0)
     entropy = -np.sum(np.where(weights > 0, weights * np.log(positive), 0.0), axis=1)
-    return entropy / np.log(weights.shape[1])
+    result = entropy / np.log(weights.shape[1])
+    result[weights.sum(axis=1) == 0] = np.nan
+    return result
 
 
 def rank_memberships(profile_names: list[str], weights: np.ndarray) -> dict[str, np.ndarray]:
+    weights = np.asarray(weights, dtype=float)
+    if weights.ndim != 2 or weights.shape[1] != len(profile_names):
+        raise ValueError("Affinity shape differs from profiles")
+    if not np.isfinite(weights).all() or np.any(weights < 0):
+        raise ValueError("Affinities must be finite and nonnegative")
     order = np.argsort(-weights, axis=1, kind="stable")
     top = order[:, 0]
     second = order[:, 1]
     labels = np.asarray(profile_names, dtype=object)
     return {
-        "top_profile": labels[top],
-        "second_profile": labels[second],
+        "top_profile": np.where(weights.sum(axis=1) > 0, labels[top], "unresolved"),
+        "second_profile": np.where(weights.sum(axis=1) > 0, labels[second], "unresolved"),
         "top_weight": weights[np.arange(len(weights)), top],
         "second_weight": weights[np.arange(len(weights)), second],
         "margin": weights[np.arange(len(weights)), top]
@@ -226,14 +235,15 @@ def load_stability_table(path: Path, names: list[str]) -> pd.DataFrame | None:
     return frame.loc[names].reset_index()
 
 
-def stability_class(peer: float, precision: float, jaccard: float, profile: str) -> str:
+def stability_class(peer: float, precision: float, jaccard: float, profile: str, thresholds=None) -> str:
+    thresholds = thresholds or {"core_peer": 0.85, "core_precision": 0.75, "core_jaccard": 0.65, "transition_peer": 0.75, "transition_jaccard": 0.50}
     if profile == "micro":
         return "unresolved"
-    if peer >= 0.85 and precision >= 0.75 and jaccard >= 0.65:
+    if peer >= thresholds["core_peer"] and precision >= thresholds["core_precision"] and jaccard >= thresholds["core_jaccard"]:
         return "stable_core"
-    if peer >= 0.85 and (precision < 0.75 or jaccard < 0.65):
+    if peer >= thresholds["core_peer"] and (precision < thresholds["core_precision"] or jaccard < thresholds["core_jaccard"]):
         return "expansive_core"
-    if peer < 0.75 and jaccard < 0.50:
+    if peer < thresholds["transition_peer"] and jaccard < thresholds["transition_jaccard"]:
         return "transition"
     return "unresolved"
 

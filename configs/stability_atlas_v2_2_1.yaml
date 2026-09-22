@@ -1,0 +1,86 @@
+atlas_version: 2.2.1
+reference_month: '2024-12-01'
+reference_labels: outputs/baseline/supra_labels.csv
+profile_config: configs/perturbation_v2.yaml
+stability_table: outputs/round16_competition/municipality_perturbation_stability.csv
+input_registry: reference/engineering_20260922/atlas_inputs.json
+output_dir: outputs/stability_atlas_v2_2_1
+family_weights:
+  perturbation: 0.25
+  alpha: 0.25
+  gamma: 0.25
+  algorithm: 0.25
+anchor_fraction: 0.25
+minimum_anchors: 2
+vote_threshold: 3
+stability_thresholds:
+  core_peer: 0.85
+  core_precision: 0.75
+  core_jaccard: 0.65
+  transition_peer: 0.75
+  transition_jaccard: 0.5
+tie_policy: stable_profile_order
+zero_affinity_policy: unresolved
+micro_policy: descriptive_affinity_only
+families:
+  perturbation:
+  - outputs/perturbation_v2/seeds/00/supra_labels.npy
+  - outputs/perturbation_v2/seeds/01/supra_labels.npy
+  - outputs/perturbation_v2/seeds/02/supra_labels.npy
+  - outputs/perturbation_v2/seeds/03/supra_labels.npy
+  - outputs/perturbation_v2/seeds/04/supra_labels.npy
+  - outputs/perturbation_v2/seeds/05/supra_labels.npy
+  - outputs/perturbation_v2/seeds/06/supra_labels.npy
+  - outputs/perturbation_v2/seeds/07/supra_labels.npy
+  - outputs/perturbation_v2/seeds/08/supra_labels.npy
+  - outputs/perturbation_v2/seeds/09/supra_labels.npy
+  - outputs/perturbation_v2/seeds/10/supra_labels.npy
+  - outputs/perturbation_v2/seeds/11/supra_labels.npy
+  - outputs/perturbation_v2/seeds/12/supra_labels.npy
+  - outputs/perturbation_v2/seeds/13/supra_labels.npy
+  - outputs/perturbation_v2/seeds/14/supra_labels.npy
+  - outputs/perturbation_v2/seeds/15/supra_labels.npy
+  - outputs/perturbation_v2/seeds/16/supra_labels.npy
+  - outputs/perturbation_v2/seeds/17/supra_labels.npy
+  - outputs/perturbation_v2/seeds/18/supra_labels.npy
+  - outputs/perturbation_v2/seeds/19/supra_labels.npy
+  - outputs/perturbation_v2/seeds/20/supra_labels.npy
+  - outputs/perturbation_v2/seeds/21/supra_labels.npy
+  - outputs/perturbation_v2/seeds/22/supra_labels.npy
+  - outputs/perturbation_v2/seeds/23/supra_labels.npy
+  - outputs/perturbation_v2/seeds/24/supra_labels.npy
+  - outputs/perturbation_v2/seeds/25/supra_labels.npy
+  - outputs/perturbation_v2/seeds/26/supra_labels.npy
+  - outputs/perturbation_v2/seeds/27/supra_labels.npy
+  - outputs/perturbation_v2/seeds/28/supra_labels.npy
+  - outputs/perturbation_v2/seeds/29/supra_labels.npy
+  - outputs/perturbation_v2/seeds/30/supra_labels.npy
+  - outputs/perturbation_v2/seeds/31/supra_labels.npy
+  - outputs/perturbation_v2/seeds/32/supra_labels.npy
+  - outputs/perturbation_v2/seeds/33/supra_labels.npy
+  - outputs/perturbation_v2/seeds/34/supra_labels.npy
+  - outputs/perturbation_v2/seeds/35/supra_labels.npy
+  - outputs/perturbation_v2/seeds/36/supra_labels.npy
+  - outputs/perturbation_v2/seeds/37/supra_labels.npy
+  - outputs/perturbation_v2/seeds/38/supra_labels.npy
+  - outputs/perturbation_v2/seeds/39/supra_labels.npy
+  - outputs/perturbation_v2/seeds/40/supra_labels.npy
+  - outputs/perturbation_v2/seeds/41/supra_labels.npy
+  - outputs/perturbation_v2/seeds/42/supra_labels.npy
+  - outputs/perturbation_v2/seeds/43/supra_labels.npy
+  - outputs/perturbation_v2/seeds/44/supra_labels.npy
+  - outputs/perturbation_v2/seeds/45/supra_labels.npy
+  - outputs/perturbation_v2/seeds/46/supra_labels.npy
+  - outputs/perturbation_v2/seeds/47/supra_labels.npy
+  - outputs/perturbation_v2/seeds/48/supra_labels.npy
+  - outputs/perturbation_v2/seeds/49/supra_labels.npy
+  alpha:
+  - outputs/alpha_50_50/supra_labels.csv
+  - outputs/alpha_90_10/supra_labels.csv
+  gamma:
+  - outputs/round16_resolution/runs/resolution_0.25/supra_labels.npy
+  - outputs/round16_resolution/runs/resolution_0.75/supra_labels.npy
+  - outputs/round16_resolution/runs/resolution_1.0/supra_labels.npy
+  algorithm:
+  - outputs/leiden_robustness/supra_labels.csv
+input_registry_sha256: 4f7d92fad14658ff282fda091dfae31516d0861c61434f3a04e7da3e183a8fc8

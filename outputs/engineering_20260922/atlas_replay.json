@@ -1,0 +1,26 @@
+{
+  "exact_csv_matches": [
+    "anchor_affinity_comparison.csv",
+    "anchor_affinity_summary.csv",
+    "BE_metropolitan_gradient.csv",
+    "consensus_core_anchors.csv",
+    "family_affinity_shares.csv",
+    "F_DG_transition_atlas.csv",
+    "input_checksums.csv",
+    "leave_one_family_out.csv",
+    "leave_one_family_out_municipality.csv",
+    "leave_one_family_out_summary.csv",
+    "municipality_affinity_atlas.csv",
+    "profile_robustness_summary.csv"
+  ],
+  "consensus_matrix_exact": true,
+  "verified_output_files": 17,
+  "resume": {
+    "status": "verified_existing",
+    "output_dir": "C:\\Users\\enekr\\OneDrive\\\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b\\ChatGPT\\Sber\\outputs\\stability_atlas_v2_2_1",
+    "runs_recomputed": 0
+  },
+  "resume_mtimes_unchanged": true,
+  "baseline_source_revision": "b5c365057e991580893da72420fe854a5dd060aa",
+  "scope": "Comparison to saved-label Atlas v2.2 replay from the unmodified reviewed checkout; no clustering"
+}

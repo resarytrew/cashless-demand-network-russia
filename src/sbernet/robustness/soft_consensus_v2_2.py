@@ -85,6 +85,7 @@ def select_consensus_core_anchors(
     profile_names: list[str],
     raw_full_affinity: np.ndarray,
     fraction: float = 0.25,
+    minimum_anchors: int = 2,
 ) -> dict[str, np.ndarray]:
     """Select exactly the top fraction of each reference profile as core anchors.
 
@@ -98,7 +99,7 @@ def select_consensus_core_anchors(
         members = np.flatnonzero(reference_profiles == profile)
         if members.size < 2:
             raise ValueError(f"Reference profile {profile} has fewer than two members")
-        k = max(2, int(math.ceil(members.size * fraction)))
+        k = min(members.size, max(minimum_anchors, int(math.ceil(members.size * fraction))))
         scores = raw_full_affinity[members, col]
         order = np.lexsort((members, -scores))
         anchors[profile] = np.sort(members[order[:k]])
@@ -279,9 +280,10 @@ def _anchor_analysis(
     full_shares: np.ndarray,
     full_frame: pd.DataFrame,
     fraction: float,
+    minimum_anchors: int = 2,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict[str, np.ndarray]]:
     anchors = select_consensus_core_anchors(
-        reference_profile, profile_names, raw_full, fraction=fraction
+        reference_profile, profile_names, raw_full, fraction=fraction, minimum_anchors=minimum_anchors
     )
     anchor_raw, anchor_shares = affinities_to_members(consensus, profile_names, anchors)
     anchor_frame = _membership_frame(
@@ -348,29 +350,25 @@ def _anchor_analysis(
     return comparison, pd.DataFrame(summary_rows), anchors
 
 
-def run(
+def build_tables(
     repo: Path,
     output_dir: Path,
     expected_perturbation_runs: int = 50,
     anchor_fraction: float = 0.25,
+    validated_inputs=None,
+    settings=None,
 ) -> dict[str, object]:
-    repo = repo.resolve()
-    output_dir = output_dir.resolve()
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    reference_path = repo / "outputs/baseline/supra_labels.csv"
-    profile_config = repo / "configs/perturbation_v2.yaml"
-    stability_path = (
-        repo / "outputs/round16_competition/municipality_perturbation_stability.csv"
-    )
-    names, months, reference_dec = v21.load_reference(reference_path)
+    if validated_inputs is None or settings is None:
+        raise ValueError("Use atlas_runner.run with a verified YAML configuration")
+    (names, months, reference_dec, family_paths, family_labels) = validated_inputs
+    reference_path = repo / settings["reference_labels"]
+    profile_config = repo / settings["profile_config"]
+    stability_path = repo / settings["stability_table"]
     profiles = v21.load_profile_map(profile_config)
     profile_names = list(profiles)
     reference_profile = v21._reference_profile_names(reference_dec, profiles)
-
-    family_paths, family_labels, family_matrices = _load_families(
-        repo, expected_perturbation_runs, names, months
-    )
+    family_matrices = {family: v21.coassignment_matrix(labels)
+                       for family, labels in family_labels.items()}
     consensus = v21.balanced_consensus(family_matrices)
     np.save(output_dir / "consensus_matrix_dec2024.npy", consensus)
     np.savez_compressed(
@@ -403,8 +401,8 @@ def run(
     frame["family_votes_G_over_D"] = g_wins
     frame["family_votes_B_over_E"] = b_wins
     frame["family_votes_E_over_B"] = e_wins
-    dg_direction = transition_direction(d_wins, g_wins, "D", "G")
-    be_direction = transition_direction(b_wins, e_wins, "B", "E")
+    dg_direction = transition_direction(d_wins, g_wins, "D", "G", settings["vote_threshold"])
+    be_direction = transition_direction(b_wins, e_wins, "B", "E", settings["vote_threshold"])
     frame["D_G_transition_direction"] = np.where(
         reference_profile == "F", dg_direction, ""
     )
@@ -418,7 +416,7 @@ def run(
         frame["destination_precision"] = stability["destination_precision"].to_numpy()
         frame["destination_jaccard"] = stability["destination_jaccard"].to_numpy()
         frame["stability_class"] = [
-            v21.stability_class(peer, precision, jaccard, profile)
+            v21.stability_class(peer, precision, jaccard, profile, settings["stability_thresholds"])
             for peer, precision, jaccard, profile in zip(
                 frame["perturbation_peer_coassignment"],
                 frame["destination_precision"],
@@ -452,6 +450,7 @@ def run(
         shares_full,
         frame,
         anchor_fraction,
+        settings["minimum_anchors"],
     )
     anchor_small = anchor_comparison[
         [
@@ -617,7 +616,7 @@ def run(
 
     f = frame[frame["reference_profile"] == "F"]
     manifest = {
-        "atlas_version": "2.2",
+        "atlas_version": settings["atlas_version"],
         "method": "family_balanced_pairwise_coassignment_affinity_with_lofo_and_anchor_sensitivity",
         "reference_month": months[-1],
         "n_municipalities": len(names),
@@ -680,30 +679,12 @@ def run(
             "input_checksums.csv",
         ],
     }
-    (output_dir / "run_manifest.json").write_text(
-        json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8"
-    )
     return manifest
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--repo", type=Path, default=Path("."))
-    parser.add_argument(
-        "--output-dir",
-        type=Path,
-        default=Path("outputs/stability_atlas_v2_2"),
-    )
-    parser.add_argument("--expected-perturbation-runs", type=int, default=50)
-    parser.add_argument("--anchor-fraction", type=float, default=0.25)
-    args = parser.parse_args()
-    manifest = run(
-        repo=args.repo,
-        output_dir=args.output_dir,
-        expected_perturbation_runs=args.expected_perturbation_runs,
-        anchor_fraction=args.anchor_fraction,
-    )
-    print(json.dumps(manifest, indent=2, ensure_ascii=False))
+    from .atlas_runner import main as hardened_main
+    hardened_main()
 
 
 if __name__ == "__main__":
