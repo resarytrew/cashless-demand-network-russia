@@ -1,0 +1,46 @@
+name: Tests and evidence integrity
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - name: Install recorded dependencies
+        run: |
+          python -m pip install -r outputs/evidence_v2_2_0/requirements-used.txt
+          python -m pip install -r reference/round17_external_validation/requirements-replay.txt
+          python -m pip install -e . --no-deps
+      - name: Test and verify frozen evidence
+        shell: pwsh
+        run: |
+          $env:PYTHONPATH = 'src;.;scripts'
+          $env:PYTHONUTF8 = '1'
+          python -m pytest -q
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/verify_current_artifacts.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/run_round17_external_validation.py --output-dir "$env:RUNNER_TEMP/round17-check"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Build and resume current Atlas
+        shell: pwsh
+        run: |
+          $env:PYTHONPATH = 'src;.;scripts'
+          $env:PYTHONUTF8 = '1'
+          python scripts/build_soft_consensus_v2_2.py --output-dir "$env:RUNNER_TEMP/atlas-check"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/build_soft_consensus_v2_2.py --output-dir "$env:RUNNER_TEMP/atlas-check"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stability-atlas-v2-2-1
+          path: ${{ runner.temp }}/atlas-check/
+          if-no-files-found: error
