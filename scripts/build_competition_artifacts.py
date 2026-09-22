@@ -17,7 +17,7 @@ from sbernet.io import read_semicolon_zip, build_strict_panel
 from sbernet.robustness.experiment_common import load_baseline, save_json, make_manifest
 from sbernet.robustness.region_null import admin_form
 from sbernet.robustness.reproduction_gate import sha256
-from round16_common import require_fresh, seal
+from scripts.round16_common import require_fresh, seal
 
 PARTS = ['Food', 'Health', 'Catering', 'Marketplace', 'Transport', 'Other']
 
