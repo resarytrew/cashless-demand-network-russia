@@ -30,8 +30,8 @@ def walk_no_nan(value) -> bool:
 
 def check_required() -> None:
     required=[
-        FINAL/"synthetic_temporal/run_manifest.json", FINAL/"geographic_confounding/run_manifest.json",
-        FINAL/"profile_naming/profile_evidence_table.csv", FINAL/"story_data/summary.json",
+        FINAL/"synthetic_temporal_v3/run_manifest.json", FINAL/"geographic_confounding/run_manifest.json",
+        FINAL/"profile_naming/profile_evidence_table.csv", FINAL/"story_data_v3/summary.json",
         FINAL/"external_validation_national_20261006_r6/run_manifest.json",
     ]
     missing=[str(x.relative_to(ROOT)) for x in required if not x.exists()]
@@ -42,7 +42,7 @@ def check_required() -> None:
     external_completion = json.loads((FINAL / "external_validation_national_20261006_r6/COMPLETED.json").read_text(encoding="utf-8"))
     if external_completion.get("status") != "COMPLETED_NATIONAL_EXTERNAL_INTERPRETATION":
         raise ValueError("National external-validation completion marker is invalid")
-    story=FINAL/"story_data"; files=sorted(story.glob("*.json"))
+    story=FINAL/"story_data_v3"; files=sorted(story.glob("*.json"))
     expected={"summary.json","profiles.json","municipalities.json","external_validation.json","external_prediction.json","regional_generalization.json","temporal_benchmark.json","transition_flows.json","temporal_trajectories.json","robustness.json","icvi.json"}
     if {x.name for x in files} != expected: raise ValueError("Story JSON contract is incomplete or has unexpected files")
     for file in files:
@@ -61,10 +61,12 @@ def main(skip_tests: bool) -> None:
         # without claiming that untouched historical style debt is clean.
         run([sys.executable, "-m", "ruff", "check", "--select", "F",
              "src/sbernet/synthetic_temporal.py", "src/sbernet/regional_validation.py",
+             "src/sbernet/graph.py",
              "scripts/run_synthetic_temporal_benchmark.py", "scripts/run_geographic_confounding.py",
              "scripts/build_profile_naming.py", "scripts/build_final_story_data.py",
-             "scripts/verify_presubmission_current.py", "tests/test_synthetic_temporal.py",
-             "tests/test_regional_validation.py", "tests/test_final_story_data.py"])
+             "scripts/run_presubmission_experiments.py", "scripts/verify_presubmission_current.py",
+             "tests/test_graph.py", "tests/test_synthetic_temporal.py", "tests/test_regional_validation.py",
+             "tests/test_final_story_data.py"])
         with tempfile.TemporaryDirectory(prefix="presubmission-baseline-") as temporary:
             run([sys.executable,"-m","sbernet.robustness.reproduction_gate","--config","configs/baseline.yaml","--output",str(Path(temporary)/"baseline")])
     check_required()

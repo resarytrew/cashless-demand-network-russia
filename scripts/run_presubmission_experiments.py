@@ -6,7 +6,6 @@ from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
-import shutil
 
 import networkx as nx
 import numpy as np
@@ -79,7 +78,6 @@ def temporal_switches(labels: np.ndarray) -> dict:
 def run_round18(config_path: str) -> None:
     cfg = load_config(config_path)
     output = Path(cfg["paths"]["output_dir"])
-    root = Path(cfg["experiment"]["output_root"])
     gate(Path(cfg["experiment"]["baseline_gate_dir"]))
     fresh(output)
     cfg, names, keys, matrices = prepared(config_path)
@@ -149,8 +147,8 @@ def aggregate_round18(root: str = "outputs/round18_representation") -> None:
         "The reference gate passed before all variants. `Other` is never constructed in R1/R2.\n", encoding="utf-8")
 
 
-def run_edge(config_path: str, output: str) -> None:
-    cfg = load_config(config_path); gate(Path("outputs/presubmission_upgrade/baseline_gate")); fresh(Path(output))
+def run_edge(config_path: str, output: str, baseline_gate_dir: str) -> None:
+    cfg = load_config(config_path); gate(Path(baseline_gate_dir)); fresh(Path(output))
     cfg, names, keys, matrices = prepared(config_path); x = matrices[keys[-1]]
     reference = pd.read_csv("outputs/baseline/static_dec2024_labels.csv").set_index("mo").loc[names, "community"].to_numpy()
     rows = []
@@ -166,7 +164,8 @@ def run_edge(config_path: str, output: str) -> None:
     (Path(output) / "EDGE_SENSITIVITY.md").write_text(
         "# Edge-rule sensitivity\n\nMutual-kNN keeps only reciprocal local similarities, yielding a sparser graph than union-kNN, which keeps a pair when either endpoint nominates the other. "
         "This fixed grid is descriptive: it reports how sparsity and detected communities change and does not choose k by ICVI. See `edge_sensitivity.csv`.\n", encoding="utf-8")
-    write_json(Path(output) / "run_manifest.json", {**manifest(config_path, cfg, "edge_sensitivity"), "status": "completed"})
+    write_json(Path(output) / "run_manifest.json", {**manifest(config_path, cfg, "edge_sensitivity"),
+                                                       "baseline_gate_dir": baseline_gate_dir, "status": "completed"})
 
 
 def run_omega(config_path: str, output: str) -> None:
@@ -196,10 +195,10 @@ if __name__ == "__main__":
     sub = parser.add_subparsers(dest="command", required=True)
     round18 = sub.add_parser("round18"); round18.add_argument("--config", required=True)
     aggregate = sub.add_parser("aggregate-round18"); aggregate.add_argument("--root", default="outputs/round18_representation")
-    edge = sub.add_parser("edge"); edge.add_argument("--config", default="configs/baseline.yaml"); edge.add_argument("--output", default="outputs/presubmission_upgrade/edge_sensitivity")
+    edge = sub.add_parser("edge"); edge.add_argument("--config", default="configs/baseline.yaml"); edge.add_argument("--output", default="outputs/presubmission_upgrade/edge_sensitivity"); edge.add_argument("--baseline-gate-dir", default="outputs/presubmission_upgrade/baseline_gate")
     omega = sub.add_parser("omega"); omega.add_argument("--config", default="configs/baseline.yaml"); omega.add_argument("--output", default="outputs/presubmission_upgrade/temporal_sensitivity")
     args = parser.parse_args()
     if args.command == "round18": run_round18(args.config)
     elif args.command == "aggregate-round18": aggregate_round18(args.root)
-    elif args.command == "edge": run_edge(args.config, args.output)
+    elif args.command == "edge": run_edge(args.config, args.output, args.baseline_gate_dir)
     else: run_omega(args.config, args.output)

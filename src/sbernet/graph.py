@@ -26,7 +26,15 @@ def knn_graph(x: np.ndarray, k: int, isolate_fallback: bool, mutual: bool = True
     for i in range(len(x)):
         for j_raw in neighbors[i]:
             j = int(j_raw)
-            if j <= i or (mutual and i not in neighbor_sets[j]):
+            if mutual:
+                # A reciprocal pair is visited twice.  Retain it once, on the
+                # higher-index nomination, exactly as in the reference graph.
+                if j <= i or i not in neighbor_sets[j]:
+                    continue
+            elif graph.has_edge(i, j):
+                # Union-kNN retains either directed nomination.  Unlike the
+                # mutual case, the first nomination may come from the
+                # higher-index endpoint, so an index-order filter is invalid.
                 continue
             d = float(np.linalg.norm(x[i] - x[j]))
             denom = float(sigma[i] * sigma[j]) + 1e-12

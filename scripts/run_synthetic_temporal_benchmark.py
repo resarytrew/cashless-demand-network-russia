@@ -1,6 +1,6 @@
 """Run the preregistered small controlled temporal-network benchmark."""
 from __future__ import annotations
-import argparse, hashlib, json
+import argparse, hashlib, json, subprocess, sys
 from pathlib import Path
 import numpy as np
 import pandas as pd
@@ -49,9 +49,17 @@ def main(path: str) -> None:
     wide["balanced_tradeoff_best"]=wide.balanced_utility.eq(maxima)
     wide.to_csv(out/"pareto_summary.csv",index=False)
     all_omega=wide.groupby("omega",as_index=False)[["ari","switch_f1","false_switch_rate","absolute_change_point_delay","balanced_utility"]].mean(numeric_only=True)
-    report=f"""# Synthetic temporal benchmark\n\nA controlled benchmark used the reference-style composition (five centred composition coordinates) plus level block, mutual-kNN graphs, Louvain resolution .5, and a preregistered omega grid 0/.25/.5/1/2/4. It is not fitted to Russian data. Six scenarios and {experiment['seeds']} independently seeded panels per scenario are recorded in `seed_metrics.csv`.\n\nAcross scenarios, maximum mean partition ARI occurs at omega={all_omega.loc[all_omega.ari.idxmax(),'omega']:.2g}; maximum switch F1 at omega={all_omega.loc[all_omega.switch_f1.idxmax(),'omega']:.2g}; and minimum false-switch rate at omega={all_omega.loc[all_omega.false_switch_rate.idxmin(),'omega']:.2g}. The transparent equal-weight balanced reporting utility is highest at omega={all_omega.loc[all_omega.balanced_utility.idxmax(),'omega']:.2g}. Scenario-specific results and CIs are in `omega_aggregate.csv` and `pareto_summary.csv`; a universal omega is not inferred.\n\nReference omega=2 is reported as one fixed trade-off specification. A calibrated specification is only reported where a scenario's preregistered utility is higher; it does not replace historical reference outputs.\n"""
+    role_note = ""
+    if "mixed" in generator["scenarios"]:
+        role_note = ("\nThe mixed scenario has disjoint node roles fixed before simulation: "
+                     f"{generator['mixed_switch_fraction']:.0%} true switches, "
+                     f"{generator['mixed_boundary_fraction']:.0%} boundary-only nodes, "
+                     f"{generator['mixed_shock_fraction']:.0%} temporary-shock-only nodes, "
+                     f"and {1-generator['mixed_switch_fraction']-generator['mixed_boundary_fraction']-generator['mixed_shock_fraction']:.0%} stable nodes. "
+                     "Only true-switch nodes change latent truth.\n")
+    report=f"""# Synthetic temporal benchmark\n\nA controlled benchmark used the reference-style composition (five centred composition coordinates) plus level block, mutual-kNN graphs, Louvain resolution .5, and a preregistered omega grid 0/.25/.5/1/2/4. It is not fitted to Russian data. Six scenarios and {experiment['seeds']} independently seeded panels per scenario are recorded in `seed_metrics.csv`.{role_note}\nAcross scenarios, maximum mean partition ARI occurs at omega={all_omega.loc[all_omega.ari.idxmax(),'omega']:.2g}; maximum switch F1 at omega={all_omega.loc[all_omega.switch_f1.idxmax(),'omega']:.2g}; and minimum false-switch rate at omega={all_omega.loc[all_omega.false_switch_rate.idxmin(),'omega']:.2g}. The transparent equal-weight balanced reporting utility is highest at omega={all_omega.loc[all_omega.balanced_utility.idxmax(),'omega']:.2g}. Scenario-specific results and CIs are in `omega_aggregate.csv` and `pareto_summary.csv`; a universal omega is not inferred.\n\nReference omega=2 is reported as one fixed trade-off specification. A calibrated specification is only reported where a scenario's preregistered utility is higher; it does not replace historical reference outputs.\n"""
     (out/"SYNTHETIC_TEMPORAL_REPORT.md").write_text(report,encoding="utf-8")
-    manifest={"config_sha256":hashlib.sha256(config_path.read_bytes()).hexdigest(),"status":"COMPLETED","seeds":experiment["seeds"],"scenarios":generator["scenarios"],"omega_grid":model["omega_grid"]}
+    manifest={"config_sha256":hashlib.sha256(config_path.read_bytes()).hexdigest(),"status":"COMPLETED","seeds":experiment["seeds"],"scenarios":generator["scenarios"],"omega_grid":model["omega_grid"],"git_commit":subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),"python":sys.version}
     (out/"run_manifest.json").write_text(json.dumps(manifest,indent=2),encoding="utf-8")
 
 if __name__ == "__main__":

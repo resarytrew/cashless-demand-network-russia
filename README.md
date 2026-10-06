@@ -10,15 +10,15 @@
 
 [Открыть Stability Atlas →](outputs/stability_atlas_v2_2_1/index.html) · [методология](docs/public/METHODOLOGY.md) · [результаты](docs/RESULTS.md) · [точные допущения](docs/TECHNICAL_APPENDIX.md)
 
-Для воспроизводимости различаются два контура: legacy freeze verifier сохраняет известное историческое несоответствие workflow-hash и не переписывает прошлый freeze; [current presubmission verifier](scripts/verify_presubmission_current.py) проверяет текущие тесты, baseline gate и финальные артефакты.
+Для воспроизводимости различаются два контура: legacy freeze verifier аутентифицирует исторически зафиксированный вычислительный слой; [current presubmission verifier](scripts/verify_presubmission_current.py) проверяет текущие тесты, scoped current-surface Ruff gate, baseline gate и финальные артефакты.
 
 ## Как работа закрывает критерии конкурса
 
 | Критерий | Артефакт |
 | --- | --- |
 | Методология и признаки | [Methodology](docs/public/METHODOLOGY.md), [Data passport](docs/DATA_PASSPORT.md) |
-| Атрибутированная сеть | mutual-kNN + adaptive RBF; [edge sensitivity](outputs/presubmission_upgrade/edge_sensitivity/EDGE_SENSITIVITY.md) |
-| Динамика | [supra-graph specification](docs/TEMPORAL_MODEL_SPECIFICATION.md), [omega sensitivity](outputs/presubmission_upgrade/temporal_sensitivity/TEMPORAL_SENSITIVITY.md), [synthetic ground truth](outputs/final_competition_upgrade/synthetic_temporal/SYNTHETIC_TEMPORAL_REPORT.md) |
+| Атрибутированная сеть | mutual-kNN + adaptive RBF; [edge sensitivity](outputs/final_competition_upgrade/edge_sensitivity_v3/EDGE_SENSITIVITY.md) |
+| Динамика | [supra-graph specification](docs/TEMPORAL_MODEL_SPECIFICATION.md), [omega sensitivity](outputs/presubmission_upgrade/temporal_sensitivity/TEMPORAL_SENSITIVITY.md), [synthetic ground truth](outputs/final_competition_upgrade/synthetic_temporal_v3/SYNTHETIC_TEMPORAL_REPORT.md) |
 | Полный ICVI | [canonical ICVI](outputs/presubmission_upgrade/icvi/canonical_icvi.csv) |
 | Интерпретация | [profile naming audit](docs/PROFILE_NAMING_AUDIT.md), [national validation](outputs/final_competition_upgrade/external_validation_national_20261006_r6/NATIONAL_EXTERNAL_VALIDATION.md), [regional generalisation](outputs/final_competition_upgrade/geographic_confounding/GEOGRAPHIC_CONFOUNDING_REPORT.md) |
 | Визуализация | [Stability Atlas](outputs/stability_atlas_v2_2_1/index.html) |

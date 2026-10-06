@@ -22,6 +22,7 @@ def assert_group_separation(groups: np.ndarray, train: np.ndarray, test: np.ndar
 def grouped_prediction(frame: pd.DataFrame, features: list[str], folds: int, seed: int) -> pd.DataFrame:
     data = frame.loc[frame.profile.isin(list("ABCDEFG")), ["profile", "region", *features]].dropna(subset=["region"]).copy()
     y, groups = data.pop("profile").to_numpy(), data.pop("region").astype(str).to_numpy(); x = data.to_numpy()
+    global_classes = np.unique(y)
     cv = GroupKFold(n_splits=min(folds, len(np.unique(groups))))
     models = {
         "multinomial_logistic": Pipeline([("impute", SimpleImputer(strategy="median")), ("scale", StandardScaler()), ("model", LogisticRegression(max_iter=3000, class_weight="balanced", random_state=seed))]),
@@ -29,10 +30,13 @@ def grouped_prediction(frame: pd.DataFrame, features: list[str], folds: int, see
     }
     rows=[]
     for name, model in models.items():
-        actual=[]; predicted=[]; probabilities=[]; classes=None
+        actual=[]; predicted=[]; probabilities=[]
         for train, test in cv.split(x, y, groups):
-            assert_group_separation(groups, train, test); model.fit(x[train],y[train]); actual.extend(y[test]); predicted.extend(model.predict(x[test])); probabilities.append(model.predict_proba(x[test])); classes=model.classes_
-        rows.append({"model":name,"n":len(y),"folds":cv.get_n_splits(),"groups":len(np.unique(groups)),"macro_f1":f1_score(actual,predicted,average="macro"),"balanced_accuracy":balanced_accuracy_score(actual,predicted),"accuracy":accuracy_score(actual,predicted),"log_loss":log_loss(actual,np.vstack(probabilities),labels=classes),"features":";".join(features),"split":"GroupKFold_region"})
+            assert_group_separation(groups, train, test); model.fit(x[train],y[train])
+            if not np.array_equal(model.classes_, global_classes):
+                raise ValueError("A grouped-CV training fold does not contain every global profile class")
+            actual.extend(y[test]); predicted.extend(model.predict(x[test])); probabilities.append(model.predict_proba(x[test]))
+        rows.append({"model":name,"n":len(y),"folds":cv.get_n_splits(),"groups":len(np.unique(groups)),"macro_f1":f1_score(actual,predicted,average="macro"),"balanced_accuracy":balanced_accuracy_score(actual,predicted),"accuracy":accuracy_score(actual,predicted),"log_loss":log_loss(actual,np.vstack(probabilities),labels=global_classes),"features":";".join(features),"split":"GroupKFold_region"})
     return pd.DataFrame(rows)
 
 

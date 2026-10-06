@@ -23,6 +23,7 @@ class SyntheticPanel:
     truth: np.ndarray  # (months, nodes), latent state labels
     change_month: np.ndarray  # (nodes,), -1 when no true state change
     scenario: str
+    roles: dict[str, np.ndarray] | None = None
 
 
 def _scale_block(values: np.ndarray) -> np.ndarray:
@@ -42,6 +43,9 @@ def generate_panel(
     noise: float = 0.28,
     separation: float = 2.6,
     switching_fraction: float = 0.20,
+    mixed_switch_fraction: float = 0.10,
+    mixed_boundary_fraction: float = 0.10,
+    mixed_shock_fraction: float = 0.10,
 ) -> SyntheticPanel:
     """Generate deterministic composition-plus-level observations and latent truth.
 
@@ -52,6 +56,10 @@ def generate_panel(
         raise ValueError(f"Unknown scenario: {scenario}")
     if n_nodes % communities:
         raise ValueError("n_nodes must divide communities for balanced latent groups")
+    if any(value < 0 for value in (mixed_switch_fraction, mixed_boundary_fraction, mixed_shock_fraction)):
+        raise ValueError("Mixed-scenario role fractions must be non-negative")
+    if mixed_switch_fraction + mixed_boundary_fraction + mixed_shock_fraction > 1:
+        raise ValueError("Mixed-scenario role fractions must sum to at most one")
     rng = np.random.default_rng(seed)
     base = np.repeat(np.arange(communities), n_nodes // communities)
     # Community directions create comparable five CLR coordinates and one level block.
@@ -61,17 +69,46 @@ def generate_panel(
     change = np.full(n_nodes, -1, dtype=int)
     transition = max(2, months // 2)
     candidates = rng.permutation(n_nodes)[:max(1, round(n_nodes * switching_fraction))]
+    roles = {
+        "switch_nodes": np.empty(0, dtype=int),
+        "boundary_nodes": np.empty(0, dtype=int),
+        "shock_nodes": np.empty(0, dtype=int),
+        "stable_nodes": np.arange(n_nodes, dtype=int),
+    }
+    if scenario == "mixed":
+        ordered = rng.permutation(n_nodes)
+        switch_count = round(n_nodes * mixed_switch_fraction)
+        boundary_count = round(n_nodes * mixed_boundary_fraction)
+        shock_count = round(n_nodes * mixed_shock_fraction)
+        split_one = switch_count
+        split_two = split_one + boundary_count
+        split_three = split_two + shock_count
+        roles = {
+            "switch_nodes": ordered[:split_one],
+            "boundary_nodes": ordered[split_one:split_two],
+            "shock_nodes": ordered[split_two:split_three],
+            "stable_nodes": ordered[split_three:],
+        }
+    elif scenario in {"abrupt", "gradual"}:
+        roles["switch_nodes"] = candidates
+        roles["stable_nodes"] = np.setdiff1d(np.arange(n_nodes), candidates, assume_unique=False)
+    elif scenario == "boundary":
+        roles["boundary_nodes"] = candidates
+        roles["stable_nodes"] = np.setdiff1d(np.arange(n_nodes), candidates, assume_unique=False)
+    elif scenario == "shock":
+        roles["shock_nodes"] = candidates
+        roles["stable_nodes"] = np.setdiff1d(np.arange(n_nodes), candidates, assume_unique=False)
 
     if scenario in {"abrupt", "gradual", "mixed"}:
-        chosen = candidates if scenario != "mixed" else candidates[:max(1, len(candidates) // 2)]
+        chosen = roles["switch_nodes"]
         target = (base[chosen] + 1) % communities
         truth[transition:, chosen] = target
         change[chosen] = transition
     # Non-switch cases intentionally retain -1 change month.
 
     output = np.empty((months, n_nodes, 6), dtype=float)
-    boundary_nodes = candidates if scenario in {"boundary", "mixed"} else np.empty(0, dtype=int)
-    shock_nodes = candidates if scenario in {"shock", "mixed"} else np.empty(0, dtype=int)
+    boundary_nodes = roles["boundary_nodes"]
+    shock_nodes = roles["shock_nodes"]
     for month in range(months):
         latent = centroid[truth[month]].copy()
         if scenario in {"gradual", "mixed"}:
@@ -93,7 +130,7 @@ def generate_panel(
         observed[:, :5] -= observed[:, :5].mean(axis=1, keepdims=True)
         output[month, :, :5] = _scale_block(observed[:, :5]) * np.sqrt(.70)
         output[month, :, 5:] = _scale_block(observed[:, 5:]) * np.sqrt(.30)
-    return SyntheticPanel(output, truth, change, scenario)
+    return SyntheticPanel(output, truth, change, scenario, roles)
 
 
 def align_to_truth(labels: np.ndarray, truth: np.ndarray) -> np.ndarray:

@@ -43,7 +43,7 @@ With stratified folds and fold-contained imputation/scaling, logistic macro-F1 i
 
 ## Temporal dynamics and synthetic calibration
 
-At reference omega=2, 85.3% of municipalities have no more than two profile changes in 24 months. Sensitivity shows that persistence depends strongly on regularisation. A preregistered synthetic ground-truth benchmark therefore reports partition, event and delay trade-offs on six controlled scenarios; it does not select a new historical omega. See `outputs/final_competition_upgrade/synthetic_temporal/SYNTHETIC_TEMPORAL_REPORT.md`.
+At reference omega=2, 85.3% of municipalities have no more than two profile changes in 24 months. Sensitivity shows that persistence depends strongly on regularisation. A preregistered synthetic ground-truth benchmark therefore reports partition, event and delay trade-offs on six controlled scenarios; it does not select a new historical omega. See `outputs/final_competition_upgrade/synthetic_temporal_v3/SYNTHETIC_TEMPORAL_REPORT.md`.
 
 ## Robustness and remaining uncertainty
 
