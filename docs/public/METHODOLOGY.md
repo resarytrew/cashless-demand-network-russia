@@ -155,3 +155,15 @@ A–G — обозначения семи основных базовых про
 Ранговая связь измеряется коэффициентом Спирмена; для Якутии дополнительно оценивается регрессия логарифма зарплаты на логарифмы инвестиций и населения и долю городских жителей с устойчивой оценкой неопределённости HC3. Для Алтая порядок G=1/F=2/D=3 сопоставляется с зарплатой, затем отдельно проверяется регрессией с населением и урбанизацией. Для Хабаровского края сохраняются размер эффекта Клиффа и проверка Манна–Уитни; Чукотка описывается медианами.
 
 Все p-values поисковые, без поправки на множественные сравнения. p≈0,089 относится к регрессии Алтая с ковариатами, а не к скорректированному p ранговой связи. Методы, точные числа и ограничения — [в результатах](../RESULTS.md) и [приложении](../TECHNICAL_APPENDIX.md). Внешние данные не использовались для настройки сети.
+# Конкурсное дополнение: проверки представления и параметров
+
+В дополнение к reference-спецификации в `configs/baseline.yaml` выполнены заранее фиксированные descriptive sensitivity calculations. Round18 сопоставляет reference six-part CLR с R1 (CLR только пяти опубликованных категорий) и R2 (log-level пяти категорий плюс Total); R1/R2 не конструируют `Other`. Правило ребра сравнивается только как mutual-kNN и union-kNN на сетке k из baseline. Temporal coupling сравнивается на сетке omega из baseline без изменения внутрислойных графов. Эти результаты не используются для выбора параметра, representation или статусов A–G.
+
+Все шесть ICVI вычисляются для фиксированного разбиения: SW и raw CH выше лучше, S_Dbw ниже лучше, AVI выше лучше, AVU ниже лучше, MQ выше лучше. Полные определения и edge-case policy находятся в [technical appendix](../TECHNICAL_APPENDIX.md), результаты — в `outputs/presubmission_upgrade/`.
+# Current validation additions
+
+Network construction uses only SberIndex behavioural features. National external validation joins frozen profile labels to official municipal population, wage and employment data after a separately audited lineage/OKTMO gate; those variables never enter graph construction or clustering.
+
+Geographic generalisation is checked with region-held-out GroupKFold, fold-contained imputation/scaling, leave-one-region-out summaries, a deliberately weak unseen-region majority baseline, and within-region median centring for continuous outcomes.
+
+Temporal coupling is calibrated descriptively against a synthetic dynamic attributed-network benchmark with known latent states, true switches, boundary cases and temporary shocks. Its preregistered grid is omega=0/.25/.5/1/2/4. It reports trade-offs instead of claiming a universal optimum. Technical implementation details are in [the technical appendix](../TECHNICAL_APPENDIX.md).

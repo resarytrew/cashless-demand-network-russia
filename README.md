@@ -1,4 +1,45 @@
-# Муниципальный безналичный спрос: устойчивые ядра и переходные территории
+# Профили локального безналичного потребительского спроса
+
+**1 904 муниципалитета · 24 месяца · январь 2023 — декабрь 2024.**
+
+Внешняя независимая муниципальная статистика после фиксации типологии: население 1 903/1 903, зарплата 1 890/1 903, занятость 1 890/1 903. Эти показатели не участвовали в построении кластеров.
+
+Эффекты между профилями: зарплата ε²=.633, занятость ε²=.516, население ε²=.468. Внешнее предсказание: RF macro-F1=.647 против .091 при перестановке меток.
+
+Мы описываем профили как сочетания уровня и структуры наблюдаемого безналичного спроса, а не как универсальные «типы экономики». В reference-модели видны устойчивые ядра и переходные границы; F особенно часто выступает переходной областью D–G. Регионально-группированная проверка и controlled synthetic benchmark уточняют границы этих утверждений, а не переобучают типологию.
+
+[Открыть Stability Atlas →](outputs/stability_atlas_v2_2_1/index.html) · [методология](docs/public/METHODOLOGY.md) · [результаты](docs/RESULTS.md) · [точные допущения](docs/TECHNICAL_APPENDIX.md)
+
+Для воспроизводимости различаются два контура: legacy freeze verifier сохраняет известное историческое несоответствие workflow-hash и не переписывает прошлый freeze; [current presubmission verifier](scripts/verify_presubmission_current.py) проверяет текущие тесты, baseline gate и финальные артефакты.
+
+## Как работа закрывает критерии конкурса
+
+| Критерий | Артефакт |
+| --- | --- |
+| Методология и признаки | [Methodology](docs/public/METHODOLOGY.md), [Data passport](docs/DATA_PASSPORT.md) |
+| Атрибутированная сеть | mutual-kNN + adaptive RBF; [edge sensitivity](outputs/presubmission_upgrade/edge_sensitivity/EDGE_SENSITIVITY.md) |
+| Динамика | [supra-graph specification](docs/TEMPORAL_MODEL_SPECIFICATION.md), [omega sensitivity](outputs/presubmission_upgrade/temporal_sensitivity/TEMPORAL_SENSITIVITY.md), [synthetic ground truth](outputs/final_competition_upgrade/synthetic_temporal/SYNTHETIC_TEMPORAL_REPORT.md) |
+| Полный ICVI | [canonical ICVI](outputs/presubmission_upgrade/icvi/canonical_icvi.csv) |
+| Интерпретация | [profile naming audit](docs/PROFILE_NAMING_AUDIT.md), [national validation](outputs/final_competition_upgrade/external_validation_national_20261006_r6/NATIONAL_EXTERNAL_VALIDATION.md), [regional generalisation](outputs/final_competition_upgrade/geographic_confounding/GEOGRAPHIC_CONFOUNDING_REPORT.md) |
+| Визуализация | [Stability Atlas](outputs/stability_atlas_v2_2_1/index.html) |
+
+## Исследование в цифрах
+
+| Показатель reference static December | Значение |
+| --- | ---: |
+| Муниципалитеты / период | 1 904 / январь 2023 — декабрь 2024 |
+| Граф | mutual-kNN, k=20, adaptive RBF |
+| Профили A–G | 7 reference-профилей с неодинаковой устойчивостью |
+| SW / CH / CH/N | 0.170 / 875.215 / 0.460 |
+| S_Dbw / AVI / AVU / MQ | 0.829 / 0.907 / 0.506 / 0.767 |
+| ≤2 смен метки при omega=2 | 85.3% |
+
+Round18 специально проверяет, сохраняются ли выводы без технического остатка `Other`: R1 даёт ARI=0.822, R2 — ARI=0.708 с temporal December reference. Это material dependence представления, а не основание выбирать вариант по метрике.
+
+**О числах сообществ:** static December benchmark имеет K=9, а A–G — семь
+крупных raw communities temporal December slice; ещё пять МО принадлежат трём
+`micro` communities. Это разные partition objects, не merge K=9. Точная
+детерминированная карта: [Community-to-profile mapping](docs/COMMUNITY_TO_PROFILE_MAPPING.md).
 
 **Главный результат:** пространство муниципального безналичного спроса лучше описывается устойчивыми ядрами и переходными областями, чем семью жёсткими, одинаково устойчивыми типами. Ограниченная проверка на внешних экономических данных поддерживает часть этой интерпретации.
 
