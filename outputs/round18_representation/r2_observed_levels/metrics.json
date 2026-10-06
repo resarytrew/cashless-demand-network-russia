@@ -1,0 +1,77 @@
+{
+  "metrics_static": {
+    "K": 12,
+    "N": 1904,
+    "SW": 0.14783451551487242,
+    "CH": 914.7725594606299,
+    "CH_per_N": 0.4804477728259611,
+    "S_Dbw": 0.6050404630080043,
+    "AVI": 0.9259854516626875,
+    "AVU": 0.4097766444473379,
+    "MQ": 0.7693928379726329,
+    "status": "defined",
+    "notes": ""
+  },
+  "metrics_temporal_dec2024": {
+    "K": 8,
+    "N": 1904,
+    "SW": 0.07962714939463435,
+    "CH": 688.8713678522482,
+    "CH_per_N": 0.3618021889980295,
+    "S_Dbw": 0.7880756356955292,
+    "AVI": 0.5706551428128707,
+    "AVU": 0.30592533110939274,
+    "MQ": 0.5954740270131532,
+    "status": "defined",
+    "notes": ""
+  },
+  "comparisons": {
+    "static_dec2024": {
+      "ari": 0.3794432592060366,
+      "nmi": 0.5542916035799469
+    },
+    "temporal_dec2024": {
+      "ari": 0.707693043771207,
+      "nmi": 0.649036024720352
+    },
+    "full_supra": {
+      "ari": 0.5186241260516882,
+      "nmi": 0.5927865285663108
+    }
+  },
+  "temporal": {
+    "mean_switches": 1.335609243697479,
+    "median_switches": 1.0,
+    "share_0_switches": 0.06932773109243698,
+    "share_le1_switches": 0.7599789915966386,
+    "share_le2_switches": 0.8891806722689075
+  },
+  "graph_static": {
+    "edges": 12157,
+    "density": 0.006710435093638086,
+    "mean_degree": 12.769957983193278,
+    "median_degree": 13.0,
+    "connected_components": 3,
+    "largest_component_share": 0.9973739495798319
+  },
+  "graph_supra": {
+    "nodes": 45696,
+    "edges": 335824,
+    "temporal_weight": 1.0437162038833456
+  },
+  "feature_sha256_dec2024": "8147bbc26fbfb6bcda39f1491b367580abce03c5157a8b34b6875e6d55831876",
+  "graph_fingerprints": {
+    "static": {
+      "node_count": 1904,
+      "edge_count": 12157,
+      "node_sha256": "1a2ce385c5326c2248f1e1a8c226189611fd04bb1610aae3434e9dbb8cef5c02",
+      "edge_weight_sha256": "ec1c7a845edf0db29ae6c7210958914bb3dfa6b37f29f0d19b4073edba44019c"
+    },
+    "supra": {
+      "node_count": 45696,
+      "edge_count": 335824,
+      "node_sha256": "a855f8fc6bb8920ab023fd0d6cc75464858b4cc91b4c18483c2ffa36c5963f69",
+      "edge_weight_sha256": "f42f77d26db5d9dedf077c3148e77e3a563a5258d12678599b9efccb131087f4"
+    }
+  }
+}

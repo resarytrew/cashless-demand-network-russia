@@ -1,0 +1,24 @@
+experiment:
+  id: synthetic_temporal_ground_truth_v3_disjoint_mixed_roles
+  output_dir: outputs/final_competition_upgrade/synthetic_temporal_v3
+  seeds: 20
+  seed_start: 0
+generator:
+  n_nodes: 120
+  months: 12
+  communities: 4
+  noise: 0.28
+  separation: 2.6
+  switching_fraction: 0.20
+  mixed_switch_fraction: 0.10
+  mixed_boundary_fraction: 0.10
+  mixed_shock_fraction: 0.10
+  scenarios: [stable, abrupt, gradual, boundary, shock, mixed]
+model:
+  k: 12
+  resolution: 0.5
+  omega_grid: [0.0, 0.25, 0.5, 1.0, 2.0, 4.0]
+  louvain_seed: 0
+statistics:
+  bootstrap_reps: 500
+  bootstrap_seed: 20261006

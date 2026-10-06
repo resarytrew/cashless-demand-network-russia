@@ -1,0 +1,77 @@
+{
+  "metrics_static": {
+    "K": 10,
+    "N": 1904,
+    "SW": 0.15480686257980603,
+    "CH": 912.8883895209602,
+    "CH_per_N": 0.47945818777361354,
+    "S_Dbw": 0.7612164781476269,
+    "AVI": 0.9064211550885725,
+    "AVU": 0.4708173168685277,
+    "MQ": 0.7726980295935204,
+    "status": "defined",
+    "notes": ""
+  },
+  "metrics_temporal_dec2024": {
+    "K": 9,
+    "N": 1904,
+    "SW": -0.044230265853293205,
+    "CH": 509.488221215381,
+    "CH_per_N": 0.2675883514786665,
+    "S_Dbw": 0.43578867649282366,
+    "AVI": 0.49982514174636883,
+    "AVU": 0.27372118025225295,
+    "MQ": 0.610864785358543,
+    "status": "defined",
+    "notes": ""
+  },
+  "comparisons": {
+    "static_dec2024": {
+      "ari": 0.5835852302626082,
+      "nmi": 0.7314740900133405
+    },
+    "temporal_dec2024": {
+      "ari": 0.8216953470360573,
+      "nmi": 0.7636347227484196
+    },
+    "full_supra": {
+      "ari": 0.56982332449742,
+      "nmi": 0.6274960945847075
+    }
+  },
+  "temporal": {
+    "mean_switches": 1.6160714285714286,
+    "median_switches": 1.0,
+    "share_0_switches": 0.007878151260504201,
+    "share_le1_switches": 0.5913865546218487,
+    "share_le2_switches": 0.845063025210084
+  },
+  "graph_static": {
+    "edges": 12177,
+    "density": 0.006721474717054452,
+    "mean_degree": 12.790966386554622,
+    "median_degree": 14.0,
+    "connected_components": 1,
+    "largest_component_share": 1.0
+  },
+  "graph_supra": {
+    "nodes": 45696,
+    "edges": 335659,
+    "temporal_weight": 1.0552802612999388
+  },
+  "feature_sha256_dec2024": "f7d0cc5a718c90dc92216d37dba8f8b0726af05bf714adec9ea8558d15c51ce4",
+  "graph_fingerprints": {
+    "static": {
+      "node_count": 1904,
+      "edge_count": 12177,
+      "node_sha256": "1a2ce385c5326c2248f1e1a8c226189611fd04bb1610aae3434e9dbb8cef5c02",
+      "edge_weight_sha256": "8e8526f0e513afa81f9809031aa0e4750380703fe6b58f2d5f5abc11dcf4c457"
+    },
+    "supra": {
+      "node_count": 45696,
+      "edge_count": 335659,
+      "node_sha256": "a855f8fc6bb8920ab023fd0d6cc75464858b4cc91b4c18483c2ffa36c5963f69",
+      "edge_weight_sha256": "23857a8fb72e0955d19d055d22fe490ec898a894058b64222d1e46bbfe1017a1"
+    }
+  }
+}

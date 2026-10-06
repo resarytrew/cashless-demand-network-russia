@@ -1,0 +1,7 @@
+experiment:
+  id: geographic_confounding_v1
+  input_csv: outputs/final_competition_upgrade/external_validation_national_20261006_r6/external_validation_joined.csv
+  output_dir: outputs/final_competition_upgrade/geographic_confounding
+  folds: 5
+  seed: 0
+  min_leave_one_region_n: 15

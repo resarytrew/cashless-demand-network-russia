@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "metrics": {
+    "full_supra": {
+      "ARI": 1.0,
+      "NMI": 1.0
+    },
+    "temporal_Dec2024": {
+      "ARI": 1.0,
+      "NMI": 1.0
+    },
+    "static_Dec2024": {
+      "ARI": 1.0,
+      "NMI": 1.0
+    }
+  },
+  "delta_from_required_one": {
+    "full_supra": {
+      "ARI": 0.0,
+      "NMI": 0.0
+    },
+    "temporal_Dec2024": {
+      "ARI": 0.0,
+      "NMI": 0.0
+    },
+    "static_Dec2024": {
+      "ARI": 0.0,
+      "NMI": 0.0
+    }
+  },
+  "panel_nodes": 1904,
+  "months": 24,
+  "supra_K": 12,
+  "static_K": 9
+}

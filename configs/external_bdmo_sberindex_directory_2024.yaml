@@ -1,0 +1,15 @@
+experiment:
+  id: external_bdmo_sberindex_directory_2024
+  target_year: 2024
+  output_dir: outputs/final_competition_upgrade/external_validation_sberindex_directory_20261006_r2
+  reference_labels: outputs/baseline/supra_labels.csv
+  reference_raw: data/raw/spending.csv.zip
+  directory_archive: data/external/raw/sberindex_municipality_directory/t_dict_municipal_20241025.rar
+  directory_workbook: data/external/processed/sberindex_municipality_directory_20241025/t_dict_municipal_districts.xlsx
+  landing_url: https://sberindex.ru/ru/research/dataset-borders-and-changes-of-municipalities
+  download_url: https://s.sber.ru/GthXk7
+  resolved_download_url: http://www.sberbank.com/common/files/t_dict_municipal.rar
+  retrieved_utc: "2026-10-05T19:21:41.8611279Z"
+  license: CC BY-SA 4.0
+  citation: "Данные о границах и преобразованиях муниципальных образований. СберИндекс. Данные скачаны 2026-10-05."
+  rosstat_oktmo_url: https://rosstat.gov.ru/opendata/7708234640-oktmo/data-20241031T1410-structure-20260210T1102.csv

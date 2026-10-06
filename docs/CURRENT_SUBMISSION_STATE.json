@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "state": "PRE_MERGE_CORRECTIONS_V3",
+  "historical_freeze_pointer": "docs/CURRENT_STATE.json",
+  "reference_specification_changed": false,
+  "baseline_gate": "outputs/final_competition_upgrade/baseline_gate_before_v3_corrections/baseline_gate.json",
+  "corrected_edge_sensitivity": "outputs/final_competition_upgrade/edge_sensitivity_v3/edge_sensitivity.csv",
+  "corrected_synthetic_benchmark": "outputs/final_competition_upgrade/synthetic_temporal_v3/SYNTHETIC_TEMPORAL_REPORT.md",
+  "correction_audit": "outputs/final_competition_upgrade/CORRECTION_AUDIT_v3.md",
+  "story_contract": "outputs/final_competition_upgrade/story_data_v3/summary.json",
+  "legacy_freeze_expected": "PASS",
+  "current_presubmission_expected": "PASS"
+}

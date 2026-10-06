@@ -1,0 +1,13 @@
+experiment:
+  output_dir: outputs/final_competition_upgrade/profile_naming
+  typology_csv: outputs/presubmission_upgrade/economic_typology/profile_summary.csv
+  external_dir: outputs/final_competition_upgrade/external_validation_national_20261006_r6
+  atlas_csv: outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv
+profiles:
+  A: {display_name: "Высокоинтенсивный профиль спроса", status: SUPPORTED_TYPE, confidence: moderate}
+  B: {display_name: "Предварительный высокоинтенсивный внутригородской профиль спроса", status: PRELIMINARY, confidence: limited}
+  C: {display_name: "Неразрешённый низкоинтенсивный профиль спроса", status: UNRESOLVED, confidence: low}
+  D: {display_name: "Средне-высокоинтенсивный профиль спроса", status: SUPPORTED_TYPE, confidence: moderate}
+  E: {display_name: "Предварительный повышенно-интенсивный профиль спроса", status: PRELIMINARY, confidence: limited}
+  F: {display_name: "Переходный среднеинтенсивный профиль спроса", status: TRANSITION, confidence: moderate}
+  G: {display_name: "Широкий низкоинтенсивный профиль спроса", status: SUPPORTED_TYPE, confidence: moderate}

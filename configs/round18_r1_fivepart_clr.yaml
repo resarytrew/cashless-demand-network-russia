@@ -1,0 +1,9 @@
+extends: baseline.yaml
+paths:
+  output_dir: outputs/round18_representation/r1_fivepart_clr
+features:
+  representation: observed_5part_clr
+experiment:
+  id: round18_r1_fivepart_clr
+  baseline_gate_dir: outputs/presubmission_upgrade/baseline_gate
+  output_root: outputs/round18_representation

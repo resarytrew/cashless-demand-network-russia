@@ -1,0 +1,9 @@
+extends: baseline.yaml
+paths:
+  output_dir: outputs/round18_representation/r2_observed_levels
+features:
+  representation: observed_5levels
+experiment:
+  id: round18_r2_observed_levels
+  baseline_gate_dir: outputs/presubmission_upgrade/baseline_gate
+  output_root: outputs/round18_representation
