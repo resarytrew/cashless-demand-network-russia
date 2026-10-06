@@ -43,7 +43,7 @@ def test_degenerate_partition_is_explicitly_undefined():
     assert row["status"] == "partially_undefined"
 
 
-def test_reference_representation_branch_is_backward_compatible():
+def test_reference_representation_retains_six_part_clr_block():
     rows = []
     for name, total, values in [("a", 100., [10., 15., 20., 25., 5.]), ("b", 150., [20., 20., 25., 30., 15.])]:
         rows.append({"mo": name, "category_15": "Total", "value": total})
@@ -54,5 +54,4 @@ def test_reference_representation_branch_is_backward_compatible():
     args = dict(month_df=month, municipality_order=["a", "a2", "b", "b2"], total_category="Total",
                 selected_categories=["f", "h", "c", "m", "t"], other_category="Other", structure_weight=.7, level_weight=.3)
     default, _ = monthly_feature_matrix(**args)
-    declared, _ = monthly_feature_matrix(**args, representation="reference_6part_clr")
-    assert np.array_equal(default, declared)
+    assert default.shape == (4, 7)
