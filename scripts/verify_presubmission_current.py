@@ -62,6 +62,7 @@ def main(skip_tests: bool) -> None:
         run([sys.executable, "-m", "ruff", "check", "--select", "F",
              "src/sbernet/synthetic_temporal.py", "src/sbernet/regional_validation.py",
              "src/sbernet/graph.py",
+             "src/sbernet/edge_sensitivity.py", "src/sbernet/representations.py",
              "scripts/run_synthetic_temporal_benchmark.py", "scripts/run_geographic_confounding.py",
              "scripts/build_profile_naming.py", "scripts/build_final_story_data.py",
              "scripts/run_presubmission_experiments.py", "scripts/verify_presubmission_current.py",

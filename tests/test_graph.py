@@ -1,7 +1,7 @@
 import networkx as nx
 import numpy as np
 
-from sbernet.graph import knn_graph
+from sbernet.edge_sensitivity import knn_graph
 
 
 def test_union_knn_keeps_one_sided_nominations_and_contains_mutual_edges():

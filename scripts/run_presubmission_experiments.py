@@ -15,8 +15,9 @@ from sbernet.clustering import louvain_labels
 from sbernet.config import load_config
 from sbernet.icvi import evaluate_partition, flat_metrics
 from sbernet.metrics import partition_similarity
-from sbernet.pipeline import _git_commit, _prepare
-from sbernet.graph import knn_graph
+from sbernet.pipeline import _git_commit
+from sbernet.edge_sensitivity import knn_graph
+from sbernet.representations import prepare_representation
 from sbernet.robustness.experiment_common import profile_diagnostics
 from sbernet.robustness.reproduction_gate import graph_fingerprint, sha256, versions
 from sbernet.temporal import build_supra_graph
@@ -50,7 +51,7 @@ def manifest(config_path: str, cfg: dict, experiment: str) -> dict:
 
 
 def prepared(config_path: str) -> tuple[dict, list[str], list[str], dict[str, np.ndarray]]:
-    cfg, names, _, months, matrices = _prepare(config_path)
+    cfg, names, _, months, matrices = prepare_representation(config_path)
     keys = [str(pd.Timestamp(month).date()) for month in months]
     if len(names) != 1904 or len(keys) != 24:
         raise RuntimeError("Round18/presubmission requires the exact 1904 x 24 panel")
