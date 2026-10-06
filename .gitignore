@@ -12,3 +12,6 @@ htmlcov/
 *.egg-info/
 build/
 dist/
+node_modules/
+test-results/
+playwright-report/

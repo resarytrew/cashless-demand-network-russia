@@ -1,0 +1,20 @@
+schema_version: 1
+output: site/data/research.json
+inputs:
+  story: outputs/final_competition_upgrade/story_data_v3
+  atlas: outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv
+  labels: outputs/baseline/supra_labels.csv
+  lineage: outputs/final_competition_upgrade/data_sense_lineage_20261006_r3/reference_to_territory_id.csv
+  retention: outputs/perturbation_v2/perturbation_v2_50_archetype_retention.csv
+  reference: configs/baseline.yaml
+  geometry: outputs/final_competition_upgrade/municipality_geometry_20261006/municipality_geometry.geojson
+presentation:
+  seed: 0
+  expected_municipalities: 1904
+  expected_months: 24
+  expected_external_records: 1903
+  map_simplification_m: 2000
+  map_coordinate_decimals: 4
+  halfyear_month_indices: [5, 11, 17, 23]
+  profile_communities: {A: 1, B: 3, C: 7, D: 8, E: 9, F: 10, G: 11}
+  colors: {A: '#27757d', B: '#a37629', C: '#857795', D: '#246c4e', E: '#b16a46', F: '#a04e72', G: '#71816b', micro: '#8b8d87'}

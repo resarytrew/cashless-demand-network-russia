@@ -1,0 +1,9 @@
+{
+  "sha256": {
+    "manifest.json": "d196ef144839dd572df437ca0f09898c0e3944cbe7d7600bf82e47fdcf8b9b09",
+    "municipalities.geojson": "54579bddba450d728db689ba452029f6f747d2168f812e1e279b9577c9493f64",
+    "research.json": "46a9b2e7cee500f3f23b5890e8f4120d93be154f13d97d185faedd10f6f01717",
+    "evidence.json": "a560bd781756c1769982f68850899b7025c30fab1806f4250c28886aef3dc2ac"
+  },
+  "all_data_unchanged": true
+}

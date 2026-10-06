@@ -1,0 +1,5 @@
+indicator,year,eligible_reference_n,matched_n,coverage_pct,status
+investment_per_capita,2024,1903,19,0.9984235417761429,LIMITED
+investment_per_capita,2023,1903,19,0.9984235417761429,LIMITED
+investment_per_capita,2022,1903,19,0.9984235417761429,LIMITED
+investment_per_capita,2021,1903,8,0.42038885969521805,LIMITED

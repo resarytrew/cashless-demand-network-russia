@@ -1,0 +1,5 @@
+filename,format,row_count,column_names,sample_schema,identity_columns,status
+connection.parquet,parquet,5942364,"[""territory_id_x"", ""territory_id_y"", ""distance"", ""type""]","{""territory_id_x"": ""int64"", ""territory_id_y"": ""int64"", ""distance"": ""float64"", ""type"": ""object""}","[""territory_id_x"", ""territory_id_y""]",INSPECTED
+consumption.parquet,parquet,303126,"[""date"", ""territory_id"", ""category"", ""value""]","{""date"": ""object"", ""territory_id"": ""int16"", ""category"": ""object"", ""value"": ""int32""}","[""date"", ""territory_id""]",INSPECTED
+market_access.parquet,parquet,2571,"[""territory_id"", ""market_access""]","{""territory_id"": ""int32"", ""market_access"": ""float64""}","[""territory_id""]",INSPECTED
+Данные_СберИндекс_лицензия.pdf,pdf,,,publisher methodology; 4 pages,,INSPECTED_DOCUMENTATION

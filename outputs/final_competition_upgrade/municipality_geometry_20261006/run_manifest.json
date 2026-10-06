@@ -1,0 +1,33 @@
+{
+  "status": "COMPLETED",
+  "target_year": 2024,
+  "version_semantics": "year_from <= target_year < year_to",
+  "join_key": "territory_id",
+  "name_matching_used": false,
+  "verified_lineage_n": 1903,
+  "geometry_matched_n": 1903,
+  "geometry_coverage_pct": 100.0,
+  "missing_geometry_n": 0,
+  "ambiguous_geometry_n": 0,
+  "source": {
+    "url": "http://www.sberbank.com/common/files/t_dict_municipal.rar",
+    "archive": "data\\external\\raw\\sberindex_municipality_directory\\t_dict_municipal_20241025.rar",
+    "archive_sha256": "319ed22684b77716641bc15b61f7325adc44e9fc47e9be2973d88412d27d21f5",
+    "gpkg": "data\\external\\staging\\sberindex_municipality_directory_20241025\\t_dict_municipal_districts_poly.gpkg",
+    "gpkg_sha256": "e62027630d48e4a13f9b6d173dd074d7358706743fe859ca3b7fa30fefa9813a",
+    "layer": "t_dict_municipal_districts_poly",
+    "license": "CC BY-SA 4.0"
+  },
+  "transformation": {
+    "script": "scripts/build_municipality_geometry.py",
+    "working_crs": "EPSG:6933",
+    "output_crs": "EPSG:4326",
+    "simplification": "GeoSeries.simplify(preserve_topology=True)",
+    "simplification_tolerance_m": 250,
+    "point": "geometry.representative_point() before simplification"
+  },
+  "environment": {
+    "python": "3.13.6",
+    "geopandas": "1.1.4"
+  }
+}

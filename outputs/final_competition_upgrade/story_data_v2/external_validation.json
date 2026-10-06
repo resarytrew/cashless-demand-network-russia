@@ -1,0 +1,75 @@
+{
+  "coverage": [
+    {
+      "indicator": "population",
+      "year": 2024,
+      "eligible_reference_n": 1903,
+      "matched_n": 1903,
+      "coverage_pct": 100.0,
+      "source": "bdmo_population_Y48112027_v20260928.zip",
+      "status": "CORE"
+    },
+    {
+      "indicator": "wage",
+      "year": 2024,
+      "eligible_reference_n": 1903,
+      "matched_n": 1890,
+      "coverage_pct": 99.31686810299529,
+      "source": "bdmo_wage_Y48423007_v20260928.zip",
+      "status": "CORE"
+    },
+    {
+      "indicator": "employment_total",
+      "year": 2024,
+      "eligible_reference_n": 1903,
+      "matched_n": 1890,
+      "coverage_pct": 99.31686810299529,
+      "source": "bdmo_employment_Y48423005_v20260928.zip",
+      "status": "CORE"
+    },
+    {
+      "indicator": "employment_by_okved",
+      "year": 2024,
+      "eligible_reference_n": 1903,
+      "matched_n": 1888,
+      "coverage_pct": 99.21177088807148,
+      "source": "bdmo_employment_Y48423005_v20260928.zip",
+      "status": "CORE"
+    }
+  ],
+  "global_tests": [
+    {
+      "variable": "population",
+      "n": 1898,
+      "groups": 7,
+      "kruskal_h": 890.450897364137,
+      "p_value": 4.356375327276546e-189,
+      "epsilon_squared": 0.4677159689921401
+    },
+    {
+      "variable": "wage",
+      "n": 1885,
+      "groups": 7,
+      "kruskal_h": 1195.3625429922486,
+      "p_value": 4.827079072345083e-255,
+      "epsilon_squared": 0.6333133881747862
+    },
+    {
+      "variable": "employment_total",
+      "n": 1885,
+      "groups": 7,
+      "kruskal_h": 974.730709408623,
+      "p_value": 2.6084186710538148e-207,
+      "epsilon_squared": 0.5158310486733882
+    }
+  ],
+  "sector_permanova": {
+    "method": "PERMANOVA_on_CLR_Euclidean_distance",
+    "n": 1883,
+    "groups": 7,
+    "pseudo_f": 62.356531597992856,
+    "permutations": 999,
+    "p_value": 0.001,
+    "seed": 0
+  }
+}

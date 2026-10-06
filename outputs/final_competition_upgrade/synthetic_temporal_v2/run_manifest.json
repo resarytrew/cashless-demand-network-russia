@@ -1,0 +1,21 @@
+{
+  "config_sha256": "02d73a81d9ae90ae0787440efb186fa1a3d522ee7aa3085c7722558f89602261",
+  "status": "COMPLETED",
+  "seeds": 20,
+  "scenarios": [
+    "stable",
+    "abrupt",
+    "gradual",
+    "boundary",
+    "shock",
+    "mixed"
+  ],
+  "omega_grid": [
+    0.0,
+    0.25,
+    0.5,
+    1.0,
+    2.0,
+    4.0
+  ]
+}

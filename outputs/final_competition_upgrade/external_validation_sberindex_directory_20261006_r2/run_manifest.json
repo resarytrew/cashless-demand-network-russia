@@ -1,0 +1,44 @@
+{
+  "config_sha256": "fd1a7ffabfedf9944834765730e331498df9867bac0cbb8311451f642fca7e52",
+  "source_manifest": "source_manifest.csv",
+  "required_directory_columns": [
+    "municipal_district_name",
+    "oktmo",
+    "region_code",
+    "territory_id",
+    "year_from",
+    "year_to"
+  ],
+  "raw_spending_columns": [
+    "period",
+    "value",
+    "obs_status",
+    "source",
+    "category_15",
+    "mo",
+    "freq",
+    "decimals",
+    "unit_measure",
+    "unit_mult"
+  ],
+  "audit": {
+    "reference_total": 1904,
+    "reference_identifier_columns": [],
+    "mapped_to_territory_id": 0,
+    "missing_territory_id": 1904,
+    "mapped_to_oktmo": 0,
+    "validated_in_rosstat_registry": 0,
+    "matched_population": 0,
+    "matched_wage": 0,
+    "matched_employment": 0,
+    "matched_investment": 0,
+    "missing_oktmo": 1904,
+    "oktmo_not_in_registry": 0,
+    "version_conflict": 0,
+    "other_conflict": 0,
+    "directory_snapshot_rows": 2594,
+    "directory_snapshot_duplicate_oktmo": 0,
+    "registry_validation_status": "UNAVAILABLE_OFFICIAL_REGISTRY_TLS_CERTIFICATE_NOT_TRUSTED_BY_HOST",
+    "status": "BLOCKED_NO_UPSTREAM_TERRITORY_ID_IN_SBERINDEX_RAW_PANEL"
+  }
+}

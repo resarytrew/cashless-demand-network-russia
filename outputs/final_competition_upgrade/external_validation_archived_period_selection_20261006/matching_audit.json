@@ -1,0 +1,11 @@
+{
+  "reference_n": 1904,
+  "matched_by_oktmo": 0,
+  "matched_by_transformation": 0,
+  "matched_by_normalized_identity": 0,
+  "matched_manual": 0,
+  "unmatched": 1904,
+  "one_to_many_name_candidates": 8,
+  "many_to_one_conflicts": 0,
+  "blocking_reason": "reference panel supplies neither nationwide region nor OKTMO; global name-only matching is prohibited"
+}

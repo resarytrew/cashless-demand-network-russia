@@ -1,0 +1,37 @@
+{
+  "scope": "Presentation derivative; saved evidence only; no scientific status change",
+  "python": "3.13.6",
+  "seed": 0,
+  "packages": {
+    "pandas": "2.3.3",
+    "PyYAML": "6.0.3",
+    "geopandas": "1.1.4",
+    "shapely": "2.1.2",
+    "pyproj": "3.8.0"
+  },
+  "git_commit": "bba2a28b3da7a1b4d9745af1f6ffb4b1ae03545b",
+  "config_sha256": "7e80df2f56d9de5a990cb4f81ef46b37cab05d437c3636b91f82fa89ef7a4604",
+  "output_sha256": "46a9b2e7cee500f3f23b5890e8f4120d93be154f13d97d185faedd10f6f01717",
+  "map_sha256": "54579bddba450d728db689ba452029f6f747d2168f812e1e279b9577c9493f64",
+  "inputs": {
+    "configs/landing.yaml": "7e80df2f56d9de5a990cb4f81ef46b37cab05d437c3636b91f82fa89ef7a4604",
+    "scripts/build_landing_data.py": "ed3bb10d1be22d9712d4626a4c18f9151c79ea8e63dbe8dea643b31cd82c8b2e",
+    "outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv": "ab824219890eb9ff95528075a06b1f18efbb5edf409fa7bb46fdb35b50f40b99",
+    "outputs/baseline/supra_labels.csv": "7cac1146f94c61cd1d6cdcfb6600796c1d95e05d94edd570c53a38251243192a",
+    "outputs/final_competition_upgrade/data_sense_lineage_20261006_r3/reference_to_territory_id.csv": "397539214c923a09be4fb807d57f98a4c37d1e67913a27811a942764dd48ad3b",
+    "outputs/perturbation_v2/perturbation_v2_50_archetype_retention.csv": "75aac13126c51f55d1f21f7a4de8f233a77c990fd559e4317c28564b50f3f41c",
+    "configs/baseline.yaml": "3a3aadc0c8e174a5388999e1a1b8ea472600b186c0d22f392f4c91ecddeb12d2",
+    "outputs/final_competition_upgrade/municipality_geometry_20261006/municipality_geometry.geojson": "a4c8e6754bb1dc7f7f1191f288b211b8b55d8ace318e86c2434454f4fdca79b2",
+    "outputs/final_competition_upgrade/story_data_v3/external_prediction.json": "5163c3bf1e3a5bcb5dbb3a017a4f361c55a2935c4a376c5aed5800db12d0e0ea",
+    "outputs/final_competition_upgrade/story_data_v3/external_validation.json": "2f48fbcdb2fad0ba4806102f79653af0c279d6f46fc11596eadf625d7c39b34f",
+    "outputs/final_competition_upgrade/story_data_v3/icvi.json": "d1d056c0ce5ea39e92d1c671adf16f11b0e57455b66e05bd031fd860c2631d8d",
+    "outputs/final_competition_upgrade/story_data_v3/municipalities.json": "2ba9539f696c9b909943b06da7f11fbce59a77d4b2c86ed3e6feb33d51c08b30",
+    "outputs/final_competition_upgrade/story_data_v3/profiles.json": "55a52766f29feee02629b40a516c6bc856a8a5a9fc09a76008c6b618bcb69193",
+    "outputs/final_competition_upgrade/story_data_v3/regional_generalization.json": "3e99d7a0a0930586be5e4878e6dd5ef71c8ed68187f501cce5a496dc2bf1638a",
+    "outputs/final_competition_upgrade/story_data_v3/robustness.json": "54c7138a196d99887f5243c4f236c566adf23143757fd24b3317b7746e9bd2a2",
+    "outputs/final_competition_upgrade/story_data_v3/summary.json": "5590901b731bbebf7fe25439fc010622e841837350169b2f7c884db96fc9a97a",
+    "outputs/final_competition_upgrade/story_data_v3/temporal_benchmark.json": "9b58e7dfb6d00e80f1b73937638efe7f7716ceaf6d70b49cc405cf2c798c550f",
+    "outputs/final_competition_upgrade/story_data_v3/temporal_trajectories.json": "4d88f3dbb36f52b84893aee9bcb51aab2e01e0361e56e62354ce727d4e50143a",
+    "outputs/final_competition_upgrade/story_data_v3/transition_flows.json": "afbdfe27a4204720532d14bfd1005aee7a9166584c96d8487447512542eb6190"
+  }
+}

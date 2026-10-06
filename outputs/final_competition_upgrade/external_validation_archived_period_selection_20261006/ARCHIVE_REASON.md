@@ -1,0 +1,1 @@
+# Archived ingestion attempt`n`nThe first BDMO stage run treated within-year partial reporting periods and transformed stable OKTMO as one entity. It is not evidence and was replaced before any matching or profile analysis. Raw publisher archives were not moved.

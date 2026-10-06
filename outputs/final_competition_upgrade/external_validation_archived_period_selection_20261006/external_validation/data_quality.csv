@@ -1,0 +1,5 @@
+variable,source,year,source_coverage_n,reference_coverage_n,coverage_pct,missing_n,median,p01,p99,unit,quality_status,reason
+population,BDMO/Rosstat processed by Если быть точным,2024,2494,0,0.0,1904,,,,person,BLOCKED_FOR_REFERENCE_VALIDATION,reference panel supplies neither nationwide region nor OKTMO; global name-only matching is prohibited
+mean_monthly_wage_excluding_small_business,BDMO/Rosstat processed by Если быть точным,2024,5,0,0.0,1904,,,,ruble_per_month,BLOCKED_FOR_REFERENCE_VALIDATION,reference panel supplies neither nationwide region nor OKTMO; global name-only matching is prohibited
+average_number_of_workers_excluding_small_business,BDMO/Rosstat processed by Если быть точным,2024,5,0,0.0,1904,,,,person,BLOCKED_FOR_REFERENCE_VALIDATION,reference panel supplies neither nationwide region nor OKTMO; global name-only matching is prohibited
+investment_in_fixed_capital_excluding_budget_per_capita,BDMO/Rosstat processed by Если быть точным,2024,22,0,0.0,1904,,,,ruble_per_person,BLOCKED_FOR_REFERENCE_VALIDATION,reference panel supplies neither nationwide region nor OKTMO; global name-only matching is prohibited

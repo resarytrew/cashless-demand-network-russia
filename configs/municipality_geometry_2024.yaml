@@ -1,0 +1,15 @@
+experiment:
+  id: municipality_geometry_2024
+  target_year: 2024
+  output_dir: outputs/final_competition_upgrade/municipality_geometry_20261006
+  source_archive: data/external/raw/sberindex_municipality_directory/t_dict_municipal_20241025.rar
+  extracted_gpkg: data/external/staging/sberindex_municipality_directory_20241025/t_dict_municipal_districts_poly.gpkg
+  layer: t_dict_municipal_districts_poly
+  lineage_csv: outputs/final_competition_upgrade/data_sense_lineage_20261006_r3/reference_to_territory_id.csv
+  profile_csv: outputs/final_competition_upgrade/external_validation_national_20261006_r6/external_validation_joined.csv
+  selected_lineage_status: VERIFIED_DATA_LINEAGE_MATCH
+  source_url: http://www.sberbank.com/common/files/t_dict_municipal.rar
+  license: CC BY-SA 4.0
+  geometry_crs: EPSG:4326
+  working_crs: EPSG:6933
+  simplification_tolerance_m: 250

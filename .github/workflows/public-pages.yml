@@ -2,7 +2,9 @@ name: Public research visualization
 on:
   push:
     branches: [main, codex/public-stability-landscape]
-    paths: ['outputs/public_visualization/**', '.github/workflows/public-pages.yml']
+    paths: ['site/**', 'outputs/public_visualization/**', 'scripts/stage_landing.py', 'scripts/export_landing_pdf.mjs', 'tests/browser/**', 'playwright.config.js', 'package*.json', '.github/workflows/public-pages.yml']
+  pull_request:
+    paths: ['site/**', 'scripts/stage_landing.py', 'scripts/export_landing_pdf.mjs', 'tests/browser/**', 'playwright.config.js', 'package*.json', '.github/workflows/public-pages.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -12,17 +14,42 @@ concurrency:
   group: public-pages
   cancel-in-progress: true
 jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run pdf
+      - run: python scripts/stage_landing.py
+      - run: npm run test:site
+      - uses: actions/upload-artifact@v4
+        with:
+          name: research-site
+          path: dist
   deploy:
+    if: github.event_name != 'pull_request'
+    needs: verify
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: research-site
+          path: dist
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: outputs/public_visualization
+          path: dist
       - name: Deploy public visualization
         id: deployment
         uses: actions/deploy-pages@v4

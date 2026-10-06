@@ -1,0 +1,6 @@
+schema_version: 1
+output: site/data/evidence.json
+inputs:
+  profiles: outputs/final_competition_upgrade/external_validation_national_20261006_r6/external_profile_summary.csv
+  regional: outputs/final_competition_upgrade/story_data_v3/regional_generalization.json
+  prediction: outputs/final_competition_upgrade/story_data_v3/external_prediction.json

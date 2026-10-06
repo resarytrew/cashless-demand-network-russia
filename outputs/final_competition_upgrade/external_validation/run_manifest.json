@@ -1,0 +1,99 @@
+{
+  "config_sha256": "3d2654f8b2252456ed251ef2000ad3ae121865e8c43e32433a1859f21182e711",
+  "raw_sources": [
+    {
+      "source_key": "population",
+      "source_url": "https://storage.yandexcloud.net/tochno-st-catalog/Rosstat/data_bdmo_118_v20260928/indicators/section31/data_Y48112027_112_v20260928.zip",
+      "retrieved_utc": "2026-10-05T19:04:16.987943+00:00",
+      "raw_file": "data\\external\\raw\\bdmo_population_Y48112027_v20260928.zip",
+      "sha256": "f73d2c75e238330bdbbe46f3974a884a3df55bb1a9a93bc3cd318e70eab5709c",
+      "bytes": 110188211,
+      "indicator_code": "Y48112027",
+      "variable": "population",
+      "unit": "person"
+    },
+    {
+      "source_key": "wage",
+      "source_url": "https://storage.yandexcloud.net/tochno-st-catalog/Rosstat/data_bdmo_118_v20260928/indicators/section32/data_Y48423007_112_v20260928.zip",
+      "retrieved_utc": "2026-10-05T19:04:17.085231+00:00",
+      "raw_file": "data\\external\\raw\\bdmo_wage_Y48423007_v20260928.zip",
+      "sha256": "51e21fb5d4e332e62ebfbfcc0c3f47780efbfd700e4c2a2f5a23f029c2777ee7",
+      "bytes": 450343949,
+      "indicator_code": "Y48423007",
+      "variable": "mean_monthly_wage_excluding_small_business",
+      "unit": "ruble_per_month"
+    },
+    {
+      "source_key": "employment",
+      "source_url": "https://storage.yandexcloud.net/tochno-st-catalog/Rosstat/data_bdmo_118_v20260928/indicators/section32/data_Y48423005_112_v20260928.zip",
+      "retrieved_utc": "2026-10-05T19:04:17.501033+00:00",
+      "raw_file": "data\\external\\raw\\bdmo_employment_Y48423005_v20260928.zip",
+      "sha256": "f2957fe8b334ad582966d4ca00a8aecb2a856f4b88e7a243963f8def5cc8f4a4",
+      "bytes": 328270764,
+      "indicator_code": "Y48423005",
+      "variable": "average_number_of_workers_excluding_small_business",
+      "unit": "person"
+    },
+    {
+      "source_key": "investment_per_capita",
+      "source_url": "https://storage.yandexcloud.net/tochno-st-catalog/Rosstat/data_bdmo_118_v20260928/indicators/section9/data_Y48109013_112_v20260928.zip",
+      "retrieved_utc": "2026-10-05T19:04:17.791969+00:00",
+      "raw_file": "data\\external\\raw\\bdmo_investment_per_capita_Y48109013_v20260928.zip",
+      "sha256": "866dfc89fa81010add4c0d839dffed16e7913d72f410c718ac06f3e52d96b625",
+      "bytes": 390759,
+      "indicator_code": "Y48109013",
+      "variable": "investment_in_fixed_capital_excluding_budget_per_capita",
+      "unit": "ruble_per_person"
+    }
+  ],
+  "read_stats": {
+    "population": {
+      "source_rows": 565693,
+      "year_rows": 33996,
+      "dimension_rows": 14286,
+      "upper_level_rows": 2567,
+      "primary_csv_member": "data_Y48112027_112_v20260928.csv",
+      "accepted_rows": 2567,
+      "conflicts": 0
+    },
+    "wage": {
+      "source_rows": 1465757,
+      "year_rows": 127756,
+      "dimension_rows": 2564,
+      "upper_level_rows": 2554,
+      "primary_csv_member": "data_Y48423007_112_v20260928.csv",
+      "accepted_rows": 2554,
+      "conflicts": 0
+    },
+    "employment": {
+      "source_rows": 1145580,
+      "year_rows": 126629,
+      "dimension_rows": 2564,
+      "upper_level_rows": 2554,
+      "primary_csv_member": "data_Y48423005_112_v20260928.csv",
+      "accepted_rows": 2554,
+      "conflicts": 0
+    },
+    "investment_per_capita": {
+      "source_rows": 3042,
+      "year_rows": 22,
+      "dimension_rows": 22,
+      "upper_level_rows": 22,
+      "primary_csv_member": "data_Y48109013_112_v20260928.csv",
+      "accepted_rows": 22,
+      "conflicts": 0
+    }
+  },
+  "matching_audit": {
+    "reference_n": 1904,
+    "matched_by_oktmo": 0,
+    "matched_by_transformation": 0,
+    "matched_by_normalized_identity": 0,
+    "matched_manual": 0,
+    "unmatched": 1904,
+    "one_to_many_name_candidates": 8,
+    "many_to_one_conflicts": 0,
+    "blocking_reason": "reference panel supplies neither nationwide region nor OKTMO; global name-only matching is prohibited"
+  },
+  "status": "BLOCKED_PENDING_REFERENCE_OKTMO_OR_REGION_CROSSWALK"
+}
