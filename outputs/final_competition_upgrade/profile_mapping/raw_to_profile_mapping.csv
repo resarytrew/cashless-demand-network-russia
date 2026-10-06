@@ -1,0 +1,11 @@
+raw_community,interpreted_profile,n_municipalities,share,mapping_reason,status
+0,micro,2,0.0010504201680672268,Temporal December community below the seven fixed major-profile IDs,micro_technical_community
+1,A,141,0.0740546218487395,Fixed mapping in configs/competition_artifacts.yaml,major_temporal_profile
+3,B,98,0.0514705882352941,Fixed mapping in configs/competition_artifacts.yaml,major_temporal_profile
+4,micro,2,0.0010504201680672268,Temporal December community below the seven fixed major-profile IDs,micro_technical_community
+5,micro,1,0.0005252100840336134,Temporal December community below the seven fixed major-profile IDs,micro_technical_community
+7,C,29,0.0152310924369748,Fixed mapping in configs/competition_artifacts.yaml,major_temporal_profile
+8,D,153,0.0803571428571429,Fixed mapping in configs/competition_artifacts.yaml,major_temporal_profile
+9,E,186,0.0976890756302521,Fixed mapping in configs/competition_artifacts.yaml,major_temporal_profile
+10,F,327,0.1717436974789916,Fixed mapping in configs/competition_artifacts.yaml,major_temporal_profile
+11,G,965,0.506827731092437,Fixed mapping in configs/competition_artifacts.yaml,major_temporal_profile

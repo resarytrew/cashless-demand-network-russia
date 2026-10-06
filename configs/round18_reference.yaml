@@ -1,0 +1,9 @@
+extends: baseline.yaml
+paths:
+  output_dir: outputs/round18_representation/reference
+features:
+  representation: reference_6part_clr
+experiment:
+  id: round18_reference
+  baseline_gate_dir: outputs/presubmission_upgrade/baseline_gate
+  output_root: outputs/round18_representation

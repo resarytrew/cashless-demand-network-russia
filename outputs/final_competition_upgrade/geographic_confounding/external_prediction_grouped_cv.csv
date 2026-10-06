@@ -1,0 +1,3 @@
+model,n,folds,groups,macro_f1,balanced_accuracy,accuracy,log_loss,features,split
+multinomial_logistic,1898,5,73,0.5490070394457921,0.6112948605146296,0.6280295047418335,1.0690931629738227,population;wage;employment_total;administrative;arts;construction;education;finance;health;hospitality;information;manufacturing;other_services;professional;public_administration;real_estate;trade;utilities,GroupKFold_region
+random_forest,1898,5,73,0.551205651565717,0.5433530488121167,0.7307692307692307,0.7737368991206197,population;wage;employment_total;administrative;arts;construction;education;finance;health;hospitality;information;manufacturing;other_services;professional;public_administration;real_estate;trade;utilities,GroupKFold_region

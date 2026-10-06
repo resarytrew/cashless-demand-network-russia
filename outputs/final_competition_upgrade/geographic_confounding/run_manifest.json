@@ -1,0 +1,25 @@
+{
+  "status": "COMPLETED",
+  "config_sha256": "9937843fa421233a3c980fd5dee5972c2daceecf776c06b5f52048ad0ab2c1e0",
+  "input_sha256": "af18c32bc1ee2a09ee1f2cb468f14bd2ebbdf97533f5958924f79968e8413843",
+  "features": [
+    "population",
+    "wage",
+    "employment_total",
+    "administrative",
+    "arts",
+    "construction",
+    "education",
+    "finance",
+    "health",
+    "hospitality",
+    "information",
+    "manufacturing",
+    "other_services",
+    "professional",
+    "public_administration",
+    "real_estate",
+    "trade",
+    "utilities"
+  ]
+}

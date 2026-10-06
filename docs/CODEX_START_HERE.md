@@ -22,7 +22,7 @@ and [current pointers](CURRENT_STATE.json). Raw source documents and source row/
 locations are unavailable; normalized analytical data and statistics replay offline.
 No baseline, Round16, perturbation or existing Atlas outputs were changed.
 A–G scientific robustness statuses and the reference specification are unchanged.
-Round18 is [planned separately](ROUND18_REPRESENTATION_ROBUSTNESS_PLAN.md), not executed.
+Round18 is now a completed fixed, single-seed representation sensitivity. It found material exact-partition dependence without `Other`; see `outputs/round18_representation/` and evidence v2.5.0. It does not change the reference specification or A–G statuses.
 
 ## Preserved prior state — Round16 evidence and Atlas 2.2.1 engineering release
 

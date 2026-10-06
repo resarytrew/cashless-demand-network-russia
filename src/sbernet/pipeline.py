@@ -59,6 +59,7 @@ def _prepare(cfg_path: str | Path):
             other_category=cfg["panel"]["other_category"],
             structure_weight=cfg["features"]["structure_weight"],
             level_weight=cfg["features"]["level_weight"],
+            representation=cfg["features"].get("representation", "reference_6part_clr"),
         )
         feature_matrices[key] = x
 

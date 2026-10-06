@@ -1,0 +1,46 @@
+experiment:
+  id: external_bdmo_2024_source_and_matching_gate
+  target_year: 2024
+  output_dir: outputs/final_competition_upgrade/external_validation
+  source_url: https://tochno.st/datasets/bdmo
+  catalog_url: https://docs.google.com/spreadsheets/d/1fain2iBHAJEkaXYk-8aAcjEA8tdR5GKF134AAk1UCSQ/export?format=xlsx
+  catalog_raw_file: data/external/raw/bdmo_publisher_catalog_v20260928.xlsx
+  publisher_citation: "Муниципальная статистика России с 2005 года // Росстат; обработка: Если быть точным, 2025"
+  source_license_status: "not stated on publisher dataset page at retrieval; reuse terms require publisher verification"
+  reference_labels: outputs/baseline/supra_labels.csv
+  reference_profiles: outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv
+sources:
+  population:
+    raw_file: data/external/raw/bdmo_population_Y48112027_v20260928.zip
+    url: https://storage.yandexcloud.net/tochno-st-catalog/Rosstat/data_bdmo_118_v20260928/indicators/section31/data_Y48112027_112_v20260928.zip
+    indicator_code: Y48112027
+    variable: population
+    unit: person
+    dimension_column: mest
+    dimension_value: Все население
+    period_value: На 1 января
+  wage:
+    raw_file: data/external/raw/bdmo_wage_Y48423007_v20260928.zip
+    url: https://storage.yandexcloud.net/tochno-st-catalog/Rosstat/data_bdmo_118_v20260928/indicators/section32/data_Y48423007_112_v20260928.zip
+    indicator_code: Y48423007
+    variable: mean_monthly_wage_excluding_small_business
+    unit: ruble_per_month
+    dimension_column: okved2
+    dimension_prefix: Всего по обследуемым видам экономической деятельности
+    period_value: Январь-декабрь
+  employment:
+    raw_file: data/external/raw/bdmo_employment_Y48423005_v20260928.zip
+    url: https://storage.yandexcloud.net/tochno-st-catalog/Rosstat/data_bdmo_118_v20260928/indicators/section32/data_Y48423005_112_v20260928.zip
+    indicator_code: Y48423005
+    variable: average_number_of_workers_excluding_small_business
+    unit: person
+    dimension_column: okved2
+    dimension_prefix: Всего по обследуемым видам экономической деятельности
+    period_value: Январь-декабрь
+  investment_per_capita:
+    raw_file: data/external/raw/bdmo_investment_per_capita_Y48109013_v20260928.zip
+    url: https://storage.yandexcloud.net/tochno-st-catalog/Rosstat/data_bdmo_118_v20260928/indicators/section9/data_Y48109013_112_v20260928.zip
+    indicator_code: Y48109013
+    variable: investment_in_fixed_capital_excluding_budget_per_capita
+    unit: ruble_per_person
+    period_value: Значение показателя за год

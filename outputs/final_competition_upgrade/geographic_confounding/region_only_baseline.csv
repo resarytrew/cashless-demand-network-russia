@@ -1,0 +1,2 @@
+model,n,folds,macro_f1,balanced_accuracy,accuracy,definition
+region_only_unseen_region_majority,1898,5,0.09630257971159124,0.14285714285714285,0.5084299262381454,training-majority for entirely unseen regional groups

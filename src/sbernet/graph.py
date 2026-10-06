@@ -7,7 +7,8 @@ import numpy as np
 from sklearn.neighbors import NearestNeighbors
 
 
-def mutual_knn_graph(x: np.ndarray, k: int, isolate_fallback: bool) -> nx.Graph:
+def knn_graph(x: np.ndarray, k: int, isolate_fallback: bool, mutual: bool = True) -> nx.Graph:
+    """Return a weighted mutual- or union-kNN graph with adaptive-RBF weights."""
     if k >= len(x):
         raise ValueError("k must be smaller than number of observations.")
 
@@ -25,7 +26,7 @@ def mutual_knn_graph(x: np.ndarray, k: int, isolate_fallback: bool) -> nx.Graph:
     for i in range(len(x)):
         for j_raw in neighbors[i]:
             j = int(j_raw)
-            if j <= i or i not in neighbor_sets[j]:
+            if j <= i or (mutual and i not in neighbor_sets[j]):
                 continue
             d = float(np.linalg.norm(x[i] - x[j]))
             denom = float(sigma[i] * sigma[j]) + 1e-12
@@ -41,3 +42,8 @@ def mutual_knn_graph(x: np.ndarray, k: int, isolate_fallback: bool) -> nx.Graph:
             graph.add_edge(i, j, weight=weight, distance=d, fallback=True)
 
     return graph
+
+
+def mutual_knn_graph(x: np.ndarray, k: int, isolate_fallback: bool) -> nx.Graph:
+    """Backward-compatible reference mutual-kNN entry point."""
+    return knn_graph(x, k=k, isolate_fallback=isolate_fallback, mutual=True)

@@ -1,0 +1,17 @@
+experiment:
+  id: data_sense_official_spending_lineage_2024
+  output_dir: outputs/final_competition_upgrade/data_sense_lineage_20261006_r3
+  audit_csv: outputs/final_competition_upgrade/data_sense_raw_audit_20261006_r3.csv
+  reference_raw: data/raw/spending.csv.zip
+  reference_labels: outputs/baseline/supra_labels.csv
+  official_archive: data/external/raw/sberindex_data_sense/hackathonlicence_20251018.zip
+  staging_dir: data/external/staging/sberindex_data_sense_20251018/hackathonlicence
+  consumption_file: data/external/staging/sberindex_data_sense_20251018/hackathonlicence/consumption.parquet
+  directory_file: data/external/processed/sberindex_municipality_directory_20241025/t_dict_municipal_districts.xlsx
+  target_year: 2024
+  source_url: https://sberindex.ru/ru/research/data-sense-opisanie-nabora-dannikh-khakatona-sberindeksa-po-munitsipalnim-dannim
+  download_url: https://sberbank.com/common/img/uploaded/files/pdf/sberindex/hackathonlicence.zip
+  resolved_download_url: http://www.sberbank.com/common/img/uploaded/files/pdf/sberindex/hackathonlicence.zip
+  retrieved_utc: "2026-10-05T19:41:54.7140743Z"
+  license: CC BY-SA 4.0
+  citation: "Потребительские безналичные расходы на уровне муниципальных образований. СберИндекс. Данные скачаны 2026-10-05."
