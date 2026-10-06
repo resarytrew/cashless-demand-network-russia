@@ -17,7 +17,7 @@ def test_year_to_is_exclusive_and_keeps_single_version():
     selected = select_snapshot(frame, 2024)
     assert selected.loc[selected.territory_id.eq(1), "oktmo"].item() == "01-501-000-000"
     out = territory_to_oktmo(selected, "source")
-    assert out.oktmo.dtype.name == "object"
+    assert out.oktmo.astype(str).tolist() == ["01-501-000-000", "02-001-000-000"]
 
 
 def test_reference_without_official_identifier_is_not_name_matched():
