@@ -6,11 +6,11 @@ The fresh gate in `baseline_gate_before_final/` reproduced the 1,904 × 24 panel
 
 ## 2. Tests and current CI
 
-`python -m pytest -q` passed: 93 tests. The upgrade-surface Ruff fatal/static check passes. `scripts/verify_presubmission_current.py` is the current presubmission verifier and deliberately does not replace the legacy publication-freeze verifier or its known historic workflow-hash mismatch.
+The current verifier runs the full test suite and a scoped current-surface Ruff fatal/static gate. `scripts/verify_presubmission_current.py` complements the legacy publication-freeze verifier; both are expected to pass. The gate is explicitly scoped and is not presented as project-wide Ruff cleanliness.
 
 ## 3–5. ICVI, representation and edge sensitivity
 
-Existing ICVI, Round18 representation and edge-construction evidence are preserved in `outputs/presubmission_upgrade/`. Round18 shows material exact-boundary dependence; it is not used to tune or replace the reference specification.
+Existing ICVI and Round18 representation evidence are preserved in `outputs/presubmission_upgrade/`. The first edge-rule comparison is preserved but superseded: its union-kNN implementation dropped one-sided nominations. The corrected v3 comparison is `edge_sensitivity_v3/`, gated by `baseline_gate_before_v3_corrections/`. At k=20, corrected union-kNN has 26,305 edges, K=6, and ARI=.553326 against the reference static partition; it remains a descriptive sensitivity, not a parameter-selection exercise. Round18 shows material exact-boundary dependence; it is not used to tune or replace the reference specification.
 
 ## 6. National external validation
 
@@ -22,7 +22,7 @@ Region-held-out GroupKFold gives logistic macro-F1=.549 and RF macro-F1=.551. Wi
 
 ## 10–11. Synthetic temporal benchmark and omega interpretation
 
-Six predeclared synthetic scenarios × 20 seeds used known latent states. Across scenarios, omega=4 maximizes partition ARI and minimizes false-switch rate; omega=0 maximizes event F1. The transparent balanced utility places omega=4 first and omega=2 second. Thus omega=2 remains the historical reference trade-off; a scenario-dependent calibrated range of 2–4 is reported separately and does not alter historical outputs.
+Six predeclared synthetic scenarios × 20 seeds used known latent states. The prior synthetic run is retained but superseded because its mixed scenario overlaid switch, boundary and shock roles. In v3 these roles are disjoint (10% true switches, 10% boundary-only, 10% temporary-shock-only, 70% stable). Across scenarios, omega=4 maximizes partition ARI (.905442) and minimizes false-switch rate (.008926); omega=0 maximizes event F1 (.259793). The transparent balanced utility is highest at omega=2 (.622792; omega=4: .600375). Thus omega=2 remains the historical reference trade-off and is supported by this fixed synthetic compromise; no universal real-world optimum is inferred.
 
 ## 12. Profile naming
 
@@ -30,11 +30,11 @@ Six predeclared synthetic scenarios × 20 seeds used known latent states. Across
 
 ## 13. Current CI
 
-`presubmission-verify.yml` invokes the current verifier. It checks tests, the scoped current Ruff correctness gate, a new baseline reproduction in a temporary directory, required final outputs, national manifests, no external-feature reference in the clustering pipeline, and the story JSON contract.
+`presubmission-verify.yml` invokes the current verifier. It checks tests, the scoped current-surface Ruff correctness gate, a new baseline reproduction in a temporary directory, required v3 outputs, national manifests, no external-feature reference in the clustering pipeline, and the v3 story JSON contract.
 
 ## 14. Story assets
 
-Eleven JSON assets in `story_data/` are generated from saved outputs. They contain no NaN and reconcile to 1,903 verified municipalities; the unresolved lineage row is excluded.
+Eleven JSON assets in `story_data_v3/` are generated from saved outputs. They contain no NaN and reconcile to 1,903 verified municipalities; the unresolved lineage row is excluded.
 
 ## 15. Remaining limitations
 

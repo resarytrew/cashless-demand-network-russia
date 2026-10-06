@@ -1,0 +1,26 @@
+{
+  "synthetic_temporal": {
+    "config_sha256": "b4cf4525d4b2448c52c0551da432c5cddbb653e51042c7b5026007287d252e4a",
+    "status": "COMPLETED",
+    "seeds": 20,
+    "scenarios": [
+      "stable",
+      "abrupt",
+      "gradual",
+      "boundary",
+      "shock",
+      "mixed"
+    ],
+    "omega_grid": [
+      0.0,
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "git_commit": "ae9479a0f3a0a26f2d6b56397d2b920e7c59121f",
+    "python": "3.13.6 (tags/v3.13.6:4e66535, Aug  6 2025, 14:36:00) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "reference_note": "Existing frozen robustness outputs are preserved; exact boundaries remain specification-dependent."
+}
