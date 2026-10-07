@@ -1,0 +1,105 @@
+{
+  "status": "COMPLETED_SEPARATE_L2_EXPERIMENT",
+  "summary": {
+    "L1_vs_L2_Dec2024": {
+      "ARI": 0.4319172891077332,
+      "NMI": 0.47172720084516967,
+      "n_common": 1876
+    },
+    "L2": {
+      "eligible_n": 1876,
+      "excluded_n": 28,
+      "K_supra": 44,
+      "K_Dec2024": 41,
+      "K_static_Dec2024": 10,
+      "major_profile_count": 5,
+      "cross_lens_reassigned_n": 571,
+      "cross_lens_reassigned_share": 0.30437100213219614
+    },
+    "graphs": {
+      "static_nodes": 1876,
+      "static_edges": 9784,
+      "static_isolates": 0,
+      "supra_nodes": 45024,
+      "supra_edges": 278408,
+      "temporal_weight": 0.925767363767364,
+      "monthly_isolates_min": 38,
+      "monthly_isolates_max": 58
+    },
+    "ICVI_v2_static": {
+      "K": 10,
+      "N": 1876,
+      "SW": 0.07530093998551216,
+      "CH": 277.6971516770114,
+      "CH_per_N": 0.14802620025427046,
+      "S_Dbw": 1.1143773735489646,
+      "AVI": 0.9178169293453493,
+      "AVU": 0.4664734806374888,
+      "ANUI": 0.6426671697334373,
+      "MQ": 9.178169293453493,
+      "Q": 0.7716863597321874,
+      "AVI_unweighted": 0.9113390246951825,
+      "AVU_unweighted": 0.4658988459317726,
+      "status": "defined",
+      "notes": ""
+    },
+    "ICVI_v2_temporal_Dec2024": {
+      "K": 41,
+      "N": 1876,
+      "SW": -0.04287258973664613,
+      "CH": 55.71450917544411,
+      "CH_per_N": 0.029698565658552296,
+      "S_Dbw": 0.22263894123260414,
+      "AVI": 0.25421959713090847,
+      "AVU": 0.0684484379482992,
+      "ANUI": 0.24987159786810784,
+      "MQ": 10.423003482367248,
+      "Q": 0.6745708661307561,
+      "AVI_unweighted": 0.24992773934516013,
+      "AVU_unweighted": 0.06815889772753103,
+      "status": "defined",
+      "notes": ""
+    },
+    "tree": {
+      "major_min_share": 0.02,
+      "major_communities": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "n": 1788,
+      "accuracy": 0.8557046979865772,
+      "balanced_accuracy": 0.8450909403638324,
+      "cv_folds": 5,
+      "max_depth": 4,
+      "min_samples_leaf": 40
+    },
+    "holdout": {
+      "coverage_n": 268,
+      "coverage_share": 0.14285714285714285,
+      "tests": [
+        {
+          "lens": "L1_profile",
+          "status": "EXPLORATORY_HOLDOUT",
+          "n": 267,
+          "groups": 6,
+          "kruskal_h": 195.62983635914264,
+          "p_value": 2.444190115795997e-40,
+          "epsilon_squared": 0.7303825147859871
+        },
+        {
+          "lens": "L2_community",
+          "status": "EXPLORATORY_HOLDOUT",
+          "n": 253,
+          "groups": 5,
+          "kruskal_h": 160.245747559802,
+          "p_value": 1.2948556922661765e-33,
+          "epsilon_squared": 0.6300231756443629
+        }
+      ]
+    },
+    "urban_share": "UNAVAILABLE_NOT_PROXIED"
+  }
+}

@@ -1,5 +1,51 @@
 # Codex Start Here
 
+## Current structural sensitivity — Round21 / evidence v2.8.0
+
+Round21 is complete and additive. It freezes and rechecks L1/A–G/Atlas/original
+L2 hashes; reproduces Round20; decomposes omega changes into nestedness, pairwise
+agreement and conditional entropy; audits omega as absent from Atlas construction;
+adds adjusted multivariate sector validation; and publishes both predeclared
+block-balanced L2 sensitivities. Read `outputs/round21_structural_sensitivity/`
+and `outputs/evidence_v2_8_0/ROUND21_EVIDENCE_UPDATE.md` first. No baseline,
+profile status, reference omega or original L2 changed.
+
+## Targeted checks — Round20 / evidence v2.7.0
+
+Round20 adds three fixed diagnostics without changing L1, A–G, `omega=2`, or
+Round19 L2 weights: size-and-region-controlled wage/employment residual tests,
+the single `omega=1` sensitivity, and exact five-term L2 distance accounting.
+The omega sensitivity is materially adverse for exact boundaries (December
+ARI 0.4070; NMI 0.5547), while Atlas stable cores are almost unchanged. Read
+`outputs/round20_targeted_checks/ROUND20_REPORT.md`, its audit, and
+`outputs/evidence_v2_7_0/ROUND20_EVIDENCE_UPDATE.md` before extending either lens.
+
+## Dual-lens addition — Round19 / evidence v2.6.0
+
+Round19 implements L2 as a separate additive attributed-network experiment after
+exact P0 gates. L1, A–G, k=20, omega=2, resolution=.5 and all A–G statuses remain
+unchanged. L2 uses 1,876 complete cases and combines equal, separately normalized
+blocks for L1, log population/wage/market access, and CLR employment structure.
+December L1/L2 agreement is ARI=.431917 and NMI=.471727. Five L2 communities exceed
+the fixed 2% reporting threshold and cover 95.3%, but the temporal December partition
+contains 41 communities and has negative silhouette; do not call the five universal
+robust types. Mobility was held out but exact-name coverage is only 268/1,876.
+
+Read the [Round19 report](../outputs/round19_dual_lens_l2/DUAL_LENS_L2_REPORT.md),
+[audit](../outputs/round19_dual_lens_l2/ROUND19_AUDIT.md), and
+[evidence update](../outputs/evidence_v2_6_0/ROUND19_EVIDENCE_UPDATE.md).
+
+## Current synthetic-method correction — temporal benchmark v4
+
+Synthetic temporal v4 is the current calibration artifact. It replaces v3 only
+for synthetic temporal evaluation: partition quality is now measured by mean
+monthly ARI/NMI, while flattened ARI/NMI remain explicitly named forensic legacy
+diagnostics. Transition and no-transition trade-offs are reported separately and
+no universal best omega is selected. The generator, seed grid, real-data baseline,
+reference omega=2 and A–G statuses are unchanged. Read the
+[v4 report](../outputs/final_competition_upgrade/synthetic_temporal_v4/SYNTHETIC_TEMPORAL_REPORT.md)
+and [audit](../outputs/final_competition_upgrade/synthetic_temporal_v4/SYNTHETIC_TEMPORAL_V4_AUDIT.md).
+
 ## Current state — Round18 representation evidence (v2.5.0)
 
 Round18 is completed under the three fixed YAML specifications in `configs/round18_*.yaml`.

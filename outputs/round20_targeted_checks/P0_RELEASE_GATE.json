@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "baseline_metrics": {
+    "full_supra": {
+      "ARI": 1.0,
+      "NMI": 1.0
+    },
+    "temporal_Dec2024": {
+      "ARI": 1.0,
+      "NMI": 1.0
+    },
+    "static_Dec2024": {
+      "ARI": 1.0,
+      "NMI": 1.0
+    }
+  },
+  "baseline_supra_sha256": "7cac1146f94c61cd1d6cdcfb6600796c1d95e05d94edd570c53a38251243192a",
+  "round19_status": "COMPLETED_SEPARATE_L2_EXPERIMENT",
+  "L1_changed": false,
+  "L2_weights_changed": false
+}

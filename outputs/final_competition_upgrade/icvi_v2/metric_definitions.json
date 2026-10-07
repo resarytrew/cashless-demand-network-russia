@@ -1,0 +1,11 @@
+{
+  "schema_version": 2,
+  "MQ": "TurboMQ=sum_i mu_i/(mu_i+0.5*epsilon_i)",
+  "Q": "weighted Newman-Girvan modularity, resolution=1.0",
+  "AVI": "mean_i S_ii/sum_j(S_ij); zero-strength community contributes 0",
+  "AVU": "sum_i(sum_j!=i S_ij/(out_i+in_j-S_ij))/K; zero denominator contributes 0",
+  "ANUI": "1/(AVU+1/AVI) when AVI!=0, otherwise 0",
+  "AVI_unweighted": "historical unweighted block-count diagnostic",
+  "AVU_unweighted": "historical unweighted block-count diagnostic",
+  "S_Dbw": "repository Halkidi-Vazirgiannis 2001 Scat+Dens_bw population-std variant"
+}

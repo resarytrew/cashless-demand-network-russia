@@ -1,0 +1,36 @@
+experiment:
+  id: icvi_v2_additive_compatibility
+  output_dir: outputs/final_competition_upgrade/icvi_v2
+  baseline_gate: outputs/presubmission_upgrade/baseline_gate/baseline_gate.json
+  baseline_graphs: outputs/presubmission_upgrade/baseline_gate/baseline_graphs.pkl
+  fixed_method_labels_dir: outputs/round16_benchmark
+  historical_canonical_csv: outputs/presubmission_upgrade/icvi/canonical_icvi.csv
+  historical_edge_csv: outputs/final_competition_upgrade/edge_sensitivity_v3/edge_sensitivity.csv
+  reference_static_labels: outputs/baseline/static_dec2024_labels.csv
+  numeric_gate_atol: 1.0e-12
+  numeric_gate_rtol: 1.0e-10
+
+source_config: configs/baseline.yaml
+
+fixed_partitions:
+  methods: [Louvain, Greedy, Spectral, KMeans, Ward]
+  input_period: '2024-12-01'
+  requested_k_for_fixed_K_methods: 9
+
+edge_grid:
+  rules: [mutual, union]
+  k: [10, 15, 20, 30, 50]
+  isolate_fallback: true
+
+clustering_replay:
+  algorithm: louvain
+  resolution: 0.5
+  seed: 0
+
+metric_definitions:
+  MQ: TurboMQ
+  Q: weighted_newman_girvan_resolution_1
+  AVI: weighted_adjacency_share
+  AVU: weighted_pattern_block_overlap
+  ANUI: inverse_AVU_plus_inverse_AVI
+  S_Dbw: halkidi_vazirgiannis_2001_population_std_repository_variant

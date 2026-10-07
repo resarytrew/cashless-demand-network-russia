@@ -1,0 +1,9 @@
+component,used,contains_omega_variation,evidence
+perturbation,True,False,50 fixed-reference perturbation runs; profile config inherits omega=2
+alpha,True,False,alpha 0.50/0.50 and 0.90/0.10 only
+gamma_resolution,True,False,resolution 0.25/0.75/1.0 only
+algorithm,True,False,Leiden swap on fixed reference graph
+k_or_edge_rule,False,False,not an Atlas family
+representation,False,False,Round18 postdates Atlas and is absent from config
+omega_or_temporal_coupling,False,False,no omega grid in Atlas config or manifest
+Round20,False,True,Round20 postdates Atlas

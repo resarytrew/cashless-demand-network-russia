@@ -1,0 +1,89 @@
+{
+  "status": "COMPLETED_EXPLORATORY_TARGETED_CHECKS",
+  "L1_changed": false,
+  "L2_weights_changed": false,
+  "residual_external": [
+    {
+      "outcome": "wage",
+      "n": 1885,
+      "regions": 73,
+      "profiles": 7,
+      "beta_log_population": 0.0865867974277893,
+      "reduced_R2": 0.7951934641663736,
+      "partial_F": 64.17352774477858,
+      "partial_F_df_num": 6,
+      "partial_F_df_den": 1805,
+      "partial_F_p": 2.0817110505540038e-72,
+      "partial_R2_profile": 0.17581457936223666,
+      "HC3_Wald_chi2": 269.49809208642864,
+      "HC3_Wald_df": 6,
+      "HC3_Wald_p": 2.7777938075125424e-55,
+      "Freedman_Lane_within_region_reps": 1999,
+      "Freedman_Lane_within_region_p": 0.0005,
+      "Kruskal_H_residual": 143.3513004255501,
+      "Kruskal_p_residual": 1.965579888196901e-28,
+      "Kruskal_epsilon_squared": 0.07313700768133659,
+      "rank_reduced": 74,
+      "rank_full": 80
+    },
+    {
+      "outcome": "employment_total",
+      "n": 1885,
+      "regions": 73,
+      "profiles": 7,
+      "beta_log_population": 1.0384415239051794,
+      "reduced_R2": 0.8246908591899452,
+      "partial_F": 82.0795562940454,
+      "partial_F_df_num": 6,
+      "partial_F_df_den": 1805,
+      "partial_F_p": 5.230439463029284e-91,
+      "partial_R2_profile": 0.214355689028695,
+      "HC3_Wald_chi2": 180.57417644824773,
+      "HC3_Wald_df": 6,
+      "HC3_Wald_p": 2.5624572163577823e-36,
+      "Freedman_Lane_within_region_reps": 1999,
+      "Freedman_Lane_within_region_p": 0.0005,
+      "Kruskal_H_residual": 167.744945659505,
+      "Kruskal_p_residual": 1.3527323282455948e-33,
+      "Kruskal_epsilon_squared": 0.08612616914776623,
+      "rank_reduced": 74,
+      "rank_full": 80
+    }
+  ],
+  "omega": {
+    "reference_omega": 2.0,
+    "sensitivity_omega": 1.0,
+    "Dec2024_ARI": 0.40703735020599807,
+    "Dec2024_NMI": 0.554713225113412,
+    "reference_K": 10,
+    "sensitivity_K": 7,
+    "optimally_aligned_match_share": 0.6685924369747899,
+    "optimally_aligned_changed_share": 0.33140756302521013,
+    "alignment_map": {
+      "11": 0,
+      "13": 1,
+      "2": 4,
+      "12": 5,
+      "14": 7,
+      "16": 9,
+      "15": 11
+    }
+  },
+  "distance_mean_shares_all_pairs": {
+    "Demand": 0.3407783788135629,
+    "Population": 0.08272091648648211,
+    "Wage": 0.07704306063566113,
+    "Market_access": 0.15401780191066533,
+    "Employment": 0.3454398421536285
+  },
+  "distance_contribution_scales": {
+    "demand": 1.0542880344145007,
+    "socioeconomic": 2.4750111346682395,
+    "employment": 5.655176353143048
+  },
+  "distance_reconstruction_scales": {
+    "l1": 1.0542880344145007,
+    "socioeconomic": 2.4750111346682395,
+    "employment": 5.655176353143048
+  }
+}

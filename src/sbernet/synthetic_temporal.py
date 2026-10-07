@@ -17,6 +17,13 @@ from .graph import mutual_knn_graph
 from .temporal import build_supra_graph
 
 
+LEGACY_METRIC_NOTE = (
+    "These metrics are retained only for forensic comparability with "
+    "synthetic_temporal_v3 and are not used as the primary partition-quality "
+    "metric or for omega comparison."
+)
+
+
 @dataclass(frozen=True)
 class SyntheticPanel:
     features: np.ndarray  # (months, nodes, 6): 5 CLR-like composition dims + level
@@ -158,8 +165,34 @@ def infer_labels(panel: SyntheticPanel, omega: float, k: int, resolution: float,
     return louvain_labels(supra, resolution, seed).reshape(panel.features.shape[0], panel.features.shape[1])
 
 
+def monthly_partition_metrics(truth: np.ndarray, inferred: np.ndarray) -> dict[str, np.ndarray]:
+    """Return label-permutation-invariant partition scores for every month."""
+    if truth.shape != inferred.shape or truth.ndim != 2:
+        raise ValueError("truth and inferred must be equally shaped month-by-node arrays")
+    monthly_ari = np.array(
+        [adjusted_rand_score(truth[month], inferred[month]) for month in range(truth.shape[0])],
+        dtype=float,
+    )
+    monthly_nmi = np.array(
+        [
+            normalized_mutual_info_score(truth[month], inferred[month])
+            for month in range(truth.shape[0])
+        ],
+        dtype=float,
+    )
+    return {"monthly_ari": monthly_ari, "monthly_nmi": monthly_nmi}
+
+
 def score(panel: SyntheticPanel, inferred: np.ndarray) -> dict[str, float]:
-    """Score partitions and month-level event calls against declared latent truth."""
+    """Score monthwise partitions and event calls against declared latent truth.
+
+    The flattened ARI/NMI are legacy diagnostics only.  They mix monthly
+    partition recovery with cross-month numeric label identity when monthly
+    clusterings are independent, so v4 never uses them for omega comparison.
+    """
+    partition = monthly_partition_metrics(panel.truth, inferred)
+    monthly_ari = partition["monthly_ari"]
+    monthly_nmi = partition["monthly_nmi"]
     aligned = align_to_truth(inferred, panel.truth)
     truth_events = np.zeros((panel.truth.shape[0] - 1, panel.truth.shape[1]), dtype=bool)
     pred_events = np.zeros_like(truth_events)
@@ -181,8 +214,20 @@ def score(panel: SyntheticPanel, inferred: np.ndarray) -> dict[str, float]:
             delays.append(abs(delta))
             signed.append(delta)
     return {
-        "ari": adjusted_rand_score(panel.truth.ravel(), inferred.ravel()),
-        "nmi": normalized_mutual_info_score(panel.truth.ravel(), inferred.ravel()),
+        "monthly_ari_mean": float(monthly_ari.mean()),
+        "monthly_ari_std": float(monthly_ari.std(ddof=0)),
+        "monthly_ari_min": float(monthly_ari.min()),
+        "monthly_ari_median": float(np.median(monthly_ari)),
+        "monthly_nmi_mean": float(monthly_nmi.mean()),
+        "monthly_nmi_std": float(monthly_nmi.std(ddof=0)),
+        "monthly_nmi_min": float(monthly_nmi.min()),
+        "monthly_nmi_median": float(np.median(monthly_nmi)),
+        "legacy_flattened_ari": float(
+            adjusted_rand_score(panel.truth.ravel(), inferred.ravel())
+        ),
+        "legacy_flattened_nmi": float(
+            normalized_mutual_info_score(panel.truth.ravel(), inferred.ravel())
+        ),
         "node_state_accuracy": float((aligned == panel.truth).mean()),
         "switch_precision": precision, "switch_recall": recall, "switch_f1": f1,
         "false_switches": fp, "missed_switches": fn,

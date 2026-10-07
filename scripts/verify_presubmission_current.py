@@ -30,7 +30,7 @@ def walk_no_nan(value) -> bool:
 
 def check_required() -> None:
     required=[
-        FINAL/"synthetic_temporal_v3/run_manifest.json", FINAL/"geographic_confounding/run_manifest.json",
+        FINAL/"synthetic_temporal_v4/run_manifest.json", FINAL/"geographic_confounding/run_manifest.json",
         FINAL/"profile_naming/profile_evidence_table.csv", FINAL/"story_data_v3/summary.json",
         FINAL/"external_validation_national_20261006_r6/run_manifest.json",
     ]

@@ -1,0 +1,8 @@
+claim,status,evidence
+omega=1 change is predominantly a coarsening of omega=2 December groups,SUPPORTED_DESCRIPTIVELY_WITH_BOUNDARY_CAVEAT,micro purity=.9785; fine-pair retention=.9827; coarse precision=.4888; conditional entropies .1303 vs 1.2874 bits
+the same merge pattern survives matched K,PARTIAL,"omega1 resolution=.8 reaches K=10; B/E merge persists, C/D/F/G joint merge does not"
+Atlas states anticipate omega sensitivity on an independent axis,SUPPORTED_FOR_HELD_OUT_SENSITIVITY_AXIS,omega absent from Atlas inputs; stable 1/824 vs transition 348/388; RR=739 with very wide CI
+sector composition differences disappear after size and region controls,NOT_SUPPORTED,partial R2=.0361; pseudo-F=11.2386; within-region permutation p=.0005
+omega1 merges economically indistinguishable profiles,NOT_SUPPORTED_POSTHOC,"B/E and every D/F/G scalar and sector contrast remain distinguishable; D/F/G sector omnibus R2=.0666, p=.0005; interpretation is post-hoc"
+original L2 is robust to semantic block balancing,NOT_SUPPORTED,Balanced-A ARI=.0345 and Balanced-B ARI=.1772 versus original L2; edge Jaccard about .43; no model selected
+"Round21 changed L1, A-G, Atlas assignments, omega=2 or original L2",FALSE,before/after freeze hashes identical and full audit records no changes

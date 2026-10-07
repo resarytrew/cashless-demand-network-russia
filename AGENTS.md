@@ -87,6 +87,13 @@ For canonical perturbation protocol v2, require exact same-process, fresh-proces
 
 ## Current engineering state
 
+Synthetic temporal benchmark v4 is the current additive calibration correction.
+Use `configs/synthetic_temporal_benchmark_v4.yaml` and
+`outputs/final_competition_upgrade/synthetic_temporal_v4/`. V3 remains preserved
+for history, but its flattened ARI/NMI are forensic-only and must not be used as
+primary partition metrics or omega-selection evidence. V4 does not change the
+real-data baseline, reference omega=2, or A–G statuses.
+
 Round17 is a separate external interpretation layer (evidence v2.4.0), with 58
 matched municipalities and no clustering/model tuning. Round18 representation
 robustness is completed as evidence v2.5.0: it documents material exact-boundary

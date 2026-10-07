@@ -1,0 +1,156 @@
+{
+  "experiment": "icvi_v2_additive_compatibility",
+  "timestamp_utc": "2026-10-07T18:43:08.502166+00:00",
+  "git_commit": "b8fb04dbfb0e708e90737ff3852c8c452881468e",
+  "config_path": "configs\\icvi_v2.yaml",
+  "config_sha256": "9497a807a207688e3a0298d5719ea50e54ba6fdb3f472a814582e71671e50662",
+  "input_sha256": {
+    "configs\\icvi_v2.yaml": "9497a807a207688e3a0298d5719ea50e54ba6fdb3f472a814582e71671e50662",
+    "configs\\baseline.yaml": "3a3aadc0c8e174a5388999e1a1b8ea472600b186c0d22f392f4c91ecddeb12d2",
+    "outputs\\presubmission_upgrade\\baseline_gate\\baseline_gate.json": "5e9a6651ecccee3f1c7f79271352938d1f159da230ca18225c7ee75b0f1a1964",
+    "outputs\\presubmission_upgrade\\baseline_gate\\baseline_graphs.pkl": "cf86e9547e0718175942b2ba4316fdab8b2e104e832607b5b8ebc67325e9b14f",
+    "outputs\\presubmission_upgrade\\icvi\\canonical_icvi.csv": "d030c869579f14a2fa36a0683b372dc5be3071d928c55be62b32530a33dbd784",
+    "outputs\\final_competition_upgrade\\edge_sensitivity_v3\\edge_sensitivity.csv": "73892127fe484c42b5e18efa9426f2dca40857b7c087f3389ce04f86840f92e1",
+    "outputs\\baseline\\static_dec2024_labels.csv": "879f91094746e6e47d1346b5e2169369ebf6f28e1c437d7f8ddb597ba6b4fb09",
+    "C:\\Users\\enekr\\OneDrive\\Документы\\ChatGPT\\Sber\\scripts\\run_icvi_v2.py": "aecd2b50869c207afde5513722eb47606e1174bc17d65c627d47ca19306aa3e0",
+    "src\\sbernet\\icvi.py": "35aed5e02fde184ea8d18e2726f9f7bfde1822752df7368e9f08cdaca4960d02",
+    "outputs\\round16_benchmark\\Louvain_labels.csv": "d3620406677df9167f0e4097fbe0c7b8f426752a218ae4e19c9e51904d4d55a0",
+    "outputs\\round16_benchmark\\Greedy_labels.csv": "ee0869adb09f182f72829cf174e1e5af1443920cd871bbc09da1defffc979920",
+    "outputs\\round16_benchmark\\Spectral_labels.csv": "2e4a10cb9ec2ae7d670a8f0e23f09bd1b77cbc1e5fa63c66a15b959175beb09e",
+    "outputs\\round16_benchmark\\KMeans_labels.csv": "174e07b788427e0516d5d41e3a46fb2dd558026a0abcee3880b7e546d2a0b5c3",
+    "outputs\\round16_benchmark\\Ward_labels.csv": "b608f24d3677c3563d4712362a59083e389eeefd2c6396a456501b14f866e6e1"
+  },
+  "packages": {
+    "python": "3.13.6",
+    "numpy": "2.4.4",
+    "pandas": "2.3.3",
+    "networkx": "3.6.1",
+    "scikit_learn": "1.7.2",
+    "PyYAML": "6.0.3"
+  },
+  "seed": 0,
+  "baseline_gate": {
+    "passed": true,
+    "metrics": {
+      "full_supra": {
+        "ARI": 1.0,
+        "NMI": 1.0
+      },
+      "temporal_Dec2024": {
+        "ARI": 1.0,
+        "NMI": 1.0
+      },
+      "static_Dec2024": {
+        "ARI": 1.0,
+        "NMI": 1.0
+      }
+    },
+    "delta_from_required_one": {
+      "full_supra": {
+        "ARI": 0.0,
+        "NMI": 0.0
+      },
+      "temporal_Dec2024": {
+        "ARI": 0.0,
+        "NMI": 0.0
+      },
+      "static_Dec2024": {
+        "ARI": 0.0,
+        "NMI": 0.0
+      }
+    },
+    "panel_nodes": 1904,
+    "months": 24,
+    "supra_K": 12,
+    "static_K": 9
+  },
+  "canonical_historical_gate": [
+    {
+      "method": "Louvain",
+      "historical_v1_metrics_reproduced": true
+    },
+    {
+      "method": "Greedy",
+      "historical_v1_metrics_reproduced": true
+    },
+    {
+      "method": "Spectral",
+      "historical_v1_metrics_reproduced": true
+    },
+    {
+      "method": "KMeans",
+      "historical_v1_metrics_reproduced": true
+    },
+    {
+      "method": "Ward",
+      "historical_v1_metrics_reproduced": true
+    }
+  ],
+  "edge_historical_gate": [
+    {
+      "edge_rule": "mutual",
+      "k": 10,
+      "historical_v1_row_reproduced": true,
+      "reference_partition_exact": false
+    },
+    {
+      "edge_rule": "mutual",
+      "k": 15,
+      "historical_v1_row_reproduced": true,
+      "reference_partition_exact": false
+    },
+    {
+      "edge_rule": "mutual",
+      "k": 20,
+      "historical_v1_row_reproduced": true,
+      "reference_partition_exact": true
+    },
+    {
+      "edge_rule": "mutual",
+      "k": 30,
+      "historical_v1_row_reproduced": true,
+      "reference_partition_exact": false
+    },
+    {
+      "edge_rule": "mutual",
+      "k": 50,
+      "historical_v1_row_reproduced": true,
+      "reference_partition_exact": false
+    },
+    {
+      "edge_rule": "union",
+      "k": 10,
+      "historical_v1_row_reproduced": true,
+      "reference_partition_exact": false
+    },
+    {
+      "edge_rule": "union",
+      "k": 15,
+      "historical_v1_row_reproduced": true,
+      "reference_partition_exact": false
+    },
+    {
+      "edge_rule": "union",
+      "k": 20,
+      "historical_v1_row_reproduced": true,
+      "reference_partition_exact": false
+    },
+    {
+      "edge_rule": "union",
+      "k": 30,
+      "historical_v1_row_reproduced": true,
+      "reference_partition_exact": false
+    },
+    {
+      "edge_rule": "union",
+      "k": 50,
+      "historical_v1_row_reproduced": true,
+      "reference_partition_exact": false
+    }
+  ],
+  "partitions_changed": false,
+  "baseline_changed": false,
+  "reference_k_changed": false,
+  "reference_omega_changed": false,
+  "status": "COMPLETED_ADDITIVE_ICVI_COMPATIBILITY_LAYER"
+}

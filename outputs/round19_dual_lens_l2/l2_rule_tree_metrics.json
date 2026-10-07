@@ -1,0 +1,16 @@
+{
+  "major_min_share": 0.02,
+  "major_communities": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "n": 1788,
+  "accuracy": 0.8557046979865772,
+  "balanced_accuracy": 0.8450909403638324,
+  "cv_folds": 5,
+  "max_depth": 4,
+  "min_samples_leaf": 40
+}

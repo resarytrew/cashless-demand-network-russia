@@ -1,0 +1,190 @@
+{
+  "status": "COMPLETED",
+  "timestamp_utc": "2026-10-07T19:33:57.990838+00:00",
+  "git_commit": "b8fb04dbfb0e708e90737ff3852c8c452881468e",
+  "packages": {
+    "python": "3.13.6 (tags/v3.13.6:4e66535, Aug  6 2025, 14:36:00) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Python313\\python.exe",
+    "numpy": "2.4.4",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.7.2",
+    "networkx": "3.6.1",
+    "PyYAML": "6.0.3",
+    "igraph": "1.0.0",
+    "leidenalg": "0.12.0"
+  },
+  "config_path": "configs\\round20_targeted_checks.yaml",
+  "config_sha256": "9340d47b2db9c3e9e8f68cf0b47cbb74f0a7051d3115908a2feb034e79be0d76",
+  "resolved_config_sha256": "b51d14441a0b15820f367f301f7352a8c0c974ef911f247cfea022a8cd2760d1",
+  "resolved_config": {
+    "experiment": {
+      "id": "round20_targeted_checks",
+      "output_dir": "outputs/round20_targeted_checks",
+      "evidence_version": "2.7.0",
+      "interpretation": "exploratory_posthoc_robustness"
+    },
+    "gates": {
+      "baseline_gate": "outputs/presubmission_upgrade/baseline_gate/baseline_gate.json",
+      "baseline_gate_manifest": "outputs/presubmission_upgrade/baseline_gate/run_manifest.json",
+      "baseline_supra_labels": "outputs/baseline/supra_labels.csv",
+      "round19_completed": "outputs/round19_dual_lens_l2/COMPLETED.json",
+      "round19_manifest": "outputs/round19_dual_lens_l2/run_manifest.json"
+    },
+    "sources": {
+      "l1_config": "configs/baseline.yaml",
+      "national_external": "outputs/final_competition_upgrade/external_validation_national_20261006_r6/external_validation_joined.csv",
+      "profile_mapping": "outputs/final_competition_upgrade/profile_mapping/raw_to_profile_mapping.csv",
+      "atlas": "outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv",
+      "omega_existing_summary": "outputs/presubmission_upgrade/temporal_sensitivity/omega_sensitivity.csv",
+      "l2_config": "configs/round19_dual_lens_l2.yaml",
+      "l2_eligibility": "outputs/round19_dual_lens_l2/l2_eligibility_audit.csv"
+    },
+    "residual_external": {
+      "model": "log_outcome_on_log_population_plus_region_fixed_effects",
+      "outcomes": [
+        "wage",
+        "employment_total"
+      ],
+      "population": "population",
+      "region": "region",
+      "profile": "profile",
+      "included_profiles": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G"
+      ],
+      "covariance": "HC3",
+      "permutation": {
+        "method": "Freedman_Lane_within_region",
+        "reps": 1999,
+        "seed": 20261008
+      },
+      "pairwise": {
+        "method": "Mann_Whitney_on_reduced_model_residuals",
+        "correction": "Benjamini_Hochberg"
+      }
+    },
+    "omega_check": {
+      "reference_omega": 2.0,
+      "sensitivity_omega": 1.0,
+      "k": 20,
+      "edge_rule": "mutual_knn",
+      "temporal_isolate_fallback": false,
+      "resolution": 0.5,
+      "seed": 0,
+      "profile_map": {
+        "A": 1,
+        "B": 3,
+        "C": 7,
+        "D": 8,
+        "E": 9,
+        "F": 10,
+        "G": 11
+      }
+    },
+    "l2_distance_contribution": {
+      "period": "2024-12-01",
+      "blocks": [
+        "Demand",
+        "Population",
+        "Wage",
+        "Market_access",
+        "Employment"
+      ],
+      "scopes": [
+        "all_pairs",
+        "temporal_december_edges",
+        "static_december_edges"
+      ],
+      "no_weight_retuning_after_results": true,
+      "share_quantiles": [
+        0.05,
+        0.25,
+        0.5,
+        0.75,
+        0.95
+      ]
+    }
+  },
+  "input_sha256": {
+    "baseline_gate": "5e9a6651ecccee3f1c7f79271352938d1f159da230ca18225c7ee75b0f1a1964",
+    "baseline_gate_manifest": "7fe944eba766ba81b5de9521aafb9bcc30097f3034464671b38967b1588dc290",
+    "baseline_supra_labels": "7cac1146f94c61cd1d6cdcfb6600796c1d95e05d94edd570c53a38251243192a",
+    "round19_completed": "b5b01dc57b37c27baba99c6839e73a28cf721329200910b7be76606d230c317d",
+    "round19_manifest": "ff53121c559c170bad28df0e82f45d5886b6057fb7579db414a9780173e68959",
+    "l1_config": "3a3aadc0c8e174a5388999e1a1b8ea472600b186c0d22f392f4c91ecddeb12d2",
+    "national_external": "af18c32bc1ee2a09ee1f2cb468f14bd2ebbdf97533f5958924f79968e8413843",
+    "profile_mapping": "47eaf0227bc0c3ed200ef07e9b1fdcd6b5d22fc4fad257ab1598e8a9ba5c41e7",
+    "atlas": "ab824219890eb9ff95528075a06b1f18efbb5edf409fa7bb46fdb35b50f40b99",
+    "omega_existing_summary": "ef6508e1959eed09546d93cdf6ef76b2fc335111e804b74322854f65c5046071",
+    "l2_config": "aaa52087d6987d73b78c82744903a96949865a74a312175bf5e82895bdc2d57e",
+    "l2_eligibility": "092fdb7aa928abe33059c349430ae628cdcfe6c022a3a6bd4fe61cbf19e7cb4f"
+  },
+  "source_sha256": {
+    "src\\sbernet\\cli.py": "1382329fd1018386d086f55a6a525a1c06aa43286b5c68da21e121cbe92631e6",
+    "src\\sbernet\\clustering.py": "f6d9e2cd6fa399f5b4077fb005dbfd9aea0848da84f935830c5670bb83a5d132",
+    "src\\sbernet\\config.py": "3927577f577df70d95df4311667b24468dcdc0d234063a20260f19abb9c4663d",
+    "src\\sbernet\\data_sense_lineage.py": "66627e5047b85ddc98d8c3016e0b9caef4d3e54d7ed894ade5f6a2a7cc070473",
+    "src\\sbernet\\dual_lens.py": "712e50aa20ddc12c646d7312290c0d090e874eaf0103baa3a4ae63321512ae4f",
+    "src\\sbernet\\edge_sensitivity.py": "4d86122a0f07b1b4612075b24e341628d36b893fd96a6ae7e3124073bb5b24c4",
+    "src\\sbernet\\external_bdmo.py": "28b460c500de8cddcf939b69e765947ed12baa60df8418266647e4965fd36710",
+    "src\\sbernet\\features.py": "f127adc50c41de3bf1c07158aa7da4269f1f262c6c090be7cef92856de90d590",
+    "src\\sbernet\\graph.py": "f6870275652ef41f7310d79bb952aacacbdde0f3ff842a621f45c9d674e5d220",
+    "src\\sbernet\\icvi.py": "35aed5e02fde184ea8d18e2726f9f7bfde1822752df7368e9f08cdaca4960d02",
+    "src\\sbernet\\io.py": "605965592b2c48bbe51bdaf6fb3638d3ab130a46d9ec8f0e1bf2aae356a1833a",
+    "src\\sbernet\\metrics.py": "2c0adec31e50171bf7b818fffabe8236256d060f417a0c8ae960b1037521255a",
+    "src\\sbernet\\pipeline.py": "461c66f021170abb70c2350d2c1944bd78f4ad2f79a1018670c5864107bfb345",
+    "src\\sbernet\\regional_validation.py": "14a0953ac8f0b5e27a65570e556d47f163766f467310d4390e792fa57797c0e7",
+    "src\\sbernet\\representations.py": "47f53e2ee4063a5fd153ec8b93620fd166ae00ee60a8e4c422b9c79ddd4f9ff5",
+    "src\\sbernet\\sberindex_directory.py": "732c7982184b93ee35c8605568946736a42b9b9d7351e2436e7a969f90adb3d6",
+    "src\\sbernet\\synthetic_temporal.py": "395b12a739dd994544bd79e0bdd1454cda98f0843886ea9374c9e8b74cddb5b4",
+    "src\\sbernet\\targeted_checks.py": "75b356a57dfd2b35a9f7402c2ce2027d286b6845bf3a7bbc5e16cceaad9ce843",
+    "src\\sbernet\\temporal.py": "bbf89ed5168b174422d8dc27318251e56f516d4575f6fd7a90910fc6985a01bc",
+    "src\\sbernet\\__init__.py": "91447944015cec709e8aa7655f7e9d64e1e4508e7023a57fe3746911c0fc6fed",
+    "src\\sbernet\\robustness\\alpha_sensitivity.py": "7323e28c0a33f7da63b6f472b9da6f7bd1784ba671b12dd191616c2d49fcc684",
+    "src\\sbernet\\robustness\\atlas_report.py": "9ea87147acd3b7c54c171d03648e2ce9fcfb3a195e3df2a8e66c3f146cf90ba6",
+    "src\\sbernet\\robustness\\atlas_runner.py": "36df4f4694384d659ab005cddac88cafa4b5f3d5727338ae2d8b6479c74addfd",
+    "src\\sbernet\\robustness\\experiment_common.py": "e1c3e6b6a19f82fdf0e6ae3329d6c0be8a592e4c753169a0fe55879c1b0cada7",
+    "src\\sbernet\\robustness\\leiden.py": "8fea246ed2c39fc21c24d623646e0114036d93fff460f355ecec46dbbe80c24c",
+    "src\\sbernet\\robustness\\perturbation_v2.py": "8f552a6fb483910fb273b233ea04e4c60dee466d8b0c252aa1ef26de04e789f0",
+    "src\\sbernet\\robustness\\pilot_gate.py": "ea8127735158581317e7e435be69eda54a72769a838d0b19963363f007cc379e",
+    "src\\sbernet\\robustness\\region_null.py": "e7dae0b71b996b44a6867c55c088fafc3f8fd6e7a774c6a2b128a04206bb1f7b",
+    "src\\sbernet\\robustness\\reproduction_gate.py": "b991ac2d9485e7e815139ee1a365ec9886e377caf92473b660278610f740f7e9",
+    "src\\sbernet\\robustness\\soft_consensus.py": "4c747715d457854e73f103eb3647851131a5609177b12449553d99a2761f6b25",
+    "src\\sbernet\\robustness\\soft_consensus_v2_2.py": "7eb3857240107aec402bdf41c8e6dfa9bf2e15e7b7d9d1aa3433ceac7cef54d0",
+    "src\\sbernet\\robustness\\spatial_block.py": "8c0d877e920626337e0261aa4437ea00a2bcd69d1d9677fcb7d562b0502160fd",
+    "src\\sbernet\\robustness\\spatial_block_reference_script.py": "15d68f37ac37bd46ef4f6a821f7635b1567fb144466a9427612dc9ca1d32f5d0",
+    "src\\sbernet\\robustness\\__init__.py": "b43188fb61af4483b9f406f8abc1109fe523035387640a95b4f852b9b399401c",
+    "src\\sbernet\\validation\\external_economic.py": "02d5390b217717469f3a34ffe2b88d2890e680861441501d4d6e0ca052dcd136",
+    "src\\sbernet\\validation\\__init__.py": "7dc72418b582f3d25c0c33999e13fc7a57326b6745d6583c0cb9f86c15499fb9",
+    "src\\sbernet\\visualization\\stability_landscape.py": "4dde77949d84fede84e2e4e49d227d3115f0c0a9634da546960209fbf89ce743",
+    "src\\sbernet\\visualization\\__init__.py": "ec9a98131235dc947e68277f843b66ec9e050c548abe5d8502d76e22862c3019"
+  },
+  "artifact_sha256": {
+    "l2_distance_contributions.csv": "b8df175086741295859291ce9f0490a03dc49dcae526d1958b83840d55a1a114",
+    "omega1_atlas_by_profile.csv": "78f5a93c08f1a5c7a7d6b9975f865d4cc6a60f75e80929a837593a641a7b6738",
+    "omega1_atlas_by_stability_class.csv": "f635f4faf48f9c936e33ed64156a140515765df285f8e99eb033b2b0e3cfa8a6",
+    "omega1_december_alignment.csv": "2a62595fbc444ca0ebfc3dee51ee561be2b500349a46639b6ba99c6a6e6d29c6",
+    "omega1_profile_correspondence.csv": "d935c8dc0396669aba55550c6a63e36812d23e7493d248e18d8b07a9d51116ae",
+    "omega1_profile_pair_coassignment.csv": "49e98a255d6f508534284120dd2c6e748633d4a95489ad69d9d43f63ea2f4acd",
+    "omega1_supra_labels.csv": "744458247a8b437b236580c52202735083ff9e545b134c513d8cdaf18f4aac3d",
+    "P0_RELEASE_GATE.json": "73927ee121d764b6666c5622f2d018ea87f84ec6e5bd9e7a0195ccc41d53c3d9",
+    "residual_global_tests.csv": "b46e3f169b61fc31c834f1279f144715ea767a13dff954317617c0eded6015b1",
+    "residual_pairwise_tests.csv": "807cc0304c777e202dea0bc78aed37d660e4ce02eb1981bd5b248b2909f3fe22",
+    "residual_profile_summary.csv": "25c5fda41cd6be1f4f38da96f11a5427dbf265a45e8fec2ab67cfcfa29ee0451",
+    "residuals_employment_total.csv": "39303e58b1780316964f832dfbf0430313fe843198e175403280af424eb28cc3",
+    "residuals_wage.csv": "cb27f7c0296e4f74e5ec2bcd17f2d7867afcc0b97452cab92521db9c8d8a8ab5",
+    "ROUND20_AUDIT.md": "ef021fd8020781dcd55fa124092ab3cfa308d392da75a055f98dbd6431b2332a",
+    "ROUND20_REPORT.md": "9cddff445d891fee6c9e0b3980b0e56971715f7a1703832cb1f39d084123e9b8",
+    "round20_summary.json": "1692420115ed3fdebee41fe37447e98e7a4ebea9939579820db9bf8f289750d3"
+  },
+  "baseline_changed": false,
+  "round19_weights_changed": false,
+  "omega_reference_changed": false,
+  "random_seed": 20261008
+}

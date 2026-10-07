@@ -1,5 +1,71 @@
 # Hypothesis and Claims Ledger — Current Scientific Status
 
+## Round21 structural sensitivity (evidence v2.8.0)
+
+- **Omega change as pure shuffle:** weakened. December change is predominantly
+  coarsening, but not perfectly nested.
+- **Merge pattern independent of effective K:** only partly supported. B/E
+  persists at matched K; C/D/F/G does not.
+- **Atlas omega check:** omega was absent from Atlas families, so this is a
+  held-out sensitivity axis; 1/824 stable versus 348/388 transition changes.
+- **Adjusted sector support:** small but detectable observational association
+  remains after size/region controls (partial R² .0361, p=.0005).
+- **Original L2 block robustness:** not supported by Balanced-A/B. Both
+  alternatives differ materially; neither replaces original L2.
+- Legacy A–G statuses remain unchanged.
+
+## Round20 targeted checks (evidence v2.7.0)
+
+- **Size/region explanation:** weakened. A–G differences remain jointly
+  associated with log wage and log employment total after log population and
+  region fixed effects (partial R2 0.1758 and 0.2144; within-region
+  Freedman–Lane p=0.0005 for both). This is not causal evidence.
+- **Exact-boundary omega robustness:** not supported for `omega=1`. December
+  ARI=0.4070, NMI=0.5547, K=7 versus reference K=10, and aligned change share
+  is 33.14%. All A–G feed mainly into a dominant destination, but B/E and
+  C/D/F/G merge; do not report retention alone as profile preservation.
+- **Core/boundary Atlas story:** supported for this sensitivity. Stable core
+  changes 1/824; transition changes 348/388.
+- **L2 block dominance:** employment does not dominate all-pair distance
+  (34.54%, versus demand 34.08%), but is the largest local graph-edge term
+  (about 52.1%). No post-result weight retuning is authorized.
+
+## Round19 dual-lens additions (evidence v2.6.0)
+
+### H18 — Adding broader economic attributes leaves the L1 partition unchanged
+
+**Status: rejected for exact boundaries; L1 itself remains unchanged.**
+
+The separate L2 partition has December ARI=.431917 and NMI=.471727 against L1 on
+1,876 common municipalities. This is material lens dependence, not a reason to replace
+L1 or retune its parameters.
+
+### H19 — L2 establishes five robust universal local-economy types
+
+**Status: not established.**
+
+Five communities exceed the fixed 2% reporting threshold and cover 95.3% of L2, but
+the temporal December partition contains 41 communities, many linked to intralayer
+isolates, and its silhouette is negative. The five are descriptive major profiles.
+
+### H20 — L2 profiles admit economic interpretation
+
+**Status: supported descriptively with scope limitations.**
+
+A fixed shallow rule tree predicts the five major profiles with CV accuracy=.856 and
+balanced accuracy=.845. Suggested names are generated from included population, wage,
+market-access and employment attributes. They are interpretable summaries, not
+independent validation and not causal mechanisms.
+
+### H21 — Rosstat variables independently validate L2
+
+**Status: rejected by design for included variables.**
+
+Population, wage and employment structure enter L2, as does hackathon market access.
+They remain independent of L1 construction but cease to be independent evidence for L2.
+Mobility is held out, yet its exact-name coverage is selected (268/1,876), so the large
+exploratory group effect does not establish national validation.
+
 ## Current state — Round18 representation evidence (v2.5.0)
 
 Round18 is completed. Five-part CLR and observed-level alternatives retain

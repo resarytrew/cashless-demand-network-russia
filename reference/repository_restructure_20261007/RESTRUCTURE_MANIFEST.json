@@ -5,7 +5,7 @@
   "scope": "Repository structure and current-state consolidation only",
   "scientific_status_changes": false,
   "reference_specification_changed": false,
-  "current_evidence_version": "2.5.0",
+  "current_evidence_version": "2.8.0",
   "source_transitions": [
     {
       "path": ".github/workflows/verify.yml",
@@ -20,7 +20,7 @@
       "path": "AGENTS.md",
       "snapshot": "reference/repository_restructure_20261007/snapshots/AGENTS.md",
       "historical_sha256": "95a1e8329573a96d93ed64b2acc80e08ffaa5e843de984569327e0dd8b735c32",
-      "current_sha256": "9eb38bbb9e15862624cd7e27d7bdddfe8c66e6543ade93b63439446a00107088",
+      "current_sha256": "6bbde8ff64590e39118e66992b1e21e3aea13211e95591b17f9879ea5af10706",
       "removed": false
     },
     {
@@ -29,21 +29,21 @@
       "historical_sha256": "35454ca62cd60936e72530fa7b958ca2dcf0dfc3bddfbc818a1b1b59309b8f23",
       "prior_current_snapshot": "reference/repository_restructure_20261007/snapshots/README.md",
       "prior_current_sha256": "254c6b7a9e1f71673a122faabb5bee8e96084adbdfe44fc855f33e11be840a88",
-      "current_sha256": "df77c17c2a3afe8983dfc8ae035f1a76246353340d276884ffd5f1f8e2964979",
+      "current_sha256": "948d3903e5a8b68bcdce71ea12afc873a66bf0fd9ba33893f1b2795a6af6d763",
       "removed": false
     },
     {
       "path": "docs/ARTIFACT_INDEX.md",
       "snapshot": "reference/repository_restructure_20261007/snapshots/docs/ARTIFACT_INDEX.md",
       "historical_sha256": "0861577dc066d1d294f540867c0c91af2f845adf37e0dd8540af91a10dd2d931",
-      "current_sha256": "96495cb866df4be5ec9725afacba1d943d13b914c41a98caada7ad4ae331f066",
+      "current_sha256": "067407e87145912252932340b3d977f5697e35eb7460af4ff538367000d54e80",
       "removed": false
     },
     {
       "path": "docs/CODEX_START_HERE.md",
       "snapshot": "reference/repository_restructure_20261007/snapshots/docs/CODEX_START_HERE.md",
       "historical_sha256": "c0b6dd0df6412d8b317dec3deabb06226e6fe97faa34519b72cc0ca64dd310b9",
-      "current_sha256": "9ac428c2141cf82bde049309d1413b307af89b9702da624f61831f6378f3fe12",
+      "current_sha256": "e986347d18eeaa73743893618817e8f2ba1fa8f9f831d20650d3f7b92e3dd9ab",
       "removed": false
     },
     {
@@ -57,28 +57,28 @@
       "path": "docs/CURRENT_STATE.json",
       "snapshot": "reference/repository_restructure_20261007/snapshots/docs/CURRENT_STATE.json",
       "historical_sha256": "92028263e51e14b63e83a09d4407fd7379518edfa34d5fa3c95915bb62459e02",
-      "current_sha256": "bf26663e2cf51f8ca6939dafa9db822cb5efa26b8580ad98578ccc47fa3c00de",
+      "current_sha256": "abd3a6ce5dc6692af9c86065eb8922a1ebab564e47beb766694f1ce58705da67",
       "removed": false
     },
     {
       "path": "docs/HYPOTHESIS_LEDGER.md",
       "snapshot": "reference/repository_restructure_20261007/snapshots/docs/HYPOTHESIS_LEDGER.md",
       "historical_sha256": "b9d01468c691ea5646d2176c86e030dc3c9b47446f5547f2b42a501496fbf31a",
-      "current_sha256": "19e36abd5aff2d326ee2f3f703970e3e35117307c0cf2eb9c3dd9e5f78be8e5d",
+      "current_sha256": "c0d0002f5b34e0cb0a8c4beb09a85142d097a3ec7500917fe519ddef5d0c9afc",
       "removed": false
     },
     {
       "path": "docs/RESEARCH_STATE.md",
       "snapshot": "reference/repository_restructure_20261007/snapshots/docs/RESEARCH_STATE.md",
       "historical_sha256": "5436a15895ebab48e678f4a9dda0b736b90bafbe32df9c0754f30e9663e76d4f",
-      "current_sha256": "4d9d363aa297adb55b89a67caede684139e5342f9abd30ab91ec4da19d187073",
+      "current_sha256": "86b3d4aa98014f1b999fe93b3744d3cbb698083f14f4178543d50f20ed4211e1",
       "removed": false
     },
     {
       "path": "scripts/verify_current_artifacts.py",
       "snapshot": "reference/repository_restructure_20261007/snapshots/scripts/verify_current_artifacts.py",
       "historical_sha256": "8ec21e3bee9a001a9015a718ddb03d108ba47080a3e16139bffa0bae4eadecbd",
-      "current_sha256": "2777f46660387b25be2997ab650b4cf319e83065145e5ec06e7a5a9b9ce458f5",
+      "current_sha256": "9a845f07cab205f5fefb5c40092e2cf23d10a4ecf05058b6663bdb7e78b04fac",
       "removed": false
     },
     {

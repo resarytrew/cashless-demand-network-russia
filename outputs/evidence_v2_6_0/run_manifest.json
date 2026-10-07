@@ -1,0 +1,10 @@
+{
+  "status": "COMPLETED_ADDITIVE_EVIDENCE_UPDATE",
+  "evidence_version": "2.6.0",
+  "source_matrix": "outputs\\evidence_v2_5_0\\MASTER_PROFILE_EVIDENCE_MATRIX_v2.5.0.csv",
+  "source_matrix_sha256": "9947ca60a93b63fa40abe2aff99243146e5b899ac9e5a306f7e882e06f5dcfaa",
+  "round19_manifest_sha256": "ff53121c559c170bad28df0e82f45d5886b6057fb7579db414a9780173e68959",
+  "round19_summary_sha256": "7a8bb2b0b7b4335dc1795cff1867a9670212f7c81993712da5f485b1f346a6fa",
+  "L1_scientific_status_changes": false,
+  "reference_specification_changed": false
+}

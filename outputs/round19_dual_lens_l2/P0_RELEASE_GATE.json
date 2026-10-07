@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "baseline_exact_metrics": {
+    "full_supra": {
+      "ARI": 1.0,
+      "NMI": 1.0
+    },
+    "temporal_Dec2024": {
+      "ARI": 1.0,
+      "NMI": 1.0
+    },
+    "static_Dec2024": {
+      "ARI": 1.0,
+      "NMI": 1.0
+    }
+  },
+  "baseline_reference_sha256": {
+    "outputs\\baseline\\supra_labels.csv": "7cac1146f94c61cd1d6cdcfb6600796c1d95e05d94edd570c53a38251243192a",
+    "outputs\\baseline\\static_dec2024_labels.csv": "879f91094746e6e47d1346b5e2169369ebf6f28e1c437d7f8ddb597ba6b4fb09"
+  },
+  "icvi_v2_status": "COMPLETED_ADDITIVE_ICVI_COMPATIBILITY_LAYER",
+  "synthetic_v4_status": "COMPLETED",
+  "synthetic_v4_artifacts_verified": 15,
+  "L1_changed": false
+}

@@ -17,15 +17,23 @@ REQUIRED = (
     "outputs/round16_competition",
     "outputs/round17_external_validation",
     "outputs/round18_representation",
+    "outputs/round19_dual_lens_l2",
+    "outputs/round20_targeted_checks",
+    "outputs/round21_structural_sensitivity",
     "outputs/evidence_v2_5_0",
+    "outputs/evidence_v2_6_0",
+    "outputs/evidence_v2_7_0",
+    "outputs/evidence_v2_8_0",
     "outputs/stability_atlas_v2_2_1",
     "outputs/final_competition_upgrade/baseline_gate_before_v3_corrections",
     "outputs/final_competition_upgrade/data_sense_lineage_20261006_r3",
     "outputs/final_competition_upgrade/edge_sensitivity_v3",
+    "outputs/final_competition_upgrade/icvi_v2",
     "outputs/final_competition_upgrade/external_validation_national_20261006_r6",
     "outputs/final_competition_upgrade/profile_cards_20261007_v3",
     "outputs/final_competition_upgrade/story_data_v3",
     "outputs/final_competition_upgrade/synthetic_temporal_v3",
+    "outputs/final_competition_upgrade/synthetic_temporal_v4",
     "reference/historical_provenance",
     "site/index.html",
     "site/methodology.html",
@@ -84,16 +92,21 @@ def verify(root: Path = ROOT) -> dict[str, object]:
         raise ValueError(f"Expected one canonical docs/METHODOLOGY.md: {methodology_names}")
 
     state = json.loads((root / "docs/CURRENT_STATE.json").read_text(encoding="utf-8"))
-    if state.get("schema_version") != 2 or state.get("evidence_version") != "2.5.0":
-        raise ValueError("CURRENT_STATE does not identify schema 2 / evidence 2.5.0")
-    if state.get("latest_research_round") != 18:
-        raise ValueError("CURRENT_STATE does not identify Round18 as latest")
+    if state.get("schema_version") != 2 or state.get("evidence_version") != "2.8.0":
+        raise ValueError("CURRENT_STATE does not identify schema 2 / evidence 2.8.0")
+    if state.get("latest_research_round") != 21:
+        raise ValueError("CURRENT_STATE does not identify Round21 as latest")
     if state.get("scientific_status_changes") is not False:
-        raise ValueError("Round18 must not be recorded as an A-G status change")
+        raise ValueError("Round19 must not be recorded as an A-G status change")
 
     pointers = [state[key] for key in STATE_POINTERS]
     pointers.extend(state["round17_external_validation"][key] for key in ("config", "report", "audit", "claim_evidence_matrix"))
     pointers.extend(state["round18_representation_robustness"][key] for key in ("reference_config", "r1_config", "r2_config", "summary", "audit", "evidence_update"))
+    pointers.extend(state["round19_dual_lens_l2"][key] for key in ("config", "report", "audit", "summary", "profile_table", "evidence_update"))
+    pointers.extend(state["round20_targeted_checks"][key] for key in ("config", "report", "audit", "summary", "distance_contributions", "evidence_update"))
+    pointers.extend(state["round21_structural_sensitivity"][key] for key in ("config", "report", "audit", "summary", "baseline_freeze", "checksums", "profile_evidence_matrix", "evidence_update"))
+    pointers.extend(state["synthetic_temporal_benchmark"][key] for key in ("current_config", "current_report", "current_audit", "supersedes_for_synthetic_evaluation"))
+    pointers.extend(state["icvi_reporting"][key] for key in ("config", "documentation", "output_dir"))
     pointers.extend(state["current_submission"].values())
     pointers.extend(state["engineering"].values())
     missing_pointers = [path for path in pointers if not (root / path).exists()]

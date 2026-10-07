@@ -1,0 +1,61 @@
+{
+  "experiment_id": "synthetic_temporal_ground_truth_v4_monthwise_partition_metrics",
+  "config": "configs/synthetic_temporal_benchmark_v4.yaml",
+  "config_sha256": "72bb1ebe64234a4251e6fd41df5b4eae57cc6d6ab6fd99870e09cb39e4a93e87",
+  "status": "COMPLETED",
+  "seeds": 20,
+  "seed_start": 0,
+  "scenarios": [
+    "stable",
+    "abrupt",
+    "gradual",
+    "boundary",
+    "shock",
+    "mixed"
+  ],
+  "omega_grid": [
+    0.0,
+    0.25,
+    0.5,
+    1.0,
+    2.0,
+    4.0
+  ],
+  "bootstrap_reps": 500,
+  "bootstrap_seed": 20261006,
+  "git_commit": "b8fb04dbfb0e708e90737ff3852c8c452881468e",
+  "git_dirty": true,
+  "python": "3.13.6 (tags/v3.13.6:4e66535, Aug  6 2025, 14:36:00) [MSC v.1944 64 bit (AMD64)]",
+  "packages": {
+    "numpy": "2.4.4",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.7.2",
+    "networkx": "3.6.1",
+    "PyYAML": "6.0.3"
+  },
+  "source_sha256": {
+    "src/sbernet/synthetic_temporal.py": "395b12a739dd994544bd79e0bdd1454cda98f0843886ea9374c9e8b74cddb5b4",
+    "scripts/run_synthetic_temporal_benchmark.py": "06cc74b2d5be8bd0afba76c027fbed4f314ab9998aba1f8377fc7374bb807567"
+  },
+  "artifact_sha256": {
+    "change_point_delay.csv": "c2e983bfde6849d1cb189649db96c3b6801b869024750985f6c242fa4e2e8340",
+    "config_used.yaml": "72bb1ebe64234a4251e6fd41df5b4eae57cc6d6ab6fd99870e09cb39e4a93e87",
+    "mixed_scenario_summary.csv": "51c4a9ac354f012eec9ffdc25a9443386bd5d0e9fbb6d54314862c1f71d2eaa1",
+    "monthly_partition_metrics.csv": "2da4f0305bfd04aa532559c8933cf2cf9b15c278f452195a103b702bfd555c41",
+    "no_transition_scenarios_summary.csv": "dadbd92b201811cf4c2a228dcd75d089b7f82a00dd33f8082da8a1427533bb9d",
+    "omega_aggregate.csv": "3bc7124ed3e0e1967b5078ab609909fb02a509ad51bab9e848df0c9b528b01c2",
+    "omega_cross_scenario_summary.csv": "98f83b839d8aa29ba6580dec2b056503a0e99174337c1b8f6455f05e9c164525",
+    "RUN_CONFIG_SHA256": "930aa8eafe8197b71a65348dac2efd905b2238feeb20b298b8e6fa2bbe13e35c",
+    "scenario_parameters.csv": "77502e3df28ee78f7d7b747c8401f28fc9aafb97a57d923552ec61dba037065b",
+    "seed_metrics.csv": "8f43b4df54748e342d3a9fedcac99df279be6daba81d2c7cfe0eddfb9129b835",
+    "switch_detection.csv": "ae41d8505d4fa3c44c0bd59e8ad24a57ccbaaa95ac2b4c0b90dc4d0fc6033d38",
+    "SYNTHETIC_TEMPORAL_REPORT.md": "972c594a55ee7385b7ae5c7f6a19edabd3f17411a26fe911525a5ed73ee32624",
+    "SYNTHETIC_TEMPORAL_V4_AUDIT.md": "090f3c451e5e6968bddf587ae57ed8db3ec0498eae00bb4f56c48c8fdff50ba7",
+    "tradeoff_summary.csv": "e91a2a35c75af2d832e1beca4d454e65f745081fe03f609f39c4a4469ae5dc3d",
+    "transition_scenarios_summary.csv": "7b03aabe3cc302de7d1a66e47e9f4e89aca0f42ad2997e47be29dfb43a52307a"
+  },
+  "legacy_metric_note": "These metrics are retained only for forensic comparability with synthetic_temporal_v3 and are not used as the primary partition-quality metric or for omega comparison.",
+  "real_data_recomputed": false,
+  "reference_specification_changed": false
+}

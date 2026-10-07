@@ -1,0 +1,118 @@
+experiment:
+  id: round21_structural_sensitivity
+  output_dir: outputs/round21_structural_sensitivity
+  evidence_version: '2.8.0'
+  scope: additive_exploratory_structural_sensitivity
+  seed: 0
+
+reference:
+  config: configs/baseline.yaml
+  omega: 2.0
+  resolution: 0.5
+  k: 20
+  edge_rule: mutual_knn
+  temporal_isolate_fallback: false
+  static_isolate_fallback: true
+  labels: outputs/baseline/supra_labels.csv
+  static_labels: outputs/baseline/static_dec2024_labels.csv
+  profile_mapping: outputs/final_competition_upgrade/profile_mapping/raw_to_profile_mapping.csv
+
+gates:
+  freeze: outputs/round21_structural_sensitivity/BASELINE_FREEZE.json
+  baseline_gate: outputs/presubmission_upgrade/baseline_gate/baseline_gate.json
+  round20_summary: outputs/round20_targeted_checks/round20_summary.json
+  round20_manifest: outputs/round20_targeted_checks/run_manifest.json
+  round20_scalar: outputs/round20_targeted_checks/residual_global_tests.csv
+  round20_atlas: outputs/round20_targeted_checks/omega1_atlas_by_stability_class.csv
+  round20_blocks: outputs/round20_targeted_checks/l2_distance_contributions.csv
+  tolerances:
+    scalar_partial_r2: 0.000000000001
+    scalar_hc3_p: 1.0e-60
+    scalar_permutation_p: 0.0
+    omega_metric: 0.000000000001
+    block_share: 0.000000000001
+
+omega:
+  grid: [0.5, 1.0, 2.0, 4.0]
+  matched_resolution_omega: 1.0
+  matched_resolution_grid: [0.50, 0.60, 0.70, 0.80, 0.90, 1.00, 1.10, 1.20, 1.30, 1.40, 1.50]
+  target_december_K: 10
+  matched_k_tie_break: [absolute_K_difference, absolute_resolution_difference, lower_resolution]
+  entropy_log_base: 2
+  retention_thresholds: [0.90, 0.95, 0.99]
+
+atlas:
+  config: configs/stability_atlas_v2_2_1.yaml
+  manifest: outputs/stability_atlas_v2_2_1/run_manifest.json
+  assignments: outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv
+  states: [stable_core, expansive_core, transition, unresolved]
+  change_definition: optimal_one_to_one_december_alignment_legacy_diagnostic
+  risk_ratio_reference: stable_core
+  risk_ratio_contrast: transition
+
+external:
+  joined: outputs/final_competition_upgrade/external_validation_national_20261006_r6/external_validation_joined.csv
+  source_config: configs/external_validation_national_20261006_r6.yaml
+  status_registry: outputs/round16_evidence/archetype_status_round16.csv
+  population: population
+  region: region
+  profile: profile
+  scalar_outcomes: [wage, employment_total]
+  sectors:
+    - administrative
+    - arts
+    - construction
+    - education
+    - finance
+    - health
+    - hospitality
+    - information
+    - manufacturing
+    - other_services
+    - professional
+    - public_administration
+    - real_estate
+    - trade
+    - utilities
+  sector_transform: current_r6_rowwise_half_minimum_zero_replacement_then_clr
+  permutation_tests:
+    n_permutations: 1999
+    seed: 20261008
+    constraint: within_region
+  merge_groups:
+    BE: [B, E]
+    DFG: [D, F, G]
+  bootstrap:
+    reps: 1999
+    seed: 20261008
+  pairwise_correction: Benjamini_Hochberg_within_analysis_family
+
+l2:
+  original_config: configs/round19_dual_lens_l2.yaml
+  original_labels: outputs/round19_dual_lens_l2/l2_supra_labels.csv
+  eligibility: outputs/round19_dual_lens_l2/l2_eligibility_audit.csv
+  original_profile_table: outputs/round19_dual_lens_l2/l2_profile_table.csv
+  original_migration: outputs/round19_dual_lens_l2/l1_l2_municipality_migration.csv
+  major_min_share: 0.02
+  balanced_sensitivities:
+    equal_blocks:
+      Demand: 0.20
+      Employment: 0.20
+      Market_access: 0.20
+      Population: 0.20
+      Wage: 0.20
+    demand_context:
+      Demand: 0.50
+      Employment: 0.125
+      Market_access: 0.125
+      Population: 0.125
+      Wage: 0.125
+  run_balanced_after_p0_p1_green: true
+  run_major_profile_icvi_after_p0_p1_green: true
+
+reporting:
+  no_model_selection_from_icvi: true
+  no_weight_retuning: true
+  no_reference_change: true
+  no_profile_status_change: true
+  posthoc_merge_interpretation: true

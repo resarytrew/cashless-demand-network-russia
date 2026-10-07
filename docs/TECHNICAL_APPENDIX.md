@@ -1,5 +1,22 @@
 # Техническое приложение
 
+## Round21 exact diagnostics
+
+Canonical raw tables are under `outputs/round21_structural_sensitivity/`.
+Pair counts use contingency combinatorics `C(n,2)`, never Python N² object loops.
+Entropies use log base 2. Matched-resolution grid is exactly
+`0.50,0.60,...,1.50`; resolution 0.80 is selected solely because it reaches
+December K=10. Adjusted scalar models use N=1 885 and 73 regions; sector CLR uses
+N=1 883, 15 coordinates and 73 regions. Exact HC3 p-values, 1 999-permutation
+summaries, zero exceedance counts, coefficients and merge-effect bootstrap CIs
+are retained in CSV rather than headline prose.
+
+Original L2 block dimensions are Demand=7, Employment=15 and one each for market
+access, population and wage. Original socioeconomic coordinates share one joint
+median-distance scale; balanced sensitivities instead normalize all five semantic
+blocks separately. `MQ` in every Round21 ICVI table is TurboMQ; `Q` is weighted
+Newman–Girvan modularity; `MQ_per_K` is a descriptive normalization only.
+
 [Главная](../README.md) · [Метод с объяснениями](METHODOLOGY.md) · [Результаты](RESULTS.md)
 
 Этот раздел предназначен для проверки деталей после основного текста. Он не вводит новых методов, расчётов или интерпретаций. Сохранённые YAML, код и таблицы остаются источниками точной реализации.
@@ -131,6 +148,14 @@ git diff --exit-code 3c988699118f7718e1ea1bfeed8c111d157e8de9 -- src scripts con
 Старые контекстные проверки с отсутствующими входами не объявляются воспроизведёнными. Round18 выполнен по фиксированным конфигурациям; аудит и сырые результаты находятся в `outputs/round18_representation/`, а additive evidence update — в `outputs/evidence_v2_5_0/`. Он не выбирает representation и не меняет статусы A–G.
 # Presubmission ICVI and sensitivity appendix
 
-`src/sbernet/icvi.py` defines the fixed-partition metrics used in the competition table. SW is the Euclidean mean silhouette coefficient (↑); CH is raw Calinski–Harabasz (↑), with CH/N only as a scale diagnostic; S_Dbw is the Halkidi–Vazirgiannis (2001) `Scat + Dens_bw` population-standard-deviation variant (↓); AVI is mean within-community unweighted adjacency share (↑); AVU is mean inter-community adjacency-union overlap (↓); MQ is weighted Newman–Girvan modularity at resolution one (↑). The module returns an explicit undefined status for a one-cluster partition, zero global dispersion, graph absence, or an undefined positive-over-zero S_Dbw density ratio; it never substitutes a historical finite S_Dbw.
+`src/sbernet/icvi.py` contains both historical v1 and current v2 fixed-partition metrics. In v2, SW is the Euclidean mean silhouette coefficient (↑); CH is raw Calinski–Harabasz (↑), with CH/N only as a scale diagnostic; S_Dbw is the documented Halkidi–Vazirgiannis (2001) `Scat + Dens_bw` population-standard-deviation variant (↓); AVI/AVU use weighted adjacency blocks; ANUI combines them; MQ is TurboMQ; and Q is weighted Newman–Girvan modularity at resolution one. Historical v1 tables remain unchanged: their AVI/AVU were unweighted and their field named MQ contained Newman–Girvan Q. Exact definitions and comparability limits are in [ICVI.md](ICVI.md).
+
+Synthetic temporal benchmark v4 computes ARI/NMI separately for each month and
+aggregates their mean, standard deviation, minimum and median. This makes partition
+quality invariant to independent numeric label permutations within months. Flattened
+ARI/NMI are retained only as explicitly named legacy diagnostics and are excluded from
+omega comparison. Event metrics use monthwise Hungarian alignment; transition and
+no-transition utilities have fixed four- and two-component definitions respectively,
+with no `NaN` component skipping. See the [v4 audit](../outputs/final_competition_upgrade/synthetic_temporal_v4/SYNTHETIC_TEMPORAL_V4_AUDIT.md).
 
 Round18 uses the exact strict panel and fixed k=20, edge rule, kernel, omega, resolution and seed. R1 uses five-part CLR with no additivity claim; R2 robust-scales five observed log-category levels and may repeat size information. The pre-upgrade reference gate requires graph/label equality before alternatives. Edge sensitivity holds representation fixed while varying mutual versus union kNN over `[10,15,20,30,50]`; omega sensitivity holds every intralayer graph fixed while varying `[.25,.5,1,2,4]`. Corrected union-edge results and their baseline gate are retained under `outputs/final_competition_upgrade/edge_sensitivity_v3/`; the prior comparison is preserved but superseded because it dropped one-sided nominations. Exact configs, manifests and raw outputs are retained under `configs/round18_*.yaml`, `outputs/round18_representation/`, and `outputs/presubmission_upgrade/`.

@@ -1,0 +1,5 @@
+stability_class,count,changed_n,changed_share
+expansive_core,374,247,0.660427807486631
+stable_core,824,1,0.0012135922330097086
+transition,388,348,0.8969072164948454
+unresolved,318,35,0.11006289308176101

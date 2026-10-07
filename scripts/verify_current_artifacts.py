@@ -3,6 +3,13 @@ import csv
 import hashlib
 import json
 from pathlib import Path
+import sys
+
+
+ROOT = Path(__file__).resolve().parents[1]
+for local_path in (ROOT / "src", ROOT, ROOT / "scripts"):
+    if str(local_path) not in sys.path:
+        sys.path.insert(0, str(local_path))
 
 
 def sha256(path):

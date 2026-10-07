@@ -1,0 +1,8 @@
+claim,status,evidence
+L1 remains the reference research result,UNCHANGED,exact P0 baseline hashes and ARI/NMI gates
+L2 is a separate broader local-economy lens,SUPPORTED_DESCRIPTIVELY,1876 complete cases; fixed additive config; no K preselection
+L1 and L2 have identical exact boundaries,REJECTED,ARI=0.431917; NMI=0.471727
+L2 has five robust universal economic types,NOT_ESTABLISHED,"five major temporal-December communities cover 95.3%, but 41 total communities, micro-fragmentation and negative silhouette"
+L2 major communities admit descriptive economic labels,SUPPORTED_WITH_SCOPE_LIMITATIONS,shallow-tree CV balanced accuracy=0.845; labels use included variables
+Population/wage/employment/market access independently validate L2,REJECTED_BY_DESIGN,these variables enter L2 features
+Mobility independently validates L2 nationally,NOT_ESTABLISHED,"held out from model, but exact-name coverage is only 268/1876 and selected"

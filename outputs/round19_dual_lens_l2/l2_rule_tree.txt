@@ -1,0 +1,25 @@
+|--- log_population <= 2.1973
+|   |--- log_market_access <= 0.8722
+|   |   |--- log_market_access <= -2.5842
+|   |   |   |--- log_wage <= 0.5915
+|   |   |   |   |--- class: 4
+|   |   |   |--- log_wage >  0.5915
+|   |   |   |   |--- class: 4
+|   |   |--- log_market_access >  -2.5842
+|   |   |   |--- employment_share_manufacturing <= 0.0770
+|   |   |   |   |--- class: 1
+|   |   |   |--- employment_share_manufacturing >  0.0770
+|   |   |   |   |--- class: 2
+|   |--- log_market_access >  0.8722
+|   |   |--- log_wage <= 0.6845
+|   |   |   |--- class: 2
+|   |   |--- log_wage >  0.6845
+|   |   |   |--- log_wage <= 1.4081
+|   |   |   |   |--- class: 3
+|   |   |   |--- log_wage >  1.4081
+|   |   |   |   |--- class: 3
+|--- log_population >  2.1973
+|   |--- log_population <= 2.7010
+|   |   |--- class: 5
+|   |--- log_population >  2.7010
+|   |   |--- class: 5

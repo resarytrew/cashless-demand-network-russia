@@ -1,0 +1,54 @@
+experiment:
+  id: round20_targeted_checks
+  output_dir: outputs/round20_targeted_checks
+  evidence_version: '2.7.0'
+  interpretation: exploratory_posthoc_robustness
+
+gates:
+  baseline_gate: outputs/presubmission_upgrade/baseline_gate/baseline_gate.json
+  baseline_gate_manifest: outputs/presubmission_upgrade/baseline_gate/run_manifest.json
+  baseline_supra_labels: outputs/baseline/supra_labels.csv
+  round19_completed: outputs/round19_dual_lens_l2/COMPLETED.json
+  round19_manifest: outputs/round19_dual_lens_l2/run_manifest.json
+
+sources:
+  l1_config: configs/baseline.yaml
+  national_external: outputs/final_competition_upgrade/external_validation_national_20261006_r6/external_validation_joined.csv
+  profile_mapping: outputs/final_competition_upgrade/profile_mapping/raw_to_profile_mapping.csv
+  atlas: outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv
+  omega_existing_summary: outputs/presubmission_upgrade/temporal_sensitivity/omega_sensitivity.csv
+  l2_config: configs/round19_dual_lens_l2.yaml
+  l2_eligibility: outputs/round19_dual_lens_l2/l2_eligibility_audit.csv
+
+residual_external:
+  model: log_outcome_on_log_population_plus_region_fixed_effects
+  outcomes: [wage, employment_total]
+  population: population
+  region: region
+  profile: profile
+  included_profiles: [A, B, C, D, E, F, G]
+  covariance: HC3
+  permutation:
+    method: Freedman_Lane_within_region
+    reps: 1999
+    seed: 20261008
+  pairwise:
+    method: Mann_Whitney_on_reduced_model_residuals
+    correction: Benjamini_Hochberg
+
+omega_check:
+  reference_omega: 2.0
+  sensitivity_omega: 1.0
+  k: 20
+  edge_rule: mutual_knn
+  temporal_isolate_fallback: false
+  resolution: 0.5
+  seed: 0
+  profile_map: {A: 1, B: 3, C: 7, D: 8, E: 9, F: 10, G: 11}
+
+l2_distance_contribution:
+  period: '2024-12-01'
+  blocks: [Demand, Population, Wage, Market_access, Employment]
+  scopes: [all_pairs, temporal_december_edges, static_december_edges]
+  no_weight_retuning_after_results: true
+  share_quantiles: [0.05, 0.25, 0.50, 0.75, 0.95]

@@ -1,5 +1,55 @@
 # Research State — Distilled Project Context
 
+## Current state — Round21 structural sensitivity (v2.8.0)
+
+Round21 finds that omega=1 is predominantly a coarse merge of the omega=2
+December partition (micro purity .9785; fine-pair retention .9827; coarse-pair
+precision .4888; conditional entropies .1303 versus 1.2874 bits), but matched-K
+resolution=.8 preserves B/E merge and not the combined C/D/F/G merge. Exact
+boundaries therefore depend on omega×resolution.
+
+Omega did not enter Atlas construction: stable core changes 1/824, expansive
+core 247/374 and transition 348/388 on this held-out sensitivity axis. Adjusted
+sector CLR retains a small association (partial R2 .0361, permutation p=.0005).
+Both predeclared balanced L2 alternatives materially differ from original L2
+(ARI .0345/.1772); none is selected. All reference hashes and legacy statuses
+remain unchanged.
+
+## Round20 targeted checks (v2.7.0)
+
+Round20 is complete as an additive exploratory layer. Controlling log
+population and region fixed effects, A–G retain joint associations with log
+wage (partial R2 0.1758) and log employment total (partial R2 0.2144); these
+remain observational associations. The `omega=2` versus `omega=1` December
+comparison is ARI 0.4070 / NMI 0.5547 with 33.14% changed after optimal
+one-to-one alignment. High member retention does not mean one-to-one profile
+preservation: `omega=1` merges B/E and C/D/F/G. Only 1/824 Atlas stable-core
+municipalities changes, versus 348/388 transition municipalities.
+
+L2 distance accounting uses the fixed Round19 weights. Across all pairs,
+demand and employment contribute 34.08% and 34.54% of squared distance; on
+actual December graph edges employment contributes about 52.1%. No weights
+were retuned. L1, A–G, reference `omega=2`, and Round19 L2 remain unchanged.
+
+## Round19 dual-lens evidence (v2.6.0)
+
+L1 remains the unchanged reference research result: demand-only discovery followed by
+external interpretation. L2 is separate, additive and complete-case (n=1,876): equal,
+separately distance-normalized blocks for L1, log population/wage/market access, and
+CLR employment structure. Urban share was unavailable and not proxied. The controlled
+comparison keeps mutual-kNN20, omega=2, Louvain resolution=.5 and seed=0 without
+selecting K.
+
+Temporal December L1/L2 agreement is ARI=.431917 and NMI=.471727. L2 has five major
+profiles above the fixed 2% reporting threshold (95.3% combined) but 41 total December
+communities, 52 December intralayer isolates and SW=-.0429. Treat the five as descriptive
+major profiles, not five robust universal economic types. A shallow contextual rule tree
+has CV accuracy=.856 and balanced accuracy=.845; its names use included L2 variables and
+are therefore interpretation, not independent validation. Population, wage, employment
+structure and market access cease to be independent L2 evidence. Mobility is held out,
+but only 268/1,876 exact-name matches are available and the effect is exploratory on a
+selected subset. No A–G status changes.
+
 ## Current state — Round18 representation evidence (v2.5.0)
 
 Round18 is completed under the unchanged panel, graph rule, k, omega, resolution

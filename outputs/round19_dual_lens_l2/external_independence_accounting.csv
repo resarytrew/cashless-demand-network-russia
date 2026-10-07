@@ -1,0 +1,7 @@
+indicator,independent_for_L1,enters_L2,independent_for_L2,notes
+population,True,True,False,
+wage,True,True,False,
+employment_structure,True,True,False,
+market_access,True,True,False,
+mobility_index,True,False,True,
+urban_share,True,False,False,national input unavailable; not imputed or proxied

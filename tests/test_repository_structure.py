@@ -11,8 +11,8 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_current_repository_structure_passes():
     result = verify(ROOT)
     assert result["status"] == "PASS"
-    assert result["evidence_version"] == "2.5.0"
-    assert result["latest_research_round"] == 18
+    assert result["evidence_version"] == "2.8.0"
+    assert result["latest_research_round"] == 21
 
 
 def test_retired_path_is_rejected(tmp_path):

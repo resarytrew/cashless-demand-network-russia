@@ -1,0 +1,67 @@
+{
+  "status": "FROZEN_BEFORE_ROUND21_COMPUTATION",
+  "timestamp_local_date": "2026-10-08",
+  "git_commit": "b8fb04dbfb0e708e90737ff3852c8c452881468e",
+  "dirty_worktree": true,
+  "dirty_worktree_status_lines": 129,
+  "dirty_worktree_status_sha256": "a5e3a9cae11237e054252bc7c9a50c4fbe3d96263d2a42ccb0884acac64262da",
+  "note": "The dirty tree predates Round21 and contains user/prior-round work; no reset, stash, checkout or clean was performed.",
+  "artifacts": {
+    "reference_config": {
+      "path": "configs/baseline.yaml",
+      "sha256": "3a3aadc0c8e174a5388999e1a1b8ea472600b186c0d22f392f4c91ecddeb12d2"
+    },
+    "l1_static_december_labels": {
+      "path": "outputs/baseline/static_dec2024_labels.csv",
+      "sha256": "879f91094746e6e47d1346b5e2169369ebf6f28e1c437d7f8ddb597ba6b4fb09",
+      "rows": 1904,
+      "K": 9
+    },
+    "l1_full_temporal_labels": {
+      "path": "outputs/baseline/supra_labels.csv",
+      "sha256": "7cac1146f94c61cd1d6cdcfb6600796c1d95e05d94edd570c53a38251243192a",
+      "rows": 1904,
+      "months": 24,
+      "december_K": 10
+    },
+    "ag_mapping": {
+      "path": "outputs/final_competition_upgrade/profile_mapping/raw_to_profile_mapping.csv",
+      "sha256": "47eaf0227bc0c3ed200ef07e9b1fdcd6b5d22fc4fad257ab1598e8a9ba5c41e7",
+      "rows": 10,
+      "named_profiles": 7
+    },
+    "l2_original_config": {
+      "path": "configs/round19_dual_lens_l2.yaml",
+      "sha256": "aaa52087d6987d73b78c82744903a96949865a74a312175bf5e82895bdc2d57e"
+    },
+    "l2_original_labels": {
+      "path": "outputs/round19_dual_lens_l2/l2_supra_labels.csv",
+      "sha256": "cac30b129b564d3752417bff412e12b37a8c8a4861f85dc093380a5aa402a63f",
+      "rows": 1876,
+      "months": 24,
+      "december_K": 41
+    },
+    "atlas_assignments": {
+      "path": "outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv",
+      "sha256": "ab824219890eb9ff95528075a06b1f18efbb5edf409fa7bb46fdb35b50f40b99",
+      "rows": 1904,
+      "stability_classes": 4
+    },
+    "round20_summary": {
+      "path": "outputs/round20_targeted_checks/round20_summary.json",
+      "sha256": "1692420115ed3fdebee41fe37447e98e7a4ebea9939579820db9bf8f289750d3"
+    }
+  },
+  "reference_parameters": {
+    "panel_n": 1904,
+    "months": 24,
+    "alpha_composition": 0.70,
+    "alpha_level": 0.30,
+    "k": 20,
+    "edge_rule": "mutual_knn",
+    "kernel": "adaptive_rbf",
+    "omega": 2.0,
+    "resolution": 0.5,
+    "seed": 0
+  }
+}

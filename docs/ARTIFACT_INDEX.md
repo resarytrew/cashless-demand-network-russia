@@ -1,5 +1,61 @@
 # Artifact Index — What Codex Should Look At
 
+## Current structural sensitivity — Round21 / evidence v2.8.0
+
+- `configs/round21_structural_sensitivity.yaml`: all fixed grids, seeds and P2 weights.
+- `outputs/round21_structural_sensitivity/`: baseline freeze, omega hierarchy and
+  matched-K tables, Atlas independence/state diagnostics, adjusted scalar/sector
+  validation, merge interpretation, L1/L2 crosswalks, balanced-L2 results, audit,
+  checksums and report.
+- `outputs/evidence_v2_8_0/`: additive current evidence matrix and claim changes.
+
+## Targeted checks — Round20 / evidence v2.7.0
+
+- `configs/round20_targeted_checks.yaml`: fixed residual, omega and distance protocol.
+- `outputs/round20_targeted_checks/`: raw per-MO residuals/alignment, global and
+  pairwise tests, Atlas summaries, distance contributions, report and audit.
+- `outputs/evidence_v2_7_0/`: additive evidence update and current master matrix.
+
+## Dual-lens result — Round19 / evidence v2.6.0
+
+- `configs/round19_dual_lens_l2.yaml`: fixed separate L2 protocol.
+- `outputs/round19_dual_lens_l2/`: P0 gates, raw labels, L1/L2 contingency,
+  municipality migration diagnostics, L2 profile table, independence accounting,
+  mobility holdout, report, audit and manifest.
+- `outputs/evidence_v2_6_0/`: additive Round19 evidence update and current master matrix.
+
+L1 remains the unchanged reference discovery result with independent external
+interpretation. L2 uses L1 plus log population, log wage, market access and CLR
+employment structure on 1,876 complete cases. Urban share was unavailable and not
+proxied. Mobility is held out but covers only 268 exact-name matches. The five major
+L2 profiles are descriptive; 41 temporal-December communities and negative silhouette
+preclude a claim of five universal robust economic types.
+
+## Current ICVI reporting layer
+
+- `configs/icvi_v2.yaml`: fixed additive reevaluation protocol.
+- `docs/ICVI.md`: canonical metric definitions and comparability limits.
+- `outputs/final_competition_upgrade/icvi_v2/`: canonical fixed-partition table,
+  edge-grid table, report, audit, definitions and provenance manifest.
+- `outputs/presubmission_upgrade/icvi/` and
+  `outputs/final_competition_upgrade/edge_sensitivity_v3/`: preserved historical
+  tables; their `MQ` column means weighted Newman–Girvan Q and their AVI/AVU are
+  unweighted.
+
+ICVI v2 changes reporting definitions only. It does not change data, graphs,
+partitions, baseline, A–G, k=20, omega=2, resolution or scientific statuses.
+
+## Current synthetic temporal calibration
+
+- `configs/synthetic_temporal_benchmark_v4.yaml`: fixed corrective v4 protocol.
+- `outputs/final_competition_upgrade/synthetic_temporal_v4/`: current raw metrics,
+  separate transition/stability trade-offs, report, audit and manifest.
+- `outputs/final_competition_upgrade/synthetic_temporal_v3/`: preserved historical
+  benchmark; its flattened partition metrics are forensic-only for current use.
+
+V4 changes synthetic evaluation only. It does not rerun or modify real-data
+clustering, reference omega=2, or A–G scientific statuses.
+
 ## Current state — Round18 representation evidence (v2.5.0)
 
 - `docs/CURRENT_STATE.json`: single machine-readable current-state pointer.

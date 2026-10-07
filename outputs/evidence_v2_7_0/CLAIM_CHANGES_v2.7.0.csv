@@ -1,0 +1,8 @@
+claim,status,evidence
+A–G external wage contrasts are only municipality-size artifacts,WEAKENED,region-FE log-wage model: profile partial R2=0.1758; HC3 p=2.78e-55; within-region permutation p=0.0005
+A–G external employment-total contrasts are only municipality-size artifacts,WEAKENED,region-FE log-employment model: profile partial R2=0.2144; HC3 p=2.56e-36; within-region permutation p=0.0005
+Exact December partition is insensitive to temporal coupling,NOT_SUPPORTED,omega 2 vs 1: ARI=0.4070; NMI=0.5547; aligned changed share=33.14%; K 10 vs 7
+Atlas stable cores remain stable under omega=1,SUPPORTED_FOR_THIS_SENSITIVITY,1/824 stable-core municipalities changed after one-to-one December alignment
+Employment alone dominates all L2 pairwise distance,NOT_SUPPORTED_ALL_PAIRS,"mean shares: employment 34.54%, demand 34.08%, market access 15.40%, population 8.27%, wage 7.70%"
+Employment is the largest contribution among L2 graph-neighbor distances,SUPPORTED_DESCRIPTIVELY,mean share 52.05% on temporal December edges and 52.10% on static December edges; no retuning
+"Round20 changes L1, A–G labels, omega=2 or L2 weights",FALSE,exact gates passed; additive outputs only
