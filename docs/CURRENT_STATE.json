@@ -1,32 +1,62 @@
 {
-  "schema_version": 1,
-  "evidence_version": "2.4.0",
+  "schema_version": 2,
+  "evidence_version": "2.5.0",
   "atlas_version": "2.2.1",
+  "latest_research_round": 18,
   "scientific_status_changes": false,
   "reference_specification_changed": false,
-  "current_evidence_matrix": "outputs/round17_external_validation/MASTER_PROFILE_EVIDENCE_MATRIX_v2.4.0.csv",
+  "current_evidence_matrix": "outputs/evidence_v2_5_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.5.0.csv",
   "scientific_status_registry": "outputs/round16_evidence/archetype_status_round16.csv",
-  "latest_research_audit": "outputs/round17_external_validation/RECOVERY_AUDIT.md",
-  "engineering_audit": "docs/ENGINEERING_HARDENING_20260922.md",
-  "atlas_config": "configs/stability_atlas_v2_2_1.yaml",
-  "atlas_findings": "docs/STABILITY_ATLAS_V2_2_FINDINGS.md",
-  "verification_command": "python scripts/verify_current_artifacts.py",
+  "latest_research_audit": "outputs/round18_representation/ROUND18_AUDIT.md",
+  "round17_external_validation": {
+    "status": "COMPLETED_EXTERNAL_INTERPRETATION_LAYER",
+    "evidence_version": "2.4.0",
+    "config": "configs/round17_external_validation.yaml",
+    "report": "outputs/round17_external_validation/INDEPENDENT_ECONOMIC_VALIDATION.md",
+    "audit": "outputs/round17_external_validation/RECOVERY_AUDIT.md",
+    "claim_evidence_matrix": "outputs/round17_external_validation/CLAIM_EVIDENCE_MATRIX_v2.4.0.csv"
+  },
+  "round18_representation_robustness": {
+    "status": "COMPUTED_DESCRIPTIVE_NOT_CONFIRMATORY",
+    "reference_config": "configs/round18_reference.yaml",
+    "r1_config": "configs/round18_r1_fivepart_clr.yaml",
+    "r2_config": "configs/round18_r2_observed_levels.yaml",
+    "summary": "outputs/round18_representation/round18_summary.json",
+    "audit": "outputs/round18_representation/ROUND18_AUDIT.md",
+    "evidence_update": "outputs/evidence_v2_5_0/ROUND18_EVIDENCE_UPDATE.md",
+    "result": "Material exact-partition dependence on representation; no A-G status or reference-specification change"
+  },
+  "current_submission": {
+    "correction_audit": "outputs/final_competition_upgrade/CORRECTION_AUDIT_v3.md",
+    "baseline_gate": "outputs/final_competition_upgrade/baseline_gate_before_v3_corrections/baseline_gate.json",
+    "edge_sensitivity": "outputs/final_competition_upgrade/edge_sensitivity_v3/edge_sensitivity.csv",
+    "synthetic_benchmark": "outputs/final_competition_upgrade/synthetic_temporal_v3/SYNTHETIC_TEMPORAL_REPORT.md",
+    "national_external_validation": "outputs/final_competition_upgrade/external_validation_national_20261006_r6/NATIONAL_EXTERNAL_VALIDATION.md",
+    "story_contract": "outputs/final_competition_upgrade/story_data_v3/summary.json",
+    "profile_cards": "outputs/final_competition_upgrade/profile_cards_20261007_v3/profile_cards.json",
+    "profile_cards_audit": "outputs/final_competition_upgrade/profile_cards_20261007_v3/PROFILE_CARDS_AUDIT.md"
+  },
+  "engineering": {
+    "audit": "docs/ENGINEERING_HARDENING_20260922.md",
+    "atlas_config": "configs/stability_atlas_v2_2_1.yaml",
+    "atlas_findings": "docs/STABILITY_ATLAS_V2_2_FINDINGS.md",
+    "repository_restructure": "reference/repository_restructure_20261007/RESTRUCTURE_MANIFEST.json"
+  },
+  "verification_commands": [
+    "python -m pytest -q",
+    "python scripts/verify_current_artifacts.py",
+    "python scripts/verify_presubmission_current.py --skip-tests",
+    "python scripts/verify_repository_structure.py"
+  ],
   "full_research_acceptance": false,
   "limitations": [
     "Total denominator and category additivity unresolved",
-    "Contextual inputs unavailable; controls remain historical-only",
-    "Third municipal contextual case not established",
+    "The strict panel is not established as nationally representative",
+    "Exact boundaries depend materially on representation, graph construction and temporal coupling",
+    "Contextual controls without committed inputs remain historical-only",
     "Atlas affinity shares are descriptive, not posterior probabilities",
-    "No new clustering or prospective utility experiment",
-    "Round17 selected sample: 58 municipalities, 4 regions; B/E absent; Altai F n=1",
-    "Raw external documents and extraction row locations unavailable; normalized-extract replay only",
-    "Nominal employee wages are not household income; sector/mining mechanism unestablished"
-  ],
-  "latest_evidence_round": 17,
-  "claim_evidence_matrix": "outputs/round17_external_validation/CLAIM_EVIDENCE_MATRIX_v2.4.0.csv",
-  "external_validation_config": "configs/round17_external_validation.yaml",
-  "external_validation_report": "outputs/round17_external_validation/INDEPENDENT_ECONOMIC_VALIDATION.md",
-  "interpretation_evidence_added": true,
-  "round18_status": "PLAN_ONLY_NOT_RUN",
-  "round18_protocol": "docs/ROUND18_REPRESENTATION_ROBUSTNESS_PLAN.md"
+    "Round17 selected sample has 58 municipalities in 4 regions; B/E are absent and Altai F has n=1",
+    "External validation is observational and does not establish causal mechanisms",
+    "Nominal employee wages are not household income"
+  ]
 }

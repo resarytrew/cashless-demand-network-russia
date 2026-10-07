@@ -1,4 +1,4 @@
-"""Stage GitHub Pages without rewriting any frozen visualization artifacts."""
+"""Stage the current self-contained GitHub Pages site."""
 from pathlib import Path
 import shutil
 
@@ -11,7 +11,7 @@ for page in ("index.html", "methodology.html"):
         'href="../atlas/index.html"', 'href="atlas/index.html"'
     ), encoding="utf-8")
 # The presentation Atlas is the published experience at the root and /atlas/.
-# The frozen repository visualization remains untouched in outputs/.
+# The technical frozen Atlas remains a separate repository artifact.
 shutil.copytree(ROOT / "site", destination / "atlas", dirs_exist_ok=True)
 # An explicit /site/index.html supports the reference URL convention.
 shutil.copytree(ROOT / "site", destination / "site", dirs_exist_ok=True)

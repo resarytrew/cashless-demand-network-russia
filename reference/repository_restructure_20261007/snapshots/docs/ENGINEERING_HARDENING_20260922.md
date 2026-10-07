@@ -58,6 +58,4 @@ protocols, baseline gates, raw results and a new evidence round. They are not
 implicitly claimed by the engineering verification. No remote publication or
 license decision is part of this local implementation.
 
-The original verification bundle was recorded under `outputs/engineering_20260922/`
-at this audit date. It was removed from the current tree during repository cleanup;
-Git history retains it. Current verification is `python scripts/verify_current_artifacts.py`.
+Verification results are recorded in `outputs/engineering_20260922/verification.json`.

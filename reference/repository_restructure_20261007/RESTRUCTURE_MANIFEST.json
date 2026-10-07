@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "status": "REPOSITORY_RESTRUCTURE_COMPLETED",
+  "date": "2026-10-07",
+  "scope": "Repository structure and current-state consolidation only",
+  "scientific_status_changes": false,
+  "reference_specification_changed": false,
+  "current_evidence_version": "2.5.0",
+  "source_transitions": [
+    {
+      "path": ".github/workflows/verify.yml",
+      "snapshot": "reference/historical_provenance/publication/PUBLICATION_BASELINE_VERIFY.yml",
+      "historical_sha256": "536ae492c7f5c81e47bbc94b8f437245f75fa6386314e95476c06fc77582f75d",
+      "prior_current_snapshot": "reference/repository_restructure_20261007/snapshots/.github/workflows/verify.yml",
+      "prior_current_sha256": "05790361bb40ea266e0a8b81dedcecb62be6fc7a0e2a04dd2df31e084694af22",
+      "current_sha256": "d3e47e3825ab5acf85e13ff75eaba22d681c0c1435447e86afb4a75b6bb6253d",
+      "removed": false
+    },
+    {
+      "path": "AGENTS.md",
+      "snapshot": "reference/repository_restructure_20261007/snapshots/AGENTS.md",
+      "historical_sha256": "95a1e8329573a96d93ed64b2acc80e08ffaa5e843de984569327e0dd8b735c32",
+      "current_sha256": "9eb38bbb9e15862624cd7e27d7bdddfe8c66e6543ade93b63439446a00107088",
+      "removed": false
+    },
+    {
+      "path": "README.md",
+      "snapshot": "reference/historical_provenance/publication/PUBLICATION_BASELINE_README.md",
+      "historical_sha256": "35454ca62cd60936e72530fa7b958ca2dcf0dfc3bddfbc818a1b1b59309b8f23",
+      "prior_current_snapshot": "reference/repository_restructure_20261007/snapshots/README.md",
+      "prior_current_sha256": "254c6b7a9e1f71673a122faabb5bee8e96084adbdfe44fc855f33e11be840a88",
+      "current_sha256": "df77c17c2a3afe8983dfc8ae035f1a76246353340d276884ffd5f1f8e2964979",
+      "removed": false
+    },
+    {
+      "path": "docs/ARTIFACT_INDEX.md",
+      "snapshot": "reference/repository_restructure_20261007/snapshots/docs/ARTIFACT_INDEX.md",
+      "historical_sha256": "0861577dc066d1d294f540867c0c91af2f845adf37e0dd8540af91a10dd2d931",
+      "current_sha256": "96495cb866df4be5ec9725afacba1d943d13b914c41a98caada7ad4ae331f066",
+      "removed": false
+    },
+    {
+      "path": "docs/CODEX_START_HERE.md",
+      "snapshot": "reference/repository_restructure_20261007/snapshots/docs/CODEX_START_HERE.md",
+      "historical_sha256": "c0b6dd0df6412d8b317dec3deabb06226e6fe97faa34519b72cc0ca64dd310b9",
+      "current_sha256": "9ac428c2141cf82bde049309d1413b307af89b9702da624f61831f6378f3fe12",
+      "removed": false
+    },
+    {
+      "path": "docs/ENGINEERING_HARDENING_20260922.md",
+      "snapshot": "reference/repository_restructure_20261007/snapshots/docs/ENGINEERING_HARDENING_20260922.md",
+      "historical_sha256": "4a2a3174d1b3be338eca0a8c6ac8ae08857d7074d02201b0d9d2478e5245deb5",
+      "current_sha256": "2c3823d0a8aa6b456c34f51e8479be7a915322b80236efae1c3d8dc299024379",
+      "removed": false
+    },
+    {
+      "path": "docs/CURRENT_STATE.json",
+      "snapshot": "reference/repository_restructure_20261007/snapshots/docs/CURRENT_STATE.json",
+      "historical_sha256": "92028263e51e14b63e83a09d4407fd7379518edfa34d5fa3c95915bb62459e02",
+      "current_sha256": "bf26663e2cf51f8ca6939dafa9db822cb5efa26b8580ad98578ccc47fa3c00de",
+      "removed": false
+    },
+    {
+      "path": "docs/HYPOTHESIS_LEDGER.md",
+      "snapshot": "reference/repository_restructure_20261007/snapshots/docs/HYPOTHESIS_LEDGER.md",
+      "historical_sha256": "b9d01468c691ea5646d2176c86e030dc3c9b47446f5547f2b42a501496fbf31a",
+      "current_sha256": "19e36abd5aff2d326ee2f3f703970e3e35117307c0cf2eb9c3dd9e5f78be8e5d",
+      "removed": false
+    },
+    {
+      "path": "docs/RESEARCH_STATE.md",
+      "snapshot": "reference/repository_restructure_20261007/snapshots/docs/RESEARCH_STATE.md",
+      "historical_sha256": "5436a15895ebab48e678f4a9dda0b736b90bafbe32df9c0754f30e9663e76d4f",
+      "current_sha256": "4d9d363aa297adb55b89a67caede684139e5342f9abd30ab91ec4da19d187073",
+      "removed": false
+    },
+    {
+      "path": "scripts/verify_current_artifacts.py",
+      "snapshot": "reference/repository_restructure_20261007/snapshots/scripts/verify_current_artifacts.py",
+      "historical_sha256": "8ec21e3bee9a001a9015a718ddb03d108ba47080a3e16139bffa0bae4eadecbd",
+      "current_sha256": "2777f46660387b25be2997ab650b4cf319e83065145e5ec06e7a5a9b9ce458f5",
+      "removed": false
+    },
+    {
+      "path": "docs/REPOSITORY_IMPROVEMENT_PLAN_2026-09-22.md",
+      "snapshot": "reference/historical_provenance/round16/REPOSITORY_IMPROVEMENT_PLAN_2026-09-22.md",
+      "historical_sha256": "d31fd6301a92aa54b70c4f4334561bc472d07e45f3ce1ccf844cfbe5a26250e9",
+      "current_sha256": null,
+      "removed": true
+    },
+    {
+      "path": "docs/COMPETITION_ROUND16_CORRECTION_MAP.md",
+      "snapshot": "reference/historical_provenance/round16/COMPETITION_ROUND16_CORRECTION_MAP.md",
+      "historical_sha256": "aba1e80445906128bf15b60f206fcaee09065b5f7dedf2e574a7ddb3121efe2b",
+      "current_sha256": null,
+      "removed": true
+    },
+    {
+      "path": "docs/CONTEXTUAL_EVIDENCE_RECOVERY.md",
+      "snapshot": "reference/historical_provenance/round16/CONTEXTUAL_EVIDENCE_RECOVERY.md",
+      "historical_sha256": "96b914b87fb4d255525ee5d9211b60b2bc165ac8530312fb91d01cb59fb79117",
+      "current_sha256": null,
+      "removed": true
+    },
+    {
+      "path": "docs/PERTURBATION_PILOT_PROVENANCE_RESOLUTION.md",
+      "snapshot": "reference/historical_provenance/perturbation_pilot/PERTURBATION_PILOT_PROVENANCE_RESOLUTION.md",
+      "historical_sha256": "e1ba3ff9b926e1a59d379b011195efef851f56f239fa2d3765e80f37363fa20a",
+      "current_sha256": null,
+      "removed": true
+    },
+    {
+      "path": "docs/PERTURBATION_PILOT_REFERENCE.md",
+      "snapshot": "reference/historical_provenance/perturbation_pilot/PERTURBATION_PILOT_REFERENCE.md",
+      "historical_sha256": "98b1b49e47d583f6b414fcbfdc8315341fd347925d31b1e49d4a91f299892bca",
+      "current_sha256": null,
+      "removed": true
+    },
+    {
+      "path": "docs/methodology.md",
+      "snapshot": "reference/historical_provenance/methodology/METHODOLOGY_LEGACY.md",
+      "historical_sha256": "99b6f0d5a488077243aff4db8433f8946d77341b1bd9bbc13897d7f4e7251078",
+      "current_sha256": null,
+      "case_only_replacement": true,
+      "removed": true
+    },
+    {
+      "path": "docs/ROUND17_DELIVERY.md",
+      "snapshot": "reference/historical_provenance/round17/ROUND17_DELIVERY.md",
+      "historical_sha256": "542feecb3f77c2c6db73ebcd74884f303be326e1f9e0842bae4c2cdda5f2018a",
+      "current_sha256": null,
+      "removed": true
+    },
+    {
+      "path": "docs/ROUND18_REPRESENTATION_ROBUSTNESS_PLAN.md",
+      "snapshot": "reference/historical_provenance/round18/ROUND18_REPRESENTATION_ROBUSTNESS_PROTOCOL.md",
+      "historical_sha256": "fe722bc87dbe701240569e0de1dcb96e38c1ac67561e6ce557a3bcf0a533acf0",
+      "current_sha256": null,
+      "removed": true
+    },
+    {
+      "path": "configs/round18_representation_robustness_plan.yaml",
+      "snapshot": "reference/historical_provenance/round18/round18_representation_robustness_plan.yaml",
+      "historical_sha256": "2c333804814e2ef0f8f27136f62c29bcae1e5029e0ed2d07d736417705898e9a",
+      "current_sha256": null,
+      "removed": true
+    },
+    {
+      "path": "outputs/round18_representation_robustness/README.md",
+      "snapshot": "reference/historical_provenance/round18/PLANNING_PLACEHOLDER.md",
+      "historical_sha256": "601afe4e190d974c783de195a8473f185486961802cd9be2ff98bd0382c77674",
+      "current_sha256": null,
+      "removed": true
+    }
+  ],
+  "removed_artifact_roots": [
+    "outputs/engineering_20260922",
+    "outputs/public_visualization",
+    "outputs/final_competition_upgrade/baseline_gate_before_final",
+    "outputs/final_competition_upgrade/baseline_gate_before_v2_corrections",
+    "outputs/final_competition_upgrade/story_data",
+    "outputs/final_competition_upgrade/story_data_v2",
+    "outputs/final_competition_upgrade/synthetic_temporal",
+    "outputs/final_competition_upgrade/synthetic_temporal_v2",
+    "outputs/final_competition_upgrade/data_sense_lineage_20261006",
+    "outputs/final_competition_upgrade/data_sense_lineage_20261006_r2",
+    "outputs/final_competition_upgrade/external_validation_national_20261006 through r5",
+    "outputs/final_competition_upgrade/edge_sensitivity_v2",
+    "outputs/final_competition_upgrade/profile_cards_20261007 and v2",
+    "archived status-formatting and benchmark directories"
+  ],
+  "retained_for_reproducibility": [
+    "outputs/reproducibility_gates/attempt_20260919_01",
+    "outputs/presubmission_upgrade/baseline_gate",
+    "outputs/presubmission_upgrade/visualization",
+    "outputs/perturbation_v2/seeds",
+    "outputs/alpha_50_50",
+    "outputs/alpha_90_10",
+    "outputs/leiden_robustness",
+    "outputs/round16_resolution/runs"
+  ]
+}

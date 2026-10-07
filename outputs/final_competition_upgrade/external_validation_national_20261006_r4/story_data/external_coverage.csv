@@ -1,5 +1,0 @@
-indicator,year,eligible_reference_n,matched_n,coverage_pct,source,status
-population,2024,1903,1903,100.0,bdmo_population_Y48112027_v20260928.zip,CORE
-wage,2024,1903,1890,99.31686810299527,bdmo_wage_Y48423007_v20260928.zip,CORE
-employment_total,2024,1903,1890,99.31686810299527,bdmo_employment_Y48423005_v20260928.zip,CORE
-employment_by_okved,2024,1903,1888,99.21177088807147,bdmo_employment_Y48423005_v20260928.zip,CORE

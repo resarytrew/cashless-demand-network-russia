@@ -70,7 +70,7 @@ Before a robustness test that depends on the baseline, reproduce the baseline fi
 
 For algorithm-swap tests, verify that the input graph is identical: same nodes, edges, weights, checksums, and config except for the algorithm being swapped.
 
-The historical n=5 pilot is SUPERSEDED_NON_REPRODUCIBLE_HISTORICAL_PILOT and is not quantitative evidence. The explicit user-authorized provenance resolution replaces its old reproduction gate; see `reference/historical_provenance/perturbation_pilot/PERTURBATION_PILOT_PROVENANCE_RESOLUTION.md`. It does not block independently gated Leiden.
+The historical n=5 pilot is SUPERSEDED_NON_REPRODUCIBLE_HISTORICAL_PILOT and is not quantitative evidence. The explicit user-authorized provenance resolution replaces its old reproduction gate; see `docs/PERTURBATION_PILOT_PROVENANCE_RESOLUTION.md`. It does not block independently gated Leiden.
 
 For canonical perturbation protocol v2, require exact same-process, fresh-process and insertion-order graph checksum gates before high-rep runs. Read `docs/PERTURBATION_V2_PROTOCOL.md` and the saved v2 gate report. Do not search package versions/RNG/edge orders to fit historical CSVs.
 
@@ -87,18 +87,16 @@ For canonical perturbation protocol v2, require exact same-process, fresh-proces
 
 ## Current engineering state
 
-Round17 is a separate external interpretation layer (evidence v2.4.0), with 58
-matched municipalities and no clustering/model tuning. Round18 representation
-robustness is completed as evidence v2.5.0: it documents material exact-boundary
-dependence without changing the reference specification or A–G statuses. Read
-`docs/CURRENT_STATE.json`, `outputs/round17_external_validation/RECOVERY_AUDIT.md`,
-`outputs/round18_representation/ROUND18_AUDIT.md`, and
-`outputs/evidence_v2_5_0/ROUND18_EVIDENCE_UPDATE.md`.
+Round17 is now a separate external interpretation layer (evidence v2.4.0),
+with 58 matched municipalities and no clustering/model tuning. Read
+`docs/ROUND17_REPRODUCTION.md` and `outputs/round17_external_validation/RECOVERY_AUDIT.md`.
+Prior A–G robustness statuses remain unchanged. Round18 is PLAN_ONLY_NOT_RUN;
+its protocol is `docs/ROUND18_REPRESENTATION_ROBUSTNESS_PLAN.md`.
 
 Read `docs/CURRENT_STATE.json`, `docs/ENGINEERING_HARDENING_20260922.md` and
-`docs/ATLAS_REPRODUCTION.md`. Atlas v2.2.1 remains a separate engineering release.
-Use `scripts/verify_current_artifacts.py` and `scripts/verify_repository_structure.py`
-for this checkout. Contextual controls without their inputs remain historical-only.
+`docs/ATLAS_REPRODUCTION.md`. Evidence v2.3.0 includes Round16; Atlas v2.2.1 is a
+separate engineering release. Use `scripts/verify_current_artifacts.py` for this
+checkout. Contextual controls without their inputs remain historical-only.
 Reference parameters and A–G scientific statuses remain unchanged.
 
 ## Historical next-task context (completed)

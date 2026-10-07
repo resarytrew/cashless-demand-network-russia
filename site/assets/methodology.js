@@ -272,7 +272,7 @@ window.prepareResearchPrint = async function() {
   document.querySelectorAll('.material-links a').forEach(a=>{
     if(a.hasAttribute('download'))a.href=repository+'/tree/main/site';
   });
-  $('full-atlas-link').href=repository+'/tree/main/outputs/public_visualization';
+  $('full-atlas-link').href=repository+'/tree/main/outputs/stability_atlas_v2_2_1';
   document.querySelector('.source-note a').href=repository+'/blob/main/site/data/manifest.json';
   document.querySelectorAll('.reveal-ready').forEach(el=>el.classList.add('is-visible'));
   document.querySelector('.limitations').open=true;

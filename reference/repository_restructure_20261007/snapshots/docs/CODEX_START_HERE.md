@@ -1,19 +1,6 @@
 # Codex Start Here
 
-## Current state — Round18 representation evidence (v2.5.0)
-
-Round18 is completed under the three fixed YAML specifications in `configs/round18_*.yaml`.
-Against the unchanged reference, temporal December ARI is 0.821695 for the
-five-part CLR variant and 0.707693 for observed levels. This is evidence of
-material exact-boundary dependence on representation, not a parameter-selection
-exercise. The reference specification and A–G scientific statuses are unchanged.
-Use [CURRENT_STATE.json](CURRENT_STATE.json), the
-[Round18 audit](../outputs/round18_representation/ROUND18_AUDIT.md), and the
-[v2.5.0 evidence update](../outputs/evidence_v2_5_0/ROUND18_EVIDENCE_UPDATE.md)
-as the current pointers. Profile cards v3 and the national validation r6 are the
-current presentation/interpretation artifacts; their variables never enter clustering.
-
-## Preserved Round17 external interpretation evidence (v2.4.0)
+## Current state — Round17 external interpretation evidence (v2.4.0)
 
 Round17 adds 58 exact matches in four regions to current Atlas v2.2.1; it is an
 external interpretation layer, not a new clustering or a robustness-status upgrade.
@@ -35,9 +22,7 @@ and [current pointers](CURRENT_STATE.json). Raw source documents and source row/
 locations are unavailable; normalized analytical data and statistics replay offline.
 No baseline, Round16, perturbation or existing Atlas outputs were changed.
 A–G scientific robustness statuses and the reference specification are unchanged.
-At the Round17 freeze, Round18 had not yet been executed. Its archived protocol is
-under `reference/historical_provenance/round18/`; the completed outputs above supersede
-that planning status.
+Round18 is [planned separately](ROUND18_REPRESENTATION_ROBUSTNESS_PLAN.md), not executed.
 
 ## Preserved prior state — Round16 evidence and Atlas 2.2.1 engineering release
 
@@ -82,7 +67,7 @@ The project deliberately avoids claiming that communities are universal “types
 
 ## Current state
 
-Latest update: Leiden Round 14 and canonical perturbation robustness v2 n=50 Round 15 are complete. Read `outputs/leiden_robustness/LEIDEN_FINDINGS.md`, `outputs/perturbation_v2/PERTURBATION_HIGHREP_FINDINGS.md` and master matrix v2.2.0 under `outputs/evidence_v2_2_0/`. Historical n=5 is superseded non-reproducible evidence, excluded from quantitative claims; see `reference/historical_provenance/perturbation_pilot/PERTURBATION_PILOT_PROVENANCE_RESOLUTION.md`.
+Latest update: Leiden Round 14 and canonical perturbation robustness v2 n=50 Round 15 are complete. Read `outputs/leiden_robustness/LEIDEN_FINDINGS.md`, `outputs/perturbation_v2/PERTURBATION_HIGHREP_FINDINGS.md` and master matrix v2.2.0 under `outputs/evidence_v2_2_0/`. Historical n=5 is superseded non-reproducible evidence, excluded from quantitative claims; see `docs/PERTURBATION_PILOT_PROVENANCE_RESOLUTION.md`.
 
 The baseline pipeline is reproducible. Sensitivity/robustness already completed includes k, omega, algorithm families in static benchmarks, temporal sensitivity, administrative-form controls, crosswalk/OKTMO audit, region/spatial controls, polygon spatial diagnostics, population/density controls, and alpha sensitivity.
 

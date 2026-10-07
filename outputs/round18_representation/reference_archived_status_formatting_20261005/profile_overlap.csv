@@ -1,8 +1,0 @@
-archetype,n_reference,destination,destination_n,intersection,retention,precision,Jaccard,within_pair_coassignment,n_destinations,core_n_reference
-A,141,1,141,141,1.0,1.0,1.0,1.0,1,7
-B,98,3,98,98,1.0,1.0,1.0,1.0,1,0
-C,29,7,29,29,1.0,1.0,1.0,1.0,1,0
-D,153,8,153,153,1.0,1.0,1.0,1.0,1,0
-E,186,9,186,186,1.0,1.0,1.0,1.0,1,50
-F,327,10,327,327,1.0,1.0,1.0,1.0,1,0
-G,965,11,965,965,1.0,1.0,1.0,1.0,1,767

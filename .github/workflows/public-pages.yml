@@ -2,7 +2,7 @@ name: Public research visualization
 on:
   push:
     branches: [main, codex/public-stability-landscape]
-    paths: ['site/**', 'outputs/public_visualization/**', 'scripts/stage_landing.py', 'scripts/export_landing_pdf.mjs', 'tests/browser/**', 'playwright.config.js', 'package*.json', '.github/workflows/public-pages.yml']
+    paths: ['site/**', 'scripts/stage_landing.py', 'scripts/export_landing_pdf.mjs', 'tests/browser/**', 'playwright.config.js', 'package*.json', '.github/workflows/public-pages.yml']
   pull_request:
     paths: ['site/**', 'scripts/stage_landing.py', 'scripts/export_landing_pdf.mjs', 'tests/browser/**', 'playwright.config.js', 'package*.json', '.github/workflows/public-pages.yml']
   workflow_dispatch:

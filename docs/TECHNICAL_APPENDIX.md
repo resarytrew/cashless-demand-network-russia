@@ -1,6 +1,6 @@
 # Техническое приложение
 
-[Главная](../README.md) · [Метод с объяснениями](public/METHODOLOGY.md) · [Результаты](RESULTS.md)
+[Главная](../README.md) · [Метод с объяснениями](METHODOLOGY.md) · [Результаты](RESULTS.md)
 
 Этот раздел предназначен для проверки деталей после основного текста. Он не вводит новых методов, расчётов или интерпретаций. Сохранённые YAML, код и таблицы остаются источниками точной реализации.
 
@@ -20,7 +20,7 @@
 
 [Конфигурация](../configs/baseline.yaml) · [Признаки](../src/sbernet/features.py) · [Месячный граф](../src/sbernet/graph.py) · [Временная сеть](../src/sbernet/temporal.py).
 
-70/30, k=20, ω=2 и γ=0,5 — reference specification, не optimum. Формулы CLR, масштабов и весов ребра приведены после интуитивных объяснений в [методологии](public/METHODOLOGY.md).
+70/30, k=20, ω=2 и γ=0,5 — reference specification, не optimum. Формулы CLR, масштабов и весов ребра приведены после интуитивных объяснений в [методологии](METHODOLOGY.md).
 
 ## Точная цель алгоритма
 
@@ -101,7 +101,7 @@ python scripts/run_round17_external_validation.py
 
 Первая команда запускает полный набор тестов; вторая проверяет уже завершённый внешний пакет без перезаписи. Для нового внешнего воспроизведения нужен отдельный пустой каталог. Первичные внешние документы при этом не восстанавливаются: входом служит нормализованная таблица.
 
-Общий `scripts/verify_current_artifacts.py` проверяет не только результаты, но и хеш README на момент вычислительного релиза `3c988699118f7718e1ea1bfeed8c111d157e8de9`. Поэтому новая публичная редакция README закономерно не совпадает с историческим хешем. Это нельзя скрывать изменением старого manifest или считать изменением научных результатов. Прежний README побайтово сохранён как [PUBLICATION_BASELINE_README.md](PUBLICATION_BASELINE_README.md); исходные manifests и verifier не редактировались.
+`scripts/verify_current_artifacts.py` проверяет вычислительные результаты и всю цепочку документированных source transitions. Исторические байты README, workflow и research-state документов не подменяются в старых manifests: они сохранены в `reference/` и проверяются по прежним хешам. Текущие байты отдельно закреплены в `reference/repository_restructure_20261007/RESTRUCTURE_MANIFEST.json`.
 
 Для независимой проверки целого исторического вычислительного состояния можно создать отдельный checkout:
 
@@ -122,13 +122,13 @@ git diff --exit-code 3c988699118f7718e1ea1bfeed8c111d157e8de9 -- src scripts con
 
 Отсутствие изменений в перечисленных путях связывает историческую проверку с текущими вычислительными файлами. Неотслеживаемые файлы требуют отдельного просмотра `git status --short`. Этот публичный релиз не содержит новых данных или вычислительного кода.
 
-С разрешения пользователя отдельно адаптирован только workflow CI. Он запускает тесты на текущем checkout, затем экспортирует **текущий коммит** во временную папку. Только README и сам workflow заменяются там прежними байтами из `PUBLICATION_BASELINE_README.md` и `PUBLICATION_BASELINE_VERIFY.yml`, после проверки их SHA256 по неизменённому manifest. Все вычислительные файлы, результаты и manifests берутся из текущего коммита и проходят прежний verifier без исключений. Основное рабочее дерево не меняется. Это явное отделение редакции и CI от научной целостности, не проверка одних старых результатов вместо текущих.
+Текущий CI сначала проверяет структуру репозитория, затем запускает общий verifier. Тот аутентифицирует архивные байты прежних releases из `reference/`, текущие source transitions и числовой replay без временной подмены файлов в checkout. Это сохраняет старую evidence-цепочку и одновременно проверяет фактическую текущую структуру.
 
 ## Навигация для технической проверки
 
-Сохранены [исходная краткая методология](methodology.md), [паспорт данных](DATA_PASSPORT.md), [временная спецификация](TEMPORAL_MODEL_SPECIFICATION.md), [правила evidence](evidence_governance.md), [история утверждений](HYPOTHESIS_LEDGER.md) и [машинные указатели состояния](CURRENT_STATE.json). Они относятся к техническому слою; внутренние версии и журналы не нужны для первого прочтения исследования.
+Сохранены [единая методология](METHODOLOGY.md), [паспорт данных](DATA_PASSPORT.md), [временная спецификация](TEMPORAL_MODEL_SPECIFICATION.md), [правила evidence](evidence_governance.md), [история утверждений](HYPOTHESIS_LEDGER.md) и [машинный указатель состояния](CURRENT_STATE.json). Исторические протоколы и журналы вынесены в `reference/historical_provenance/`.
 
-Старые контекстные проверки с отсутствующими входами не объявляются воспроизведёнными. Round18 остаётся только [планом](ROUND18_REPRESENTATION_ROBUSTNESS_PLAN.md). Никакой новый эксперимент этим переизложением не запускается.
+Старые контекстные проверки с отсутствующими входами не объявляются воспроизведёнными. Round18 выполнен по фиксированным конфигурациям; аудит и сырые результаты находятся в `outputs/round18_representation/`, а additive evidence update — в `outputs/evidence_v2_5_0/`. Он не выбирает representation и не меняет статусы A–G.
 # Presubmission ICVI and sensitivity appendix
 
 `src/sbernet/icvi.py` defines the fixed-partition metrics used in the competition table. SW is the Euclidean mean silhouette coefficient (↑); CH is raw Calinski–Harabasz (↑), with CH/N only as a scale diagnostic; S_Dbw is the Halkidi–Vazirgiannis (2001) `Scat + Dens_bw` population-standard-deviation variant (↓); AVI is mean within-community unweighted adjacency share (↑); AVU is mean inter-community adjacency-union overlap (↓); MQ is weighted Newman–Girvan modularity at resolution one (↑). The module returns an explicit undefined status for a one-cluster partition, zero global dispersion, graph absence, or an undefined positive-over-zero S_Dbw density ratio; it never substitutes a historical finite S_Dbw.

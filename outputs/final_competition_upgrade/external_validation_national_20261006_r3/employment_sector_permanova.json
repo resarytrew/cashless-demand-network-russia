@@ -1,9 +1,0 @@
-{
-  "method": "PERMANOVA_on_CLR_Euclidean_distance",
-  "n": 1883,
-  "groups": 7,
-  "pseudo_f": 62.356531597992856,
-  "permutations": 999,
-  "p_value": 0.001,
-  "seed": 0
-}

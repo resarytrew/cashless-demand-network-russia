@@ -262,4 +262,4 @@ def main(config_path: str) -> None:
     (out / "COMPLETED.json").write_text(json.dumps({"status":"COMPLETED_NATIONAL_EXTERNAL_INTERPRETATION","audit":audit},ensure_ascii=False,indent=2),encoding="utf-8")
 
 if __name__ == "__main__":
-    parser=argparse.ArgumentParser(); parser.add_argument("--config",default="configs/external_validation_national_20261006.yaml"); main(parser.parse_args().config)
+    parser=argparse.ArgumentParser(); parser.add_argument("--config",default="configs/external_validation_national_20261006_r6.yaml"); main(parser.parse_args().config)

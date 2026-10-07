@@ -54,17 +54,13 @@
 
 Интерактивные режимы «Устойчивость» и «Неопределённость» показывают другие показатели тех же территорий. Карточка и семь полос близости раскрывают точные значения при перекрытии точек. Существующий [технический Atlas](../outputs/stability_atlas_v2_2_1/index.html) и его [CSV](../outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv) сохранены. Временной Sankey и радары не добавлялись.
 
-## Воспроизведение визуального слоя
+## Текущий визуальный слой
 
-```powershell
-$env:PYTHONPATH = 'src;.;scripts'
-$env:PYTHONUTF8 = '1'
-python scripts/build_public_visuals.py
-python -m pytest -q
-```
+Актуальная публикация строится из `site/` командой `python scripts/stage_landing.py`
+и проверяется браузерным набором `npm run test:site`. Технический frozen Atlas
+остаётся в `outputs/stability_atlas_v2_2_1/`. Старый самостоятельный HTML-генератор
+удалён из текущего дерева; его исходники и generated output доступны в Git history.
 
-HTML автономен: данные и JavaScript встроены, три вспомогательных SVG находятся в `assets/`; CDN и запросов к API нет. Можно открыть каталог локально. GitHub Pages публикуется отдельным workflow и не запускает научные вычисления. Исходный verification workflow сохранён.
-
-[Конфигурация](../configs/public_visual_style.yaml) · [Генератор](../src/sbernet/visualization/public.py) · [Проекция](../src/sbernet/visualization/stability_landscape.py) · [Браузерные проверки](../tests/public_visualization.browser.js).
-
-Рядом с каждым SVG и в `assets/` лежит `.meta.json`: хеши входов, использованные поля, исходники, конфигурация, дата и git commit. Метаданные относятся только к представлению, не заменяют прежние научные manifests. Научные CSV и результаты не перезаписываются.
+SVG в `docs/images/` сохранены как иллюстрации опубликованного evidence round.
+Соседние `.meta.json` фиксируют их исторические входы и хеши; они не означают,
+что удалённый legacy-генератор остаётся текущим способом сборки сайта.

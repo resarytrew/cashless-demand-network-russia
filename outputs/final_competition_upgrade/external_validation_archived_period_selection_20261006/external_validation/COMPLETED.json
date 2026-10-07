@@ -1,8 +1,0 @@
-{
-  "status": "BLOCKED_PENDING_REFERENCE_OKTMO_OR_REGION_CROSSWALK",
-  "files": [
-    "data_quality.csv",
-    "source_manifest.csv",
-    "run_manifest.json"
-  ]
-}

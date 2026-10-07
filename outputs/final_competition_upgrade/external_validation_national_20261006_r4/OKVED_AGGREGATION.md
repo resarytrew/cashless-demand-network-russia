@@ -1,3 +1,0 @@
-# OKVED aggregation
-
-Rows are restricted to BDMO upper-level municipalities and the annual period. Only `Раздел A` through `Раздел U` records are used; the declared total is excluded. A→agriculture, B→mining, C→manufacturing, D/E→utilities, F→construction, G→trade, H→transport, I→hospitality, J→information, K→finance, L→real_estate, M→professional, N→administrative, O→public_administration, P→education, Q→health, R→arts, and S/T/U→other_services. Each municipality's sector values are divided by the sum of these observed sections; analysis uses a documented multiplicative zero replacement followed by CLR and PERMANOVA.

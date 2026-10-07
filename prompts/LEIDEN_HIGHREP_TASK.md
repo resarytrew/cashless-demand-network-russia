@@ -1,6 +1,6 @@
 # Codex Task — Leiden + High-Rep Perturbation Robustness
 
-> Current user-authorized amendment: Leiden Round 14 and canonical perturbation v2 Round 15 are completed. The historical n=5 expansion instructions below are superseded by `docs/PERTURBATION_PILOT_PROVENANCE_RESOLUTION.md` and `docs/PERTURBATION_V2_PROTOCOL.md`. Historical perturbation failure does not block independently gated Leiden. V2 uses sorted canonical edges and exact same/fresh-process checksum gates; it is not an expansion of the superseded pilot. Latest results are in `outputs/leiden_robustness/`, `outputs/perturbation_v2/`, and `outputs/evidence_v2_2_0/`. The original task text is preserved below as historical context.
+> Current user-authorized amendment: Leiden Round 14 and canonical perturbation v2 Round 15 are completed. The historical n=5 expansion instructions below are superseded by `reference/historical_provenance/perturbation_pilot/PERTURBATION_PILOT_PROVENANCE_RESOLUTION.md` and `docs/PERTURBATION_V2_PROTOCOL.md`. Historical perturbation failure does not block independently gated Leiden. V2 uses sorted canonical edges and exact same/fresh-process checksum gates; it is not an expansion of the superseded pilot. Latest results are in `outputs/leiden_robustness/`, `outputs/perturbation_v2/`, and `outputs/evidence_v2_2_0/`. The original task text is preserved below as historical context.
 
 Read root `AGENTS.md` and all required research context before executing this task.
 

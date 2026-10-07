@@ -86,7 +86,7 @@
 
 ### [Открыть интерактивный Атлас устойчивости →](https://resarytrew.github.io/cashless-demand-network-russia/)
 
-[Методология](docs/METHODOLOGY.md) · [Результаты](docs/RESULTS.md) · [Техническое приложение](docs/TECHNICAL_APPENDIX.md) · [Итоговый аудит](outputs/final_competition_upgrade/FINAL_SUBMISSION_AUDIT.md)
+[Методология](docs/public/METHODOLOGY.md) · [Результаты](docs/RESULTS.md) · [Техническое приложение](docs/TECHNICAL_APPENDIX.md) · [Итоговый аудит](outputs/final_competition_upgrade/FINAL_SUBMISSION_AUDIT.md)
 
 ---
 
@@ -675,7 +675,7 @@ outputs/        сохранённые доказательные результ
 
 | Раздел | Ссылка |
 |---|---|
-| Методология | [docs/METHODOLOGY.md](docs/METHODOLOGY.md) |
+| Методология | [docs/public/METHODOLOGY.md](docs/public/METHODOLOGY.md) |
 | Основные результаты | [docs/RESULTS.md](docs/RESULTS.md) |
 | Техническое приложение | [docs/TECHNICAL_APPENDIX.md](docs/TECHNICAL_APPENDIX.md) |
 | Итоговый аудит | [FINAL_SUBMISSION_AUDIT.md](outputs/final_competition_upgrade/FINAL_SUBMISSION_AUDIT.md) |

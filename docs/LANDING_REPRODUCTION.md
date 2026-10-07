@@ -1,10 +1,10 @@
 # Research landing: presentation release, 2026-10-06
 
 The presentation Atlas is the published entrypoint at `/`, `/atlas/` and
-`/site/index.html`. The older repository visualization remains preserved in
-`outputs/public_visualization`, but is not staged as a public route. This is not a
-new research round: all reference parameters, saved labels and prior evidence
-remain unchanged.
+`/site/index.html`. The superseded repository visualization was removed from the
+current tree; Git history preserves it. The technical frozen Atlas remains in
+`outputs/stability_atlas_v2_2_1/`. This is not a new research round: all reference
+parameters, saved labels and prior evidence remain unchanged.
 
 ## Preview
 

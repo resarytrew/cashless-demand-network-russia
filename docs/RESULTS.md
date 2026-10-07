@@ -22,7 +22,7 @@ Round18 сравнивает две заранее объявленные аль
 
 ## Внешняя интерпретация и неопределённость
 
-Round17 сохраняет 58 exact matches в четырёх регионах и не использовался при кластеризации. B/E в этой выборке отсутствуют; D/F/G представлены слишком малым числом случаев для национальных выводов. Для A ограниченно поддержана wage/investment interpretation с явно заданным scope; mining mechanism не установлен. См. `outputs/presubmission_upgrade/external_validation/` и Round17 audit.
+Round17 сохраняет 58 exact matches в четырёх регионах и не использовался при кластеризации. B/E в этой выборке отсутствуют; D/F/G представлены слишком малым числом случаев для национальных выводов. Для A ограниченно поддержана wage/investment interpretation с явно заданным scope; mining mechanism не установлен. См. `outputs/round17_external_validation/` и Round17 audit.
 # Results — current competition synthesis
 
 ## Typology

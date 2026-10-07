@@ -1,7 +1,0 @@
-n_nodes,months,communities,noise,separation,switching_fraction,scenario
-120,12,4,0.28,2.6,0.2,stable
-120,12,4,0.28,2.6,0.2,abrupt
-120,12,4,0.28,2.6,0.2,gradual
-120,12,4,0.28,2.6,0.2,boundary
-120,12,4,0.28,2.6,0.2,shock
-120,12,4,0.28,2.6,0.2,mixed

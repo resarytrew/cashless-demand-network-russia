@@ -1,16 +1,6 @@
 # Hypothesis and Claims Ledger — Current Scientific Status
 
-## Current state — Round18 representation evidence (v2.5.0)
-
-Round18 is completed. Five-part CLR and observed-level alternatives retain
-recognizable broad structure but change exact boundaries materially (temporal
-December ARI=0.821695 and 0.707693 respectively). This strengthens the existing
-qualification against representation-invariant exact clusters. It does not change
-the reference specification or any A–G scientific status. See
-`outputs/round18_representation/ROUND18_AUDIT.md` and
-`outputs/evidence_v2_5_0/ROUND18_EVIDENCE_UPDATE.md`.
-
-## Preserved Round17 external interpretation evidence (v2.4.0)
+## Current state — Round17 external interpretation evidence (v2.4.0)
 
 Round17 adds 58 exact matches in four regions to current Atlas v2.2.1; it is an
 external interpretation layer, not a new clustering or a robustness-status upgrade.
@@ -32,9 +22,7 @@ and [current pointers](CURRENT_STATE.json). Raw source documents and source row/
 locations are unavailable; normalized analytical data and statistics replay offline.
 No baseline, Round16, perturbation or existing Atlas outputs were changed.
 A–G scientific robustness statuses and the reference specification are unchanged.
-At the Round17 freeze, Round18 had not yet been executed. Its archived protocol is
-under `reference/historical_provenance/round18/`; the completed outputs above supersede
-that planning status.
+Round18 is [planned separately](ROUND18_REPRESENTATION_ROBUSTNESS_PLAN.md), not executed.
 
 ## Preserved prior state — Round16 evidence and Atlas 2.2.1 engineering release
 

@@ -1,20 +1,6 @@
 # Artifact Index — What Codex Should Look At
 
-## Current state — Round18 representation evidence (v2.5.0)
-
-- `docs/CURRENT_STATE.json`: single machine-readable current-state pointer.
-- `outputs/evidence_v2_5_0/`: current evidence matrix and Round18 update.
-- `outputs/round18_representation/`: reference, R1/R2 raw results, summary and audit.
-- `outputs/final_competition_upgrade/profile_cards_20261007_v3/`: current profile cards.
-- `outputs/final_competition_upgrade/external_validation_national_20261006_r6/`:
-  current national external interpretation layer.
-- `outputs/final_competition_upgrade/story_data_v3/`: current site data contract.
-
-Round18 found material exact-boundary dependence on representation without changing
-the reference specification or A–G scientific statuses. Historical protocols and
-delivery notes moved to `reference/historical_provenance/`.
-
-## Preserved Round17 external interpretation evidence (v2.4.0)
+## Current state — Round17 external interpretation evidence (v2.4.0)
 
 Round17 adds 58 exact matches in four regions to current Atlas v2.2.1; it is an
 external interpretation layer, not a new clustering or a robustness-status upgrade.
@@ -36,9 +22,7 @@ and [current pointers](CURRENT_STATE.json). Raw source documents and source row/
 locations are unavailable; normalized analytical data and statistics replay offline.
 No baseline, Round16, perturbation or existing Atlas outputs were changed.
 A–G scientific robustness statuses and the reference specification are unchanged.
-At the Round17 freeze, Round18 had not yet been executed. Its archived protocol is
-under `reference/historical_provenance/round18/`; the completed outputs above supersede
-that planning status.
+Round18 is [planned separately](ROUND18_REPRESENTATION_ROBUSTNESS_PLAN.md), not executed.
 
 ## Preserved prior state — Round16 evidence and Atlas 2.2.1 engineering release
 
@@ -65,7 +49,7 @@ new clustering experiment. See `docs/ATLAS_REPRODUCTION.md`.
 
 ## Latest evidence — completed Rounds 14 and 15
 
-- `reference/historical_provenance/perturbation_pilot/PERTURBATION_PILOT_PROVENANCE_RESOLUTION.md`: historical n=5 superseded; no quantitative reuse.
+- `docs/PERTURBATION_PILOT_PROVENANCE_RESOLUTION.md`: historical n=5 superseded; no quantitative reuse. Its files listed below remain historical reference only.
 - `docs/PERTURBATION_V2_PROTOCOL.md`: new sorted-edge protocol and byte serialization.
 - `configs/leiden.yaml`, `configs/perturbation_v2.yaml`: executed configs. Prior `configs/perturbation_highrep.yaml` belongs to the failed historical-pilot attempt.
 - `outputs/leiden_robustness/`: `LEIDEN_ROBUSTNESS_AUDIT.md`, `LEIDEN_FINDINGS.md`, raw labels, graph identity checks, requested metrics and `archetype_status_round14_leiden.csv`.
@@ -101,7 +85,7 @@ Key files:
 
 ## Existing docs already in repository
 
-- `docs/METHODOLOGY.md`
+- `docs/methodology.md`
 - `docs/reproducibility.md`
 - `docs/evidence_governance.md`
 - `docs/spatial_region_robustness.md`
@@ -148,7 +132,7 @@ Files:
 - `BE_boundary_instability_by_perturbation.csv` — canonical five-seed B/E boundary evidence.
 - `PERTURBATION_EXPANSION_STATUS.md` — status explaining why n=5 is pilot-only and the previous expansion attempt was not accepted.
 - `reference/perturbation_pilot/run_supra_perturbation_consensus.py` — preserved historical runner documenting the accepted perturbation distribution/procedure.
-- `reference/historical_provenance/perturbation_pilot/PERTURBATION_PILOT_REFERENCE.md` — exact perturbation semantics and gate instructions.
+- `docs/PERTURBATION_PILOT_REFERENCE.md` — exact perturbation semantics and gate instructions.
 
 Historical instruction, superseded: this pilot is not a gate for v2. Use the canonical v2 protocol and its saved hash gates.
 
