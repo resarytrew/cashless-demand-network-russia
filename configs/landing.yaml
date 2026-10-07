@@ -8,6 +8,7 @@ inputs:
   retention: outputs/perturbation_v2/perturbation_v2_50_archetype_retention.csv
   reference: configs/baseline.yaml
   geometry: outputs/final_competition_upgrade/municipality_geometry_20261006/municipality_geometry.geojson
+  profile_cards: site/data/profile_cards.json
 presentation:
   seed: 0
   expected_municipalities: 1904

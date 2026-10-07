@@ -118,7 +118,8 @@ def main():
         "map_sha256": sha(map_path),
         "inputs": {p.relative_to(ROOT).as_posix(): sha(p) for p in paths},
     }
-    output.with_name("manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    manifest_text = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
+    output.with_name("manifest.json").write_bytes(manifest_text.encode("utf-8"))
     print(f"Built {output.relative_to(ROOT)} ({output.stat().st_size:,} bytes; {len(payload['municipalities'])} municipalities)")
 
 

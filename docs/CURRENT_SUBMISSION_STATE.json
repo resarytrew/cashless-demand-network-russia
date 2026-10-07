@@ -8,6 +8,8 @@
   "corrected_synthetic_benchmark": "outputs/final_competition_upgrade/synthetic_temporal_v3/SYNTHETIC_TEMPORAL_REPORT.md",
   "correction_audit": "outputs/final_competition_upgrade/CORRECTION_AUDIT_v3.md",
   "story_contract": "outputs/final_competition_upgrade/story_data_v3/summary.json",
+  "profile_cards": "outputs/final_competition_upgrade/profile_cards_20261007_v3/profile_cards.json",
+  "profile_cards_audit": "outputs/final_competition_upgrade/profile_cards_20261007_v3/PROFILE_CARDS_AUDIT.md",
   "legacy_freeze_expected": "PASS",
   "current_presubmission_expected": "PASS"
 }

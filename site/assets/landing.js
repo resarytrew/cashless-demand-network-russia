@@ -5,19 +5,20 @@ const nf = new Intl.NumberFormat('ru-RU', {maximumFractionDigits:0});
 const pct = n => (n * 100).toLocaleString('ru-RU',{maximumFractionDigits:1}) + '%';
 const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money = value => value == null ? 'Нет данных' : nf.format(value) + ' ₽';
+const one = value => (+value).toLocaleString('ru-RU',{minimumFractionDigits:1,maximumFractionDigits:1});
+const ratio = value => '×' + (+value).toLocaleString('ru-RU',{minimumFractionDigits:2,maximumFractionDigits:2});
+const signed = value => (value >= 0 ? '+' : '−') + one(Math.abs(value)) + ' п.п.';
+const joinHuman = values => values.length < 2 ? values.join('') : values.slice(0,-1).join(', ')+' и '+values.at(-1);
 // Display aliases and colours only. Saved numerical data and scientific labels are unchanged.
 const profiles = {
- A:{name:'Высокий уровень расходов',short:'Высокие расходы',color:'#bd603e',tint:'#f1e3d6',status:'Выраженное сходство, размытые границы',note:'Высокий уровень расходов объединяет территории, которые могут находиться далеко друг от друга. Значительная часть группы сохраняется при проверках, но её нельзя считать полностью обособленной.',technical:'Перекрывающийся сетевой профиль. Отраслевой или добывающий механизм не установлен.'},
- B:{name:'Внутригородской профиль',short:'Внутригородской',color:'#ba8a2d',tint:'#f2e9d2',status:'Предварительный портрет',note:'Все 98 территорий этого профиля находятся внутри городов федерального значения. Это лишь часть таких территорий. При другом способе анализа их окружение может объединяться с соседним профилем.',technical:'Вложенный федеральный внутригородской подтип. Точная граница B/E изменчива.'},
- C:{name:'Низкие расходы: вывод остаётся открытым',short:'Низкие · вывод открыт',color:'#7e668f',tint:'#eae3ed',status:'Интерпретация ограничена',note:'У этой небольшой группы сравнительно низкий уровень расходов. Однако её сходство существенно зависит от территориального контекста. Оснований считать её самостоятельным устойчивым типом недостаточно.',technical:'C остаётся контекстным и неразрешённым. Сохранение участников при возмущении не устраняет ограничения контекстных проверок.'},
- D:{name:'Умеренно высокий уровень расходов',short:'Умеренно высокие',color:'#315dc5',tint:'#e4eaf6',status:'Сходство сохраняется, состав меняется',note:'Территории заметно похожи между собой. При проверках большинство участников остаются вместе, но к ним могут присоединяться соседи. Поэтому чёткая граница группы менее устойчива, чем её основа.',technical:'Компактное ядро D при изменчивой точной границе. Среднее retention: 0,975817; precision: 0,511661 по 50 возмущениям.'},
- E:{name:'Повышенный уровень расходов',short:'Повышенные · предварительно',color:'#a85473',tint:'#f0e1e7',status:'Предварительный портрет',note:'Исходная группа выглядит похожей по расходам, но часть этого сходства объясняется географией и городским масштабом. Её состав может объединяться с внутригородским профилем.',technical:'Вложенный, контекстно зависимый профиль E. Нельзя интерпретировать как универсальный самостоятельный тип.'},
- F:{name:'Переходный профиль',short:'Переходный',color:'#cf654c',tint:'#f5e3da',status:'Между соседними портретами',note:'Эти территории находятся между несколькими профилями спроса. При изменении способа анализа их отнесение меняется особенно заметно. Здесь важнее видеть близость к соседям, чем закреплять единственную метку.',technical:'Точный состав F чувствителен к k, alpha, алгоритму и возмущениям; значимы границы D/F и F/G. Внешняя интерпретация не повышает статус точной устойчивости.'},
- G:{name:'Широкий профиль с невысокими расходами',short:'Широкий · невысокие расходы',color:'#637d96',tint:'#e2e9ed',status:'Самая многочисленная группа',note:'Около половины исследованных территорий образуют широкий профиль с невысоким уровнем расходов. Он часто сохраняет значительную часть участников, но география и местный контекст объясняют часть сходства.',technical:'Широкий макропрофиль G с оговоркой о фоновом характере. Устойчивость каждого конкретного участника не установлена.'}
+ A:{color:'#bd603e',tint:'#f1e3d6'},B:{color:'#ba8a2d',tint:'#f2e9d2'},
+ C:{color:'#7e668f',tint:'#eae3ed'},D:{color:'#315dc5',tint:'#e4eaf6'},
+ E:{color:'#a85473',tint:'#f0e1e7'},F:{color:'#cf654c',tint:'#f5e3da'},
+ G:{color:'#637d96',tint:'#e2e9ed'}
 };
 const stateNames={stable_core:'Сходство устойчиво',expansive_core:'Сходство сохраняется, окружение шире',transition:'Между несколькими профилями',unresolved:'Однозначного вывода нет'};
 const extras={0:'#858898',2:'#847566',4:'#9b7c79',5:'#ab9876',6:'#8584a9'};
-let data, selectedId, selectedProfile='D', searchLimit=20, geometryPromise;
+let data, cardData, selectedId, selectedProfile='D', searchLimit=20, geometryPromise;
 const color = key => profiles[key]?.color || '#9194a0';
 const profileFor = c => Object.keys(data.profileCommunities).find(p=>data.profileCommunities[p]===c);
 const communityColor = c => color(profileFor(c)) === '#9194a0' ? extras[c] || '#9194a0' : color(profileFor(c));
@@ -28,8 +29,9 @@ function transition(fn){if(document.startViewTransition&&!reduced.matches)docume
 
 async function load(){
  try{
-  const response=await fetch('data/research.json');if(!response.ok)throw Error('Data HTTP '+response.status);
-  data=await response.json();if(data.schema!==1||data.municipalities.length!==1904)throw Error('Unexpected data contract');
+  const [response,cardsResponse]=await Promise.all([fetch('data/research.json'),fetch('data/profile_cards.json')]);if(!response.ok||!cardsResponse.ok)throw Error('Data HTTP '+response.status+'/'+cardsResponse.status);
+  data=await response.json();cardData=await cardsResponse.json();if(data.schema!==1||data.municipalities.length!==1904||cardData.schema!==3||cardData.cards.length!==7)throw Error('Unexpected data contract');
+  cardData.cards.forEach(card=>Object.assign(profiles[card.profile],{name:card.display_name,short:card.short_name}));
   if(!window.d3?.sankey)throw Error('Visualization library unavailable');
   $('load-status').textContent='';
   initProfiles();initSearch();initMap();initHero();initChanges();renderFlows();
@@ -77,16 +79,39 @@ function initProfiles(){
  for(const [p,display] of Object.entries(profiles)){const b=document.createElement('button');b.dataset.profile=p;b.style.setProperty('--profile',display.color);b.textContent=display.short;b.setAttribute('aria-label',display.name);b.onclick=()=>{selectProfile(p);if(!reduced.matches&&window.gsap)gsap.fromTo('#profile-name,#profile-note',{opacity:.4},{opacity:1,duration:.35,ease:'power2.out',overwrite:true});};$('profile-tabs').append(b);}
  selectProfile('A');
 }
+const profileCard = p => cardData.cards.find(card=>card.profile===p);
+const shareLine = item => `<div class="demand-line ${item.direction}"><span><b>${item.direction==='up'?'↑':'↓'}</b>${escapeHTML(item.label)}</span><strong>${pct(item.profile_median_share)} <small>против ${pct(item.overall_median_share)}</small></strong><em>${ratio(item.ratio_to_overall)}</em></div>`;
 function selectProfile(p,automatic=false){
  if(!automatic)window.atlasTours?.profiles?.pause();
- selectedProfile=p;const source=data.profiles.find(r=>r.technical_label===p),display=profiles[p];
+ selectedProfile=p;const source=data.profiles.find(r=>r.technical_label===p),display=profiles[p],card=profileCard(p),robust=card.robustness,counter=card.counterexample;
  document.querySelectorAll('[data-profile]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.profile===p)));
  $('profile-stage').style.setProperty('--profile',display.color);$('profile-stage').style.setProperty('--tint',display.tint);
- $('profile-name').textContent=display.name;$('profile-status').textContent=display.status;$('profile-note').textContent=display.note;
- $('profile-count').textContent=nf.format(source.n);$('profile-share').textContent=pct(source.n/1904);$('profile-wage').textContent=money(source.wage_median);
- $('profile-dotfield').replaceChildren();for(let i=0;i<100;i++){const mark=document.createElement('i');mark.className=i<Math.round(source.n/1904*100)?'on':'';$('profile-dotfield').append(mark);}
+ $('profile-code').textContent=`Профиль ${p}`;$('profile-name').textContent=card.display_name;$('profile-status').textContent=`Статус: ${card.status} · ${card.status_note}`;
+ $('profile-territories').innerHTML=`<strong>Территории:</strong> ${card.headline_territories.map(item=>escapeHTML(item.display_name)).join(' · ')}`;
+ const topUp=card.demand.featured_up[0],topDown=card.demand.featured_down[0];
+ $('profile-note').textContent=`Медианный Total — ${money(card.demand.total_median)} (${ratio(card.demand.total_ratio_to_overall)} к общей медиане). ${topUp?`Выше всего отличается ${topUp.label.toLocaleLowerCase('ru')}`:''}${topDown?`, ниже — ${topDown.label.toLocaleLowerCase('ru')}`:''}.`;
+ $('profile-count').textContent=nf.format(source.n);$('profile-share').textContent=pct(source.n/1904);$('profile-total').textContent=money(card.demand.total_median);$('profile-wage').textContent=money(card.external.wage.median);
+ $('profile-demand').innerHTML=`<p class="block-intro">Медианы долей в профиле сравнены с медианами всех 1 904 территорий.</p>${[...card.demand.featured_up,...card.demand.featured_down].map(shareLine).join('')}<p class="micro-note">* «Прочее» — технический остаток.</p>`;
+ $('profile-representatives-title').textContent=card.representatives_heading;
+ const representativeReason=item=>{
+  if(item.representative_role==='D-leaning')return `D-leaning случай: доля близости к D — ${pct(item.affinity_share_D)}; reference F, в сводном Atlas ведёт D.`;
+  if(item.representative_role==='G-leaning')return `G-leaning случай: доля близости к G — ${pct(item.affinity_share_G)}; reference F, в сводном Atlas ведёт G.`;
+  if(item.representative_role==='maximally transitional')return `Максимально переходный случай: разрыв между двумя ведущими близостями в Atlas — ${pct(item.affinity_margin)}.`;
+  const prefix=p==='C'?'Иллюстративный случай. ':'';
+  return `${prefix}${nf.format(item.centrality_rank)}-е место из ${nf.format(item.profile_n)} по близости к центру ${p}. Консенсус — ${item.consensus_class}; метка ${item.lofo_all_class_match?'сохраняется':'меняется'} при поочерёдном исключении семейств проверок.`;
+ };
+ $('profile-representatives').innerHTML=card.representatives.map(item=>`<li><strong>${escapeHTML(item.display_name)}</strong><p>Total ${money(item.total)}. ${representativeReason(item)}</p></li>`).join('');
+ const ext=card.external,sectorUp=ext.sector_up.map(item=>`${escapeHTML(item.label)} (${signed(item.difference_pp)})`).join(', '),sectorDown=ext.sector_down.map(item=>`${escapeHTML(item.label)} (${signed(item.difference_pp)})`).join(', ');
+ $('profile-external').innerHTML=`<div class="external-mini"><p><strong>${nf.format(ext.population.median)}</strong><span>медианное население<br>${ratio(ext.population.ratio_to_overall)} к выборке · n=${nf.format(ext.population.n)}</span></p><p><strong>${money(ext.wage.median)}</strong><span>зарплата работников<br>${ratio(ext.wage.ratio_to_overall)} к выборке · n=${nf.format(ext.wage.n)}</span></p><p><strong>${nf.format(ext.employment_total.median)}</strong><span>занятых<br>${ratio(ext.employment_total.ratio_to_overall)} к выборке · n=${nf.format(ext.employment_total.n)}</span></p></div><p>В структуре занятости выше общей медианы: ${sectorUp}; ниже: ${sectorDown}.</p>`;
+ const matchPhrase={strong:'хорошо сопоставим по масштабу',moderate:'умеренно близок по масштабу',weak:'ближайший устойчивый контрпример, но не близкий аналог по масштабу'}[counter.match_quality];
+ $('profile-counterexample').innerHTML=`<p><strong>${escapeHTML(counter.anchor_display_name)}</strong> — ${nf.format(counter.anchor_population)} жителей, ${money(counter.anchor_wage)} и ${nf.format(counter.anchor_employment_total)} занятых. <strong>${escapeHTML(counter.comparison_display_name)}</strong> — ${matchPhrase}: ${nf.format(counter.comparison_population)} жителей (${one(counter.population_difference_pct)}%), ${money(counter.comparison_wage)} (${one(counter.wage_difference_pct)}%) и ${nf.format(counter.comparison_employment_total)} занятых (${one(counter.employment_difference_pct)}%), но отнесён к <b>${counter.comparison_profile}</b>. Сила контрпримера: ${counter.strength==='robust'?'устойчивый другой профиль':'переходный fallback'}; качество сопоставления масштаба: ${counter.match_quality}.</p><p>Расходный портрет различается: Total ${money(counter.anchor_total)} против ${money(counter.comparison_total)}, доля маркетплейсов ${pct(counter.anchor_marketplace_share)} против ${pct(counter.comparison_marketplace_share)}.</p>`;
+ const boundary=robust.boundary_examples.map(item=>item.consensus_class===p?`<li><strong>${escapeHTML(item.display_name)}</strong> — reference ${p}; в сводном Atlas остаётся ${p}, следующий профиль — ${item.second_class}; разрыв ${pct(item.affinity_margin)}.</li>`:`<li><strong>${escapeHTML(item.display_name)}</strong> — reference ${p}, но в сводном Atlas ведущая близость смещается к ${item.consensus_class}; следующий профиль — ${item.second_class}.</li>`).join('');
+ const boundaryBlock=p==='C'?'<p class="boundary-note">Иллюстративные случаи выше уже показывают размытость границы C; отдельный повтор списка скрыт.</p>':`<p class="boundary-title">Граничные случаи:</p><ul class="boundary-list">${boundary}</ul>`;
+ $('profile-robustness').innerHTML=`<div class="robustness-numbers"><p><strong>${pct(robust.atlas_consensus_match_share)}</strong><span>совпадают с ${p} в сводном Atlas</span></p><p><strong>${pct(robust.perturbation_retention_mean)}</strong><span>среднее сохранение ядра в 50 возмущениях</span></p><p><strong>${pct(robust.perturbation_precision_mean)}</strong><span>доля исходного ${p} в группе назначения</span></p></div><p class="retention-tail">90% запусков: retention ≥ ${pct(robust.perturbation_retention_q10)}.</p><div class="representation-checks"><p><strong>5-part CLR</strong><span>retention ${pct(robust.r1_fivepart_retention)} · boundary precision ${pct(robust.r1_fivepart_precision)} · Jaccard ${pct(robust.r1_fivepart_jaccard)} · n=${nf.format(robust.r1_fivepart_destination_n)}</span></p><p><strong>5-levels</strong><span>retention ${pct(robust.r2_observed_levels_retention)} · boundary precision ${pct(robust.r2_observed_levels_precision)} · Jaccard ${pct(robust.r2_observed_levels_jaccard)} · n=${nf.format(robust.r2_observed_levels_destination_n)}</span></p></div>${boundaryBlock}`;
+ const marketNames=joinHuman(card.headline_territories.slice(0,3).map(item=>escapeHTML(item.display_name))),signals=[...card.demand.featured_up,...card.demand.featured_down].map(item=>`${item.direction==='up'?'↑':'↓'} ${item.label.toLocaleLowerCase('ru')}`).join(', ');
+ $('profile-practical').innerHTML=`<p>В прикладном сравнении ${marketNames} служат ориентирами не из-за одинакового числа жителей, а из-за сочетания расходных признаков: ${signals}. Это основа для сравнения структуры спроса, но не прогноз роста и не готовая сегментация клиентов.</p>`;
  window.atlasTours?.profiles?.refresh();
- $('profile-technical-content').innerHTML=`<p>Код в исследовании: <strong>${p}</strong>. Полное название: ${escapeHTML(source.display_name)}.</p><p>${escapeHTML(display.technical)}</p><p>Состав относится к декабрю 2024 года. Медиана зарплаты: ${money(source.wage_median)}. Это описательное внешнее сопоставление, не причинный вывод.</p><a class="text-link" href="methodology.html#profiles">Методология и статусы профилей ↗</a>`;
+ $('profile-technical-content').innerHTML=`<p>Код в исследовании: <strong>${p}</strong>. ${escapeHTML(card.status_note)}.</p><p>Научный evidence-status: <strong>${escapeHTML(card.evidence_status)}</strong>; публичный статус его не переписывает.</p><p>Расходные медианы относятся к декабрю 2024 года. Внешние данные Росстата за 2024 год не входили в кластеризацию. Зарплата работников не равна доходу домохозяйства; сопоставление описательное, не причинное.</p><p>Для альтернативных представлений вместе показаны retention, boundary precision и Jaccard: сохранение ядра не подменяет точность границы.</p><a class="text-link" href="methodology.html#profiles">Методология и статусы профилей ↗</a>`;
 }
 
 function initSearch(){
@@ -231,14 +256,8 @@ async function initEvidence(){
 function initScrollChapters(){
  if(!window.createAtlasScrollChapter)return;
  const tours=window.atlasTours={};
- $('profile-stage').prepend($('profile-tour-controls'));
  document.querySelector('.external-plot').prepend($('indicator-tour-controls'));
  document.querySelector('.map-column').prepend($('map-tour-controls'));
- const names=Object.keys(profiles);
- tours.profiles=createAtlasScrollChapter({id:'profiles',stage:document.querySelector('.profiles-workspace'),mount:$('profile-tour-controls'),count:names.length,getIndex:()=>names.indexOf(selectedProfile),select:index=>{
-  selectProfile(names[index],true);
-  gsap.fromTo('#profile-name,#profile-note,.profile-metrics,#profile-dotfield',{opacity:.45,y:10},{opacity:1,y:0,duration:.35,clearProps:'opacity,transform',overwrite:true});
- }});
  if(window.atlasEvidence){
   const indicators=['wage','population','employment_total'];
   tours.indicators=createAtlasScrollChapter({id:'indicators',stage:document.querySelector('.external-plot'),mount:$('indicator-tour-controls'),count:3,getIndex:()=>indicators.indexOf(atlasEvidence.getIndicator()),select:index=>atlasEvidence.showIndicator(indicators[index],true)});
@@ -258,7 +277,7 @@ window.prepareResearchPrint=async()=>{
  if(!window.researchReady)throw Error('Data not ready');window.stopAtlasMotion?.();Object.values(window.atlasTours||{}).forEach(t=>t.destroy?.());if(!window.researchEvidenceReady)throw Error('External evidence not ready');await window.loadResearchMap();if(!window.researchMapReady)throw Error('Map not ready');
  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));window.setPrintScene();
  document.querySelector('.transfer-chart .technical-detail').open=true;
- if(!document.querySelector('.profile-print-list')){const list=document.createElement('div');list.className='profile-print-list';list.innerHTML=data.profiles.map(p=>`<article style="--profile:${color(p.technical_label)}"><i></i><div><h3>${escapeHTML(profiles[p.technical_label].name)}</h3><p>${escapeHTML(profiles[p.technical_label].note)}</p><small>Код в исследовании: ${p.technical_label}.</small></div><strong>${p.n}</strong></article>`).join('');document.querySelector('.profiles-workspace').append(list);}
+ if(!document.querySelector('.profile-print-list')){const list=document.createElement('div');list.className='profile-print-list';list.innerHTML=cardData.cards.map(card=>`<article style="--profile:${color(card.profile)}"><i></i><div><h3>${card.profile} — ${escapeHTML(card.display_name)}</h3><p><b>Территории:</b> ${card.headline_territories.map(item=>escapeHTML(item.display_name)).join(' · ')}</p><p>${[...card.demand.featured_up,...card.demand.featured_down].map(item=>`${item.direction==='up'?'↑':'↓'} ${escapeHTML(item.label)} ${ratio(item.ratio_to_overall)}`).join('; ')}. Медиана населения ${nf.format(card.external.population.median)}, зарплаты ${money(card.external.wage.median)}.</p><small>Статус: ${card.status}. Возмущения: retention ${pct(card.robustness.perturbation_retention_mean)}, precision ${pct(card.robustness.perturbation_precision_mean)}.</small></div><strong>${card.n}</strong></article>`).join('');document.querySelector('.profiles-workspace').append(list);}
  $('print-appendix').innerHTML=`<h2>Методология и ограничения</h2><p>Строгая панель: 1 904 муниципалитета, январь 2023 — декабрь 2024. Шесть компонент расходов, включая технический остаток «Прочее». Композиция: CLR / геометрия Эйчисона. Уровень: robust-z от log(Total). Веса блоков: 70% и 30%.</p><p>Взвешенная сеть взаимных ближайших соседей, k = 20. Временная связь ω = 2. Louvain, resolution = 0,5, seed = 0. Это референсная спецификация, а не универсальный оптимум. Для статического графа декабря предусмотрено присоединение изолированных узлов; для месячных временных слоёв — нет.</p><p>Границы групп зависят от параметров и алгоритма. C остаётся контекстным и неразрешённым; F — переходным; B/E могут объединяться. Сохранение ядра не означает неизменности границы. Доли близости не являются вероятностями.</p><p>Внешнее сопоставление: 1 903 подтверждённых соответствия, данные о зарплате и занятости — для 1 890 территорий. Эти показатели не участвовали в построении или настройке групп. Проверки исследовательские; причинная связь не установлена. Знаменатель Total и аддитивность категорий остаются ограничениями.</p><p>Срезы потоков соответствуют точным сохранённым меткам на конец июня и декабря. На каждом срезе — 1 904 территории. Геометрия 1 903 территорий упрощена только для отображения. Расчёты и научные статусы при переработке атласа не изменялись.</p><p class="print-address">Полные конфигурации, данные и проверки: https://github.com/resarytrew/cashless-demand-network-russia</p>`;
  document.querySelectorAll('a[href="methodology.html"]').forEach(a=>a.href='https://github.com/resarytrew/cashless-demand-network-russia/tree/main/site');await document.fonts.ready;
 };

@@ -1,0 +1,22 @@
+{
+  "status": "COMPLETED_DESCRIPTIVE_PRESENTATION_LAYER",
+  "config_sha256": "6412a6cb57cce1acc5b00658d1f55a3feb7e0831c93641f7859ba08bac04a234",
+  "input_sha256": {
+    "outputs\\round16_competition\\december_municipality_features.csv": "f6b586a6b41c540dcc091b49a1e107219df768c9a1918bdb1e926f2792cec9f7",
+    "outputs\\stability_atlas_v2_2_1\\municipality_affinity_atlas.csv": "ab824219890eb9ff95528075a06b1f18efbb5edf409fa7bb46fdb35b50f40b99",
+    "outputs\\final_competition_upgrade\\external_validation_national_20261006_r6\\external_validation_joined.csv": "af18c32bc1ee2a09ee1f2cb468f14bd2ebbdf97533f5958924f79968e8413843",
+    "outputs\\final_competition_upgrade\\external_validation_national_20261006_r6\\external_profile_summary.csv": "304315c58e17e883674a616b29212ad4db2427fcf36bc94cc6bd2b1323476df2",
+    "outputs\\perturbation_v2\\archetype_status_round15_perturbation_v2.csv": "1d205ab0efcfa8853e3efb02b0bbd5c5503773ebdc9ad4301ace2200a8f522f7",
+    "outputs\\stability_atlas_v2_2_1\\profile_robustness_summary.csv": "265b5aec0ecdaa1a6ba7c47dc53faa09bfc7e90244de40ec374f6d854703fd58",
+    "outputs\\round18_representation\\profile_overlap.csv": "c3d58e7ea83d3baffeda9ad41e26f6afa21803c442ee9838f27201ac7ec48f07"
+  },
+  "outputs": [
+    "profile_cards.json",
+    "representatives.csv",
+    "boundary_examples.csv",
+    "PROFILE_CARDS_AUDIT.md",
+    "site\\data\\profile_cards.json"
+  ],
+  "scientific_status_changes": false,
+  "reference_specification_changed": false
+}

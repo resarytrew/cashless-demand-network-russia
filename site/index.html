@@ -29,7 +29,21 @@
 
 <section id="profiles" class="profiles-section wrap">
  <div class="section-heading"><p class="kicker">Профили</p><h2>Как различается<br><em>потребление в России.</em></h2><p>Семь основных профилей описывают локальный безналичный спрос и различаются по степени устойчивости. Это не рейтинг «богатых» и «бедных» регионов: здесь важны структура покупок, уровень расходов и сходство территорий во времени.</p></div>
- <div id="profile-tour-controls"></div><div class="profiles-workspace"><div id="profile-tabs" class="profile-tabs" role="group" aria-label="Выбрать профиль потребления"></div><article id="profile-stage" class="profile-stage" aria-live="polite"><div class="profile-top"><span id="profile-status"></span><span class="profile-folio" aria-hidden="true">Портрет территории</span></div><h3 id="profile-name"></h3><p id="profile-note"></p><div class="profile-metrics"><div><strong id="profile-count"></strong><span>территории</span></div><div><strong id="profile-share"></strong><span>всей выборки</span></div><div><strong id="profile-wage"></strong><span>медиана зарплаты по территориям*</span></div></div><div class="profile-dotfield" id="profile-dotfield" aria-hidden="true"></div><p class="profile-dot-caption">Доля этого профиля среди 1 904 территорий.</p><details id="profile-technical" class="technical-detail"><summary>Подробности исследования <span>+</span></summary><div id="profile-technical-content"></div></details></article></div>
+ <div id="profile-tour-controls"></div><div class="profiles-workspace"><div id="profile-tabs" class="profile-tabs" role="group" aria-label="Выбрать профиль потребления"></div><article id="profile-stage" class="profile-stage" aria-live="polite">
+  <div class="profile-top"><span id="profile-status"></span><span class="profile-folio" aria-hidden="true">Портрет профиля</span></div>
+  <p class="profile-code" id="profile-code"></p><h3 id="profile-name"></h3><p class="profile-territories" id="profile-territories"></p><p id="profile-note"></p>
+  <div class="profile-metrics"><div><strong id="profile-count"></strong><span>территории</span></div><div><strong id="profile-share"></strong><span>всей выборки</span></div><div><strong id="profile-total"></strong><span>медианный Total, декабрь 2024</span></div><div><strong id="profile-wage"></strong><span>медиана зарплаты*</span></div></div>
+  <div class="profile-evidence-grid">
+   <section class="profile-block demand-block" aria-labelledby="profile-demand-title"><h4 id="profile-demand-title">Что объединяет эти территории</h4><div id="profile-demand"></div></section>
+   <section class="profile-block representatives-block" aria-labelledby="profile-representatives-title"><h4 id="profile-representatives-title">Наиболее характерные представители</h4><ol id="profile-representatives"></ol></section>
+   <section class="profile-block external-block" aria-labelledby="profile-external-title"><h4 id="profile-external-title">Независимая проверка</h4><div id="profile-external"></div></section>
+   <section class="profile-block counterexample-block" aria-labelledby="profile-counterexample-title"><h4 id="profile-counterexample-title">Почему это не просто одинаковые города</h4><div id="profile-counterexample"></div></section>
+   <section class="profile-block robustness-block" aria-labelledby="profile-robustness-title"><h4 id="profile-robustness-title">Насколько результат надёжен</h4><div id="profile-robustness"></div></section>
+   <section class="profile-block practical-block" aria-labelledby="profile-practical-title"><h4 id="profile-practical-title">Практический смысл</h4><div id="profile-practical"></div></section>
+  </div>
+  <details id="profile-technical" class="technical-detail"><summary>Метод и оговорки <span>+</span></summary><div id="profile-technical-content"></div></details>
+  <p class="profile-dot-caption">Показатели описывают медианы и устойчивость группы, а не каждую территорию в отдельности.</p>
+ </article></div>
  <p class="caption">* Росстат, 2024 год. Зарплата работников не равна доходу всех жителей. Названия описывают безналичный спрос, а не всю экономику территории. Пять малых технических случаев сохранены в поиске.</p>
 </section>
 

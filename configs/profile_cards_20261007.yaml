@@ -1,0 +1,94 @@
+experiment:
+  id: profile_cards_20261007_v3
+  generator_version: 3
+  output_dir: outputs/final_competition_upgrade/profile_cards_20261007_v3
+  public_json: site/data/profile_cards.json
+  reference_n: 1904
+  feature_csv: outputs/round16_competition/december_municipality_features.csv
+  atlas_csv: outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv
+  external_csv: outputs/final_competition_upgrade/external_validation_national_20261006_r6/external_validation_joined.csv
+  external_summary_csv: outputs/final_competition_upgrade/external_validation_national_20261006_r6/external_profile_summary.csv
+  perturbation_csv: outputs/perturbation_v2/perturbation_v2_50_archetype_retention.csv
+  atlas_summary_csv: outputs/stability_atlas_v2_2_1/profile_robustness_summary.csv
+  representation_overlap_csv: outputs/round18_representation/profile_overlap.csv
+  evidence_matrix_csv: outputs/evidence_v2_2_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.2.0.csv
+  expected_external_population_n: 1903
+  representative_count: 3
+  headline_territory_count: 5
+  representative_rule: >-
+    Keep municipalities whose full Atlas consensus matches the reference and whose
+    class is unchanged when each robustness family is omitted; then rank by distance
+    to the componentwise median in the reference December feature space, breaking
+    ties by the frozen panel index. D keeps the three user-requested, data-confirmed
+    cities in its headline only; its representatives remain algorithmic.
+    F instead shows three deliberately different transition cases: the strongest
+    D-leaning case, the strongest G-leaning case, and the smallest Atlas affinity
+    margin, with distinct municipalities and deterministic panel-index tie-breaking.
+  counterexample_rule: >-
+    Across the selected representatives, first search robust municipalities from another
+    A-G profile with the same administrative form and observed population, wage and
+    employment, minimizing the sum of their absolute log ratios; use a labelled
+    transition fallback only when no robust candidate exists, then tie by names.
+  counterexample_match_quality:
+    strong_max_abs_difference_pct: 25
+    moderate_max_abs_difference_pct: 50
+  reference_features:
+    composition: [Food, Health, Catering, Marketplace, Transport, Other]
+    structure_weight: 0.70
+    level_weight: 0.30
+profiles:
+  A:
+    display_name: "Высокоинтенсивный профиль безналичного спроса"
+    scientific_name: "Высокоинтенсивный профиль безналичного спроса"
+    short_name: "A · Высокая интенсивность"
+    status: SUPPORTED
+    evidence_status: "candidate overlapping network regime"
+    status_note: "ядро выражено, границы размыты"
+  B:
+    display_name: "Высокоинтенсивный внутригородской профиль безналичного спроса"
+    scientific_name: "Высокоинтенсивный внутригородской профиль безналичного спроса"
+    short_name: "B · Внутригородской"
+    status: PRELIMINARY
+    evidence_status: "candidate federal-intracity subtype"
+    status_note: "предварительный внутригородской подтип; граница с E нестабильна"
+  C:
+    display_name: "Неопределённый профиль локального спроса"
+    scientific_name: "Неопределённый профиль локального спроса"
+    short_name: "C · Неопределённый"
+    status: UNRESOLVED
+    evidence_status: "rejected as standalone profile"
+    status_note: "профиль не разрешён; состав и границы нестабильны"
+    representatives_heading: "Иллюстративные случаи"
+  D:
+    display_name: "Крупные центры локального спроса"
+    scientific_name: "Крупные центры локального спроса"
+    short_name: "D · Крупные центры"
+    status: SUPPORTED
+    evidence_status: "candidate profile with boundary caveat"
+    status_note: "компактное ядро, точная граница изменчива"
+    headline_override:
+      - "городской округ город Оренбург"
+      - "городской округ Магнитогорский"
+      - "городской округ город Тамбов"
+  E:
+    display_name: "Профиль повышенного безналичного спроса"
+    scientific_name: "Профиль повышенного безналичного спроса"
+    short_name: "E · Повышенный спрос"
+    status: PRELIMINARY
+    evidence_status: "candidate/contextual profile"
+    status_note: "предварительный профиль; граница с B нестабильна"
+  F:
+    display_name: "Переходные зоны спроса"
+    scientific_name: "Переходные зоны спроса"
+    short_name: "F · Переходные зоны"
+    status: TRANSITION
+    evidence_status: "weak refinement / boundary population"
+    status_note: "переходный профиль между D и G"
+    representatives_heading: "Три стороны переходного профиля"
+  G:
+    display_name: "Широкий низкоинтенсивный профиль безналичного спроса"
+    scientific_name: "Широкий низкоинтенсивный профиль безналичного спроса"
+    short_name: "G · Низкая интенсивность"
+    status: SUPPORTED
+    evidence_status: "broad candidate macroprofile"
+    status_note: "широкое ядро; возможна абсорбция соседних профилей"

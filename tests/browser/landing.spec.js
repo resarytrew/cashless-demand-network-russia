@@ -101,20 +101,47 @@ const chapterPosition=async(page,id,fraction)=>{
   return Math.abs(trigger.progress-fraction)<.015;
  },{id,fraction});
 };
-test('scroll presents every profile, reverses and preserves manual selection at rest',async({page})=>{
- await page.emulateMedia({reducedMotion:'no-preference'});await page.setViewportSize({width:1280,height:720});await ready(page);
- await expect(page.locator('[data-tour="profiles"]')).toHaveAttribute('data-pinned','true');
- for(const [i,profile] of [...'ABCDEFG'].entries()){
-  await chapterPosition(page,'profiles',(i+.4)/7);
+test('every evidence-rich profile card is selectable and keeps its explicit status',async({page})=>{
+ await page.setViewportSize({width:1280,height:900});await ready(page);
+ expect(await page.locator('[data-tour="profiles"]').count()).toBe(0);
+ for(const profile of [...'ABCDEFG']){
+  await page.locator(`[data-profile="${profile}"]`).click();
   await expect(page.locator(`[data-profile="${profile}"]`)).toHaveAttribute('aria-pressed','true');
-  await expect(page.locator('#profile-name')).toBeInViewport();
+  await expect(page.locator('#profile-code')).toHaveText(`Профиль ${profile}`);
+  await expect(page.locator('#profile-status')).not.toBeEmpty();
+  await expect(page.locator('#profile-territories')).toContainText('Территории:');
+  await expect(page.locator('#profile-representatives li')).toHaveCount(3);
+ await expect(page.locator('.profile-block')).toHaveCount(6);
  }
- await chapterPosition(page,'profiles',.2);await expect(page.locator('[data-profile="B"]')).toHaveAttribute('aria-pressed','true');
- await page.locator('[data-profile="F"]').click();await expect(page.locator('#profile-count')).toHaveText('327');
- await page.waitForTimeout(1200);await expect(page.locator('#profile-count')).toHaveText('327');
- await chapterPosition(page,'profiles',.4);await expect(page.locator('[data-profile="C"]')).toHaveAttribute('aria-pressed','true');
- await page.emulateMedia({reducedMotion:'reduce'});await expect(page.locator('[data-tour="profiles"]')).toHaveAttribute('data-state','manual');
- expect(await page.evaluate(()=>!!ScrollTrigger.getById('chapter-profiles'))).toBe(false);
+ await page.locator('[data-profile="A"]').click();
+ await expect(page.locator('#profile-name')).toHaveText('Высокоинтенсивный профиль безналичного спроса');
+ await expect(page.locator('#profile-status')).toContainText('ядро выражено, границы размыты');
+ await expect(page.locator('#profile-representatives li').first()).toContainText('1-е место из 141');
+ await expect(page.locator('#profile-external')).toContainText('n=140');
+ await expect(page.locator('#profile-robustness')).toContainText('boundary precision 27,5%');
+ await expect(page.locator('#profile-robustness')).toContainText('90% запусков: retention ≥ 87,9%');
+ await expect(page.locator('#profile-counterexample')).toContainText('ближайший устойчивый контрпример, но не близкий аналог по масштабу');
+ await expect(page.locator('#profile-counterexample')).toContainText('качество сопоставления масштаба: weak');
+ await page.locator('[data-profile="B"]').click();
+ await expect(page.locator('#profile-name')).toHaveText('Высокоинтенсивный внутригородской профиль безналичного спроса');
+ await page.locator('[data-profile="C"]').click();
+ await expect(page.locator('#profile-representatives-title')).toHaveText('Иллюстративные случаи');
+ await expect(page.locator('#profile-robustness .boundary-list')).toHaveCount(0);
+ await expect(page.locator('#profile-robustness')).toContainText('отдельный повтор списка скрыт');
+ await page.locator('[data-profile="E"]').click();
+ await expect(page.locator('#profile-name')).toHaveText('Профиль повышенного безналичного спроса');
+ await page.locator('[data-profile="F"]').click();
+ await expect(page.locator('#profile-representatives')).toContainText('D-leaning');
+ await expect(page.locator('#profile-representatives')).toContainText('G-leaning');
+ await expect(page.locator('#profile-representatives')).toContainText('Максимально переходный');
+ await page.locator('[data-profile="D"]').click();
+ await expect(page.locator('#profile-name')).toHaveText('Крупные центры локального спроса');
+ await expect(page.locator('#profile-territories')).toContainText('Оренбург · Магнитогорск · Тамбов');
+ await expect(page.locator('#profile-counterexample')).toContainText('Уссурийск');
+ await expect(page.locator('#profile-robustness')).toContainText('97,6%');
+ await expect(page.locator('#profile-robustness .boundary-list')).toHaveCount(1);
+ await page.locator('[data-profile="G"]').click();
+ await expect(page.locator('#profile-name')).toHaveText('Широкий низкоинтенсивный профиль безналичного спроса');
 });
 test('salary population and employment follow scroll in a readable pinned chart',async({page})=>{
  await page.emulateMedia({reducedMotion:'no-preference'});await page.setViewportSize({width:1280,height:720});await ready(page);
@@ -144,7 +171,7 @@ test('captions controls and evidence remain readable on a phone and laptop',asyn
   for(const selector of ['#profile-status','.profile-dot-caption','.map-legend','.external-row-name','.external-row-name small','.contract-note','.trajectory-years span']){
    expect(await page.locator(selector).first().evaluate(e=>parseFloat(getComputedStyle(e).fontSize)),selector).toBeGreaterThanOrEqual(14);
   }
-  await expect(page.locator('[data-tour="profiles"]')).toHaveAttribute('data-state','manual');
+  await expect(page.locator('#profile-tabs')).toBeVisible();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  }
 });
