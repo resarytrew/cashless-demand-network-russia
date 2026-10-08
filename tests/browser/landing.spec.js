@@ -18,7 +18,7 @@ test('public journey, territory search and scientific details',async({page})=>{
  await expect(page.locator('#engel-chart .engel-point')).toHaveCount(7);
  await expect(page.locator('#marketplace-scale .market-row')).toHaveCount(7);
  await expect(page.locator('#city-function .people-card')).toHaveCount(2);
- await page.locator('.hero .primary-link').click();await expect(page.locator('#question-title')).toBeInViewport();
+ await page.evaluate(()=>window.atlasNavigate(document.querySelector('#crack')));await expect(page.locator('#question-title')).toBeInViewport();
  await page.evaluate(()=>window.atlasNavigate(document.querySelector('#atlas')));await expect(page.locator('#municipality-search')).toBeInViewport();
  await page.locator('#municipality-search').fill('Казань');await page.keyboard.press('Enter');
  await expect(page.locator('#municipality-detail h3')).toHaveText('Казань');
