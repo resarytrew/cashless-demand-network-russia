@@ -68,17 +68,18 @@ def load_round23_transitions(repo, round22_transitions):
     return manifest, transitions
 
 
-def load_presubmission_cleanup_transitions(repo, round23_transitions):
+def load_presubmission_cleanup_transitions(repo, predecessor_hashes):
     """Authenticate presentation-only source changes after the Round23 freeze."""
     path = repo / "reference/presubmission_cleanup_20261008/INTEGRATION_MANIFEST.json"
     check_hash(path, path.with_suffix(".sha256").read_text().split()[0])
     manifest = json.loads(path.read_text(encoding="utf-8"))
     transitions = {item["path"]: item for item in manifest["transitions"]}
     for relative, item in transitions.items():
-        if relative not in round23_transitions:
-            raise ValueError(f"Presubmission transition has no Round23 predecessor: {relative}")
-        if item["prior_sha256"] != round23_transitions[relative]["current_sha256"]:
-            raise ValueError(f"Presubmission transition does not continue Round23: {relative}")
+        prior = predecessor_hashes.get(relative)
+        if prior is None:
+            raise ValueError(f"Presubmission transition has no authenticated predecessor: {relative}")
+        if item["prior_sha256"] != prior:
+            raise ValueError(f"Presubmission transition does not continue its predecessor: {relative}")
     return manifest, transitions
 
 
@@ -86,13 +87,21 @@ def load_restructure_transitions(repo):
     """Authenticate current files while retaining exact bytes expected by older freezes."""
     round22, round22_transitions = load_round22_transitions(repo)
     round23, round23_transitions = load_round23_transitions(repo, round22_transitions)
-    cleanup, cleanup_transitions = load_presubmission_cleanup_transitions(repo, round23_transitions)
-    active_transitions = {**round23_transitions, **cleanup_transitions}
-    for relative, item in active_transitions.items():
-        check_hash(repo / relative, item["current_sha256"])
     manifest_path = repo / "reference/repository_restructure_20261007/RESTRUCTURE_MANIFEST.json"
     check_hash(manifest_path, manifest_path.with_suffix(".sha256").read_text().split()[0])
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    predecessor_hashes = {
+        item["path"]: item["current_sha256"]
+        for item in manifest["source_transitions"]
+        if not item.get("removed")
+    }
+    predecessor_hashes.update({
+        relative: item["current_sha256"] for relative, item in round23_transitions.items()
+    })
+    cleanup, cleanup_transitions = load_presubmission_cleanup_transitions(repo, predecessor_hashes)
+    active_transitions = {**round23_transitions, **cleanup_transitions}
+    for relative, item in active_transitions.items():
+        check_hash(repo / relative, item["current_sha256"])
     snapshots = {}
     for item in manifest["source_transitions"]:
         target = repo / item["path"]
@@ -108,7 +117,9 @@ def load_restructure_transitions(repo):
             if exists:
                 raise ValueError(f"Retired path unexpectedly exists: {target}")
         else:
-            if item["path"] in round22_transitions:
+            if item["path"] in cleanup_transitions:
+                pass
+            elif item["path"] in round22_transitions:
                 if round22_transitions[item["path"]]["historical_sha256"] != item["current_sha256"]:
                     raise ValueError(f"Round22 transition does not continue prior state: {target}")
             else:

@@ -4,7 +4,7 @@ const ready=async page=>{await page.goto('/');await page.waitForFunction(()=>win
 test('all published routes serve the same current Atlas',async({page})=>{
  for(const route of ['/','/atlas/','/site/']){
   await page.goto(route);await page.waitForFunction(()=>window.researchReady&&window.researchMapReady);
-  await expect(page.locator('h1')).toContainText('Россия тратит');
+  await expect(page.locator('h1')).toContainText('Похожие территории');
   await expect(page.locator('[data-profile="A"]')).toContainText('Северный ресурсный');
   await page.locator('#municipality-search').fill('Казань');
   await expect(page.locator('#search-results button').first()).toContainText('Казань');
@@ -13,7 +13,7 @@ test('all published routes serve the same current Atlas',async({page})=>{
 test('public journey, territory search and scientific details',async({page})=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));await ready(page);
  await expect(page.locator('.masthead nav a')).toHaveText(['Вопрос','Профили','Открытия','Границы','Изменения','Атлас','Методология']);
- await expect(page.locator('h1')).toContainText('Россия тратит');
+ await expect(page.locator('h1')).toContainText('Похожие территории');
  await expect(page.locator('#contrast-pair .place-contrast')).toHaveCount(2);
  await expect(page.locator('#engel-chart .engel-point')).toHaveCount(7);
  await expect(page.locator('#marketplace-scale .market-row')).toHaveCount(7);
