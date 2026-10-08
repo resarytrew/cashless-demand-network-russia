@@ -1,0 +1,516 @@
+# Research State — Distilled Project Context
+
+## Current state — Round23 mechanism diagnostics (v2.10.0)
+
+Round23 tests seven fixed exploratory stories on frozen behavioral, Atlas,
+external and geometry inputs. The hypothesized `stable < transition < unresolved`
+volatility ordering fails in both Total and composition; stable-core medians are
+highest. Atlas-state association remains statistically detectable after controls
+but small (partial R²=.0061/.0120), and direction cannot be reframed as support
+for “uncertainty reflects economic instability.”
+
+Marketplace/Food share changes correlate negatively in F/G (ρ=-.3975) and B/D
+(ρ=-.5182); the F/G correlation is not more negative (permutation p=.9844).
+Initial Dec-2023 Total is negatively associated with Dec-to-Dec Marketplace-share
+growth (ρ=-.5228; adjusted coefficient=-.0301, partial R²=.0395, p=.0002).
+This does not identify missing local retail. Cross-profile wage/population-matched
+pairs have median December Aitchison distance .6502 versus .5116 for same-profile
+controls (difference bootstrap CI .0915–.1933).
+
+Marketplace-share dispersion across seven profile means rises .0184→.0375, while
+mean-log-Total dispersion also rises .3338→.3494; the proposed structural
+convergence is therefore not supported. Food share falls Dec-to-Dec in all A–G,
+including F/G. Top-3 graph neighbors are often distant (median 544 km; 52.3% over
+500 km), a descriptive graph property only. No L1/A–G/Atlas status changes.
+
+## Current state — Round22 method-class sensitivity (v2.9.0)
+
+Round22 applies an independently implemented KEFRiNc benchmark to the exact
+December L1 matrix and saved reference graph at predeclared K=9. Seed-0 agreement
+with static Louvain is ARI=.3080, NMI=.4797 and VI=3.1374 bits. Ten-seed
+optimization stability is moderate (pairwise ARI mean=.5213, range .3996–.7143).
+Exact boundaries therefore depend materially on algorithmic formulation.
+
+Atlas uncertainty generalizes only partially: globally aligned disagreement is
+59.7% (492/824) for stable core, 67.8% (263/388) for transition and 84.3%
+(268/318) for unresolved. The transition/stable difference is only 8.1 points
+and stable disagreement is itself high; do not claim strong core confirmation.
+Adjusted KEFRiN group associations remain observational (wage partial R2=.1360,
+employment=.0747, sector CLR=.0371; constrained p=.0005).
+
+The graph and attributes are not independent because the graph is constructed
+from L1 geometry. Author upstream commit `f9f96b1...` has no verifiable license
+file, so no upstream source code was used. L1, A–G, Atlas, k=20, omega=2,
+resolution=.5, original L2 and all legacy statuses remain unchanged.
+
+## Current state — Round21 structural sensitivity (v2.8.0)
+
+Round21 finds that omega=1 is predominantly a coarse merge of the omega=2
+December partition (micro purity .9785; fine-pair retention .9827; coarse-pair
+precision .4888; conditional entropies .1303 versus 1.2874 bits), but matched-K
+resolution=.8 preserves B/E merge and not the combined C/D/F/G merge. Exact
+boundaries therefore depend on omega×resolution.
+
+Omega did not enter Atlas construction: stable core changes 1/824, expansive
+core 247/374 and transition 348/388 on this held-out sensitivity axis. Adjusted
+sector CLR retains a small association (partial R2 .0361, permutation p=.0005).
+Both predeclared balanced L2 alternatives materially differ from original L2
+(ARI .0345/.1772); none is selected. All reference hashes and legacy statuses
+remain unchanged.
+
+## Round20 targeted checks (v2.7.0)
+
+Round20 is complete as an additive exploratory layer. Controlling log
+population and region fixed effects, A–G retain joint associations with log
+wage (partial R2 0.1758) and log employment total (partial R2 0.2144); these
+remain observational associations. The `omega=2` versus `omega=1` December
+comparison is ARI 0.4070 / NMI 0.5547 with 33.14% changed after optimal
+one-to-one alignment. High member retention does not mean one-to-one profile
+preservation: `omega=1` merges B/E and C/D/F/G. Only 1/824 Atlas stable-core
+municipalities changes, versus 348/388 transition municipalities.
+
+L2 distance accounting uses the fixed Round19 weights. Across all pairs,
+demand and employment contribute 34.08% and 34.54% of squared distance; on
+actual December graph edges employment contributes about 52.1%. No weights
+were retuned. L1, A–G, reference `omega=2`, and Round19 L2 remain unchanged.
+
+## Round19 dual-lens evidence (v2.6.0)
+
+L1 remains the unchanged reference research result: demand-only discovery followed by
+external interpretation. L2 is separate, additive and complete-case (n=1,876): equal,
+separately distance-normalized blocks for L1, log population/wage/market access, and
+CLR employment structure. Urban share was unavailable and not proxied. The controlled
+comparison keeps mutual-kNN20, omega=2, Louvain resolution=.5 and seed=0 without
+selecting K.
+
+Temporal December L1/L2 agreement is ARI=.431917 and NMI=.471727. L2 has five major
+profiles above the fixed 2% reporting threshold (95.3% combined) but 41 total December
+communities, 52 December intralayer isolates and SW=-.0429. Treat the five as descriptive
+major profiles, not five robust universal economic types. A shallow contextual rule tree
+has CV accuracy=.856 and balanced accuracy=.845; its names use included L2 variables and
+are therefore interpretation, not independent validation. Population, wage, employment
+structure and market access cease to be independent L2 evidence. Mobility is held out,
+but only 268/1,876 exact-name matches are available and the effect is exploratory on a
+selected subset. No A–G status changes.
+
+## Current state — Round18 representation evidence (v2.5.0)
+
+Round18 is completed under the unchanged panel, graph rule, k, omega, resolution
+and seed. R1 (five-part CLR without `Other`) has temporal December ARI=0.821695
+against the reference; R2 (observed log-levels) has ARI=0.707693. Exact boundaries
+therefore depend materially on representation. This negative robustness result is
+retained without selecting a preferred representation, changing the reference
+specification or changing any A–G status. See
+`outputs/round18_representation/ROUND18_AUDIT.md` and
+`outputs/evidence_v2_5_0/ROUND18_EVIDENCE_UPDATE.md`.
+
+## Preserved Round17 external interpretation evidence (v2.4.0)
+
+Round17 adds 58 exact matches in four regions to current Atlas v2.2.1; it is an
+external interpretation layer, not a new clustering or a robustness-status upgrade.
+External measurements were not used to build or tune the original network.
+The selected sample is not nationally representative (A43/C4/D2/F2/G7; B/E absent).
+All ten recovered statistics reproduce, including the uncertain Khabarovsk A/G
+comparison and adjusted Altai result. Altai D2/F1/G3 supports only a limited
+regional wage gradient. Yakutia A wage/investment association is conditional and
+noncausal; employee wages are not household income and mining is not established.
+B–E remains internally supported but externally unassessed. C remains contextual /
+unresolved. F's transition interpretation gains limited external corroboration;
+prior boundary-stability qualifications remain. Seven equal universal economic
+archetypes remain rejected.
+
+Read [Round17 report](../outputs/round17_external_validation/INDEPENDENT_ECONOMIC_VALIDATION.md),
+[audit](../outputs/round17_external_validation/RECOVERY_AUDIT.md),
+[claim matrix](../outputs/round17_external_validation/CLAIM_EVIDENCE_MATRIX_v2.4.0.csv)
+and [current pointers](CURRENT_STATE.json). Raw source documents and source row/page
+locations are unavailable; normalized analytical data and statistics replay offline.
+No baseline, Round16, perturbation or existing Atlas outputs were changed.
+A–G scientific robustness statuses and the reference specification are unchanged.
+At the Round17 freeze, Round18 had not yet been executed. Its archived protocol is
+under `reference/historical_provenance/round18/`; the completed outputs above supersede
+that planning status.
+
+## Preserved prior state — Round16 evidence and Atlas 2.2.1 engineering release
+
+The machine-readable pointer is `docs/CURRENT_STATE.json`. Evidence v2.3.0 and
+Atlas v2.2.1 are separate versions. Scientific A–G statuses and the reference
+specification are unchanged. Round16 computational work is complete, but full
+acceptance remains limited by unavailable contextual inputs. Read
+`outputs/round16_evidence/ROUND16_FINAL_PRESUBMISSION_AUDIT.md` and
+`docs/ENGINEERING_HARDENING_20260922.md` before the historical context below.
+
+Context controls (geography, population/density, residualization) remain
+historical-only where their source inputs are unavailable. The descriptive B
+within-stratum comparison is separately reproducible. Total's denominator and
+category additivity remain unestablished. Consensus agreement does not remove
+these limits or establish geographic meanings for A–G.
+
+Use `python scripts/verify_current_artifacts.py` for the current checkout.
+The old standalone verifiers retain their historical scope and original bytes.
+Atlas v2.2.1 preserves v2.2 arithmetic on recorded inputs and adds configuration,
+input integrity, verified resume and explicit unresolved handling; it is not a
+new clustering experiment. See `docs/ATLAS_REPRODUCTION.md`.
+
+## Historical context — retained with the current scope above
+
+## Current override — Rounds 14 and 15 completed
+
+Read the latest audits/findings in `outputs/leiden_robustness/` and `outputs/perturbation_v2/`; matrix version 2.2.0 is in `outputs/evidence_v2_2_0/`. The earlier context below is retained with this explicit supersession: historical canonical n=5 is **SUPERSEDED_NON_REPRODUCIBLE_HISTORICAL_PILOT**, not quantitative evidence. Any below-reference to pilot evidence or a pending high-rep task is historical and superseded by the provenance resolution and v2 results. Do not transfer old n=5 conclusions as confirmed claims.
+
+Leiden on identical graphs: full-supra ARI=0.440289, December ARI=0.707550, 14 supra communities. B/E cross-coassignment=0.983871; D/F=0.488937; F/G=0.491845. Core retention and exact-boundary stability are distinct.
+
+Canonical sorted-edge perturbation v2 passed same-process, fresh-process and reversed-insertion checks, then completed all 50 seeds. Mean full-supra ARI=0.498355; mean December ARI=0.675736 (minimum=0.016244). D mean retention=0.975817 but mean precision=0.511661; F mean retention=0.702813, q10=0.492355, mean precision=0.476762. B/E cross mean=0.465586, D/F=0.434798, F/G=0.317798, A/D=0.230527. G retention q10=0.622902 limits any claim of uniformly stable broad membership. C remains unsupported beyond context; no seven-archetype claim is reinstated.
+
+No reference parameters were changed. Old outputs remain intact. The full historical master matrix was not supplied; the new version explicitly combines available Round 13 status and new numerical evidence without reconstructing missing historical columns. Reproduction commands: `docs/ROBUSTNESS_V2_COMMANDS.md`.
+
+## 1. Data and sample accounting
+
+Spending data cover Jan-2023 through Dec-2024, 24 months, approximately 303,126 raw rows and 2,118 unique textual municipality labels.
+
+Strict-panel accounting:
+
+- 2,118 textual labels observed;
+- 49 duplicated/ambiguous multiple territorial series;
+- 1,952 complete 24×6 histories;
+- 166 incomplete-name histories;
+- 48 complete but ambiguous;
+- 1 ambiguous + incomplete;
+- final safe strict panel: **1,904 municipalities**.
+
+The strict panel is an analytical panel. It has not been established as a statistically representative sample of all Russian municipalities.
+
+## 2. Feature construction
+
+Five named categories are used together with residual `Other`:
+
+- Food;
+- Health;
+- Catering;
+- Marketplace;
+- Transport;
+- `Other = Total - Food - Health - Catering - Marketplace - Transport`.
+
+`Other` is a technical residual and must not be described as a coherent economic sector.
+
+Composition is represented with CLR/Aitchison geometry.
+
+Spending level uses `log(Total)` and monthly robust z-scores based on median and `1.4826*MAD`.
+
+The two feature blocks are normalized by their median pairwise distances and combined as:
+
+`X = [sqrt(alpha) * CLR/ms, sqrt(1-alpha) * level/ml]`.
+
+Reference alpha is 0.70/0.30. Alpha sensitivity has now been tested at 0.50, 0.70, 0.90. Alpha=0.70 remains a balanced reference specification, not an optimum.
+
+## 3. Graph construction
+
+Monthly graph:
+
+- weighted, undirected mutual-kNN;
+- reference k=20;
+- adaptive RBF weight `exp(-d^2/(sigma_i sigma_j))`;
+- `sigma_i` is kth-neighbor distance;
+- static Dec-2024 graph applies nearest-neighbor isolate fallback;
+- temporal monthly layers do not apply isolate fallback.
+
+k=20 is a **post-hoc structural reference specification**: it was the first tested point where the Dec-2024 static graph became fully connected after fallback. Never call it mathematically optimal.
+
+Temporal network:
+
+- 1,904 × 24 = 45,696 municipality-month copies;
+- identity edges connect the same municipality in adjacent months;
+- identity weight = `omega × global median intralayer weight`;
+- reference omega=2;
+- NetworkX Louvain, resolution=0.5, seed=0.
+
+Omega=2 is a reference, not an optimum.
+
+## 4. Static Dec-2024 benchmark context
+
+Reference Aitchison+level mutual-k20 baseline had approximately:
+
+- K=9 static communities in the benchmark partition;
+- SW ~0.176 in the original static benchmark calculation;
+- CH/N ~0.468;
+- S_Dbw ~0.635;
+- AVI ~0.909;
+- AVU ~0.469;
+- MQ ~0.765.
+
+Static algorithm comparisons showed no universal winner. KMeans/Ward can look better on pure attribute compactness while network methods can look better on graph modularity/isolation. Do not collapse metric tradeoffs into a single ranking.
+
+## 5. k sensitivity
+
+Topology changes materially with k.
+
+Reference values previously observed:
+
+- k10: fragmented after fallback; K≈16;
+- k15: near-connected; K≈11;
+- k20: connected after fallback; K≈9;
+- k30: K≈8;
+- k50: K≈7.
+
+Partition similarity decreases as k moves away from 20. Fine boundaries are not invariant.
+
+Important examples:
+
+- D remains a substantive compact group but its exact boundary is k-sensitive;
+- F is strongly boundary-sensitive, especially toward G and D;
+- the historical 685-member broad movement from one community to another reproduced directionally under k30 but not with exact boundary identity.
+
+## 6. omega sensitivity
+
+Omega sensitivity showed a sharp change in temporal persistence:
+
+- omega 0.25/0.5/1 lead to many more switches;
+- omega=2 yields median ~1 switch and ~85% of municipalities with <=2 switches;
+- omega=4 yields similar persistence but a meaningfully different partition.
+
+Omega2 vs omega4 is only moderately similar; exact communities are not invariant. Do not call omega=2 optimal.
+
+## 7. Alpha sensitivity — Round 13
+
+Alpha=0.70 reproducibility gate passed exactly: full-supra and Dec-2024 ARI/NMI = 1 against saved baseline.
+
+Key comparison:
+
+- alpha=0.50: stronger static SW/CH; full-supra ARI vs 0.70 ~0.556; Dec ARI ~0.737;
+- alpha=0.70: reference; strongest temporal persistence of the tested three;
+- alpha=0.90: full-supra ARI ~0.479; Dec ARI ~0.736; Dec graph has 5 connected components after fallback rather than one.
+
+Interpretation:
+
+- alpha is material;
+- 0.70 is not statistically selected as best;
+- large cores often survive, but fine boundaries change strongly;
+- F is especially alpha-sensitive;
+- D/F and F/G boundaries change substantially;
+- B/E overlap remains a multiscale issue.
+
+Use `outputs/alpha_sensitivity/` as the numerical source of truth.
+
+## 8. Temporal baseline
+
+At omega=2 baseline:
+
+- ~12 supra communities overall;
+- ~10 communities/month on average;
+- mean switches ~1.339, median 1;
+- 476 municipalities with zero switches;
+- 1,624/1,904 with <=2 switches;
+- mean monthly SW ~0.124.
+
+April/May 2024 have notably weak silhouette values. Temporal persistence is not equivalent to feature separation.
+
+## 9. A–G profile definitions at reference Dec-2024
+
+Public labels map to reference temporal community IDs:
+
+- A = 1, n=141;
+- B = 3, n=98;
+- C = 7, n=29;
+- D = 8, n=153;
+- E = 9, n=186;
+- F = 10, n=327;
+- G = 11, n=965.
+
+Three additional tiny communities (2, 2, 1 members) are treated as micro-communities / technical anomalies, not archetypes.
+
+Do not say “seven robust archetypes.” A–G are reference profiles with different evidence status.
+
+## 10. Current profile evidence status
+
+### A
+Candidate overlapping network regime, not a clean archetype.
+
+Evidence:
+
+- poor metric separation; silhouette around -0.185 in a dedicated audit;
+- strong network isolation/internal strength;
+- beyond-admin/spatial compactness exists but is moderate;
+- population/density controls weaken compactness toward null;
+- alpha sensitivity shows the broad core is fairly retained, but interpretation remains overlapping.
+
+### B
+Candidate federal-intracity subtype.
+
+Evidence:
+
+- 98/98 reference members are federal-intracity territories;
+- B represents about 40.8% of the federal-intracity stratum, not “all federal cities”;
+- strong within-stratum separation relative to other federal-intracity territories;
+- B/E exact boundary can be unstable;
+- population/density/admin controls weaken the residual compactness strongly;
+- alpha core retention is high, but B should remain a nested subtype rather than nationwide archetype.
+
+### C
+Rejected as a robust beyond-context archetype.
+
+Evidence:
+
+- admin-stratified compactness not significant/strong;
+- region×admin null removes compactness;
+- spatial block ratios cross 1 across plausible specifications;
+- continuous population/density controls push compactness to ~1 or above;
+- alpha=0.90 retention weakens further.
+
+C may be spatially nonrandom; spatial autocorrelation alone does not rehabilitate it.
+
+### D
+Candidate profile with strong internal compactness but unstable exact boundary.
+
+Evidence:
+
+- very strong compactness under admin and spatial matched nulls;
+- not merely one geographic contiguous patch;
+- residualization and continuous population/density controls weaken effect substantially;
+- alpha sensitivity shows a stable core but strong D/F boundary dependence, especially at alpha=0.90;
+- k30 can merge meaningful parts of D with A/F depending specification.
+
+Interpret core stability separately from boundary stability.
+
+### E
+Candidate nested/context-sensitive profile.
+
+Evidence:
+
+- strong baseline compactness;
+- spatial clustering substantial;
+- geography explains part of the effect;
+- admin + population/density controls bring residual compactness close to null;
+- B/E can merge under perturbations/specifications;
+- treat as nested/overlapping rather than a universal archetype.
+
+### F
+Boundary/refinement population; weak as an exact archetype.
+
+Evidence:
+
+- compactness persists after several controls;
+- exact membership is highly sensitive to k, alpha, residualization, and perturbations;
+- k30 splits roughly between G-dominated and A/D-dominated destinations;
+- alpha=0.50 mixes F strongly with G and D; alpha=0.90 strongly with D;
+- do not claim a reproducible exact split until high-rep perturbation says more.
+
+### G
+Broad macroprofile.
+
+Evidence:
+
+- largest reference group, n=965 (~51%);
+- strong graph cohesion and spatial autocorrelation;
+- residual effect after admin/spatial controls is moderate rather than extreme;
+- continuous population/density controls move compactness close to null;
+- broad membership retains well under several parameter changes;
+- default-category / broad-background interpretation remains a caveat.
+
+## 11. Administrative-form analysis
+
+Sber textual admin forms were parsed into:
+
+- federal_intracity;
+- urban_okrug;
+- municipal_raion;
+- municipal_okrug.
+
+Admin form predicts A–G only partially; it is not sufficient to explain the partition.
+
+Important: administrative form is a coarse proxy for urbanization/settlement/infrastructure. Residualizing it does not identify causal effects.
+
+## 12. OKTMO crosswalk and geography
+
+A period-aware crosswalk was built from historical Rosstat OKTMO snapshots.
+
+Final operational state:
+
+- 1,887/1,904 deterministic historical matches;
+- 13 high-confidence manual resolutions;
+- 4 provisional ambiguous-region resolutions, explicitly flagged;
+- operational crosswalk covers 1,904/1,904.
+
+Spatial geometry:
+
+- polygon coverage: 1,903/1,904 (~99.95%);
+- missing polygon: `городской округ город Первомайск`, LNR, reference G;
+- spatial robustness conclusions are not sensitive to excluding the four provisional crosswalk rows.
+
+## 13. Spatial robustness
+
+Polygon-based diagnostics and block controls have been performed.
+
+Global Moran I of profile membership was positive for all A–G, but spatial clustering alone is not evidence of a valid archetype.
+
+Spatial block matched-null tests across multiple block sizes/shifts showed approximately:
+
+- A: moderate effect, spatial-scale dependent;
+- B: residual compactness remains;
+- C: weak/specification-dependent, ratios can cross 1;
+- D: strong residual compactness;
+- E: substantial residual compactness with geographic contribution;
+- F: substantial compactness but unstable boundary;
+- G: stable but moderate residual effect.
+
+## 14. Population and density controls
+
+Municipal population was joined from Rosstat Jan-01-2024 and Jan-01-2025 data. Geometry-derived area provides density.
+
+Coverage for the relevant continuous-control analysis is effectively 1,903/1,904 because of the missing LNR polygon/covariate case.
+
+Population+density explain a large share of several Dec-2024 feature components descriptively. These are associations, not causal effects.
+
+Exact spatial500 matched-null compactness after continuous controls showed approximately:
+
+- A: residual ratio ~0.92–0.94;
+- B: ~0.91–0.95;
+- C: ~1.05–1.09;
+- D: ~0.87–0.88;
+- E: population+density ~0.74, with admin also ~0.97;
+- F: ~0.83–0.85;
+- G: ~0.95–0.96.
+
+This materially weakens claims that B/E/G and part of D are independent of urban scale/density.
+
+## 15. Mobility
+
+Mobility is auxiliary triangulation with selected coverage, not external validation.
+
+Coverage is highly nonuniform across profiles/admin forms. An earlier transductive mobility-AUC analysis had leakage and was withdrawn.
+
+Corrected fold-aware analysis with train-only graph + centroid out-of-sample proxy found only a very small AUC increment for adding community information; bootstrap CI included zero and p was non-significant. This does not prove “no signal,” because the OOS proxy is not native Louvain prediction.
+
+Never describe mobility as independent external validation of the clusters.
+
+## 16. Flow / lead-lag / seasonality
+
+Temporal transition and lead-lag analyses are post-selected/exploratory.
+
+A broad 685-case movement was directionally robust under k30 but exact boundary identity was not. A 229-case movement did not survive key sensitivity checks and should not be a headline claim.
+
+Marketplace share increased strongly over the period at the national median, but this is descriptive and not causal. Common-category multiplicative monthly effects largely cancel under within-month CLR distance; region-specific inflation/local seasonality is not thereby controlled.
+
+Lead-lag edge counts under the tested construction were not globally enriched versus circular-shift null; observed counts were actually lower than null. Do not claim diffusion or contagion.
+
+## 17. Multiplicity and inference language
+
+Project-wide p-values are exploratory due to extensive multiplicity and post-selection. Use Holm/BH only where a clearly defined local family is explicitly stated.
+
+Do not transform exploratory significance into causal or confirmatory language.
+
+## 18. Perturbation pilot provenance now available in repository
+
+The previously missing n=5 supra perturbation provenance has been recovered and committed under `outputs/perturbation_pilot_reference/` and `reference/perturbation_pilot/`.
+
+Canonical perturbation semantics for the expansion gate:
+
+- perturb intralayer edges only;
+- independent edge drop probability = 0.05;
+- retained intralayer weight multiplier = `exp(N(0, 0.02))`;
+- temporal identity edges unchanged;
+- RNG for perturbation seed `s`: `np.random.default_rng(20260918 + s)`;
+- Louvain resolution = 0.5 and Louvain seed = `s`;
+- pilot seeds = 0..4.
+
+The five-run pilot is descriptive only. In particular, B/E cross-coassignment varies from near 0 to near 1 across the five seeds, so its boundary distribution remains unresolved until the n=50 expansion is completed.
+
+Do not confuse the recovered supra-perturbation pilot with other historical static perturbation summaries unless provenance establishes they used the identical experiment.

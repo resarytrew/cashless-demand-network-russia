@@ -21,6 +21,12 @@ def test_landing_derivative_is_deterministic_and_current():
     assert sum(r["population"] is not None for r in first["municipalities"]) == 1903
     assert sum(r["wage"] is not None for r in first["municipalities"]) == 1890
     assert sum(r["switches"] <= 2 for r in first["municipalities"]) == 1624
+    assert {profile["technical_label"]: profile["display_name"] for profile in first["profiles"]} == {
+        "A": "Удалённые территории", "B": "Деловые центры Москвы",
+        "C": "Горная периферия", "D": "Промышленные города",
+        "E": "Жилые районы мегаполисов", "F": "Малые промышленные города",
+        "G": "Сельская бюджетная Россия",
+    }
 
 
 def test_flows_conserve_every_municipality_and_saved_membership():

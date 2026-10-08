@@ -9,8 +9,8 @@
     {
       "path": "README.md",
       "prior_sha256": "7bba915fee267384e898909d5012d225bdd38f1bebf3ad9459344577cfd08e70",
-      "current_sha256": "dd29f445d0e5f5b57ee40b08d9aba5e1576f66bb6043a2fed096a2f566fd28f4",
-      "reason": "Replace the technical entry page with the compact jury-facing narrative; no research result, model input, or scientific status changes."
+      "current_sha256": "6b65c67e4f07b5b6e09e13a22fc4142b9b5464792b936584e08ed45e25099ef3",
+      "reason": "Keep the jury-facing narrative compact, add a one-picture research pipeline and move implementation terminology to the technical appendix; no research result, model input, or scientific status changes. Include the requested PDF, graph-semantics explanation, source notices and author; preserve the prior presentation hash in presentation_revisions."
     },
     {
       "path": "scripts/verify_current_artifacts.py",
@@ -23,6 +23,14 @@
       "prior_sha256": "d3e47e3825ab5acf85e13ff75eaba22d681c0c1435447e86afb4a75b6bb6253d",
       "current_sha256": "0a033796040bfd3b833fb69f8553b4d1a79c63716a0ae3e1d2cac83f2b241cc6",
       "reason": "Fetch complete Git history so the verifier can authenticate its recorded base commit on GitHub Actions."
+    }
+  ],
+  "presentation_revisions": [
+    {
+      "date": "2026-10-08",
+      "path": "README.md",
+      "previous_presentation_sha256": "35f3d6eb5e66267a41bc679b0cbe6fbc3d0f2fe2e6b5681779c7d0676cda6a4f",
+      "reason": "User-requested PDF link, Round24 explanation and graph comparison, factual third-party notices, author credit; no scientific artifact or status changes."
     }
   ]
 }

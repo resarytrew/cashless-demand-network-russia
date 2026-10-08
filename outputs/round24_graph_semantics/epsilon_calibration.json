@@ -1,0 +1,10 @@
+{
+  "epsilon": 0.20487134020155773,
+  "target_edges": 11787,
+  "actual_edges": 11787,
+  "pairs_strictly_below": 11786,
+  "pairs_at_threshold": 1,
+  "excess_due_to_ties": 0,
+  "unordered_pair_count": 1811656,
+  "threshold_uses_partition_labels": false
+}

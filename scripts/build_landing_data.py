@@ -34,7 +34,17 @@ def build(config_path=ROOT / "configs/landing.yaml"):
     by_territory = {int(r["territory_id"]): r for r in external}
     territory = {r.reference_mo: int(r.territory_id) for r in lineage.itertuples()
                  if pd.notna(r.territory_id)}
-    profiles = read_json(story / "profiles.json")
+    # The saved story artifact retains its historical analytical labels.  The public
+    # Atlas deliberately uses the reader-facing names from the profile-card contract
+    # so every visitor sees the same A–G vocabulary as in the README.
+    cards = read_json(ROOT / inputs["profile_cards"])["cards"]
+    public_names = {card["profile"]: card["display_name"] for card in cards}
+    if set(public_names) != set("ABCDEFG"):
+        raise ValueError("Profile-card public names must cover exactly A–G")
+    profiles = [
+        {**profile, "display_name": public_names[profile["technical_label"]]}
+        for profile in read_json(story / "profiles.json")
+    ]
     mapping = {v: k for k, v in spec["profile_communities"].items()}
     rows = []
     for r in atlas.itertuples(index=False):

@@ -1,5 +1,25 @@
 # Research State — Distilled Project Context
 
+## Current graph-semantics evidence — Round24 (v2.11.0)
+
+An edge-count-matched global threshold in unchanged December L1 geometry has
+epsilon=.20487134020155773 and exactly 11,787 edges. With no threshold-violating
+fallback it has 368 isolates, 422 components and 431 communities, static
+ARI=.413953/NMI=.561342. Equal density does not preserve the coverage or degree
+distribution of local mutual-k20. Reference's 12 fallback edges remain intact.
+
+Six unscaled CLR components, 23 monthly first differences, equal-mean Pearson
+correlation and mutual-k20 give 2,670 co-dynamics edges, 974 isolates and 1,098
+communities including isolates. Static ARI=.089146/NMI=.429009; temporal-December
+ARI=.015667/NMI=.321742. This full-period composition co-movement graph differs
+both semantically and topologically from December state similarity. It excludes
+Total and retains common seasonality/shocks. Fragmentation and singleton counts
+preclude interpreting its large K as substantive demand profiles.
+
+The exact fresh baseline gate and union-k20 historical row replay passed.
+No ARI/ICVI tuning, winner selection, reference change or A–G status change.
+See `outputs/round24_graph_semantics/` and `outputs/evidence_v2_11_0/`.
+
 ## Current state — Round23 mechanism diagnostics (v2.10.0)
 
 Round23 tests seven fixed exploratory stories on frozen behavioral, Atlas,

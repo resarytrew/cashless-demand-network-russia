@@ -2,9 +2,9 @@ name: Public research visualization
 on:
   push:
     branches: [main, codex/public-stability-landscape]
-    paths: ['site/**', 'scripts/stage_landing.py', 'scripts/export_landing_pdf.mjs', 'tests/browser/**', 'playwright.config.js', 'package*.json', '.github/workflows/public-pages.yml']
+    paths: ['site/**', 'scripts/stage_landing.py', 'scripts/export_landing_pdf.mjs', 'scripts/export_landing_edition.mjs', 'scripts/finalize_landing_pdf.py', 'scripts/landing_pdf.css', 'scripts/package_site.py', 'requirements-pdf.txt', 'tests/browser/**', 'playwright.config.js', 'package*.json', '.github/workflows/public-pages.yml']
   pull_request:
-    paths: ['site/**', 'scripts/stage_landing.py', 'scripts/export_landing_pdf.mjs', 'tests/browser/**', 'playwright.config.js', 'package*.json', '.github/workflows/public-pages.yml']
+    paths: ['site/**', 'scripts/stage_landing.py', 'scripts/export_landing_pdf.mjs', 'scripts/export_landing_edition.mjs', 'scripts/finalize_landing_pdf.py', 'scripts/landing_pdf.css', 'scripts/package_site.py', 'requirements-pdf.txt', 'tests/browser/**', 'playwright.config.js', 'package*.json', '.github/workflows/public-pages.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -27,6 +27,7 @@ jobs:
           python-version: '3.11'
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - run: python -m pip install -r requirements-pdf.txt
       - run: npm run pdf
       - run: python scripts/stage_landing.py
       - run: npm run test:site

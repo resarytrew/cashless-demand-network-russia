@@ -1,13 +1,13 @@
 {
   "schema_version": 2,
-  "evidence_version": "2.10.0",
+  "evidence_version": "2.11.0",
   "atlas_version": "2.2.1",
-  "latest_research_round": 23,
+  "latest_research_round": 24,
   "scientific_status_changes": false,
   "reference_specification_changed": false,
-  "current_evidence_matrix": "outputs/evidence_v2_10_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.10.0.csv",
+  "current_evidence_matrix": "outputs/evidence_v2_11_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.11.0.csv",
   "scientific_status_registry": "outputs/round16_evidence/archetype_status_round16.csv",
-  "latest_research_audit": "outputs/round23_economic_mechanisms/ROUND23_AUDIT.md",
+  "latest_research_audit": "outputs/round24_graph_semantics/ROUND24_AUDIT.md",
   "round23_economic_mechanisms": {
     "status": "COMPLETED_ADDITIVE_EXPLORATORY_MECHANISM_CHECKS",
     "evidence_version": "2.10.0",
@@ -167,18 +167,36 @@
     "Atlas affinity shares are descriptive, not posterior probabilities",
     "Round17 selected sample has 58 municipalities in 4 regions; B/E are absent and Altai F has n=1",
     "External validation is observational and does not establish causal mechanisms",
-    "Nominal employee wages are not household income"
-    ,"L2 uses 1876 complete cases and excludes 28 reference municipalities"
-    ,"L2 temporal December has 41 communities including many isolate-linked micro-communities; five major profiles are descriptive, not five universal types"
-    ,"L2 mobility holdout exact-name coverage is 268/1876 and selected"
-    ,"Omega=1 sensitivity has only ARI 0.4070 / NMI 0.5547 to reference omega=2 in December; exact boundaries are coupling-dependent"
-    ,"Round20 residual associations are observational and do not establish causal mechanisms"
-    ,"Employment contributes about 52.1% of squared distance on L2 December graph edges despite 34.5% across all pairs"
-    ,"Matched-K omega control preserves B/E merge but not the joint C/D/F/G merge"
-    ,"Adjusted sector CLR partial R2 is 0.0361: detectable but small and observational"
-    ,"Both block-balanced L2 sensitivities differ materially from original L2; no alternative is selected"
-    ,"Round23 Marketplace/Food share correlation is compositionally constrained and does not identify grocery substitution"
-    ,"Round23 initial-Total association does not establish missing local retail"
-    ,"Round23 nominal Total dispersion is not a welfare measure and Food-share change is not an inflation measure"
-  ]
+    "Nominal employee wages are not household income",
+    "L2 uses 1876 complete cases and excludes 28 reference municipalities",
+    "L2 temporal December has 41 communities including many isolate-linked micro-communities; five major profiles are descriptive, not five universal types",
+    "L2 mobility holdout exact-name coverage is 268/1876 and selected",
+    "Omega=1 sensitivity has only ARI 0.4070 / NMI 0.5547 to reference omega=2 in December; exact boundaries are coupling-dependent",
+    "Round20 residual associations are observational and do not establish causal mechanisms",
+    "Employment contributes about 52.1% of squared distance on L2 December graph edges despite 34.5% across all pairs",
+    "Matched-K omega control preserves B/E merge but not the joint C/D/F/G merge",
+    "Adjusted sector CLR partial R2 is 0.0361: detectable but small and observational",
+    "Both block-balanced L2 sensitivities differ materially from original L2; no alternative is selected",
+    "Round23 Marketplace/Food share correlation is compositionally constrained and does not identify grocery substitution",
+    "Round23 initial-Total association does not establish missing local retail",
+    "Round23 nominal Total dispersion is not a welfare measure and Food-share change is not an inflation measure",
+    "Round24 epsilon has 368 isolates and co-dynamics 974; full-period composition co-movement is not the same estimand as December demand state"
+  ],
+  "round24_graph_semantics": {
+    "status": "COMPLETED_ADDITIVE_EXPLORATORY_GRAPH_SEMANTICS",
+    "evidence_version": "2.11.0",
+    "config": "configs/round24_graph_semantics.yaml",
+    "protocol": "docs/ROUND24_PROTOCOL.md",
+    "report": "outputs/round24_graph_semantics/ROUND24_REPORT.md",
+    "audit": "outputs/round24_graph_semantics/ROUND24_AUDIT.md",
+    "summary": "outputs/round24_graph_semantics/round24_summary.json",
+    "baseline_freeze": "outputs/round24_graph_semantics/BASELINE_FREEZE.json",
+    "completion": "outputs/round24_graph_semantics/COMPLETED.json",
+    "profile_evidence_matrix": "outputs/evidence_v2_11_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.11.0.csv",
+    "evidence_update": "outputs/evidence_v2_11_0/ROUND24_EVIDENCE_UPDATE.md",
+    "result": "Edge-count-matched epsilon and full-period composition co-dynamics differ from reference and are fragmented; no winner selected",
+    "reference_specification_changed": false,
+    "A_G_status_changes": false,
+    "union20_changed": false
+  }
 }

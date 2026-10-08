@@ -1,5 +1,17 @@
 # Codex Start Here
 
+## Current graph-semantics comparison — Round24 / evidence v2.11.0
+
+Round24 is additive and selects no winner. In the unchanged L1 demand lens
+(Euclidean CLR+level geometry), epsilon=.20487134020155773 gives exactly
+11,787 December edges but 368 isolates and 422 components; static-reference
+ARI=.413953. Full-period co-dynamics of six CLR-component first differences,
+mean Pearson correlation and mutual-k20 gives 2,670 edges, 974 isolates and
+static ARI=.089146 (temporal-December ARI=.015667). Severe fragmentation limits
+partition interpretation. Read `docs/ROUND24_PROTOCOL.md`,
+`outputs/round24_graph_semantics/ROUND24_REPORT.md` and its audit.
+Reference, existing union-k20, A–G statuses and Atlas remain unchanged.
+
 ## Current economic-mechanism checks — Round23 / evidence v2.10.0
 
 Round23 is complete and additive. The proposed Atlas ordering is reversed in raw

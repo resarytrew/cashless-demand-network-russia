@@ -83,6 +83,21 @@ def load_presubmission_cleanup_transitions(repo, predecessor_hashes):
     return manifest, transitions
 
 
+def load_round24_transitions(repo, predecessor_hashes):
+    """Add graph-semantics narrative with an explicit byte-preserving predecessor."""
+    path = repo / "reference/round24_graph_semantics/INTEGRATION_MANIFEST.json"
+    check_hash(path, path.with_suffix(".sha256").read_text().split()[0])
+    manifest = json.loads(path.read_text(encoding="utf-8"))
+    transitions = {item["path"]: item for item in manifest["transitions"]}
+    for relative, item in transitions.items():
+        if not relative.startswith(("docs/", "scripts/")):
+            raise ValueError("Round24 transition cannot redirect data, evidence or model sources")
+        if item["prior_sha256"] != predecessor_hashes.get(relative):
+            raise ValueError(f"Round24 transition has no matching predecessor: {relative}")
+        check_hash(repo / item["snapshot"], item["prior_sha256"])
+    return manifest, transitions
+
+
 def load_restructure_transitions(repo):
     """Authenticate current files while retaining exact bytes expected by older freezes."""
     round22, round22_transitions = load_round22_transitions(repo)
@@ -99,7 +114,9 @@ def load_restructure_transitions(repo):
         relative: item["current_sha256"] for relative, item in round23_transitions.items()
     })
     cleanup, cleanup_transitions = load_presubmission_cleanup_transitions(repo, predecessor_hashes)
-    active_transitions = {**round23_transitions, **cleanup_transitions}
+    predecessor_hashes.update({relative: item["current_sha256"] for relative, item in cleanup_transitions.items()})
+    round24, round24_transitions = load_round24_transitions(repo, predecessor_hashes)
+    active_transitions = {**round23_transitions, **cleanup_transitions, **round24_transitions}
     for relative, item in active_transitions.items():
         check_hash(repo / relative, item["current_sha256"])
     snapshots = {}
@@ -117,7 +134,7 @@ def load_restructure_transitions(repo):
             if exists:
                 raise ValueError(f"Retired path unexpectedly exists: {target}")
         else:
-            if item["path"] in cleanup_transitions:
+            if item["path"] in cleanup_transitions or item["path"] in round24_transitions:
                 pass
             elif item["path"] in round22_transitions:
                 if round22_transitions[item["path"]]["historical_sha256"] != item["current_sha256"]:
@@ -125,12 +142,12 @@ def load_restructure_transitions(repo):
             else:
                 check_hash(target, item["current_sha256"])
         snapshots[item["path"]] = item["snapshot"]
-    return manifest, snapshots, round22, round23, cleanup
+    return manifest, snapshots, round22, round23, cleanup, round24
 
 
 def verify_integrity(repo=Path(".")):
     repo = repo.resolve()
-    restructure, restructure_snapshots, round22, round23, cleanup = load_restructure_transitions(repo)
+    restructure, restructure_snapshots, round22, round23, cleanup, round24 = load_restructure_transitions(repo)
     # Round17 is additive. Prior engineering/source bytes are retained in an
     # explicit transition layer; evidence/data are always verified in place.
     integration_path = repo / "reference/round17_external_validation/INTEGRATION_MANIFEST.json"
@@ -198,7 +215,8 @@ def verify_integrity(repo=Path(".")):
             "round22_source_transitions": len(round22["transitions"]),
             "round23_integration": round23["status"],
             "round23_source_transitions": len(round23["transitions"]),
-            "presubmission_cleanup": cleanup["status"]}
+            "presubmission_cleanup": cleanup["status"],
+            "round24_integration": round24["status"]}
 
 
 def replay_numeric():

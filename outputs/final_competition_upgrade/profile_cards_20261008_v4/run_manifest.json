@@ -1,8 +1,8 @@
 {
   "status": "COMPLETED_DESCRIPTIVE_PRESENTATION_LAYER",
-  "config_sha256": "efdac3013ccc1f07d0e50d9284e02cce9a6f65a137bb916c2ddbb9529e7ad719",
+  "config_sha256": "01cfa6ccd1d7bf0b9a8bdb7cf3f511c05a76e112b58c8a6a509d88f89e93cd3a",
   "script_sha256": "44d17510286a66a95a345d478c61e41e0bb9b23c9f281a1db42f69c3b428218b",
-  "git_commit": "ee739ccb6b39555f84280911c0c500ab42f73b35",
+  "git_commit": "3aa42962c624fc631599f6125955f31b77a8bbd4",
   "runtime": {
     "python": "3.13.6",
     "pandas": "2.3.3",

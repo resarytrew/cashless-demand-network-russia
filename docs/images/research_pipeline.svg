@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" role="img" aria-labelledby="title desc">
+  <title id="title">Схема исследовательского контура</title>
+  <desc id="desc">Данные переходят в признаки, затем в сеть сходства, профили, динамику и экономическую интерпретацию.</desc>
+  <rect width="1200" height="220" fill="#f7f5f0"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <g fill="#173f5f"><rect x="25" y="70" width="160" height="80" rx="12"/><text x="105" y="105" fill="white" font-size="21" font-weight="700">Данные</text><text x="105" y="130" fill="white" font-size="15">24 месяца</text></g>
+    <g fill="#206a5d"><rect x="260" y="70" width="160" height="80" rx="12"/><text x="340" y="105" fill="white" font-size="21" font-weight="700">Признаки</text><text x="340" y="130" fill="white" font-size="15">структура + уровень</text></g>
+    <g fill="#9b5d3e"><rect x="495" y="70" width="160" height="80" rx="12"/><text x="575" y="105" fill="white" font-size="21" font-weight="700">Сеть</text><text x="575" y="130" fill="white" font-size="15">сходства</text></g>
+    <g fill="#704f7c"><rect x="730" y="70" width="160" height="80" rx="12"/><text x="810" y="105" fill="white" font-size="21" font-weight="700">Профили</text><text x="810" y="130" fill="white" font-size="15">A–G и границы</text></g>
+    <g fill="#8a6c21"><rect x="965" y="70" width="210" height="80" rx="12"/><text x="1070" y="105" fill="white" font-size="21" font-weight="700">Динамика и смысл</text><text x="1070" y="130" fill="white" font-size="15">внешняя интерпретация</text></g>
+  </g>
+  <g stroke="#52606d" stroke-width="4" fill="none" marker-end="url(#arrow)"><path d="M195 110H245"/><path d="M430 110H480"/><path d="M665 110H715"/><path d="M900 110H950"/></g>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#52606d"/></marker></defs>
+</svg>

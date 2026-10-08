@@ -21,3 +21,4 @@ playwright-report/
 data/external/
 tmp/
 outputs/landing_*/
+output/pdf/

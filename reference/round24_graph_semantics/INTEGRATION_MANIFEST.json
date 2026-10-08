@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "ROUND24_ADDITIVE_INTEGRATION",
+  "evidence_version": "2.11.0",
+  "latest_research_round": 24,
+  "predecessor": "reference/presubmission_cleanup_20261008/INTEGRATION_MANIFEST.json",
+  "scientific_status_changes": 0,
+  "reference_specification_changed": false,
+  "transitions": [
+    {
+      "path": "docs/ARTIFACT_INDEX.md",
+      "snapshot": "reference/round24_graph_semantics/snapshots/docs/ARTIFACT_INDEX.md",
+      "prior_sha256": "efe00d526ad92161c1940ccb4190ddd4da81a687ed7d35e6f5fadbf137967c31",
+      "reason": "Add Round24 graph semantics and evidence v2.11.0; preserve reference and A-G statuses.",
+      "current_sha256": "963b6264e6bbd0cec4f86d6dffadfdb74ca728ddbf68fd94886575921b066760"
+    },
+    {
+      "path": "docs/CODEX_START_HERE.md",
+      "snapshot": "reference/round24_graph_semantics/snapshots/docs/CODEX_START_HERE.md",
+      "prior_sha256": "516f05e1a5537adf86d658c98ff229aa341a83ca5878dc35cde26167e6aabc90",
+      "reason": "Add Round24 graph semantics and evidence v2.11.0; preserve reference and A-G statuses.",
+      "current_sha256": "412c1b4a20573b7d065983fdd5924d826ebea6f1183fcd4ad5ada845832bf248"
+    },
+    {
+      "path": "docs/CURRENT_STATE.json",
+      "snapshot": "reference/round24_graph_semantics/snapshots/docs/CURRENT_STATE.json",
+      "prior_sha256": "9ee6f04b6a69a24867b382904a7c43e25c8ce69401a0da57114bbef46a11f0bb",
+      "reason": "Add Round24 graph semantics and evidence v2.11.0; preserve reference and A-G statuses.",
+      "current_sha256": "99787a40389367cca7b372002218ddcaa8c8f0aa8f9e0b97f97c615ad98d32e5"
+    },
+    {
+      "path": "docs/HYPOTHESIS_LEDGER.md",
+      "snapshot": "reference/round24_graph_semantics/snapshots/docs/HYPOTHESIS_LEDGER.md",
+      "prior_sha256": "009d66f14314b0f2e6f47b7d5a35982d4ec48bef552672b052772013bfde26b8",
+      "reason": "Add Round24 graph semantics and evidence v2.11.0; preserve reference and A-G statuses.",
+      "current_sha256": "10645c15e79aefe8e29f3c54c373998890e032787ffa907a782a4dcb2886e599"
+    },
+    {
+      "path": "docs/RESEARCH_STATE.md",
+      "snapshot": "reference/round24_graph_semantics/snapshots/docs/RESEARCH_STATE.md",
+      "prior_sha256": "97883a04c6e512566286f73cc43bdcb9394db52a568cde7866eeb2fb1032f0e4",
+      "reason": "Add Round24 graph semantics and evidence v2.11.0; preserve reference and A-G statuses.",
+      "current_sha256": "9267cf750a3f71982fd370f6a76b9fdcd7aca171881adae1d2bd69cef863e74f"
+    },
+    {
+      "path": "scripts/verify_current_artifacts.py",
+      "snapshot": "reference/round24_graph_semantics/snapshots/scripts/verify_current_artifacts.py",
+      "prior_sha256": "510954ff6f6655a94323df17af4a7863d5c8cb9aa549c9a74c3621f0266e5855",
+      "reason": "Add Round24 graph semantics and evidence v2.11.0; preserve reference and A-G statuses.",
+      "current_sha256": "b0983c68965dfe22b1420259e24fbf6b88db28cb003e6207f6027782e6e7cdd8"
+    }
+  ]
+}

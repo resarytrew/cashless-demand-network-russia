@@ -41,6 +41,8 @@ async function load(){
   await document.fonts.ready;
   if(window.initAtlasMotion)await window.initAtlasMotion();else initReveal();
   initScrollChapters();
+  await window.initCartographicStory?.();
+  window.initStoryScroll?.();
   window.ScrollTrigger?.refresh();
   window.researchReady=true;
  }catch(error){$('load-status').replaceChildren(document.createTextNode('Не удалось загрузить атлас. Основные выводы и методология доступны ниже. '));const b=document.createElement('button');b.textContent='Повторить';b.onclick=()=>location.reload();$('load-status').append(b);console.error(error);}
@@ -58,11 +60,11 @@ function initHero(){
  const dots=data.municipalities.map(r=>{const a=anchors[letters.indexOf(r.profile)]||[510,360],theta=hash(r.id+1)*Math.PI*2,radius=Math.sqrt(hash(r.id+500))*65;return {r,x:a[0]+Math.cos(theta)*radius,y:a[1]+Math.sin(theta)*radius,theta};});
  function resize(){const dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(canvas.clientWidth*dpr);canvas.height=Math.round(canvas.clientHeight*dpr);const scale=Math.min(canvas.width/W,canvas.height/H);ctx.setTransform(scale,0,0,scale,(canvas.width-W*scale)/2,(canvas.height-H*scale)/2);draw();}
  function draw(){
-  ctx.clearRect(0,0,W,H);const mix=geoPoints?(reduced.matches?.35:scrollProgress):1;
+  ctx.clearRect(0,0,W,H);const mix=geoPoints?(reduced.matches?0:scrollProgress):1;
   if(mapImage){ctx.globalAlpha=(1-mix)*.5;ctx.drawImage(mapImage,0,0);ctx.globalAlpha=1;}
   for(const p of dots){const base=geoPoints?.get(p.r.id);const start=base||[510,700];const x=start[0]+(p.x-start[0])*mix,y=start[1]+(p.y-start[1])*mix;const wave=paused?0:Math.sin(time*.6+p.theta)*2;
    if(mix>.2&&p.r.id%3===0){ctx.beginPath();ctx.moveTo(x,y);ctx.bezierCurveTo(x+70,y-95,550+p.theta*25,300,560,365);ctx.strokeStyle=color(p.r.profile);ctx.lineWidth=.8;ctx.globalAlpha=.04*mix;ctx.stroke();}
-   ctx.globalAlpha=base||!geoPoints?.size? .8 : mix*.8;ctx.fillStyle=scrollProgress<.22?'#9aa2ad':color(p.r.profile);ctx.beginPath();ctx.arc(x,y+wave,2.25+(p.r.margin||0)*1.4,0,Math.PI*2);ctx.fill();
+   ctx.globalAlpha=base||!geoPoints?.size? .8 : mix*.8;ctx.fillStyle=scrollProgress<.22?'#cad8ed':color(p.r.profile);ctx.beginPath();ctx.arc(x,y+wave,2.25+(p.r.margin||0)*1.4,0,Math.PI*2);ctx.fill();
   }
   ctx.globalAlpha=1;
  }
@@ -73,7 +75,7 @@ function initHero(){
  $('motion-toggle').onclick=()=>pause(!paused);reduced.addEventListener('change',()=>pause(reduced.matches));
  new ResizeObserver(resize).observe(canvas);new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible)start();else{cancelAnimationFrame(frame);frame=0;}},{threshold:0}).observe(canvas);
  document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0;}else start();});
- loadGeometry().then(geo=>{const projection=d3.geoConicEqualArea().rotate([-100,0]).center([0,63]).parallels([50,70]).fitExtent([[35,110],[975,645]],geo),path=d3.geoPath(projection);geoPoints=new Map(geo.features.map(f=>[f.properties.id,path.centroid(f)]));mapImage=document.createElement('canvas');mapImage.width=W;mapImage.height=H;const mc=mapImage.getContext('2d'),mp=d3.geoPath(projection,mc);mc.fillStyle='#d2c8b8';for(const f of geo.features){mc.beginPath();mp(f);mc.fill();}draw();}).catch(()=>{/* The conceptual points remain available if geometry cannot load. */});
+ loadGeometry().then(geo=>{const projection=d3.geoConicEqualArea().rotate([-100,0]).center([0,63]).parallels([50,70]).fitExtent([[35,110],[975,645]],geo),path=d3.geoPath(projection);geoPoints=new Map(geo.features.map(f=>[f.properties.id,path.centroid(f)]));mapImage=document.createElement('canvas');mapImage.width=W;mapImage.height=H;const mc=mapImage.getContext('2d'),mp=d3.geoPath(projection,mc);mc.fillStyle='#68768f';for(const f of geo.features){mc.beginPath();mp(f);mc.fill();}draw();}).catch(()=>{/* The conceptual points remain available if geometry cannot load. */});
  resize();pause(paused);start();
 }
 

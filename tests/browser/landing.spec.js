@@ -4,8 +4,8 @@ const ready=async page=>{await page.goto('/');await page.waitForFunction(()=>win
 test('all published routes serve the same current Atlas',async({page})=>{
  for(const route of ['/','/atlas/','/site/']){
   await page.goto(route);await page.waitForFunction(()=>window.researchReady&&window.researchMapReady);
-  await expect(page.locator('h1')).toContainText('Похожие территории');
-  await expect(page.locator('[data-profile="A"]')).toContainText('Северный ресурсный');
+  await expect(page.locator('h1')).toContainText('У спроса своя');
+  await expect(page.locator('[data-profile="A"]')).toContainText('Удалённые территории');
   await page.locator('#municipality-search').fill('Казань');
   await expect(page.locator('#search-results button').first()).toContainText('Казань');
  }
@@ -13,7 +13,7 @@ test('all published routes serve the same current Atlas',async({page})=>{
 test('public journey, territory search and scientific details',async({page})=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));await ready(page);
  await expect(page.locator('.masthead nav a')).toHaveText(['Вопрос','Профили','Открытия','Границы','Изменения','Атлас','Методология']);
- await expect(page.locator('h1')).toContainText('Похожие территории');
+ await expect(page.locator('h1')).toContainText('У спроса своя');
  await expect(page.locator('#contrast-pair .place-contrast')).toHaveCount(2);
  await expect(page.locator('#engel-chart .engel-point')).toHaveCount(7);
  await expect(page.locator('#marketplace-scale .market-row')).toHaveCount(7);
@@ -119,11 +119,12 @@ test('every evidence-rich profile card is selectable and keeps its explicit stat
   await expect(page.locator('#profile-representatives li')).toHaveCount(3);
   await expect(page.locator('.profile-block')).toHaveCount(6);
   await expect(page.locator('#profile-demand')).not.toContainText('Total');
+  await expect(page.locator('#profile-demand')).not.toContainText('на жителя');
   await expect(page.locator('#profile-representatives')).not.toContainText('reference');
   await expect(page.locator('#profile-robustness')).not.toContainText('retention');
  }
  await page.locator('[data-profile="A"]').click();
- await expect(page.locator('#profile-name')).toHaveText('Северный ресурсный');
+ await expect(page.locator('#profile-name')).toHaveText('Удалённые территории');
  await expect(page.locator('#profile-status')).toHaveText('Статус: поддержан');
  await expect(page.locator('#profile-representatives li').first()).toContainText('золотодобывающая специализация');
  await expect(page.locator('#profile-external')).toContainText('северные и дальневосточные территории');
@@ -132,12 +133,12 @@ test('every evidence-rich profile card is selectable and keeps its explicit stat
  await page.locator('#profile-technical').click();
  await expect(page.locator('#profile-technical-content')).toContainText('точность границы 27,5%');
  await page.locator('[data-profile="B"]').click();
- await expect(page.locator('#profile-name')).toHaveText('Деловые районы мегаполисов');
+ await expect(page.locator('#profile-name')).toHaveText('Деловые центры Москвы');
  await page.locator('[data-profile="C"]').click();
  await expect(page.locator('#profile-representatives-title')).toHaveText('Иллюстративные случаи');
  await expect(page.locator('#profile-robustness')).toContainText('нет собственной устойчивой границы');
  await page.locator('[data-profile="E"]').click();
- await expect(page.locator('#profile-name')).toHaveText('Спальные районы мегаполисов');
+ await expect(page.locator('#profile-name')).toHaveText('Жилые районы мегаполисов');
  await page.locator('[data-profile="F"]').click();
  await expect(page.locator('#profile-representatives')).toContainText('Сторона D');
  await expect(page.locator('#profile-representatives')).toContainText('Сторона G');

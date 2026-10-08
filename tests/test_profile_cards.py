@@ -147,6 +147,20 @@ def test_scientific_status_and_sector_availability_are_explicit():
     assert set(available) | set(unavailable) == set(SECTOR_COLUMNS)
 
 
+def test_public_cards_use_readme_names_and_never_imply_a_per_capita_denominator():
+    expected_names = {
+        "A": "Удалённые территории",
+        "B": "Деловые центры Москвы",
+        "C": "Горная периферия",
+        "D": "Промышленные города",
+        "E": "Жилые районы мегаполисов",
+        "F": "Малые промышленные города",
+        "G": "Сельская бюджетная Россия",
+    }
+    assert {item["profile"]: item["display_name"] for item in CARDS["cards"]} == expected_names
+    assert "на жителя" not in json.dumps(CARDS, ensure_ascii=False).lower()
+
+
 def test_reader_copy_is_hand_written_and_internal_jargon_is_below_the_fold():
     required = {
         "subtitle", "who", "demand_lead", "interpretation", "counterexample",

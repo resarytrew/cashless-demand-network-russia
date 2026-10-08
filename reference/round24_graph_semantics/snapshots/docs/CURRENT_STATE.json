@@ -1,0 +1,184 @@
+{
+  "schema_version": 2,
+  "evidence_version": "2.10.0",
+  "atlas_version": "2.2.1",
+  "latest_research_round": 23,
+  "scientific_status_changes": false,
+  "reference_specification_changed": false,
+  "current_evidence_matrix": "outputs/evidence_v2_10_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.10.0.csv",
+  "scientific_status_registry": "outputs/round16_evidence/archetype_status_round16.csv",
+  "latest_research_audit": "outputs/round23_economic_mechanisms/ROUND23_AUDIT.md",
+  "round23_economic_mechanisms": {
+    "status": "COMPLETED_ADDITIVE_EXPLORATORY_MECHANISM_CHECKS",
+    "evidence_version": "2.10.0",
+    "config": "configs/round23_economic_mechanisms.yaml",
+    "report": "outputs/round23_economic_mechanisms/ROUND23_REPORT.md",
+    "audit": "outputs/round23_economic_mechanisms/ROUND23_AUDIT.md",
+    "summary": "outputs/round23_economic_mechanisms/round23_summary.json",
+    "baseline_freeze": "outputs/round23_economic_mechanisms/BASELINE_FREEZE.json",
+    "checksums": "outputs/round23_economic_mechanisms/checksums.sha256",
+    "profile_evidence_matrix": "outputs/evidence_v2_10_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.10.0.csv",
+    "evidence_update": "outputs/evidence_v2_10_0/ROUND23_EVIDENCE_UPDATE.md",
+    "result": "Initial Total/Marketplace growth and matched-basket differences supported observationally; proposed uncertainty, F/G substitution, digital convergence and inflation stories not supported",
+    "L1_changed": false,
+    "reference_specification_changed": false,
+    "A_G_status_changes": false,
+    "causal_claims": false
+  },
+  "round22_kefrin_benchmark": {
+    "status": "COMPLETED_ADDITIVE_METHOD_CLASS_SENSITIVITY",
+    "evidence_version": "2.9.0",
+    "config": "configs/round22_kefrin_benchmark.yaml",
+    "report": "outputs/round22_kefrin_benchmark/ROUND22_REPORT.md",
+    "audit": "outputs/round22_kefrin_benchmark/ROUND22_AUDIT.md",
+    "summary": "outputs/round22_kefrin_benchmark/round22_summary.json",
+    "baseline_freeze": "outputs/round22_kefrin_benchmark/BASELINE_FREEZE.json",
+    "checksums": "outputs/round22_kefrin_benchmark/checksums.sha256",
+    "profile_evidence_matrix": "outputs/evidence_v2_9_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.9.0.csv",
+    "evidence_update": "outputs/evidence_v2_9_0/ROUND22_EVIDENCE_UPDATE.md",
+    "result": "KEFRiNc agreement is modest and seed-dependent; Atlas uncertainty generalizes only partially",
+    "L1_changed": false,
+    "reference_specification_changed": false,
+    "A_G_status_changes": false,
+    "upstream_code_used": false
+  },
+  "round21_structural_sensitivity": {
+    "status": "COMPLETED_ADDITIVE_STRUCTURAL_SENSITIVITY",
+    "evidence_version": "2.8.0",
+    "config": "configs/round21_structural_sensitivity.yaml",
+    "report": "outputs/round21_structural_sensitivity/ROUND21_REPORT.md",
+    "audit": "outputs/round21_structural_sensitivity/ROUND21_AUDIT.md",
+    "summary": "outputs/round21_structural_sensitivity/round21_summary.json",
+    "baseline_freeze": "outputs/round21_structural_sensitivity/BASELINE_FREEZE.json",
+    "checksums": "outputs/round21_structural_sensitivity/checksums.sha256",
+    "profile_evidence_matrix": "outputs/round21_structural_sensitivity/profile_evidence_matrix.csv",
+    "evidence_update": "outputs/evidence_v2_8_0/ROUND21_EVIDENCE_UPDATE.md",
+    "result": "Omega=1 is predominantly coarsening but matched-K reveals boundary interaction; Atlas states separate sensitivity; adjusted sector association remains; block-balanced L2 is materially different",
+    "L1_changed": false,
+    "L2_changed": false,
+    "reference_omega_changed": false,
+    "A_G_status_changes": false
+  },
+  "round20_targeted_checks": {
+    "status": "COMPLETED_EXPLORATORY_TARGETED_CHECKS",
+    "evidence_version": "2.7.0",
+    "config": "configs/round20_targeted_checks.yaml",
+    "report": "outputs/round20_targeted_checks/ROUND20_REPORT.md",
+    "audit": "outputs/round20_targeted_checks/ROUND20_AUDIT.md",
+    "summary": "outputs/round20_targeted_checks/round20_summary.json",
+    "distance_contributions": "outputs/round20_targeted_checks/l2_distance_contributions.csv",
+    "evidence_update": "outputs/evidence_v2_7_0/ROUND20_EVIDENCE_UPDATE.md",
+    "result": "External differences remain after size/region controls; omega=1 materially changes exact boundaries; L2 edge distances are employment-heavy",
+    "L1_changed": false,
+    "L2_weights_changed": false,
+    "reference_omega_changed": false,
+    "A_G_status_changes": false
+  },
+  "round19_dual_lens_l2": {
+    "status": "COMPLETED_SEPARATE_ADDITIVE_L2",
+    "evidence_version": "2.6.0",
+    "config": "configs/round19_dual_lens_l2.yaml",
+    "report": "outputs/round19_dual_lens_l2/DUAL_LENS_L2_REPORT.md",
+    "audit": "outputs/round19_dual_lens_l2/ROUND19_AUDIT.md",
+    "summary": "outputs/round19_dual_lens_l2/round19_summary.json",
+    "profile_table": "outputs/round19_dual_lens_l2/l2_profile_table.csv",
+    "evidence_update": "outputs/evidence_v2_6_0/ROUND19_EVIDENCE_UPDATE.md",
+    "result": "L1 unchanged; L2 is a separate 1876-municipality attributed-network experiment; exact boundaries differ materially",
+    "L1_changed": false,
+    "reference_specification_changed": false,
+    "A_G_status_changes": false
+  },
+  "round17_external_validation": {
+    "status": "COMPLETED_EXTERNAL_INTERPRETATION_LAYER",
+    "evidence_version": "2.4.0",
+    "config": "configs/round17_external_validation.yaml",
+    "report": "outputs/round17_external_validation/INDEPENDENT_ECONOMIC_VALIDATION.md",
+    "audit": "outputs/round17_external_validation/RECOVERY_AUDIT.md",
+    "claim_evidence_matrix": "outputs/round17_external_validation/CLAIM_EVIDENCE_MATRIX_v2.4.0.csv"
+  },
+  "round18_representation_robustness": {
+    "status": "COMPUTED_DESCRIPTIVE_NOT_CONFIRMATORY",
+    "reference_config": "configs/round18_reference.yaml",
+    "r1_config": "configs/round18_r1_fivepart_clr.yaml",
+    "r2_config": "configs/round18_r2_observed_levels.yaml",
+    "summary": "outputs/round18_representation/round18_summary.json",
+    "audit": "outputs/round18_representation/ROUND18_AUDIT.md",
+    "evidence_update": "outputs/evidence_v2_5_0/ROUND18_EVIDENCE_UPDATE.md",
+    "result": "Material exact-partition dependence on representation; no A-G status or reference-specification change"
+  },
+  "current_submission": {
+    "correction_audit": "outputs/final_competition_upgrade/CORRECTION_AUDIT_v3.md",
+    "baseline_gate": "outputs/final_competition_upgrade/baseline_gate_before_v3_corrections/baseline_gate.json",
+    "edge_sensitivity": "outputs/final_competition_upgrade/edge_sensitivity_v3/edge_sensitivity.csv",
+    "icvi_v2": "outputs/final_competition_upgrade/icvi_v2/ICVI_REPORT.md",
+    "icvi_v2_audit": "outputs/final_competition_upgrade/icvi_v2/ICVI_V2_AUDIT.md",
+    "icvi_v2_canonical_table": "outputs/final_competition_upgrade/icvi_v2/canonical_icvi_v2.csv",
+    "icvi_v1_historical": "outputs/presubmission_upgrade/icvi/canonical_icvi.csv",
+    "synthetic_benchmark": "outputs/final_competition_upgrade/synthetic_temporal_v4/SYNTHETIC_TEMPORAL_REPORT.md",
+    "synthetic_benchmark_audit": "outputs/final_competition_upgrade/synthetic_temporal_v4/SYNTHETIC_TEMPORAL_V4_AUDIT.md",
+    "synthetic_benchmark_v3_historical": "outputs/final_competition_upgrade/synthetic_temporal_v3/SYNTHETIC_TEMPORAL_REPORT.md",
+    "national_external_validation": "outputs/final_competition_upgrade/external_validation_national_20261006_r6/NATIONAL_EXTERNAL_VALIDATION.md",
+    "story_contract": "outputs/final_competition_upgrade/story_data_v3/summary.json",
+    "profile_cards": "outputs/final_competition_upgrade/profile_cards_20261007_v3/profile_cards.json",
+    "profile_cards_audit": "outputs/final_competition_upgrade/profile_cards_20261007_v3/PROFILE_CARDS_AUDIT.md"
+  },
+  "icvi_reporting": {
+    "status": "COMPLETED_ADDITIVE_COMPATIBILITY_LAYER",
+    "config": "configs/icvi_v2.yaml",
+    "documentation": "docs/ICVI.md",
+    "output_dir": "outputs/final_competition_upgrade/icvi_v2",
+    "MQ_definition": "TurboMQ",
+    "Q_definition": "weighted Newman-Girvan modularity at resolution 1",
+    "historical_MQ_definition": "weighted Newman-Girvan modularity at resolution 1",
+    "canonical_fixed_partitions_recomputed": false,
+    "edge_grid_labels_replayed_because_not_saved": true,
+    "reference_specification_changed": false,
+    "scientific_status_changes": false
+  },
+  "synthetic_temporal_benchmark": {
+    "status": "COMPLETED_ADDITIVE_METHODOLOGICAL_CORRECTION",
+    "current_config": "configs/synthetic_temporal_benchmark_v4.yaml",
+    "current_report": "outputs/final_competition_upgrade/synthetic_temporal_v4/SYNTHETIC_TEMPORAL_REPORT.md",
+    "current_audit": "outputs/final_competition_upgrade/synthetic_temporal_v4/SYNTHETIC_TEMPORAL_V4_AUDIT.md",
+    "supersedes_for_synthetic_evaluation": "outputs/final_competition_upgrade/synthetic_temporal_v3/SYNTHETIC_TEMPORAL_REPORT.md",
+    "reason": "v3 flattened partition ARI is not suitable as the primary comparison metric for independently labelled monthly partitions.",
+    "real_data_recomputed": false,
+    "reference_omega_changed": false,
+    "scientific_status_changes": false
+  },
+  "engineering": {
+    "audit": "docs/ENGINEERING_HARDENING_20260922.md",
+    "atlas_config": "configs/stability_atlas_v2_2_1.yaml",
+    "atlas_findings": "docs/STABILITY_ATLAS_V2_2_FINDINGS.md",
+    "repository_restructure": "reference/repository_restructure_20261007/RESTRUCTURE_MANIFEST.json"
+  },
+  "verification_commands": [
+    "python -m pytest -q",
+    "python scripts/verify_current_artifacts.py",
+    "python scripts/verify_presubmission_current.py --skip-tests",
+    "python scripts/verify_repository_structure.py"
+  ],
+  "full_research_acceptance": false,
+  "limitations": [
+    "Total denominator and category additivity unresolved",
+    "The strict panel is not established as nationally representative",
+    "Exact boundaries depend materially on representation, graph construction and temporal coupling",
+    "Contextual controls without committed inputs remain historical-only",
+    "Atlas affinity shares are descriptive, not posterior probabilities",
+    "Round17 selected sample has 58 municipalities in 4 regions; B/E are absent and Altai F has n=1",
+    "External validation is observational and does not establish causal mechanisms",
+    "Nominal employee wages are not household income"
+    ,"L2 uses 1876 complete cases and excludes 28 reference municipalities"
+    ,"L2 temporal December has 41 communities including many isolate-linked micro-communities; five major profiles are descriptive, not five universal types"
+    ,"L2 mobility holdout exact-name coverage is 268/1876 and selected"
+    ,"Omega=1 sensitivity has only ARI 0.4070 / NMI 0.5547 to reference omega=2 in December; exact boundaries are coupling-dependent"
+    ,"Round20 residual associations are observational and do not establish causal mechanisms"
+    ,"Employment contributes about 52.1% of squared distance on L2 December graph edges despite 34.5% across all pairs"
+    ,"Matched-K omega control preserves B/E merge but not the joint C/D/F/G merge"
+    ,"Adjusted sector CLR partial R2 is 0.0361: detectable but small and observational"
+    ,"Both block-balanced L2 sensitivities differ materially from original L2; no alternative is selected"
+    ,"Round23 Marketplace/Food share correlation is compositionally constrained and does not identify grocery substitution"
+    ,"Round23 initial-Total association does not establish missing local retail"
+    ,"Round23 nominal Total dispersion is not a welfare measure and Food-share change is not an inflation measure"
+  ]
+}

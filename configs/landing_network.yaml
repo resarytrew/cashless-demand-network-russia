@@ -1,0 +1,9 @@
+schema_version: 1
+input: outputs/round23_economic_mechanisms/network_neighbor_geography_directed.csv
+municipalities: site/data/research.json
+output: site/data/network.json
+presentation:
+  ranks: [1, 2, 3]
+  initial_query: Казань
+  overview_stride: 16
+  examples: [Казань, Магнитогорск, Норильск, Якутск]

@@ -1,5 +1,26 @@
 # Hypothesis and Claims Ledger — Current Scientific Status
 
+## Round24 graph-semantics checks (evidence v2.11.0)
+
+### H31 — Matching global-threshold density preserves the local-kNN partition
+
+**Status: exact invariance not supported in the fixed comparison.** Epsilon
+matches 11,787 edges without using partition metrics, but creates 368 isolates
+and 422 components; static ARI=.413953. This strengthens the graph-construction
+dependence qualification, including changes in coverage. No epsilon is selected
+as a replacement and reference fallback is unchanged.
+
+### H32 — Co-movement of composition recovers the reference state partition
+
+**Status: not supported by this operationalization.** Six-component mean
+correlation of 23 CLR differences followed by mutual-k20 has static ARI=.089146
+and temporal-December ARI=.015667. Its 974 isolates materially limit the
+comparison: this does not establish absence of all shared dynamic structure.
+Common seasonality, CLR closure and the full-period/December scope difference
+remain caveats. No Total-level dynamics or causal mechanism is tested.
+
+All legacy A–G statuses, reference parameters, union-k20 and Atlas are unchanged.
+
 ## Round23 economic-mechanism diagnostics (evidence v2.10.0)
 
 ### H24 — Methodological uncertainty coincides with economic volatility

@@ -13,7 +13,7 @@ window.initResearchStory = function(cards, openProfile) {
   const status={SUPPORTED:'Поддержан',PRELIMINARY:'Предварительный',TRANSITION:'Переходный',UNRESOLVED:'Не разрешён'};
   const share=(card,key)=>card.demand.categories.find(item=>item.category===key)?.profile_median_share;
   const animate=target=>{if(window.gsap&&motion())gsap.fromTo(target,{opacity:.35,y:12},{opacity:1,y:0,duration:.45,overwrite:true,ease:'power2.out'});};
-  const refresh=()=>requestAnimationFrame(()=>window.ScrollTrigger?.refresh());
+  const refresh=()=>{if(!window.storyScrollUpdating)requestAnimationFrame(()=>window.ScrollTrigger?.refresh());};
 
   const mount=document.getElementById('comparison-desk');
   mount.innerHTML=`<div class="desk-toolbar"><span class="desk-caption">Выберите пару</span><div class="desk-pairs" role="group" aria-label="Сопоставимые пары">${[['E','Москва'],['G','Два района'],['D','Два города']].map(([key,label],index)=>`<button type="button" data-desk-pair="${key}" aria-pressed="${index===0}">${label}</button>`).join('')}</div><a href="data/profile_cards.json">Исходные значения ↗</a></div><div class="desk-headings" id="desk-headings"></div><div class="desk-metrics" id="desk-metrics"></div><div class="desk-insight" aria-live="polite" id="desk-insight"></div><p class="desk-footnote">Для каждой строки используется одна линейная шкала от нуля. Расходы — декабрь 2024 года; внешние показатели — 2024 год. Пары подобраны по внешним характеристикам, а не по сходству расходов.</p>`;
@@ -65,4 +65,33 @@ window.initResearchStory = function(cards, openProfile) {
   }
   spectrum.querySelectorAll('[data-spectrum-mode]').forEach(button=>button.onclick=()=>{all=button.dataset.spectrumMode==='all';drawSpectrum();});
   drawSpectrum();
+  window.initStoryScroll = function () {
+    // Scrolling exposes the narrative; controls allow optional revisiting.
+    const setup = (id, selector, steps, choose) => {
+      let last = -1;
+      ScrollTrigger.create({id: 'reading-' + id, trigger: selector, start: 'top 15%', end: 'bottom 55%',
+        onUpdate: self => {
+          if (!self.isActive) return;
+          const index = Math.min(steps.length - 1, Math.floor(self.progress * steps.length));
+          if (index !== last) {last = index;window.storyScrollUpdating=true;try{choose(steps[index]);}finally{window.storyScrollUpdating=false;}}
+        }
+      });
+    };
+    setup('pairs', '#crack', ['E', 'G', 'D'], drawPair);
+    setup('spectrum', '#answer', [false, true], value => {all = value;drawSpectrum();});
+    setup('measures', '#question', ['spending', 'wage', 'population'], key => document.querySelector(`[data-hypothesis="${key}"]`).click());
+    const walk = document.createElement('div');
+    walk.className = 'profile-walk';
+    walk.setAttribute('aria-label', 'Семь профилей спроса');
+    walk.innerHTML = [...'GFDEBAC'].map(key => {
+      const card = byProfile.get(key);
+      return `<article class="walk-portrait"><div class="walk-letter" aria-hidden="true">${key}</div><div><p class="walk-status">${status[card.status]} · ${fmt.format(card.n)} территорий</p><h3>${escape(card.display_name)}</h3><p>${escape(card.public_copy.interpretation)}</p><div class="walk-measures"><div><strong>${fmt.format(card.demand.total_median)} ₽</strong><span>общий показатель расходов</span></div><div><strong>${percent(share(card,'Catering'))}</strong><span>доля общепита</span></div><div><strong>${percent(share(card,'Marketplace'))}</strong><span>доля маркетплейсов</span></div></div></div></article>`;
+    }).join('');
+    document.querySelector('#profiles .status-legend').after(walk);
+    walk.querySelectorAll('article').forEach(article => ScrollTrigger.create({
+      trigger: article, start: 'top 80%', onEnter: () => article.classList.add('walk-visible'),
+      onEnterBack: () => article.classList.add('walk-visible')
+    }));
+    ScrollTrigger.refresh();
+  };
 };

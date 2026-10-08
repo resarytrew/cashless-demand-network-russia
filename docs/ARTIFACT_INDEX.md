@@ -1,5 +1,18 @@
 # Artifact Index — What Codex Should Look At
 
+## Current graph-semantics comparison — Round24 / evidence v2.11.0
+
+- `configs/round24_graph_semantics.yaml` and `docs/ROUND24_PROTOCOL.md`: fixed
+  epsilon calibration and six-CLR-component co-dynamics definitions.
+- `outputs/round24_graph_semantics/`: fresh exact baseline gate, protected-input
+  freeze, epsilon calibration, feature tensors/axes, four fixed-seed graph runs,
+  sparse edges, labels, component/degree tables, ICVI, static/temporal crosswalks,
+  profile retention/precision, report, audit, manifest and completion hashes.
+- `outputs/evidence_v2_11_0/`: additive master matrix and Round24 evidence update.
+
+No winner is selected. Equal edge count leaves epsilon fragmented; mutual-k20
+co-dynamics is still more fragmented. Reference/union/A–G/Atlas remain unchanged.
+
 ## Current mechanism diagnostics — Round23 / evidence v2.10.0
 
 - `configs/round23_economic_mechanisms.yaml`: frozen definitions, endpoints,

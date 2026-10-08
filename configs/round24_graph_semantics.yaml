@@ -1,0 +1,60 @@
+experiment:
+  id: round24_graph_semantics
+  evidence_version: 2.11.0
+  output_dir: outputs/round24_graph_semantics
+  evidence_dir: outputs/evidence_v2_11_0
+  source_config: configs/baseline.yaml
+  reference_month: '2024-12-01'
+  panel_n: 1904
+  months: 24
+  previous_matrix: outputs/evidence_v2_10_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.10.0.csv
+  historical_edge_table: outputs/final_competition_upgrade/icvi_v2/edge_icvi_v2.csv
+  saved_graph_checksums: outputs/presubmission_upgrade/baseline_gate/graph_checksums.json
+  protected_paths:
+    - configs/baseline.yaml
+    - outputs/baseline
+    - outputs/stability_atlas_v2_2_1
+    - outputs/round16_evidence/archetype_status_round16.csv
+    - outputs/final_competition_upgrade/edge_sensitivity_v3
+    - outputs/final_competition_upgrade/icvi_v2
+    - outputs/evidence_v2_10_0
+graph:
+  k: 20
+  kernel: adaptive_rbf
+  kernel_denominator_epsilon: 1.0e-12
+  clustering_resolution: 0.5
+  seed: 0
+  reference_static_fallback: true
+  union_static_fallback: true
+epsilon:
+  test_id: R24_EPSILON_L1_EDGE_MATCHED
+  geometry: reference_L1_lens_euclidean_CLR_plus_level
+  target_edges: 11787
+  threshold_rule: target_edge_order_statistic_all_unordered_pairs
+  ties: include_all_at_threshold
+  isolate_fallback: false
+  bandwidth: same_reference_kth_neighbor_distance
+dynamics:
+  test_id: R24_DELTA_CLR_MEAN_CORRELATION_MUTUAL20
+  features: six_unscaled_CLR_composition_components
+  parts: [Food, Health, Catering, Marketplace, Transport, Other]
+  include_total_level: false
+  difference_order: 1
+  correlation: pearson
+  component_aggregation: equal_mean
+  constant_component_policy: fail
+  centered_norm_tolerance: 1.0e-12
+  distance: sqrt_2_times_one_minus_mean_correlation
+  tie_break: ascending_panel_index
+  isolate_fallback: false
+  remove_common_month_effect: false
+  rolling_windows: false
+reporting:
+  comparison_scopes: [static_december_reference, temporal_december_reference]
+  icvi_feature_space: reference_december_L1
+  graph_metrics_comparable_as_ranking: false
+  profile_map: {A: 1, B: 3, C: 7, D: 8, E: 9, F: 10, G: 11}
+  numeric_atol: 1.0e-12
+  numeric_rtol: 1.0e-10
+  select_winner: false
+  change_A_G_statuses: false

@@ -22,6 +22,8 @@ REQUIRED = (
     "outputs/round21_structural_sensitivity",
     "outputs/round22_kefrin_benchmark",
     "outputs/round23_economic_mechanisms",
+    "outputs/round24_graph_semantics",
+    "outputs/evidence_v2_11_0",
     "outputs/evidence_v2_5_0",
     "outputs/evidence_v2_6_0",
     "outputs/evidence_v2_7_0",
@@ -101,10 +103,10 @@ def verify(root: Path = ROOT) -> dict[str, object]:
         raise ValueError(f"Expected one canonical docs/METHODOLOGY.md: {methodology_names}")
 
     state = json.loads((root / "docs/CURRENT_STATE.json").read_text(encoding="utf-8"))
-    if state.get("schema_version") != 2 or state.get("evidence_version") != "2.10.0":
-        raise ValueError("CURRENT_STATE does not identify schema 2 / evidence 2.10.0")
-    if state.get("latest_research_round") != 23:
-        raise ValueError("CURRENT_STATE does not identify Round23 as latest")
+    if state.get("schema_version") != 2 or state.get("evidence_version") != "2.11.0":
+        raise ValueError("CURRENT_STATE does not identify schema 2 / evidence 2.11.0")
+    if state.get("latest_research_round") != 24:
+        raise ValueError("CURRENT_STATE does not identify Round24 as latest")
     if state.get("scientific_status_changes") is not False:
         raise ValueError("current additive rounds must not be recorded as an A-G status change")
 
@@ -116,6 +118,7 @@ def verify(root: Path = ROOT) -> dict[str, object]:
     pointers.extend(state["round21_structural_sensitivity"][key] for key in ("config", "report", "audit", "summary", "baseline_freeze", "checksums", "profile_evidence_matrix", "evidence_update"))
     pointers.extend(state["round22_kefrin_benchmark"][key] for key in ("config", "report", "audit", "summary", "baseline_freeze", "checksums", "profile_evidence_matrix", "evidence_update"))
     pointers.extend(state["round23_economic_mechanisms"][key] for key in ("config", "report", "audit", "summary", "baseline_freeze", "checksums", "profile_evidence_matrix", "evidence_update"))
+    pointers.extend(state["round24_graph_semantics"][key] for key in ("config", "protocol", "report", "audit", "summary", "baseline_freeze", "completion", "profile_evidence_matrix", "evidence_update"))
     pointers.extend(state["synthetic_temporal_benchmark"][key] for key in ("current_config", "current_report", "current_audit", "supersedes_for_synthetic_evaluation"))
     pointers.extend(state["icvi_reporting"][key] for key in ("config", "documentation", "output_dir"))
     pointers.extend(state["current_submission"].values())
