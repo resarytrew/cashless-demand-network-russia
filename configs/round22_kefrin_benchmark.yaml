@@ -1,0 +1,76 @@
+experiment:
+  id: round22_kefrin_benchmark
+  output_dir: outputs/round22_kefrin_benchmark
+  evidence_version: 2.9.0
+  additive_only: true
+  implementation: independent_from_published_equations
+
+reference:
+  config: configs/baseline.yaml
+  period: '2024-12-01'
+  panel_n: 1904
+  months: 24
+  k: 20
+  edge_rule: mutual_knn
+  kernel: adaptive_rbf
+  static_isolate_fallback: true
+  resolution: 0.5
+  louvain_seed: 0
+  omega: 2.0
+  feature_matrix: reference_L1_december
+  graph: outputs/presubmission_upgrade/baseline_gate/baseline_graphs.pkl
+  static_labels: outputs/baseline/static_dec2024_labels.csv
+  temporal_labels: outputs/baseline/supra_labels.csv
+  profile_mapping: outputs/final_competition_upgrade/profile_mapping/raw_to_profile_mapping.csv
+  atlas_assignments: outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv
+  icvi_v2_table: outputs/final_competition_upgrade/icvi_v2/canonical_icvi_v2.csv
+  fixed_method_labels_dir: outputs/round16_benchmark
+  round21_dir: outputs/round21_structural_sensitivity
+  original_l2_labels: outputs/round19_dual_lens_l2/l2_supra_labels.csv
+
+kefrin:
+  method: KEFRiNc
+  k_clusters: 9
+  distance: cosine
+  feature_preprocessing: column_zscore_population_std
+  network_preprocessing: weighted_modularity_residual
+  feature_weight_rho: 1.0
+  network_weight_xi: 1.0
+  seed_initialization: random_first_then_maximum_sum_combined_distance
+  seed_primary: 0
+  seed_grid: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  n_init_per_seed: 1
+  stopping_rule: assignments_unchanged
+  max_iterations_safety_cap: 1000
+  empty_cluster_policy: explicit_failure
+  objective_selection_across_seeds: false
+  parameters_source: Shalileh_and_Mirkin_2022_paper
+  publication_doi: 10.3390/e24050626
+  upstream_repository: https://github.com/Sorooshi/KEFRiN
+  upstream_commit: f9f96b1a778cb8d2e5ba85baae452dc813c4f110
+  upstream_license_status: unverified_readme_claim_only_no_LICENSE_file
+  upstream_code_used: false
+
+evaluation:
+  icvi_v2: true
+  atlas_stratification: true
+  external_validation: true
+  method_agreement: true
+  wilson_z: 1.959963984540054
+  external_permutations: 1999
+  external_seed: 20261008
+  bootstrap_reps: 1999
+
+optional:
+  monthly: false
+  canus: false
+  parameter_sensitivity: false
+  secondary_k10: false
+
+claims:
+  model_selection_round: false
+  independent_data_validation: false
+  held_out_algorithm_family: true
+  baseline_retuning: false
+  change_reference: false
+  change_A_G: false

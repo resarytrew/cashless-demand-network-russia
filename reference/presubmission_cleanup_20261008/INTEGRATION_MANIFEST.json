@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "PRESUBMISSION_CLEANUP",
+  "date": "2026-10-08",
+  "predecessor": "reference/round23_economic_mechanisms/INTEGRATION_MANIFEST.json",
+  "scientific_status_changes": 0,
+  "reference_specification_changed": false,
+  "transitions": [
+    {
+      "path": "README.md",
+      "prior_sha256": "7bba915fee267384e898909d5012d225bdd38f1bebf3ad9459344577cfd08e70",
+      "current_sha256": "dd29f445d0e5f5b57ee40b08d9aba5e1576f66bb6043a2fed096a2f566fd28f4",
+      "reason": "Replace the technical entry page with the compact jury-facing narrative; no research result, model input, or scientific status changes."
+    },
+    {
+      "path": "scripts/verify_current_artifacts.py",
+      "prior_sha256": "dd48c2990ba8642e2c4bb7db9d1990d320e9997954fe55b0d7df66602475f37c",
+      "current_sha256": "4b32162bb5a1eb13dd369b3b1139a978401c5e14a565ce73ebf876851c919f5e",
+      "reason": "Extend integrity verification with the explicitly authenticated presubmission transition."
+    }
+  ]
+}

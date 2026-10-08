@@ -22,7 +22,7 @@ def card(profile: str) -> dict:
 
 def test_profile_card_contract_counts_and_public_statuses():
     cards = CARDS["cards"]
-    assert CARDS["schema"] == 3
+    assert CARDS["schema"] == 4
     assert CARDS["reference_month"] == "2024-12"
     assert [item["profile"] for item in cards] == list("ABCDEFG")
     assert [item["status"] for item in cards] == [
@@ -147,10 +147,39 @@ def test_scientific_status_and_sector_availability_are_explicit():
     assert set(available) | set(unavailable) == set(SECTOR_COLUMNS)
 
 
+def test_reader_copy_is_hand_written_and_internal_jargon_is_below_the_fold():
+    required = {
+        "subtitle", "who", "demand_lead", "interpretation", "counterexample",
+        "reliability", "boundary", "use", "avoid", "table_categories",
+        "representative_reasons",
+    }
+    forbidden = [
+        "supported", "preliminary", "unresolved", "transition", "reference ",
+        "retention", "boundary precision", "jaccard", "5-part", "5-levels", "total",
+    ]
+    for item in CARDS["cards"]:
+        copy = item["public_copy"]
+        assert required.issubset(copy)
+        assert 3 <= len(copy["table_categories"]) <= 4
+        assert "Other" not in copy["table_categories"]
+        assert set(copy["representative_reasons"]) == {
+            representative["name"] for representative in item["representatives"]
+        }
+        assert all(representative["public_reason"] for representative in item["representatives"])
+        reader_text = " ".join(str(value) for value in copy.values()).lower()
+        assert not [token for token in forbidden if token in reader_text]
+        assert item["robustness_wording"]["core"] in {
+            "ядро устойчиво", "ядро в целом устойчиво", "ядро неустойчиво",
+        }
+        assert item["robustness_wording"]["boundary"] in {
+            "граница размыта", "точная граница проверяется отдельно",
+        }
+
+
 def test_public_payload_provenance_is_self_describing():
     provenance = CARDS["provenance"]
-    assert provenance["experiment_id"] == "profile_cards_20261007_v3"
-    assert provenance["generator_version"] == 3
+    assert provenance["experiment_id"] == "profile_cards_20261008_v4"
+    assert provenance["generator_version"] == 4
     assert provenance["evidence_matrix"].endswith("MASTER_PROFILE_EVIDENCE_MATRIX_v2.2.0.csv")
     assert provenance["script_sha256"] == sha256(ROOT / "scripts/build_profile_cards.py")
     assert provenance["git_commit"]
@@ -168,7 +197,7 @@ def test_payload_is_finite_and_pure_build_is_deterministic():
             assert math.isfinite(value)
 
     walk(CARDS)
-    cfg = yaml.safe_load((ROOT / "configs/profile_cards_20261007.yaml").read_text(encoding="utf-8"))
+    cfg = yaml.safe_load((ROOT / "configs/profile_cards_20261008_v4.yaml").read_text(encoding="utf-8"))
     first = build(cfg)[:3]
     second = build(cfg)[:3]
     assert first == second

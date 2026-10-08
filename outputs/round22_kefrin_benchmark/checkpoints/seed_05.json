@@ -1,0 +1,18 @@
+{
+  "seed": 5,
+  "objective": 1889.2283240022678,
+  "iterations": 20,
+  "converged": true,
+  "seed_indices": [
+    1277,
+    1886,
+    538,
+    1062,
+    130,
+    961,
+    499,
+    833,
+    1422
+  ],
+  "runtime_seconds": 0.6874262999044731
+}

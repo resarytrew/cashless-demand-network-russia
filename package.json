@@ -2,7 +2,7 @@
   "name": "cashless-demand-research-exhibition",
   "private": true,
   "scripts": {
-    "build:site": "python scripts/build_landing_data.py",
+    "build:site": "python scripts/build_landing_data.py && python scripts/package_site.py",
     "test:site": "playwright test",
     "pdf": "node scripts/export_landing_pdf.mjs"
   },

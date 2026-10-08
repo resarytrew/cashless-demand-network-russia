@@ -1,0 +1,101 @@
+{
+  "total_seconds_before_reporting": 215.94426360004582,
+  "seed_runs": [
+    {
+      "seed": 0,
+      "K": 9,
+      "objective": 1887.6664538529026,
+      "iterations": 20,
+      "converged": true,
+      "runtime_seconds": 0.5557574999984354,
+      "seed_indices": "1619;607;556;497;1410;380;1719;1341;1277"
+    },
+    {
+      "seed": 1,
+      "K": 9,
+      "objective": 1911.3713049022624,
+      "iterations": 20,
+      "converged": true,
+      "runtime_seconds": 0.5949774000328034,
+      "seed_indices": "900;664;1749;836;578;1893;1048;1633;1472"
+    },
+    {
+      "seed": 2,
+      "K": 9,
+      "objective": 1884.7656299290097,
+      "iterations": 21,
+      "converged": true,
+      "runtime_seconds": 0.8423334000399336,
+      "seed_indices": "1594;1386;1597;1512;1023;252;1235;1341;1483"
+    },
+    {
+      "seed": 3,
+      "K": 9,
+      "objective": 1887.7542085662972,
+      "iterations": 20,
+      "converged": true,
+      "runtime_seconds": 0.6163012000033632,
+      "seed_indices": "1545;991;949;216;651;1401;1536;85;1462"
+    },
+    {
+      "seed": 4,
+      "K": 9,
+      "objective": 1880.4917846504325,
+      "iterations": 34,
+      "converged": true,
+      "runtime_seconds": 1.1052656999090686,
+      "seed_indices": "1383;525;1603;284;597;802;817;14;1888"
+    },
+    {
+      "seed": 5,
+      "K": 9,
+      "objective": 1889.2283240022678,
+      "iterations": 20,
+      "converged": true,
+      "runtime_seconds": 0.6874262999044731,
+      "seed_indices": "1277;1886;538;1062;130;961;499;833;1422"
+    },
+    {
+      "seed": 6,
+      "K": 9,
+      "objective": 1894.901816531857,
+      "iterations": 20,
+      "converged": true,
+      "runtime_seconds": 0.6082988999551162,
+      "seed_indices": "847;1037;1597;437;734;340;1447;1478;1843"
+    },
+    {
+      "seed": 7,
+      "K": 9,
+      "objective": 1880.128017454424,
+      "iterations": 23,
+      "converged": true,
+      "runtime_seconds": 0.6630121999187395,
+      "seed_indices": "1799;671;283;491;761;1472;1703;153;1633"
+    },
+    {
+      "seed": 8,
+      "K": 9,
+      "objective": 1878.8369633220434,
+      "iterations": 32,
+      "converged": true,
+      "runtime_seconds": 0.8945587000343949,
+      "seed_indices": "1370;1482;100;1498;1573;1068;1687;607;1391"
+    },
+    {
+      "seed": 9,
+      "K": 9,
+      "objective": 1883.7458335564734,
+      "iterations": 22,
+      "converged": true,
+      "runtime_seconds": 0.6134329000487924,
+      "seed_indices": "802;108;1533;608;1352;969;1418;72;1619"
+    }
+  ],
+  "estimated_peak_working_memory_mb": 28.5443115234375,
+  "dense_network_matrix_mb": 27.658203125,
+  "N": 1904,
+  "feature_dimensions": 7,
+  "network_dimensions": 1904,
+  "total_seconds": 216.04497010004707
+}

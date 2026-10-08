@@ -1,0 +1,24 @@
+{
+  "experiment": "round23_economic_mechanisms",
+  "timestamp_utc": "2026-10-07T22:49:46.095024+00:00",
+  "git_commit": "ee739ccb6b39555f84280911c0c500ab42f73b35",
+  "dirty_worktree": true,
+  "config": "configs/round23_economic_mechanisms.yaml",
+  "config_sha256": "f0ab4fea280869961ef6aff0c3bb3d9a1cfb68d0a57e2ca850355535cbefafa1",
+  "implementation": {
+    "scripts/run_round23_economic_mechanisms.py": "f03ba891a19c3fd2574828784327c17b1162c6e9b47bd826906bfe9a23509ff9",
+    "src/sbernet/economic_mechanisms.py": "84944ce45bb5660f53287d3ddf1ecdc1e8e5104c5f2c121a179a5990b5635eec"
+  },
+  "python": "3.13.6",
+  "numpy": "2.4.4",
+  "pandas": "2.3.3",
+  "scipy": "1.16.3",
+  "sklearn": "1.7.2",
+  "networkx": "3.6.1",
+  "permutation_reps": 4999,
+  "bootstrap_reps": 4999,
+  "seed": 20261009,
+  "baseline_reproduction": "PASS",
+  "final_hash_gate": "PASS",
+  "runtime_seconds": 31.14025329996366
+}

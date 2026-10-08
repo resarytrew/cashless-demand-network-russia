@@ -18,6 +18,17 @@ from scipy.spatial.distance import pdist
 
 
 PROFILES = list("ABCDEFG")
+PUBLIC_COPY_FIELDS = (
+    "subtitle",
+    "who",
+    "demand_lead",
+    "interpretation",
+    "counterexample",
+    "reliability",
+    "boundary",
+    "use",
+    "avoid",
+)
 CATEGORY_LABELS = {
     "Food": "Продовольствие",
     "Health": "Здоровье",
@@ -196,6 +207,61 @@ def aggregate_perturbations(raw: pd.DataFrame) -> pd.DataFrame:
     if set(grouped.index) != set(PROFILES) or not grouped.runs.eq(50).all():
         raise ValueError("Expected exactly 50 canonical perturbation runs for every A-G profile")
     return grouped
+
+
+def public_copy(profile: str, profile_cfg: dict, selected: pd.DataFrame) -> dict:
+    """Validate and return the hand-written reader layer for one profile."""
+    copy = profile_cfg.get("public_copy")
+    if not isinstance(copy, dict):
+        raise ValueError(f"Missing hand-written public_copy for {profile}")
+    missing = [field for field in PUBLIC_COPY_FIELDS if not str(copy.get(field, "")).strip()]
+    if missing:
+        raise ValueError(f"Public copy for {profile} lacks {missing}")
+    categories = copy.get("table_categories")
+    if not isinstance(categories, list) or not (3 <= len(categories) <= 4):
+        raise ValueError(f"Public copy for {profile} needs 3-4 table_categories")
+    unknown = sorted(set(categories) - set(CATEGORY_LABELS))
+    if unknown or "Other" in categories:
+        raise ValueError(f"Invalid public table categories for {profile}: {unknown or ['Other']}")
+    reasons = copy.get("representative_reasons")
+    if not isinstance(reasons, dict):
+        raise ValueError(f"Public copy for {profile} needs representative_reasons")
+    selected_names = selected.municipality.tolist()
+    if set(reasons) != set(selected_names):
+        raise ValueError(
+            f"Representative copy for {profile} does not match deterministic selection"
+        )
+    forbidden = ("SUPPORTED", "PRELIMINARY", "UNRESOLVED", "TRANSITION", "reference ",
+                 "retention", "boundary precision", "Jaccard", "5-part", "5-levels", "Total")
+    public_text = " ".join(str(value) for key, value in copy.items() if key != "technical_note")
+    leaked = [token for token in forbidden if token.lower() in public_text.lower()]
+    if leaked:
+        raise ValueError(f"Internal jargon leaked into public copy for {profile}: {leaked}")
+    return clean(copy)
+
+
+def robustness_wording(robustness: dict, thresholds: dict) -> dict:
+    """Convert checked robustness metrics into the public vocabulary configured in YAML."""
+    retention = robustness["perturbation_retention_mean"]
+    if retention >= float(thresholds["core_stable_min"]):
+        core = "ядро устойчиво"
+    elif retention >= float(thresholds["core_generally_stable_min"]):
+        core = "ядро в целом устойчиво"
+    else:
+        core = "ядро неустойчиво"
+    boundary_precision = min(
+        robustness["r1_fivepart_precision"], robustness["r2_observed_levels_precision"]
+    )
+    boundary = (
+        "граница размыта"
+        if boundary_precision < float(thresholds["boundary_diffuse_below"])
+        else "точная граница проверяется отдельно"
+    )
+    return {
+        "core": core,
+        "boundary": boundary,
+        "basis": "perturbation_retention_mean+minimum_representation_precision",
+    }
 
 
 def build(cfg: dict) -> tuple[dict, list[dict], list[dict], dict[str, Path]]:
@@ -541,6 +607,16 @@ def build(cfg: dict) -> tuple[dict, list[dict], list[dict], dict[str, Path]]:
             "r2_observed_levels_destination_n": int(r2.destination_n),
             "boundary_examples": boundary,
         }
+        wording = None
+        if int(exp["generator_version"]) >= 4:
+            wording = robustness_wording(robustness, exp["public_wording_thresholds"])
+
+        copy = None
+        if int(exp["generator_version"]) >= 4:
+            copy = public_copy(profile, cfg["profiles"][profile], selected)
+            reason_by_name = copy["representative_reasons"]
+            for representative in representatives:
+                representative["public_reason"] = reason_by_name[representative["name"]]
 
         cards.append(
             clean(
@@ -577,6 +653,8 @@ def build(cfg: dict) -> tuple[dict, list[dict], list[dict], dict[str, Path]]:
                     },
                     "counterexample": counterexample,
                     "robustness": robustness,
+                    **({"robustness_wording": wording} if wording is not None else {}),
+                    **({"public_copy": copy} if copy is not None else {}),
                 }
             )
         )
@@ -584,7 +662,7 @@ def build(cfg: dict) -> tuple[dict, list[dict], list[dict], dict[str, Path]]:
     major_profile_n = sum(card["n"] for card in cards)
     technical_micro_n = int(exp["reference_n"] - major_profile_n)
     payload = {
-        "schema": 3,
+        "schema": int(exp["generator_version"]),
         "generated_from_saved_artifacts": True,
         "reference_month": reference_month,
         "reference_n": exp["reference_n"],
@@ -667,6 +745,7 @@ def main(config_path: str, force: bool = False) -> None:
         "Robustness combines frozen Atlas consensus/leave-one-family-out summaries, canonical n=50 perturbations, and the two saved representation variants. High retention is reported separately from destination precision.",
         "For every alternative representation the card reports both reference retention and destination precision. For the n=50 perturbation it also reports the 10th percentile, so the mean cannot hide the lower tail.",
         "F is not represented by three medoids: it deliberately exposes a D-leaning case, a G-leaning case, and the smallest Atlas affinity margin. C labels its examples as illustrative rather than characteristic.",
+        "The reader layer is hand-written in YAML. The generator supplies checked medians, ratios, representatives, counterexamples and robustness metrics; internal jargon is confined to technical details.",
         "Public names avoid interpreting Total as consumer activity because the denominator of Total is not established.",
         f"A-G cards cover {payload['major_profile_n']} municipalities ({payload['major_profile_share']:.4%}); {payload['technical_micro_n']} technical micro-community cases remain outside A-G.",
         "Counterexample stability and scale-match quality are separate fields. Match quality is based on the maximum absolute population, wage or employment difference, with thresholds declared in YAML.",
@@ -706,7 +785,7 @@ def main(config_path: str, force: bool = False) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--config", default="configs/profile_cards_20261007.yaml")
+    parser.add_argument("--config", default="configs/profile_cards_20261008_v4.yaml")
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
     main(args.config, force=args.force)

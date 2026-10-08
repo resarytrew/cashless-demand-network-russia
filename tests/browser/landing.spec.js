@@ -1,19 +1,25 @@
 const { test, expect } = require('@playwright/test');
 test.beforeEach(async({page})=>{await page.emulateMedia({reducedMotion:'reduce'});});
 const ready=async page=>{await page.goto('/');await page.waitForFunction(()=>window.researchReady&&window.researchMapReady);};
-test('root and Atlas route serve the presentation Atlas',async({page})=>{
- for(const route of ['/','/atlas/']){
+test('all published routes serve the same current Atlas',async({page})=>{
+ for(const route of ['/','/atlas/','/site/']){
   await page.goto(route);await page.waitForFunction(()=>window.researchReady&&window.researchMapReady);
-  await expect(page.locator('h1')).toContainText('скрытая география');
+  await expect(page.locator('h1')).toContainText('Россия тратит');
+  await expect(page.locator('[data-profile="A"]')).toContainText('Северный ресурсный');
   await page.locator('#municipality-search').fill('Казань');
   await expect(page.locator('#search-results button').first()).toContainText('Казань');
  }
 });
 test('public journey, territory search and scientific details',async({page})=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));await ready(page);
- await expect(page.locator('.masthead nav a')).toHaveText(['Исследовать','Профили','Изменения','Атлас','Методология']);
- await expect(page.locator('h1')).toContainText('скрытая география');
- await page.locator('.primary-link').click();await expect(page.locator('#municipality-search')).toBeInViewport();
+ await expect(page.locator('.masthead nav a')).toHaveText(['Вопрос','Профили','Открытия','Границы','Изменения','Атлас','Методология']);
+ await expect(page.locator('h1')).toContainText('Россия тратит');
+ await expect(page.locator('#contrast-pair .place-contrast')).toHaveCount(2);
+ await expect(page.locator('#engel-chart .engel-point')).toHaveCount(7);
+ await expect(page.locator('#marketplace-scale .market-row')).toHaveCount(7);
+ await expect(page.locator('#city-function .people-card')).toHaveCount(2);
+ await page.locator('.hero .primary-link').click();await expect(page.locator('#question-title')).toBeInViewport();
+ await page.evaluate(()=>window.atlasNavigate(document.querySelector('#atlas')));await expect(page.locator('#municipality-search')).toBeInViewport();
  await page.locator('#municipality-search').fill('Казань');await page.keyboard.press('Enter');
  await expect(page.locator('#municipality-detail h3')).toHaveText('Казань');
  await expect(page.locator('.trajectory i')).toHaveCount(24);
@@ -109,39 +115,40 @@ test('every evidence-rich profile card is selectable and keeps its explicit stat
   await expect(page.locator(`[data-profile="${profile}"]`)).toHaveAttribute('aria-pressed','true');
   await expect(page.locator('#profile-code')).toHaveText(`Профиль ${profile}`);
   await expect(page.locator('#profile-status')).not.toBeEmpty();
-  await expect(page.locator('#profile-territories')).toContainText('Территории:');
+  await expect(page.locator('#profile-territories')).toContainText('выборки');
   await expect(page.locator('#profile-representatives li')).toHaveCount(3);
- await expect(page.locator('.profile-block')).toHaveCount(6);
+  await expect(page.locator('.profile-block')).toHaveCount(6);
+  await expect(page.locator('#profile-demand')).not.toContainText('Total');
+  await expect(page.locator('#profile-representatives')).not.toContainText('reference');
+  await expect(page.locator('#profile-robustness')).not.toContainText('retention');
  }
  await page.locator('[data-profile="A"]').click();
- await expect(page.locator('#profile-name')).toHaveText('Высокоинтенсивный профиль безналичного спроса');
- await expect(page.locator('#profile-status')).toContainText('ядро выражено, границы размыты');
- await expect(page.locator('#profile-representatives li').first()).toContainText('1-е место из 141');
- await expect(page.locator('#profile-external')).toContainText('n=140');
- await expect(page.locator('#profile-robustness')).toContainText('boundary precision 27,5%');
- await expect(page.locator('#profile-robustness')).toContainText('90% запусков: retention ≥ 87,9%');
- await expect(page.locator('#profile-counterexample')).toContainText('ближайший устойчивый контрпример, но не близкий аналог по масштабу');
- await expect(page.locator('#profile-counterexample')).toContainText('качество сопоставления масштаба: weak');
+ await expect(page.locator('#profile-name')).toHaveText('Северный ресурсный');
+ await expect(page.locator('#profile-status')).toHaveText('Статус: поддержан');
+ await expect(page.locator('#profile-representatives li').first()).toContainText('золотодобывающая специализация');
+ await expect(page.locator('#profile-external')).toContainText('северные и дальневосточные территории');
+ await expect(page.locator('#profile-robustness')).toContainText('Ядро устойчиво');
+ await expect(page.locator('#profile-counterexample')).toContainText('Лаишевский район');
+ await page.locator('#profile-technical').click();
+ await expect(page.locator('#profile-technical-content')).toContainText('точность границы 27,5%');
  await page.locator('[data-profile="B"]').click();
- await expect(page.locator('#profile-name')).toHaveText('Высокоинтенсивный внутригородской профиль безналичного спроса');
+ await expect(page.locator('#profile-name')).toHaveText('Деловые районы мегаполисов');
  await page.locator('[data-profile="C"]').click();
  await expect(page.locator('#profile-representatives-title')).toHaveText('Иллюстративные случаи');
- await expect(page.locator('#profile-robustness .boundary-list')).toHaveCount(0);
- await expect(page.locator('#profile-robustness')).toContainText('отдельный повтор списка скрыт');
+ await expect(page.locator('#profile-robustness')).toContainText('нет собственной устойчивой границы');
  await page.locator('[data-profile="E"]').click();
- await expect(page.locator('#profile-name')).toHaveText('Профиль повышенного безналичного спроса');
+ await expect(page.locator('#profile-name')).toHaveText('Спальные районы мегаполисов');
  await page.locator('[data-profile="F"]').click();
- await expect(page.locator('#profile-representatives')).toContainText('D-leaning');
- await expect(page.locator('#profile-representatives')).toContainText('G-leaning');
- await expect(page.locator('#profile-representatives')).toContainText('Максимально переходный');
+ await expect(page.locator('#profile-representatives')).toContainText('Сторона D');
+ await expect(page.locator('#profile-representatives')).toContainText('Сторона G');
+ await expect(page.locator('#profile-representatives')).toContainText('Предельный случай');
  await page.locator('[data-profile="D"]').click();
- await expect(page.locator('#profile-name')).toHaveText('Крупные центры локального спроса');
- await expect(page.locator('#profile-territories')).toContainText('Оренбург · Магнитогорск · Тамбов');
+ await expect(page.locator('#profile-name')).toHaveText('Промышленные города');
+ await expect(page.locator('#profile-external')).toContainText('Оренбург, Магнитогорск, Тамбов');
  await expect(page.locator('#profile-counterexample')).toContainText('Уссурийск');
- await expect(page.locator('#profile-robustness')).toContainText('97,6%');
- await expect(page.locator('#profile-robustness .boundary-list')).toHaveCount(1);
+ await expect(page.locator('#profile-robustness')).toContainText('98,7%');
  await page.locator('[data-profile="G"]').click();
- await expect(page.locator('#profile-name')).toHaveText('Широкий низкоинтенсивный профиль безналичного спроса');
+ await expect(page.locator('#profile-name')).toHaveText('Сельская бюджетная Россия');
 });
 test('salary population and employment follow scroll in a readable pinned chart',async({page})=>{
  await page.emulateMedia({reducedMotion:'no-preference'});await page.setViewportSize({width:1280,height:720});await ready(page);

@@ -1,0 +1,13 @@
+{
+  "evidence_version": "2.9.0",
+  "research_round": 22,
+  "source_config": "configs/round22_kefrin_benchmark.yaml",
+  "source_report": "outputs/round22_kefrin_benchmark/ROUND22_REPORT.md",
+  "source_audit": "outputs/round22_kefrin_benchmark/ROUND22_AUDIT.md",
+  "source_summary": "outputs/round22_kefrin_benchmark/round22_summary.json",
+  "master_matrix": "outputs/evidence_v2_9_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.9.0.csv",
+  "scientific_status_changes": false,
+  "reference_specification_changed": false,
+  "baseline_hash_gate": "PASS"
+}
+

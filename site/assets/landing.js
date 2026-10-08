@@ -17,6 +17,7 @@ const profiles = {
  G:{color:'#637d96',tint:'#e2e9ed'}
 };
 const stateNames={stable_core:'Сходство устойчиво',expansive_core:'Сходство сохраняется, окружение шире',transition:'Между несколькими профилями',unresolved:'Однозначного вывода нет'};
+const publicStatuses={SUPPORTED:'поддержан',PRELIMINARY:'предварительный',UNRESOLVED:'не разрешён',TRANSITION:'переходный'};
 const extras={0:'#858898',2:'#847566',4:'#9b7c79',5:'#ab9876',6:'#8584a9'};
 let data, cardData, selectedId, selectedProfile='D', searchLimit=20, geometryPromise;
 const color = key => profiles[key]?.color || '#9194a0';
@@ -29,12 +30,13 @@ function transition(fn){if(document.startViewTransition&&!reduced.matches)docume
 
 async function load(){
  try{
-  const [response,cardsResponse]=await Promise.all([fetch('data/research.json'),fetch('data/profile_cards.json')]);if(!response.ok||!cardsResponse.ok)throw Error('Data HTTP '+response.status+'/'+cardsResponse.status);
-  data=await response.json();cardData=await cardsResponse.json();if(data.schema!==1||data.municipalities.length!==1904||cardData.schema!==3||cardData.cards.length!==7)throw Error('Unexpected data contract');
+  const [response,cardsResponse]=await Promise.all([fetch('data/research.json'),fetch('data/profile_cards.json?v=4')]);if(!response.ok||!cardsResponse.ok)throw Error('Data HTTP '+response.status+'/'+cardsResponse.status);
+  data=await response.json();cardData=await cardsResponse.json();if(data.schema!==1||data.municipalities.length!==1904||cardData.schema!==4||cardData.cards.length!==7)throw Error('Unexpected data contract');
   cardData.cards.forEach(card=>Object.assign(profiles[card.profile],{name:card.display_name,short:card.short_name}));
   if(!window.d3?.sankey)throw Error('Visualization library unavailable');
   $('load-status').textContent='';
-  initProfiles();initSearch();initMap();initHero();initChanges();renderFlows();
+  initProfiles();initNarrative();initSearch();initMap();initHero();initChanges();renderFlows();
+  window.initResearchStory?.(cardData.cards,profile=>{selectProfile(profile);window.atlasNavigate?window.atlasNavigate($('profiles')):$('profiles').scrollIntoView({behavior:'smooth'});});
   await initEvidence();
   await document.fonts.ready;
   if(window.initAtlasMotion)await window.initAtlasMotion();else initReveal();
@@ -60,7 +62,7 @@ function initHero(){
   if(mapImage){ctx.globalAlpha=(1-mix)*.5;ctx.drawImage(mapImage,0,0);ctx.globalAlpha=1;}
   for(const p of dots){const base=geoPoints?.get(p.r.id);const start=base||[510,700];const x=start[0]+(p.x-start[0])*mix,y=start[1]+(p.y-start[1])*mix;const wave=paused?0:Math.sin(time*.6+p.theta)*2;
    if(mix>.2&&p.r.id%3===0){ctx.beginPath();ctx.moveTo(x,y);ctx.bezierCurveTo(x+70,y-95,550+p.theta*25,300,560,365);ctx.strokeStyle=color(p.r.profile);ctx.lineWidth=.8;ctx.globalAlpha=.04*mix;ctx.stroke();}
-   ctx.globalAlpha=base||!geoPoints?.size? .8 : mix*.8;ctx.fillStyle=color(p.r.profile);ctx.beginPath();ctx.arc(x,y+wave,2.25+(p.r.margin||0)*1.4,0,Math.PI*2);ctx.fill();
+   ctx.globalAlpha=base||!geoPoints?.size? .8 : mix*.8;ctx.fillStyle=scrollProgress<.22?'#9aa2ad':color(p.r.profile);ctx.beginPath();ctx.arc(x,y+wave,2.25+(p.r.margin||0)*1.4,0,Math.PI*2);ctx.fill();
   }
   ctx.globalAlpha=1;
  }
@@ -83,35 +85,23 @@ const profileCard = p => cardData.cards.find(card=>card.profile===p);
 const shareLine = item => `<div class="demand-line ${item.direction}"><span><b>${item.direction==='up'?'↑':'↓'}</b>${escapeHTML(item.label)}</span><strong>${pct(item.profile_median_share)} <small>против ${pct(item.overall_median_share)}</small></strong><em>${ratio(item.ratio_to_overall)}</em></div>`;
 function selectProfile(p,automatic=false){
  if(!automatic)window.atlasTours?.profiles?.pause();
- selectedProfile=p;const source=data.profiles.find(r=>r.technical_label===p),display=profiles[p],card=profileCard(p),robust=card.robustness,counter=card.counterexample;
+ selectedProfile=p;const source=data.profiles.find(r=>r.technical_label===p),display=profiles[p],card=profileCard(p),robust=card.robustness,copy=card.public_copy;
  document.querySelectorAll('[data-profile]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.profile===p)));
  $('profile-stage').style.setProperty('--profile',display.color);$('profile-stage').style.setProperty('--tint',display.tint);
- $('profile-code').textContent=`Профиль ${p}`;$('profile-name').textContent=card.display_name;$('profile-status').textContent=`Статус: ${card.status} · ${card.status_note}`;
- $('profile-territories').innerHTML=`<strong>Территории:</strong> ${card.headline_territories.map(item=>escapeHTML(item.display_name)).join(' · ')}`;
- const topUp=card.demand.featured_up[0],topDown=card.demand.featured_down[0];
- $('profile-note').textContent=`Медианный Total — ${money(card.demand.total_median)} (${ratio(card.demand.total_ratio_to_overall)} к общей медиане). ${topUp?`Выше всего отличается ${topUp.label.toLocaleLowerCase('ru')}`:''}${topDown?`, ниже — ${topDown.label.toLocaleLowerCase('ru')}`:''}.`;
+ $('profile-code').textContent=`Профиль ${p}`;$('profile-name').textContent=card.display_name;$('profile-status').textContent=`Статус: ${publicStatuses[card.status]}`;
+ $('profile-territories').innerHTML=`<strong>${nf.format(card.n)} территорий (${pct(card.share)} выборки)</strong>${copy.warning?`<span class="profile-warning">${escapeHTML(copy.warning)}</span>`:''}`;
+ $('profile-note').textContent=copy.subtitle;
  $('profile-count').textContent=nf.format(source.n);$('profile-share').textContent=pct(source.n/1904);$('profile-total').textContent=money(card.demand.total_median);$('profile-wage').textContent=money(card.external.wage.median);
- $('profile-demand').innerHTML=`<p class="block-intro">Медианы долей в профиле сравнены с медианами всех 1 904 территорий.</p>${[...card.demand.featured_up,...card.demand.featured_down].map(shareLine).join('')}<p class="micro-note">* «Прочее» — технический остаток.</p>`;
+ const categoryByName=Object.fromEntries(card.demand.categories.map(item=>[item.category,item]));
+ $('profile-demand').innerHTML=`<p class="block-intro">${escapeHTML(copy.demand_lead)}</p>${copy.table_categories.map(name=>shareLine(categoryByName[name])).join('')}<p>${escapeHTML(copy.interpretation)}</p>`;
  $('profile-representatives-title').textContent=card.representatives_heading;
- const representativeReason=item=>{
-  if(item.representative_role==='D-leaning')return `D-leaning случай: доля близости к D — ${pct(item.affinity_share_D)}; reference F, в сводном Atlas ведёт D.`;
-  if(item.representative_role==='G-leaning')return `G-leaning случай: доля близости к G — ${pct(item.affinity_share_G)}; reference F, в сводном Atlas ведёт G.`;
-  if(item.representative_role==='maximally transitional')return `Максимально переходный случай: разрыв между двумя ведущими близостями в Atlas — ${pct(item.affinity_margin)}.`;
-  const prefix=p==='C'?'Иллюстративный случай. ':'';
-  return `${prefix}${nf.format(item.centrality_rank)}-е место из ${nf.format(item.profile_n)} по близости к центру ${p}. Консенсус — ${item.consensus_class}; метка ${item.lofo_all_class_match?'сохраняется':'меняется'} при поочерёдном исключении семейств проверок.`;
- };
- $('profile-representatives').innerHTML=card.representatives.map(item=>`<li><strong>${escapeHTML(item.display_name)}</strong><p>Total ${money(item.total)}. ${representativeReason(item)}</p></li>`).join('');
- const ext=card.external,sectorUp=ext.sector_up.map(item=>`${escapeHTML(item.label)} (${signed(item.difference_pp)})`).join(', '),sectorDown=ext.sector_down.map(item=>`${escapeHTML(item.label)} (${signed(item.difference_pp)})`).join(', ');
- $('profile-external').innerHTML=`<div class="external-mini"><p><strong>${nf.format(ext.population.median)}</strong><span>медианное население<br>${ratio(ext.population.ratio_to_overall)} к выборке · n=${nf.format(ext.population.n)}</span></p><p><strong>${money(ext.wage.median)}</strong><span>зарплата работников<br>${ratio(ext.wage.ratio_to_overall)} к выборке · n=${nf.format(ext.wage.n)}</span></p><p><strong>${nf.format(ext.employment_total.median)}</strong><span>занятых<br>${ratio(ext.employment_total.ratio_to_overall)} к выборке · n=${nf.format(ext.employment_total.n)}</span></p></div><p>В структуре занятости выше общей медианы: ${sectorUp}; ниже: ${sectorDown}.</p>`;
- const matchPhrase={strong:'хорошо сопоставим по масштабу',moderate:'умеренно близок по масштабу',weak:'ближайший устойчивый контрпример, но не близкий аналог по масштабу'}[counter.match_quality];
- $('profile-counterexample').innerHTML=`<p><strong>${escapeHTML(counter.anchor_display_name)}</strong> — ${nf.format(counter.anchor_population)} жителей, ${money(counter.anchor_wage)} и ${nf.format(counter.anchor_employment_total)} занятых. <strong>${escapeHTML(counter.comparison_display_name)}</strong> — ${matchPhrase}: ${nf.format(counter.comparison_population)} жителей (${one(counter.population_difference_pct)}%), ${money(counter.comparison_wage)} (${one(counter.wage_difference_pct)}%) и ${nf.format(counter.comparison_employment_total)} занятых (${one(counter.employment_difference_pct)}%), но отнесён к <b>${counter.comparison_profile}</b>. Сила контрпримера: ${counter.strength==='robust'?'устойчивый другой профиль':'переходный fallback'}; качество сопоставления масштаба: ${counter.match_quality}.</p><p>Расходный портрет различается: Total ${money(counter.anchor_total)} против ${money(counter.comparison_total)}, доля маркетплейсов ${pct(counter.anchor_marketplace_share)} против ${pct(counter.comparison_marketplace_share)}.</p>`;
- const boundary=robust.boundary_examples.map(item=>item.consensus_class===p?`<li><strong>${escapeHTML(item.display_name)}</strong> — reference ${p}; в сводном Atlas остаётся ${p}, следующий профиль — ${item.second_class}; разрыв ${pct(item.affinity_margin)}.</li>`:`<li><strong>${escapeHTML(item.display_name)}</strong> — reference ${p}, но в сводном Atlas ведущая близость смещается к ${item.consensus_class}; следующий профиль — ${item.second_class}.</li>`).join('');
- const boundaryBlock=p==='C'?'<p class="boundary-note">Иллюстративные случаи выше уже показывают размытость границы C; отдельный повтор списка скрыт.</p>':`<p class="boundary-title">Граничные случаи:</p><ul class="boundary-list">${boundary}</ul>`;
- $('profile-robustness').innerHTML=`<div class="robustness-numbers"><p><strong>${pct(robust.atlas_consensus_match_share)}</strong><span>совпадают с ${p} в сводном Atlas</span></p><p><strong>${pct(robust.perturbation_retention_mean)}</strong><span>среднее сохранение ядра в 50 возмущениях</span></p><p><strong>${pct(robust.perturbation_precision_mean)}</strong><span>доля исходного ${p} в группе назначения</span></p></div><p class="retention-tail">90% запусков: retention ≥ ${pct(robust.perturbation_retention_q10)}.</p><div class="representation-checks"><p><strong>5-part CLR</strong><span>retention ${pct(robust.r1_fivepart_retention)} · boundary precision ${pct(robust.r1_fivepart_precision)} · Jaccard ${pct(robust.r1_fivepart_jaccard)} · n=${nf.format(robust.r1_fivepart_destination_n)}</span></p><p><strong>5-levels</strong><span>retention ${pct(robust.r2_observed_levels_retention)} · boundary precision ${pct(robust.r2_observed_levels_precision)} · Jaccard ${pct(robust.r2_observed_levels_jaccard)} · n=${nf.format(robust.r2_observed_levels_destination_n)}</span></p></div>${boundaryBlock}`;
- const marketNames=joinHuman(card.headline_territories.slice(0,3).map(item=>escapeHTML(item.display_name))),signals=[...card.demand.featured_up,...card.demand.featured_down].map(item=>`${item.direction==='up'?'↑':'↓'} ${item.label.toLocaleLowerCase('ru')}`).join(', ');
- $('profile-practical').innerHTML=`<p>В прикладном сравнении ${marketNames} служат ориентирами не из-за одинакового числа жителей, а из-за сочетания расходных признаков: ${signals}. Это основа для сравнения структуры спроса, но не прогноз роста и не готовая сегментация клиентов.</p>`;
+ $('profile-representatives').innerHTML=card.representatives.map(item=>`<li><strong>${escapeHTML(item.display_name)}</strong><p>${escapeHTML(item.public_reason)}</p></li>`).join('');
+ $('profile-external').innerHTML=`<p>${escapeHTML(copy.who)}</p>`;
+ $('profile-counterexample').innerHTML=`<p>${escapeHTML(copy.counterexample)}</p>`;
+ $('profile-robustness').innerHTML=`<p class="robustness-verdict"><strong>${escapeHTML(card.robustness_wording.core)}; ${escapeHTML(card.robustness_wording.boundary)}</strong></p><p>${escapeHTML(copy.reliability)}</p><p><strong>Граница.</strong> ${escapeHTML(copy.boundary)}</p>`;
+ $('profile-practical').innerHTML=`<p><strong>Как использовать.</strong> ${escapeHTML(copy.use)}</p><p><strong>Как не использовать.</strong> ${escapeHTML(copy.avoid)}</p>`;
  window.atlasTours?.profiles?.refresh();
- $('profile-technical-content').innerHTML=`<p>Код в исследовании: <strong>${p}</strong>. ${escapeHTML(card.status_note)}.</p><p>Научный evidence-status: <strong>${escapeHTML(card.evidence_status)}</strong>; публичный статус его не переписывает.</p><p>Расходные медианы относятся к декабрю 2024 года. Внешние данные Росстата за 2024 год не входили в кластеризацию. Зарплата работников не равна доходу домохозяйства; сопоставление описательное, не причинное.</p><p>Для альтернативных представлений вместе показаны retention, boundary precision и Jaccard: сохранение ядра не подменяет точность границы.</p><a class="text-link" href="methodology.html#profiles">Методология и статусы профилей ↗</a>`;
+ $('profile-technical-content').innerHTML=`<p>Код в исследовании: <strong>${p}</strong>. ${escapeHTML(card.status_note)}. Научный статус: <strong>${escapeHTML(card.evidence_status)}</strong>.</p><p>Расходные медианы — декабрь 2024 года. Данные Росстата за 2024 год в кластеризацию не входили; зарплата работников не равна доходу домохозяйства.</p><p>Устойчивость: совпадение со сводным атласом ${pct(robust.atlas_consensus_match_share)}; среднее сохранение ядра при ${robust.perturbation_runs} возмущениях ${pct(robust.perturbation_retention_mean)}, в 90% запусков не ниже ${pct(robust.perturbation_retention_q10)}; чистота группы назначения ${pct(robust.perturbation_precision_mean)}.</p><p>Пятичастная композиция: ядро ${pct(robust.r1_fivepart_retention)}, точность границы ${pct(robust.r1_fivepart_precision)}, Жаккар ${pct(robust.r1_fivepart_jaccard)}, n=${nf.format(robust.r1_fivepart_destination_n)}. Пять наблюдаемых уровней: ядро ${pct(robust.r2_observed_levels_retention)}, точность границы ${pct(robust.r2_observed_levels_precision)}, Жаккар ${pct(robust.r2_observed_levels_jaccard)}, n=${nf.format(robust.r2_observed_levels_destination_n)}.</p><p>«Прочее» — технический остаток и содержательно не интерпретируется. Пять малых технических случаев сохранены в поиске.</p><a class="text-link" href="methodology.html#profiles">Методология и статусы профилей ↗</a>`;
 }
 
 function initSearch(){
@@ -212,6 +202,74 @@ function renderFlows(){
  svg.append('g').selectAll('rect').data(graph.nodes).join('rect').attr('x',d=>d.x0).attr('y',d=>d.y0).attr('width',7).attr('height',d=>Math.max(1,d.y1-d.y0)).attr('fill',d=>communityColor(d.community));
  svg.append('g').selectAll('text').data(graph.nodes.filter(d=>d.layer===3&&d.value>10)).join('text').attr('x',1053).attr('y',d=>(d.y0+d.y1)/2+3).attr('font-size',10).attr('fill',d=>communityColor(d.community)).text(d=>profiles[profileFor(d.community)]?.short||'Малая группа');
 }
+
+function initNarrative(){
+ const cards=new Map(cardData.cards.map(card=>[card.profile,card]));
+ const formatCompact=value=>Intl.NumberFormat('ru-RU',{notation:'compact',maximumFractionDigits:1}).format(value);
+ const hypothesisButtons=[...document.querySelectorAll('[data-hypothesis]')];
+ const hypothesisCopy={
+  spending:'Расходы: холодный цвет — ниже, тёплый — выше. Для каждой территории показан медианный уровень её профиля.',
+  wage:'Зарплата работников, 2024. Пропуски показаны нейтральным цветом; зарплата не равна доходу домохозяйства.',
+  population:'Население на 1 января 2024 года. Цветовая шкала логарифмическая, чтобы малые территории оставались различимы.'
+ };
+ const hypothesisReading={
+  spending:'Здесь каждой территории присвоена медиана её профиля. Это обзор групп, а не карта индивидуальных расходов муниципалитетов.',
+  wage:'Заработная плата работников описывает внешний контекст. Она не участвовала в построении основной группировки.',
+  population:'Население позволяет сопоставить масштаб территорий. Площадь на карте не отражает число жителей или экономический вес.'
+ };
+ let hypothesisToken=0,activeHypothesis='spending';
+ async function drawHypothesis(metric){
+  activeHypothesis=metric;const token=++hypothesisToken,canvas=$('hypothesis-canvas'),ctx=canvas.getContext('2d');
+  hypothesisButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.hypothesis===metric)));
+  $('hypothesis-caption').textContent=hypothesisCopy[metric];$('hypothesis-reading').textContent=hypothesisReading[metric];
+  try{
+   const geo=await loadGeometry();if(token!==hypothesisToken)return;
+   const byId=new Map(data.municipalities.map(row=>[row.id,row]));
+   const totalByProfile=new Map(cardData.cards.map(card=>[card.profile,card.demand.total_median]));
+   const value=row=>metric==='spending'?totalByProfile.get(row.profile):metric==='wage'?row.wage:row.population;
+   const values=data.municipalities.map(value).filter(Number.isFinite).map(v=>Math.log1p(v));
+   const extent=d3.extent(values),scale=d3.scaleSequential(d3.interpolateRgbBasis(['#315dc5','#8791a1','#e06b54'])).domain(extent);
+   const projection=d3.geoConicConformal().parallels([50,70]).rotate([-105,0]).fitExtent([[25,25],[canvas.width-25,canvas.height-25]],geo),path=d3.geoPath(projection,ctx);
+   ctx.clearRect(0,0,canvas.width,canvas.height);ctx.lineWidth=.18;ctx.strokeStyle='#11151c';
+   geo.features.forEach(feature=>{const row=byId.get(+feature.properties.id),v=row&&value(row);ctx.beginPath();path(feature);ctx.fillStyle=Number.isFinite(v)?scale(Math.log1p(v)):'#3a414c';ctx.fill();ctx.stroke();});
+   if(window.gsap&&!reduced.matches)gsap.fromTo(canvas,{opacity:.45,scale:.992},{opacity:1,scale:1,duration:.7,ease:'power3.out',overwrite:true});
+  }catch(error){$('hypothesis-caption').textContent='Карта показателя временно недоступна. Остальные сцены и поиск продолжают работать.';console.error(error);}
+ }
+ hypothesisButtons.forEach(button=>button.onclick=()=>drawHypothesis(button.dataset.hypothesis));drawHypothesis('spending');
+
+ const pair=cards.get('E').counterexample;
+ const places=[
+  {name:pair.anchor_display_name,profile:'E',population:pair.anchor_population,wage:pair.anchor_wage,employment:pair.anchor_employment_total,total:pair.anchor_total},
+  {name:pair.comparison_display_name,profile:pair.comparison_profile,population:pair.comparison_population,wage:pair.comparison_wage,employment:pair.comparison_employment_total,total:pair.comparison_total}
+ ];
+ const pairMetrics=[['population','Население','чел.'],['wage','Зарплата','₽'],['employment','Занятые','чел.'],['total','Расходы','₽']];
+ const maxima=Object.fromEntries(pairMetrics.map(([key])=>[key,Math.max(...places.map(place=>place[key]))]));
+ $('contrast-pair').innerHTML=places.map(place=>`<article class="place-contrast" style="--profile:${color(place.profile)}"><h3>${escapeHTML(place.name)}</h3><p>${escapeHTML(profiles[place.profile].short)}</p><div class="contrast-metrics">${pairMetrics.map(([key,label,unit])=>`<div class="contrast-row" data-key="${key}"><span>${label}</span><i style="width:${place[key]/maxima[key]*100}%"></i><strong>${nf.format(place[key])} ${unit}</strong></div>`).join('')}</div></article>`).join('');
+ const more=['C','F','G'].map(profile=>cards.get(profile)).map(card=>{const c=card.counterexample,difference=Math.abs(c.comparison_total/c.anchor_total-1);return `<article class="mini-pair"><strong>${escapeHTML(c.anchor_display_name)} / ${escapeHTML(c.comparison_display_name)}</strong><span>${card.profile}: ${escapeHTML(card.public_copy.counterexample)}</span><b>расходы различаются на ${pct(difference)}</b></article>`;}).join('');
+ $('more-pairs').innerHTML=more;$('show-pairs').onclick=()=>{const open=$('more-pairs').hidden;$('more-pairs').hidden=!open;$('show-pairs').setAttribute('aria-expanded',String(open));$('show-pairs').lastElementChild.textContent=open?'−':'＋';window.ScrollTrigger?.refresh();};
+
+ const compassPositions={G:[14,18],F:[31,35],D:[57,54],E:[78,66],B:[88,86],A:[25,73],C:[10,42]};
+ $('profile-compass').insertAdjacentHTML('beforeend',cardData.cards.map(card=>{const [x,y]=compassPositions[card.profile];return `<button class="compass-point" data-compass-profile="${card.profile}" style="--x:${x}%;--y:${y}%;--profile:${color(card.profile)}" aria-label="Открыть профиль ${card.profile}: ${escapeHTML(card.display_name)}"><i></i><span><b>${card.profile}</b><small>${escapeHTML(card.display_name)}</small></span></button>`;}).join(''));
+ document.querySelectorAll('[data-compass-profile]').forEach(button=>button.onclick=()=>{selectProfile(button.dataset.compassProfile);window.atlasNavigate?window.atlasNavigate($('profiles')):$('profiles').scrollIntoView({behavior:'smooth'});});
+
+ const engelProfiles=['G','F','D','E','B'],engelAll=cardData.cards.map(card=>({profile:card.profile,wage:card.external.wage.median,food:card.demand.categories.find(category=>category.category==='Food').profile_median_share}));
+ const width=760,height=520,margin={top:35,right:50,bottom:65,left:75},x=d3.scaleLinear().domain([40000,170000]).range([margin.left,width-margin.right]),y=d3.scaleLinear().domain([.48,.25]).range([margin.top,height-margin.bottom]);
+ const svg=d3.select('#engel-chart');svg.append('g').selectAll('line').data([.3,.35,.4,.45]).join('line').attr('class','engel-grid').attr('x1',margin.left).attr('x2',width-margin.right).attr('y1',d=>y(d)).attr('y2',d=>y(d));
+ svg.append('line').attr('class','engel-axis').attr('x1',margin.left).attr('x2',width-margin.right).attr('y1',height-margin.bottom).attr('y2',height-margin.bottom);svg.append('line').attr('class','engel-axis').attr('x1',margin.left).attr('x2',margin.left).attr('y1',margin.top).attr('y2',height-margin.bottom);
+ svg.append('g').selectAll('text').data([50000,100000,150000]).join('text').attr('class','engel-tick').attr('x',d=>x(d)).attr('y',height-margin.bottom+28).attr('text-anchor','middle').text(d=>formatCompact(d)+' ₽');svg.append('g').selectAll('text').data([.3,.35,.4,.45]).join('text').attr('class','engel-tick').attr('x',margin.left-15).attr('y',d=>y(d)+4).attr('text-anchor','end').text(d=>pct(d));
+ const lineData=engelProfiles.map(profile=>engelAll.find(row=>row.profile===profile)).sort((a,b)=>a.wage-b.wage);svg.append('path').datum(lineData).attr('class','engel-line').attr('d',d3.line().x(d=>x(d.wage)).y(d=>y(d.food)));
+ const points=svg.append('g').selectAll('g').data(engelAll).join('g').attr('class','engel-point').attr('data-engel-profile',d=>d.profile).attr('transform',d=>`translate(${x(d.wage)},${y(d.food)})`).attr('tabindex',0).attr('role','button').attr('aria-label',d=>`Профиль ${d.profile}: зарплата ${nf.format(d.wage)} рублей, продукты ${pct(d.food)}`);
+ points.append('circle').attr('r',d=>['A','C'].includes(d.profile)?12:8).attr('fill',d=>color(d.profile)).attr('stroke',d=>['A','C'].includes(d.profile)?'#eef0f3':'none').attr('stroke-width',2);points.append('text').attr('class','engel-label').attr('x',14).attr('y',5).text(d=>d.profile);points.filter(d=>['A','C'].includes(d.profile)).append('text').attr('class','engel-callout').attr('x',14).attr('y',23).text('отклонение');points.on('click keydown',(event,d)=>{if(event.type==='click'||['Enter',' '].includes(event.key)){event.preventDefault();selectProfile(d.profile);window.atlasNavigate?window.atlasNavigate($('profiles')):$('profiles').scrollIntoView({behavior:'smooth'});}});
+
+ const market=cardData.cards.map(card=>({profile:card.profile,name:card.short_name,share:card.demand.categories.find(category=>category.category==='Marketplace').profile_median_share})).sort((a,b)=>b.share-a.share),marketMax=d3.max(market,d=>d.share);
+ $('marketplace-scale').innerHTML=market.map(row=>`<div class="market-row" style="--profile:${color(row.profile)};--share:${row.share/marketMax*100}%"><span>${escapeHTML(row.name)}</span><i></i><strong>${pct(row.share)}</strong></div>`).join('');
+ document.querySelectorAll('[data-open-profile]').forEach(button=>button.onclick=()=>{selectProfile(button.dataset.openProfile);window.atlasNavigate?window.atlasNavigate($('profiles')):$('profiles').scrollIntoView({behavior:'smooth'});});
+
+ const city=['B','E'].map(profile=>{const card=cards.get(profile),share=card.external.employment_total.median/card.external.population.median;return {profile,name:card.display_name,share};});
+ $('city-function').innerHTML=city.map(row=>`<article class="people-card" style="--profile:${color(row.profile)}"><h4>${row.profile} · ${escapeHTML(row.name)}</h4><strong>${pct(row.share)}</strong><div class="people-grid" aria-hidden="true">${Array.from({length:100},(_,index)=>`<i class="${index<Math.round(row.share*100)?'active':''}"></i>`).join('')}</div><p>учтённых работников организаций на 100 жителей</p></article>`).join('');
+ window.atlasNarrative={showHypothesis:drawHypothesis,getHypothesis:()=>activeHypothesis};
+}
+
 async function initEvidence(){
  try{
   const response=await fetch('data/evidence.json');if(!response.ok)throw Error('Evidence HTTP '+response.status);
@@ -277,7 +335,7 @@ window.prepareResearchPrint=async()=>{
  if(!window.researchReady)throw Error('Data not ready');window.stopAtlasMotion?.();Object.values(window.atlasTours||{}).forEach(t=>t.destroy?.());if(!window.researchEvidenceReady)throw Error('External evidence not ready');await window.loadResearchMap();if(!window.researchMapReady)throw Error('Map not ready');
  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));window.setPrintScene();
  document.querySelector('.transfer-chart .technical-detail').open=true;
- if(!document.querySelector('.profile-print-list')){const list=document.createElement('div');list.className='profile-print-list';list.innerHTML=cardData.cards.map(card=>`<article style="--profile:${color(card.profile)}"><i></i><div><h3>${card.profile} — ${escapeHTML(card.display_name)}</h3><p><b>Территории:</b> ${card.headline_territories.map(item=>escapeHTML(item.display_name)).join(' · ')}</p><p>${[...card.demand.featured_up,...card.demand.featured_down].map(item=>`${item.direction==='up'?'↑':'↓'} ${escapeHTML(item.label)} ${ratio(item.ratio_to_overall)}`).join('; ')}. Медиана населения ${nf.format(card.external.population.median)}, зарплаты ${money(card.external.wage.median)}.</p><small>Статус: ${card.status}. Возмущения: retention ${pct(card.robustness.perturbation_retention_mean)}, precision ${pct(card.robustness.perturbation_precision_mean)}.</small></div><strong>${card.n}</strong></article>`).join('');document.querySelector('.profiles-workspace').append(list);}
+ if(!document.querySelector('.profile-print-list')){const list=document.createElement('div');list.className='profile-print-list';list.innerHTML=cardData.cards.map(card=>`<article style="--profile:${color(card.profile)}"><i></i><div><h3>${card.profile} — ${escapeHTML(card.display_name)}</h3><p>${escapeHTML(card.public_copy.subtitle)}</p><p>${escapeHTML(card.public_copy.who)}</p><small>Статус: ${publicStatuses[card.status]}. ${escapeHTML(card.public_copy.reliability)}</small></div><strong>${card.n}</strong></article>`).join('');document.querySelector('.profiles-workspace').append(list);}
  $('print-appendix').innerHTML=`<h2>Методология и ограничения</h2><p>Строгая панель: 1 904 муниципалитета, январь 2023 — декабрь 2024. Шесть компонент расходов, включая технический остаток «Прочее». Композиция: CLR / геометрия Эйчисона. Уровень: robust-z от log(Total). Веса блоков: 70% и 30%.</p><p>Взвешенная сеть взаимных ближайших соседей, k = 20. Временная связь ω = 2. Louvain, resolution = 0,5, seed = 0. Это референсная спецификация, а не универсальный оптимум. Для статического графа декабря предусмотрено присоединение изолированных узлов; для месячных временных слоёв — нет.</p><p>Границы групп зависят от параметров и алгоритма. C остаётся контекстным и неразрешённым; F — переходным; B/E могут объединяться. Сохранение ядра не означает неизменности границы. Доли близости не являются вероятностями.</p><p>Внешнее сопоставление: 1 903 подтверждённых соответствия, данные о зарплате и занятости — для 1 890 территорий. Эти показатели не участвовали в построении или настройке групп. Проверки исследовательские; причинная связь не установлена. Знаменатель Total и аддитивность категорий остаются ограничениями.</p><p>Срезы потоков соответствуют точным сохранённым меткам на конец июня и декабря. На каждом срезе — 1 904 территории. Геометрия 1 903 территорий упрощена только для отображения. Расчёты и научные статусы при переработке атласа не изменялись.</p><p class="print-address">Полные конфигурации, данные и проверки: https://github.com/resarytrew/cashless-demand-network-russia</p>`;
  document.querySelectorAll('a[href="methodology.html"]').forEach(a=>a.href='https://github.com/resarytrew/cashless-demand-network-russia/tree/main/site');await document.fonts.ready;
 };

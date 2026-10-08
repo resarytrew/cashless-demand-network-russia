@@ -1,0 +1,36 @@
+{
+  "experiment": "round22_kefrin_benchmark",
+  "timestamp_utc": "2026-10-07T21:41:38.262822+00:00",
+  "git_commit": "ee739ccb6b39555f84280911c0c500ab42f73b35",
+  "dirty_worktree": true,
+  "config_path": "configs\\round22_kefrin_benchmark.yaml",
+  "config_sha256": "4ed6e4f3b5b28be027476de74c6c32ed6b6f34ddf5e5e20dbf7760234f8680b8",
+  "implementation_files": {
+    "src/sbernet/benchmarks/kefrin.py": "02f171bad83e2fa29062bb03d58786e28e8b9066983ac3561e0582e906018bd2",
+    "src/sbernet/kefrin_benchmark.py": "7f910b7d3c8d505479532dbc3b08a1a6af34041100e317511884655b8e503838",
+    "scripts/run_round22_kefrin.py": "06086a828e7b8742fb0ae5dd8354838384d02c8a3ec8192e00367ec2bd9b006c"
+  },
+  "python": "3.13.6",
+  "numpy": "2.4.4",
+  "pandas": "2.3.3",
+  "scipy": "1.16.3",
+  "sklearn": "1.7.2",
+  "networkx": "3.6.1",
+  "primary_seed": 0,
+  "seed_grid": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "baseline_reproduction": "PASS",
+  "baseline_final_hash_gate": "PASS",
+  "upstream_code_used": false,
+  "external_data_used_during_fit": false
+}

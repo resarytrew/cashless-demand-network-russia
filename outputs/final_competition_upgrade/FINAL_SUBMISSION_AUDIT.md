@@ -22,7 +22,12 @@ Region-held-out GroupKFold gives logistic macro-F1=.549 and RF macro-F1=.551. Wi
 
 ## 10–11. Synthetic temporal benchmark and omega interpretation
 
-Six predeclared synthetic scenarios × 20 seeds used known latent states. The prior synthetic run is retained but superseded because its mixed scenario overlaid switch, boundary and shock roles. In v3 these roles are disjoint (10% true switches, 10% boundary-only, 10% temporary-shock-only, 70% stable). Across scenarios, omega=4 maximizes partition ARI (.905442) and minimizes false-switch rate (.008926); omega=0 maximizes event F1 (.259793). The transparent balanced utility is highest at omega=2 (.622792; omega=4: .600375). Thus omega=2 remains the historical reference trade-off and is supported by this fixed synthetic compromise; no universal real-world optimum is inferred.
+Synthetic temporal v4 is the current calibration artifact. It evaluates partition
+quality by mean monthly ARI/NMI and keeps flattened ARI/NMI only as forensic legacy
+diagnostics. Transition and no-transition trade-offs are reported separately; no
+universal best omega is selected. V3 remains preserved for history but is not used
+as primary omega-selection evidence. The real-data baseline, reference omega=2 and
+A–G statuses are unchanged.
 
 ## 12. Profile naming
 
@@ -39,3 +44,44 @@ Eleven JSON assets in `story_data_v3/` are generated from saved outputs. They co
 ## 15. Remaining limitations
 
 All inference is exploratory and post-hoc. The strict panel is not established as nationally representative; associations are not causal; Total’s denominator/category additivity remains unresolved; exact boundaries depend on representation, graph construction and temporal coupling; a synthetic calibration cannot identify a single real-world universal omega.
+
+## 16. Round21 structural sensitivity and separate L2 lens
+
+Round21 is additive evidence v2.8.0. Omega=1 is predominantly a coarse merge of
+the omega=2 December partition, while the matched-K control shows a material
+omega×resolution interaction. The held-out Atlas sensitivity changes 1/824 stable
+core municipalities and 348/388 transition municipalities. Adjusted wage,
+employment and sector associations remain observational. Original L2 is a separate
+1,876-case lens; both predeclared block-balanced alternatives differ materially
+from it and neither is selected. These results do not alter L1, k=20, omega=2,
+A–G IDs/statuses or Atlas assignments.
+
+## 17. No retuning
+
+No ICVI, synthetic, Round18, L2, Round20 or Round21 result was used to retune the
+reference L1 specification. Negative representation, temporal-coupling and L2
+block-geometry sensitivities remain part of the evidence record.
+
+## 18. Round22 attributed-network benchmark
+
+Round22 adds clean-room KEFRiNc at fixed December K=9 without changing the
+reference. Seed-0 agreement with static Louvain is ARI=.3080/NMI=.4797; ten-seed
+pairwise ARI averages .5213. Stable-core disagreement is 492/824 versus 263/388
+for transition and 268/318 for unresolved, so Atlas uncertainty generalizes only
+partially and exact method-class dependence is material. Adjusted KEFRiN external
+associations are descriptive and were computed after labels were frozen. The
+author upstream is pinned, but its license is not verifiable from a license file;
+no upstream source code was used. Final L1/A–G/Atlas/L2/Round21 hash gate: PASS.
+
+## 19. Round23 economic-mechanism checks
+
+Round23 freezes seven exploratory diagnostics before computation and passes a
+fresh exact baseline replay. The proposed ordering from stable core to higher
+economic volatility is not observed; Marketplace/Food substitution is not
+specific to F/G; Marketplace-share dispersion rises rather than falls; and Food
+share falls Dec-to-Dec in every A–G profile. Two descriptive associations survive
+their fixed rules: lower initial Total predicts faster Marketplace-share growth,
+and cross-profile wage/population-matched pairs have larger December Aitchison
+distances than same-profile controls. Distant graph neighbors are common but
+descriptive. No result establishes causality, inflation, welfare, merchant-level
+grocery substitution or absent local retail. L1 and A–G statuses are unchanged.

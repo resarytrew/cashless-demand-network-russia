@@ -1,5 +1,35 @@
 # Artifact Index — What Codex Should Look At
 
+## Current mechanism diagnostics — Round23 / evidence v2.10.0
+
+- `configs/round23_economic_mechanisms.yaml`: frozen definitions, endpoints,
+  multiplicity, permutations, bootstrap, matching and support rules.
+- `outputs/round23_economic_mechanisms/`: fresh baseline gate, municipality
+  volatility, Marketplace/Food and initial-Total tests, exact matched pairs,
+  dispersion series, graph-neighbor geography, Food changes, figures, report,
+  audit, manifest and checksums.
+- `outputs/evidence_v2_10_0/`: additive matrix and Round23 evidence update.
+
+Round23 supports only observational initial-Total/Marketplace growth and matched-
+basket differences under their fixed rules. It rejects the proposed Atlas
+volatility ordering, F/G-specific substitution, digital convergence and Food-
+share inflation story. Distant graph neighbors are descriptive. No baseline or
+A–G status changed.
+
+## Current method-class sensitivity — Round22 / evidence v2.9.0
+
+- `configs/round22_kefrin_benchmark.yaml`: fixed KEFRiNc variant, K, preprocessing,
+  weights, seeds, failure rules and optional branches (all optional branches off).
+- `outputs/round22_kefrin_benchmark/`: provenance, consistency freeze, baseline
+  freeze, clean-room labels/checkpoints, seed stability, static/temporal/A–G/Atlas
+  crosswalks, ICVI v2, method matrices, external validation, report and audit.
+- `outputs/evidence_v2_9_0/`: additive master matrix and Round22 evidence update.
+
+Round22 finds material method-class and optimization dependence. Atlas state
+ordering appears only partially: stable disagreement is 59.7%, transition 67.8%
+and unresolved 84.3%. The graph is attribute-induced, upstream code was not used,
+and no reference or profile status changed.
+
 ## Current structural sensitivity — Round21 / evidence v2.8.0
 
 - `configs/round21_structural_sensitivity.yaml`: all fixed grids, seeds and P2 weights.

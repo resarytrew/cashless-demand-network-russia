@@ -1,5 +1,46 @@
 # Results
 
+## Round23 — exploratory economic-mechanism checks
+
+Семь заранее заданных механизмов проверены на frozen A–G/Atlas inputs. Связь
+`Atlas uncertainty → более высокая экономическая volatility` не получила
+ожидаемого порядка: stable core имеет более высокие медианы `sd(Δlog Total)` и
+multivariate `sd(ΔCLR)`, чем transition и unresolved. После mean-level,
+profile и region controls Atlas state объясняет лишь .0061/.0120 partial R².
+
+Marketplace share растёт быстрее при более низком Dec-2023 Total (`ρ=-.5228`;
+adjusted partial R²=.0395, permutation p=.0002), но это наблюдательная связь, не
+доказательство отсутствующей локальной торговли. Marketplace–Food correlations
+отрицательны в F/G (`ρ=-.3975`) и B/D (`ρ=-.5182`); заявленная специфичность F/G
+не поддержана. Межпрофильная дисперсия Marketplace share выросла .0184→.0375,
+то есть ожидаемая digital convergence отвергается на этой метрике.
+
+441 cross-profile wage/population-matched pairs имеют median Aitchison distance
+.6502 против .5116 у 807 same-profile controls (bootstrap difference CI
+.0915–.1933). У top-3 graph neighbors median geographic distance 544 km, 52.3%
+выше 500 km. Food share Dec-to-Dec снизилась во всех A–G, сильнее в F/G; это не
+инфляционный тест. Референс и статусы A–G не меняются.
+
+## Round22 — attributed-network method benchmark
+
+При фиксированном `K=9` clean-room KEFRiNc на тех же December L1-признаках и
+том же reference-графе имеет ARI=.3080, NMI=.4797 и VI=3.1374 bits к static
+Louvain. Pairwise seed ARI для seeds 0–9: mean=.5213, min=.3996, max=.7143.
+Это показывает material method-class и optimization dependence, а не победу
+одного метода.
+
+После глобального alignment с temporal December disagreement составляет 492/824
+(59,7%) для stable core, 263/388 (67,8%) для transition и 268/318 (84,3%) для
+unresolved. Atlas uncertainty переносится на held-out algorithm family только
+частично: transition хуже stable на 8,1 п.п., но абсолютное расхождение stable
+core само по себе велико. Сильное broad reproduction across method class не
+поддержано. Внешние adjusted partial R² KEFRiN-групп равны .1360 для wage,
+.0747 для employment и .0371 для sector CLR (permutation p=.0005); это
+post-label observational interpretation, не model selection.
+
+Reference network derived from the same attributes, поэтому Round22 не является
+independent information fusion. L1, A–G, Atlas и legacy statuses не менялись.
+
 ## Round21 — structural sensitivity and adjusted validation
 
 `ω=2 → 1` даёт December ARI=0,407 и NMI=0,555, но structural decomposition
@@ -35,7 +76,14 @@ Reference-анализ 1 904 муниципалитетов за 24 месяца
 
 ## Полный ICVI
 
-Для reference Louvain static December: SW=.170, CH=875.215, CH/N=.460, S_Dbw=.829, AVI=.907, AVU=.506, MQ=.767. Сравнение одинаковой feature geometry для Louvain, Greedy, Spectral, KMeans и Ward находится в `outputs/presubmission_upgrade/icvi/canonical_icvi.csv`; показатели не применялись для выбора алгоритма.
+Для reference Louvain static December в текущем ICVI v2: SW=.170,
+CH=875.215, CH/N=.460, S_Dbw=.829, weighted AVI=.916, weighted AVU=.505,
+ANUI=.626, TurboMQ=8.245 и weighted Newman–Girvan Q=.767. Сравнение одной
+feature geometry для Louvain, Greedy, Spectral, KMeans и Ward находится в
+`outputs/final_competition_upgrade/icvi_v2/canonical_icvi_v2.csv`; показатели
+не применялись для выбора алгоритма. Историческая таблица v1 сохранена, но её
+поле `MQ` означало Newman–Girvan Q, а AVI/AVU были невзвешенными, поэтому её
+нельзя подменять текущей таблицей.
 
 ## Проверка без `Other`
 

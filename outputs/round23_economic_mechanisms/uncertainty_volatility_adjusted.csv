@@ -1,0 +1,3 @@
+metric,N,partial_R2_atlas_state,permutation_p,controls
+total_volatility,1898,0.006149610157038908,0.0302,mean_log_total+profile+region
+composition_volatility,1898,0.011962680884469687,0.0004,mean_log_total+profile+region

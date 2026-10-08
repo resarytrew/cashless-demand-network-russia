@@ -15,3 +15,9 @@ dist/
 node_modules/
 test-results/
 playwright-report/
+
+# Local acquisition, staging and visual QA artifacts are reproducible but are not
+# part of the compact jury submission.
+data/external/
+tmp/
+outputs/landing_*/

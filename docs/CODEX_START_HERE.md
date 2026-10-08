@@ -1,5 +1,35 @@
 # Codex Start Here
 
+## Current economic-mechanism checks — Round23 / evidence v2.10.0
+
+Round23 is complete and additive. The proposed Atlas ordering is reversed in raw
+medians: stable core has higher `sd(Δlog Total)` and `sd(ΔCLR)` than transition
+and unresolved; adjusted Atlas partial R² is only .0061/.0120. Marketplace–Food
+correlation is negative in both F/G and B/D and is stronger in B/D, so the claimed
+F/G-specific substitution is not supported. Lower initial Total predicts faster
+Marketplace-share growth (`ρ=-.5228`, adjusted partial R²=.0395), and matched
+cross-profile pairs retain larger basket distance than same-profile controls.
+Marketplace-share dispersion across A–G rises rather than falls; Food share falls
+Dec-to-Dec in every profile. Top-3 graph neighbors have median separation 544 km.
+These are exploratory associations, not evidence of causality, inflation, welfare,
+grocery reclassification or absent local retail. Read
+`outputs/round23_economic_mechanisms/` and
+`outputs/evidence_v2_10_0/ROUND23_EVIDENCE_UPDATE.md`. Reference parameters,
+Atlas and A–G statuses are unchanged.
+
+## Current method-class sensitivity — Round22 / evidence v2.9.0
+
+Round22 is complete and additive. Clean-room KEFRiNc at fixed static December
+K=9 has ARI=.3080/NMI=.4797 to reference static Louvain; pairwise seed ARI across
+seeds 0–9 averages .5213. Atlas disagreement is 492/824 stable core, 263/388
+transition and 268/318 unresolved, so algorithm-family generalization is only
+partial and exact method-class dependence is material. The graph is derived from
+the same attributes, so this is not independent-data validation. No upstream
+source was used because the pinned author repository has no verifiable license
+file. Read `outputs/round22_kefrin_benchmark/` and
+`outputs/evidence_v2_9_0/ROUND22_EVIDENCE_UPDATE.md` first. L1, A–G, Atlas,
+reference parameters, original L2 and Round21 are unchanged.
+
 ## Current structural sensitivity — Round21 / evidence v2.8.0
 
 Round21 is complete and additive. It freezes and rechecks L1/A–G/Atlas/original

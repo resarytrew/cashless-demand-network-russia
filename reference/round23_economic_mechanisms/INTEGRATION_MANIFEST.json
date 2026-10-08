@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "ROUND23_ADDITIVE_INTEGRATION",
+  "evidence_version": "2.10.0",
+  "latest_research_round": 23,
+  "predecessor": "reference/round22_kefrin_benchmark/INTEGRATION_MANIFEST.json",
+  "scientific_status_changes": 0,
+  "reference_specification_changed": false,
+  "transitions": [
+    {
+      "path": "README.md",
+      "prior_sha256": "2603ec78c256f03ed137ffbc9b85fdffeb10a6e72244ae92320f123d659abe55",
+      "current_sha256": "7bba915fee267384e898909d5012d225bdd38f1bebf3ad9459344577cfd08e70",
+      "reason": "Add Round23 mechanism results and renumber the additive L2 section."
+    },
+    {
+      "path": "docs/ARTIFACT_INDEX.md",
+      "prior_sha256": "dff4cfa3bddff2f7cd6ac4efc31e4a59dc9c8ff98ca78c0e51868286d94b99bd",
+      "current_sha256": "efe00d526ad92161c1940ccb4190ddd4da81a687ed7d35e6f5fadbf137967c31",
+      "reason": "Register Round23 config, raw outputs and evidence v2.10.0."
+    },
+    {
+      "path": "docs/CODEX_START_HERE.md",
+      "prior_sha256": "98489f33c13e9e8555128564ccf6669074610ec91959916c4b12c60b92677f95",
+      "current_sha256": "516f05e1a5537adf86d658c98ff229aa341a83ca5878dc35cde26167e6aabc90",
+      "reason": "Make Round23 the current additive scientific context."
+    },
+    {
+      "path": "docs/CURRENT_STATE.json",
+      "prior_sha256": "38a5ea62416a7230595db1f885667ecc57c6943a0292ffb1ce97a90abd87c390",
+      "current_sha256": "9ee6f04b6a69a24867b382904a7c43e25c8ce69401a0da57114bbef46a11f0bb",
+      "reason": "Advance evidence pointer to v2.10.0 and Round23 without profile-status changes."
+    },
+    {
+      "path": "docs/HYPOTHESIS_LEDGER.md",
+      "prior_sha256": "3dc53c1985fe329b79f0631fc52b9f980d77bbcda3789699407aac77dba278a6",
+      "current_sha256": "009d66f14314b0f2e6f47b7d5a35982d4ec48bef552672b052772013bfde26b8",
+      "reason": "Record H24-H30 fixed-rule outcomes and causal limitations."
+    },
+    {
+      "path": "docs/RESEARCH_STATE.md",
+      "prior_sha256": "1703a807ba3f6fcf4e8528a3bc21b6f2ebb17f708932b0cc29a479c0dc9e96f1",
+      "current_sha256": "97883a04c6e512566286f73cc43bdcb9394db52a568cde7866eeb2fb1032f0e4",
+      "reason": "Add the current Round23 numerical state and interpretation boundaries."
+    },
+    {
+      "path": "scripts/verify_current_artifacts.py",
+      "prior_sha256": "22365e9b3ae1a0e5352db3e20846e16acf7c6aa8871940eb1c732490af3ee1a2",
+      "current_sha256": "dd48c2990ba8642e2c4bb7db9d1990d320e9997954fe55b0d7df66602475f37c",
+      "reason": "Continue the authenticated transition chain through Round23."
+    }
+  ]
+}

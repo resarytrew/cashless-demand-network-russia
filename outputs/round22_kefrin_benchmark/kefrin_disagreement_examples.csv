@@ -1,0 +1,4 @@
+mo,profile,atlas_state,temporal_december_label,kefrin_cluster,mapped_kefrin_label,disagrees,top_affinity_share,affinity_margin,seed_assignment_stability,selection_rule
+Курский муниципальный округ,C,unresolved,7,5,0,True,0.9404764471095352,0.916567690869172,0.4,highest_confidence
+Курский муниципальный округ,C,unresolved,7,5,0,True,0.9404764471095352,0.916567690869172,0.4,largest_margin
+Борзинский муниципальный район,F,transition,10,2,1,True,0.3670377249929673,0.1311623792890167,1.0,representative_medoid_proxy

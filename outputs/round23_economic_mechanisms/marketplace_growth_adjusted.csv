@@ -1,0 +1,2 @@
+N,log_total_coefficient,HC3_se,HC3_p,partial_R2_log_total,within_profile_permutation_p,controls
+1898,-0.03012517697222067,0.004303013171624952,3.5643455975992603e-12,0.03946168677891463,0.0002,baseline_marketplace_share+profile+region

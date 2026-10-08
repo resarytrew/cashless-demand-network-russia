@@ -1,0 +1,166 @@
+experiment:
+  id: round23_economic_mechanisms
+  output_dir: outputs/round23_economic_mechanisms
+  evidence_version: 2.10.0
+  additive_only: true
+  exploratory: true
+  reference_specification_changed: false
+  profile_statuses_changed_by_default: false
+
+inputs:
+  baseline_config: configs/baseline.yaml
+  spending: data/raw/spending.csv.zip
+  temporal_labels: outputs/baseline/supra_labels.csv
+  static_graphs: outputs/presubmission_upgrade/baseline_gate/baseline_graphs.pkl
+  atlas: outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv
+  profile_mapping: outputs/final_competition_upgrade/profile_mapping/raw_to_profile_mapping.csv
+  external: outputs/final_competition_upgrade/external_validation_national_20261006_r6/external_validation_joined.csv
+  representative_points: outputs/final_competition_upgrade/municipality_geometry_20261006/municipality_representative_points.json
+  prior_evidence_matrix: outputs/evidence_v2_9_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.9.0.csv
+  reference_month: '2024-12-01'
+  panel_n: 1904
+  months: 24
+
+profiles:
+  raw_to_public:
+    1: A
+    3: B
+    7: C
+    8: D
+    9: E
+    10: F
+    11: G
+  include_public: [A, B, C, D, E, F, G]
+  exclude_micro_from_profile_tests: true
+
+composition:
+  total: "Все категории"
+  parts:
+    - "Продовольствие"
+    - "Здоровье"
+    - "Общественное питание"
+    - "Маркетплейсы"
+    - "Транспорт"
+    - "Прочее"
+  residual_other: true
+  strictly_positive_required: true
+
+inference:
+  alpha: 0.05
+  multiple_testing: holm_within_hypothesis
+  permutation_reps: 4999
+  bootstrap_reps: 4999
+  seed: 20261009
+  confidence_level: 0.95
+  language: exploratory_association_not_causation
+
+h24_uncertainty_volatility:
+  states_primary: [stable_core, transition, unresolved]
+  state_report_all: [stable_core, expansive_core, transition, unresolved]
+  total_metric: sample_sd_of_monthly_delta_log_total
+  composition_metric: multivariate_sd_of_monthly_delta_clr
+  composition_formula: sqrt_mean_over_months_and_parts_of_squared_deviation_from_municipality_mean_delta_clr
+  descriptive: [n, mean, median, q25, q75]
+  omnibus_test: kruskal_wallis
+  pairwise_test: mann_whitney_two_sided
+  adjusted_model:
+    response_transform: log1p
+    covariates: [mean_log_total, reference_profile, region]
+    uncertainty_block: atlas_state
+    statistic: partial_r2
+    permutation: within_reference_profile
+  support_rule: stable_median_below_transition_below_unresolved_for_both_metrics_and_both_nonstable_vs_stable_holm_p_below_alpha
+
+h25_marketplace_food_substitution:
+  primary_change: dec2024_minus_dec2023_share
+  requested_change: dec2024_minus_jan2023_share
+  seasonal_replication: jan2024_minus_jan2023_share
+  primary_correlation: spearman
+  groups:
+    rural_candidate: [F, G]
+    urban_candidate: [B, D]
+  individual_profiles: [B, D, F, G]
+  contrast_test: permutation_of_pooled_FG_vs_BD_labels_preserving_group_sizes
+  composition_aware_diagnostic: change_log_marketplace_to_food_ratio
+  support_rule: pooled_FG_negative_holm_p_below_alpha_and_more_negative_than_BD_permutation_p_below_alpha_with_negative_signs_in_F_and_G
+  causal_claim_allowed: false
+  grocery_reclassification_claim_allowed: false
+
+h26_marketplace_growth_vs_initial_total:
+  baseline_total: log_total_dec2023
+  outcome_primary: marketplace_share_dec2024_minus_dec2023
+  outcome_requested: marketplace_share_dec2024_minus_jan2023
+  association: spearman
+  adjusted_model:
+    covariates: [baseline_marketplace_share, reference_profile, region]
+    standard_errors: HC3
+    permutation: outcome_within_reference_profile
+  profile_level_plot: true
+  municipality_level_plot: true
+  support_rule: overall_spearman_negative_holm_p_below_alpha_and_adjusted_log_total_coefficient_negative_permutation_p_below_alpha
+  local_retail_mechanism_claim_allowed: false
+
+h27_matched_economic_twins:
+  match_covariates: [log_wage, log_population]
+  standardization: robust_z_median_mad
+  require_different_profile: true
+  require_different_region: true
+  matching: mutual_nearest_neighbor_then_greedy_unique
+  caliper_standardized_euclidean: 0.35
+  demand_distance: aitchison_dec2024
+  comparison:
+    same_profile_controls: true
+    statistic: median_distance_difference
+    bootstrap_pairs: 4999
+  examples:
+    maximum: 10
+    selection: largest_demand_distance_then_profile_pair_diversity
+  support_rule: cross_profile_matched_median_distance_exceeds_same_profile_matched_controls_with_bootstrap_ci_above_zero
+  beyond_income_causal_claim_allowed: false
+
+h28_digital_convergence_without_level_convergence:
+  profile_aggregation: municipality_unweighted_mean_within_profile
+  marketplace_dispersion: unweighted_sd_across_seven_profile_mean_shares
+  total_dispersion: unweighted_sd_across_seven_profile_mean_log_totals
+  trend_primary: theil_sen_slope_over_24_months
+  trend_secondary: ordinary_least_squares_slope
+  bootstrap: resample_municipalities_within_profile
+  same_month_yoy_diagnostic: true
+  support_rule: marketplace_slope_negative_with_ci_below_zero_and_total_slope_ci_not_entirely_below_zero
+  welfare_claim_allowed: false
+
+h29_geographically_distant_network_twins:
+  graph_month: '2024-12-01'
+  neighbors_per_node: 3
+  neighbor_order: ascending_saved_edge_distance
+  distance_metric: haversine_km_between_representative_points
+  directed_selection: true
+  report_unique_pairs_also: true
+  distant_threshold_km: 500
+  striking_threshold_km: 1000
+  examples:
+    maximum: 10
+    require_different_region: true
+    selection: smallest_feature_distance_among_pairs_above_striking_threshold_then_profile_diversity
+  inferential_claim: false
+
+h30_food_share_pressure:
+  requested_change: dec2024_minus_jan2023_share
+  primary_change: dec2024_minus_dec2023_share
+  seasonal_replication: jan2024_minus_jan2023_share
+  profiles: [A, B, C, D, E, F, G]
+  paired_test: wilcoxon_two_sided
+  effect: mean_and_median_paired_share_change
+  bootstrap: municipality_within_profile
+  support_rule: F_and_G_primary_changes_positive_with_holm_p_below_alpha_and_B_D_E_nonpositive
+  inflation_mechanism_claim_allowed: false
+
+outputs:
+  figures_format: [png, svg]
+  raw_municipality_metrics: true
+  exact_pair_tables: true
+  report: ROUND23_REPORT.md
+  audit: ROUND23_AUDIT.md
+  summary: round23_summary.json
+  manifest: run_manifest.json
+  checksums: checksums.sha256

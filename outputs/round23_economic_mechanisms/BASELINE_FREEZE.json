@@ -1,0 +1,92 @@
+{
+  "status": "FROZEN_BEFORE_ROUND23_COMPUTATION",
+  "created_utc": "2026-10-07T22:49:15.059771+00:00",
+  "git_commit": "ee739ccb6b39555f84280911c0c500ab42f73b35",
+  "before": {
+    "configs/round23_economic_mechanisms.yaml": {
+      "sha256": "f0ab4fea280869961ef6aff0c3bb3d9a1cfb68d0a57e2ca850355535cbefafa1",
+      "bytes": 6359
+    },
+    "configs/baseline.yaml": {
+      "sha256": "3a3aadc0c8e174a5388999e1a1b8ea472600b186c0d22f392f4c91ecddeb12d2",
+      "bytes": 1170
+    },
+    "data/raw/spending.csv.zip": {
+      "sha256": "e9a389e57dad7ec723ac58470fda2b2f870062a330efa979cb3952dd7513416d",
+      "bytes": 2251684
+    },
+    "outputs/baseline/supra_labels.csv": {
+      "sha256": "7cac1146f94c61cd1d6cdcfb6600796c1d95e05d94edd570c53a38251243192a",
+      "bytes": 243035
+    },
+    "outputs/presubmission_upgrade/baseline_gate/baseline_graphs.pkl": {
+      "sha256": "cf86e9547e0718175942b2ba4316fdab8b2e104e832607b5b8ebc67325e9b14f",
+      "bytes": 29166988
+    },
+    "outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv": {
+      "sha256": "ab824219890eb9ff95528075a06b1f18efbb5edf409fa7bb46fdb35b50f40b99",
+      "bytes": 1432784
+    },
+    "outputs/final_competition_upgrade/profile_mapping/raw_to_profile_mapping.csv": {
+      "sha256": "47eaf0227bc0c3ed200ef07e9b1fdcd6b5d22fc4fad257ab1598e8a9ba5c41e7",
+      "bytes": 1170
+    },
+    "outputs/final_competition_upgrade/external_validation_national_20261006_r6/external_validation_joined.csv": {
+      "sha256": "af18c32bc1ee2a09ee1f2cb468f14bd2ebbdf97533f5958924f79968e8413843",
+      "bytes": 481207
+    },
+    "outputs/final_competition_upgrade/municipality_geometry_20261006/municipality_representative_points.json": {
+      "sha256": "d069aa943bcc466bc930fb030b8f79cbcd7d4c6fe9e41b78f49400ed12aa1510",
+      "bytes": 335839
+    },
+    "outputs/evidence_v2_9_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.9.0.csv": {
+      "sha256": "9c7f4a902a233f2e1fc4d16e8db0625a1cfbd2f4c2019cda134918967a0f8d52",
+      "bytes": 3701
+    }
+  },
+  "after": {
+    "configs/round23_economic_mechanisms.yaml": {
+      "sha256": "f0ab4fea280869961ef6aff0c3bb3d9a1cfb68d0a57e2ca850355535cbefafa1",
+      "bytes": 6359
+    },
+    "configs/baseline.yaml": {
+      "sha256": "3a3aadc0c8e174a5388999e1a1b8ea472600b186c0d22f392f4c91ecddeb12d2",
+      "bytes": 1170
+    },
+    "data/raw/spending.csv.zip": {
+      "sha256": "e9a389e57dad7ec723ac58470fda2b2f870062a330efa979cb3952dd7513416d",
+      "bytes": 2251684
+    },
+    "outputs/baseline/supra_labels.csv": {
+      "sha256": "7cac1146f94c61cd1d6cdcfb6600796c1d95e05d94edd570c53a38251243192a",
+      "bytes": 243035
+    },
+    "outputs/presubmission_upgrade/baseline_gate/baseline_graphs.pkl": {
+      "sha256": "cf86e9547e0718175942b2ba4316fdab8b2e104e832607b5b8ebc67325e9b14f",
+      "bytes": 29166988
+    },
+    "outputs/stability_atlas_v2_2_1/municipality_affinity_atlas.csv": {
+      "sha256": "ab824219890eb9ff95528075a06b1f18efbb5edf409fa7bb46fdb35b50f40b99",
+      "bytes": 1432784
+    },
+    "outputs/final_competition_upgrade/profile_mapping/raw_to_profile_mapping.csv": {
+      "sha256": "47eaf0227bc0c3ed200ef07e9b1fdcd6b5d22fc4fad257ab1598e8a9ba5c41e7",
+      "bytes": 1170
+    },
+    "outputs/final_competition_upgrade/external_validation_national_20261006_r6/external_validation_joined.csv": {
+      "sha256": "af18c32bc1ee2a09ee1f2cb468f14bd2ebbdf97533f5958924f79968e8413843",
+      "bytes": 481207
+    },
+    "outputs/final_competition_upgrade/municipality_geometry_20261006/municipality_representative_points.json": {
+      "sha256": "d069aa943bcc466bc930fb030b8f79cbcd7d4c6fe9e41b78f49400ed12aa1510",
+      "bytes": 335839
+    },
+    "outputs/evidence_v2_9_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.9.0.csv": {
+      "sha256": "9c7f4a902a233f2e1fc4d16e8db0625a1cfbd2f4c2019cda134918967a0f8d52",
+      "bytes": 3701
+    }
+  },
+  "baseline_reproduction": "PASS",
+  "final_hash_gate": "PASS",
+  "changed_paths": []
+}

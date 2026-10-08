@@ -1,13 +1,47 @@
 {
   "schema_version": 2,
-  "evidence_version": "2.8.0",
+  "evidence_version": "2.10.0",
   "atlas_version": "2.2.1",
-  "latest_research_round": 21,
+  "latest_research_round": 23,
   "scientific_status_changes": false,
   "reference_specification_changed": false,
-  "current_evidence_matrix": "outputs/evidence_v2_8_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.8.0.csv",
+  "current_evidence_matrix": "outputs/evidence_v2_10_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.10.0.csv",
   "scientific_status_registry": "outputs/round16_evidence/archetype_status_round16.csv",
-  "latest_research_audit": "outputs/round21_structural_sensitivity/ROUND21_AUDIT.md",
+  "latest_research_audit": "outputs/round23_economic_mechanisms/ROUND23_AUDIT.md",
+  "round23_economic_mechanisms": {
+    "status": "COMPLETED_ADDITIVE_EXPLORATORY_MECHANISM_CHECKS",
+    "evidence_version": "2.10.0",
+    "config": "configs/round23_economic_mechanisms.yaml",
+    "report": "outputs/round23_economic_mechanisms/ROUND23_REPORT.md",
+    "audit": "outputs/round23_economic_mechanisms/ROUND23_AUDIT.md",
+    "summary": "outputs/round23_economic_mechanisms/round23_summary.json",
+    "baseline_freeze": "outputs/round23_economic_mechanisms/BASELINE_FREEZE.json",
+    "checksums": "outputs/round23_economic_mechanisms/checksums.sha256",
+    "profile_evidence_matrix": "outputs/evidence_v2_10_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.10.0.csv",
+    "evidence_update": "outputs/evidence_v2_10_0/ROUND23_EVIDENCE_UPDATE.md",
+    "result": "Initial Total/Marketplace growth and matched-basket differences supported observationally; proposed uncertainty, F/G substitution, digital convergence and inflation stories not supported",
+    "L1_changed": false,
+    "reference_specification_changed": false,
+    "A_G_status_changes": false,
+    "causal_claims": false
+  },
+  "round22_kefrin_benchmark": {
+    "status": "COMPLETED_ADDITIVE_METHOD_CLASS_SENSITIVITY",
+    "evidence_version": "2.9.0",
+    "config": "configs/round22_kefrin_benchmark.yaml",
+    "report": "outputs/round22_kefrin_benchmark/ROUND22_REPORT.md",
+    "audit": "outputs/round22_kefrin_benchmark/ROUND22_AUDIT.md",
+    "summary": "outputs/round22_kefrin_benchmark/round22_summary.json",
+    "baseline_freeze": "outputs/round22_kefrin_benchmark/BASELINE_FREEZE.json",
+    "checksums": "outputs/round22_kefrin_benchmark/checksums.sha256",
+    "profile_evidence_matrix": "outputs/evidence_v2_9_0/MASTER_PROFILE_EVIDENCE_MATRIX_v2.9.0.csv",
+    "evidence_update": "outputs/evidence_v2_9_0/ROUND22_EVIDENCE_UPDATE.md",
+    "result": "KEFRiNc agreement is modest and seed-dependent; Atlas uncertainty generalizes only partially",
+    "L1_changed": false,
+    "reference_specification_changed": false,
+    "A_G_status_changes": false,
+    "upstream_code_used": false
+  },
   "round21_structural_sensitivity": {
     "status": "COMPLETED_ADDITIVE_STRUCTURAL_SENSITIVITY",
     "evidence_version": "2.8.0",
@@ -143,5 +177,8 @@
     ,"Matched-K omega control preserves B/E merge but not the joint C/D/F/G merge"
     ,"Adjusted sector CLR partial R2 is 0.0361: detectable but small and observational"
     ,"Both block-balanced L2 sensitivities differ materially from original L2; no alternative is selected"
+    ,"Round23 Marketplace/Food share correlation is compositionally constrained and does not identify grocery substitution"
+    ,"Round23 initial-Total association does not establish missing local retail"
+    ,"Round23 nominal Total dispersion is not a welfare measure and Food-share change is not an inflation measure"
   ]
 }

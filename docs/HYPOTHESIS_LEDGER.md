@@ -1,5 +1,74 @@
 # Hypothesis and Claims Ledger — Current Scientific Status
 
+## Round23 economic-mechanism diagnostics (evidence v2.10.0)
+
+### H24 — Methodological uncertainty coincides with economic volatility
+
+**Status: not supported in the proposed direction.** Stable-core median
+`sd(Δlog Total)=.0965` exceeds transition `.0880` and unresolved `.0851`; the
+same reversal holds for CLR-change volatility (.1012, .0688, .0744). Adjusted
+Atlas-state partial R² is small (.0061/.0120). Association is not identity or
+causal evidence.
+
+### H25 — Marketplace growth specifically substitutes Food in F/G
+
+**Status: not supported as profile-specific.** Dec-to-Dec correlations are
+negative in F/G (ρ=-.3975) and more negative in B/D (ρ=-.5182); the fixed
+FG-minus-BD contrast has p=.9844 in the proposed direction. Closed-share
+correlation cannot identify grocery purchases through marketplaces.
+
+### H26 — Marketplace share grows faster where initial Total is lower
+
+**Status: supported as an observational association.** Overall ρ=-.5228. After
+baseline Marketplace share, profile and region controls, the log-Total coefficient
+is -.0301, partial R²=.0395 and within-profile permutation p=.0002. The test does
+not establish weak local retail or a causal mechanism.
+
+### H27 — Matched income/population municipalities retain profile-specific baskets
+
+**Status: supported descriptively, not causally.** For 441 cross-profile matches,
+median December Aitchison distance is .6502 versus .5116 for 807 same-profile
+controls; bootstrap difference CI=.0915–.1933. Employee wage is not household
+income and matching on two variables does not remove all context.
+
+### H28 — Marketplace structure converges while spending levels do not
+
+**Status: rejected for the specified dispersion metric.** Marketplace-share SD
+across seven profile means rises .0184→.0375 with positive Theil–Sen slope and CI;
+mean-log-Total dispersion also rises .3338→.3494. Nominal Total is not welfare.
+
+### H29 — Similar demand-network neighbors can be geographically distant
+
+**Status: supported descriptively.** Directed top-3 graph-neighbor selections have
+median representative-point distance 544 km; 52.3% exceed 500 km and 32.7% exceed
+1,000 km. These are analogues in frozen L1 geometry, not identical economies.
+
+### H30 — Inflation raises Food share specifically in F/G
+
+**Status: not supported; inflation mechanism untested.** Dec-to-Dec Food share
+falls in every A–G profile, including F (-.0332) and G (-.0408). Prices, quantities,
+real expenditure and household income are absent, so no inflation claim follows.
+
+## Round22 attributed-network benchmark (evidence v2.9.0)
+
+### H22 — Broad reference structure is stable across a joint attributed-network method
+
+**Status: not supported strongly; partial profile-specific persistence only.**
+
+At fixed K=9, KEFRiNc versus static Louvain has ARI=.3080 and NMI=.4797.
+Optimization stability is itself moderate (ten-seed pairwise ARI mean=.5213).
+B and D have high dominant destination retention, but F and G retain only .291
+and .299. Exact partition structure is materially method-class dependent.
+
+### H23 — Atlas stable cores generalize strongly to the held-out algorithm family
+
+**Status: partially supported as an ordering, not as strong absolute agreement.**
+
+Transition disagreement (263/388, 67.8%) exceeds stable-core disagreement
+(492/824, 59.7%), and unresolved is highest (268/318, 84.3%). However, the
+stable/transition gap is only 8.1 percentage points and stable-core disagreement
+is high. No A–G status changes and no claim of independent validation follow.
+
 ## Round21 structural sensitivity (evidence v2.8.0)
 
 - **Omega change as pure shuffle:** weakened. December change is predominantly

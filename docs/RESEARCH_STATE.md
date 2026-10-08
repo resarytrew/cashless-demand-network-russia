@@ -1,5 +1,48 @@
 # Research State — Distilled Project Context
 
+## Current state — Round23 mechanism diagnostics (v2.10.0)
+
+Round23 tests seven fixed exploratory stories on frozen behavioral, Atlas,
+external and geometry inputs. The hypothesized `stable < transition < unresolved`
+volatility ordering fails in both Total and composition; stable-core medians are
+highest. Atlas-state association remains statistically detectable after controls
+but small (partial R²=.0061/.0120), and direction cannot be reframed as support
+for “uncertainty reflects economic instability.”
+
+Marketplace/Food share changes correlate negatively in F/G (ρ=-.3975) and B/D
+(ρ=-.5182); the F/G correlation is not more negative (permutation p=.9844).
+Initial Dec-2023 Total is negatively associated with Dec-to-Dec Marketplace-share
+growth (ρ=-.5228; adjusted coefficient=-.0301, partial R²=.0395, p=.0002).
+This does not identify missing local retail. Cross-profile wage/population-matched
+pairs have median December Aitchison distance .6502 versus .5116 for same-profile
+controls (difference bootstrap CI .0915–.1933).
+
+Marketplace-share dispersion across seven profile means rises .0184→.0375, while
+mean-log-Total dispersion also rises .3338→.3494; the proposed structural
+convergence is therefore not supported. Food share falls Dec-to-Dec in all A–G,
+including F/G. Top-3 graph neighbors are often distant (median 544 km; 52.3% over
+500 km), a descriptive graph property only. No L1/A–G/Atlas status changes.
+
+## Current state — Round22 method-class sensitivity (v2.9.0)
+
+Round22 applies an independently implemented KEFRiNc benchmark to the exact
+December L1 matrix and saved reference graph at predeclared K=9. Seed-0 agreement
+with static Louvain is ARI=.3080, NMI=.4797 and VI=3.1374 bits. Ten-seed
+optimization stability is moderate (pairwise ARI mean=.5213, range .3996–.7143).
+Exact boundaries therefore depend materially on algorithmic formulation.
+
+Atlas uncertainty generalizes only partially: globally aligned disagreement is
+59.7% (492/824) for stable core, 67.8% (263/388) for transition and 84.3%
+(268/318) for unresolved. The transition/stable difference is only 8.1 points
+and stable disagreement is itself high; do not claim strong core confirmation.
+Adjusted KEFRiN group associations remain observational (wage partial R2=.1360,
+employment=.0747, sector CLR=.0371; constrained p=.0005).
+
+The graph and attributes are not independent because the graph is constructed
+from L1 geometry. Author upstream commit `f9f96b1...` has no verifiable license
+file, so no upstream source code was used. L1, A–G, Atlas, k=20, omega=2,
+resolution=.5, original L2 and all legacy statuses remain unchanged.
+
 ## Current state — Round21 structural sensitivity (v2.8.0)
 
 Round21 finds that omega=1 is predominantly a coarse merge of the omega=2

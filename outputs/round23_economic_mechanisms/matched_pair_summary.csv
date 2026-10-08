@@ -1,0 +1,2 @@
+cross_profile_pairs,same_profile_control_pairs,cross_profile_median_aitchison,same_profile_median_aitchison,median_difference,bootstrap_ci_low,bootstrap_ci_high,bootstrap_one_sided_p
+441,807,0.650199372188716,0.511638880915058,0.138560491273658,0.09146905712130224,0.19326729531160786,0.0002
